@@ -578,6 +578,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+highlight.js@11.3.1:
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.3.1.tgz#813078ef3aa519c61700f84fe9047231c5dc3291"
+  integrity sha512-PUhCRnPjLtiLHZAQ5A/Dt5F8cWZeMyj9KRsACsWT+OD6OP0x6dp5OmT5jdx0JgEyPxPZZIPQpRN2TciUT7occw==
+
 hoopoe@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/hoopoe/-/hoopoe-1.0.3.tgz#6d6328d27d401fc6f03e220b5cb0a8adb1d1fa14"
@@ -1171,6 +1176,13 @@ svelte-check@^2.0.0:
     source-map "^0.7.3"
     svelte-preprocess "^4.0.0"
     typescript "*"
+
+svelte-highlight@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/svelte-highlight/-/svelte-highlight-5.1.4.tgz#3492fab266fb2f781f5aefd6cb11731911006233"
+  integrity sha512-MNnhc6qEkp/JgAHaieUBivzUd2i195kC592Fqh0dF2kmd5x6WpBykLFUQ9KmIbYr8/QKYeI2Qp1cNWoGiqBrBA==
+  dependencies:
+    highlight.js "11.3.1"
 
 svelte-preprocess@^4.0.0:
   version "4.10.1"
