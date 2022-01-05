@@ -1,20 +1,20 @@
 <script lang="ts">
-  import "svelte-highlight/src/styles/github.css";
-  import xml from "svelte-highlight/src/languages/xml";
-  import json from "svelte-highlight/src/languages/json";
-  import js from "svelte-highlight/src/languages/javascript";
-  type LangSupport = {
-    name?: string;
-    register: (hljs: any) => Record<string, any>;
-  };
-  const langSupport = Object.fromEntries(
-    Object.entries({ xml, json, js }).map(([name, register]) => [
-      name,
-      { name, register },
-    ])
-  ) as any as { [name: string]: LangSupport };
+  //   import "svelte-highlight/src/styles/github.css";
+  //   import xml from "svelte-highlight/src/languages/xml";
+  //   import json from "svelte-highlight/src/languages/json";
+  //   import js from "svelte-highlight/src/languages/javascript";
+  //   type LangSupport = {
+  //     name?: string;
+  //     register: (hljs: any) => Record<string, any>;
+  //   };
+  //   const langSupport = Object.fromEntries(
+  //     Object.entries({ xml, json, js }).map(([name, register]) => [
+  //       name,
+  //       { name, register },
+  //     ])
+  //   ) as any as { [name: string]: LangSupport };
 
-  import { Highlight } from "svelte-highlight";
+  import { Highlight, HighlightAuto } from "svelte-highlight";
 
   let selectedTab: string | null = null;
   let selectedFile: string | null = null;
@@ -31,7 +31,7 @@
     });
   const getAndSetCode = (file) => {
     selectedFile = file;
-    fetch(`../code-examples/${selectedTab}/${selectedFile}`)
+    fetch(`/build/code-examples/${selectedTab}/${selectedFile}`)
       .then((x) => x.text())
       .then((x) => {
         console.log("got file", x);
@@ -84,9 +84,10 @@
         </div>
       {/if}
     </div>
-    <div>
+    <div class="scroll-container">
       {#if code && selectedFile}
-        <Highlight language={langSupport[selectedFile.split(".")[1]]} {code} />
+        <!-- <Highlight language={langSupport[selectedFile.split(".")[1]]} {code} /> -->
+        <HighlightAuto {code} />
       {/if}
     </div>
   </div>
