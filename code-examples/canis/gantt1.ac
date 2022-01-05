@@ -1,0 +1,68 @@
+{
+    "constants": [
+        {
+            "name": "unitTime",
+            "value": 600
+        },
+        {
+            "name": "fastDuration",
+            "value": 300
+        }
+    ],
+    "charts": [
+        {
+            "source": "./charts/gantt.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".axis-domain",
+            "effects": [
+                {
+                    "type": "grow",
+                    "duration": "fastDuration"
+                }
+            ]
+        },
+        {
+            "reference": "start after previous",
+            "selector": ".axis-tick, .axis-label",
+            "effects": [
+                {
+                    "duration": "fastDuration",
+                    "type": "fade"
+                }
+            ]
+        },
+        {
+            "reference": "start after previous",
+            "selector": ".text",
+            "effects": [
+                {
+                    "offset": {
+                        "field": "eventStartTime",
+                        "minOffset": "unitTime"
+                    },
+                    "duration": "fastDuration",
+                    "type": "wipe left"
+                }
+            ]
+        },
+        {
+            "selector": ".rectangle",
+            "effects": [
+                {
+                    "offset": {
+                        "field": "eventStartTime",
+                        "minOffset": "unitTime"
+                    },
+                    "duration": {
+                        "field": "eventDurationTime",
+                        "minDuration": "unitTime"
+                    },
+                    "type": "wipe left"
+                }
+            ]
+        }
+    ]
+}

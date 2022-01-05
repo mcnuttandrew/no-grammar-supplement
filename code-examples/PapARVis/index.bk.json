@@ -1,0 +1,56 @@
+{
+  "Bar chart": [
+    {"name": "bar", "howTo": "jup6"},
+    {"name": "stacked-bar", "howTo": "ove68"},
+    {"name": "grouped-bar", "howTo": "ove86"},
+    {"name": "nested-plot", "howTo": "jup8"},
+    {"name": "population", "howTo": "jup8"}
+  ],
+  "Circular chart": [
+    {"name": "pie"},
+    {"name": "dount"},
+    {"name": "radial"}
+  ],
+  "Line & Area Charts": [
+    {"name": "line"},
+    {"name": "area"},
+    {"name": "stacked-area"},
+    {"name": "horizon"},
+    {"name": "jobs"}
+  ],
+  "Dot & Scatter Plots":[
+    {"name": "scatter-plot-guides"},
+    {"name": "driving"},
+    {"name": "error"},
+    {"name": "barley"}
+  ],
+  "Distributions":[
+    {"name": "violin-plot"}
+  ],
+  "Geographic Maps":[
+    {"name": "map-point-radius"}
+  ],
+  "Network Diagrams": [
+    {"name": "force-network"},
+    {"name": "arc-diagram"},
+    {"name": "tree-radial-bundle"},
+    {"name": "matrix-reorder"},
+    {"name": "airports"}
+  ],
+  "Tree Diagram": [
+    {"name": "tree-cluster", "howTo": "ove862"},
+    {"name": "tree-tidy", "howTo": "ove26"},
+    {"name": "tree-radial", "howTo": "oveO"},
+    {"name": "partition"},
+    {"name": "sunburst", "howTo": "oveO"},
+    {"name": "pack", "howTo": "oveI"}
+  ],
+  "Other Chart Types": [
+    {"name": "wordcloud"}
+  ],
+  "Custom Visual Designs": [
+    {"name": "playfair"},
+    {"name": "budget-forecasts"},
+    {"name": "weather"}
+  ]
+}

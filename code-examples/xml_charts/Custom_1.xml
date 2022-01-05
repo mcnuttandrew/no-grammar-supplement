@@ -1,0 +1,97 @@
+
+
+
+
+<chart>
+
+	<chart_rect hide='true' />
+
+	<draw>
+		<rect bevel='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='555e6f' line_thickness='0' />
+
+		<text color='ffaa22' alpha='100' size='50' x='93' y='230' width='400' height='100' shadow='high'>17%</text>
+		<text color='ffffff' alpha='65' size='19' x='186' y='235' width='400' height='100' shadow='low'>of Americans use GPS</text>
+		
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='95' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='115' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='135' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='155' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='175' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='195' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='215' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='235' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='255' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='275' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='295' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='315' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='335' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='355' y='30' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='375' y='30' width='18' height='40' />
+
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='95' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='115' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='135' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='155' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_blue.swf' x='175' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='195' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='215' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='235' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='255' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='275' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='295' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='315' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='335' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='355' y='75' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='375' y='75' width='18' height='40' />
+
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='95' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='115' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='135' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='155' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='175' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='195' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='215' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='235' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='255' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='275' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='295' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='315' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='335' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='355' y='120' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='375' y='120' width='18' height='40' />
+
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='95' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='115' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='135' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='155' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='175' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='195' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='215' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='235' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='255' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='275' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='295' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='315' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='335' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='355' y='165' width='18' height='40' />
+		<image shadow='low' alpha='90' url='images/man_red.swf' x='375' y='165' width='18' height='40' />
+
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+		<shadow id='high' distance='3' angle='45' alpha='50' blurX='10' blurY='10' />
+		<bevel id='bg' angle='45' blurX='200' blurY='200' distance='50' highlightAlpha='0' shadowAlpha='25' type='inner' />
+	</filter>
+	
+	<context_menu full_screen='false' />
+	<legend layout='hide' />
+
+</chart>
+
+
+
+
+
+
+
+

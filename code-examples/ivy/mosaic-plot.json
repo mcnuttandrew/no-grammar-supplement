@@ -1,0 +1,124 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Mosaic Plot",
+  "templateDescription": "Use area to compare distribution of groups",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [\n    {\n      \"aggregate\": [{\"op\": \"count\", \"as\": \"count_*\"}],\n      \"groupby\": [\"[xPivot]\", \"[yPivot]\"]\n    },\n    {\n      \"stack\": \"count_*\",\n      \"groupby\": [],\n      \"as\": [\"stack_count_Origin1\", \"stack_count_Origin2\"],\n      \"offset\": \"normalize\",\n      \"sort\": [{\"field\": \"[xPivot]\", \"order\": \"ascending\"}]\n    },\n    {\n      \"window\": [\n        {\"op\": \"min\", \"field\": \"stack_count_Origin1\", \"as\": \"x\"},\n        {\"op\": \"max\", \"field\": \"stack_count_Origin2\", \"as\": \"x2\"},\n        {\"op\": \"dense_rank\", \"as\": \"rank_Cylinders\"},\n        {\"op\": \"distinct\", \"field\": \"[yPivot]\", \"as\": \"distinct_Cylinders\"}\n      ],\n      \"groupby\": [\"[xPivot]\"],\n      \"frame\": [null, null],\n      \"sort\": [{\"field\": \"[yPivot]\", \"order\": \"ascending\"}]\n    },\n    {\n      \"window\": [{\"op\": \"dense_rank\", \"as\": \"rank_Origin\"}],\n      \"frame\": [null, null],\n      \"sort\": [{\"field\": \"[xPivot]\", \"order\": \"ascending\"}]\n    },\n    {\n      \"stack\": \"count_*\",\n      \"groupby\": [\"[xPivot]\"],\n      \"as\": [\"y\", \"y2\"],\n      \"offset\": \"normalize\",\n      \"sort\": [{\"field\": \"[yPivot]\", \"order\": \"ascending\"}]\n    },\n    {\n      \"calculate\": \"datum.y + (datum.rank_Cylinders - 1) * datum.distinct_Cylinders * 0.01 / 3\",\n      \"as\": \"ny\"\n    },\n    {\n      \"calculate\": \"datum.y2 + (datum.rank_Cylinders - 1) * datum.distinct_Cylinders * 0.01 / 3\",\n      \"as\": \"ny2\"\n    },\n    {\"calculate\": \"datum.x + (datum.rank_Origin - 1) * 0.01\", \"as\": \"nx\"},\n    {\"calculate\": \"datum.x2 + (datum.rank_Origin - 1) * 0.01\", \"as\": \"nx2\"},\n    {\"calculate\": \"(datum.nx+datum.nx2)/2\", \"as\": \"xc\"},\n    {\"calculate\": \"(datum.ny+datum.ny2)/2\", \"as\": \"yc\"}\n  ],\n  \"vconcat\": [\n    {\n      \"mark\": {\"type\": \"text\", \"baseline\": \"middle\", \"align\": \"center\"},\n      \"encoding\": {\n        \"x\": {\n          \"aggregate\": \"min\",\n          \"field\": \"xc\",\n          \"type\": \"quantitative\",\n          \"title\": \"[xPivot]\",\n          \"axis\": {\"orient\": \"top\"}\n        },\n        \"color\": {\"field\": \"[xPivot]\", \"type\": \"ordinal\", \"legend\": null},\n        \"text\": {\"field\": \"[xPivot]\", \"type\": \"ordinal\"}\n      }\n    },\n    {\n      \"layer\": [\n        {\n          \"mark\": {\"type\": \"rect\"},\n          \"height\": \"[Height]\",\n          \"width\": \"[Width]\",\n          \"encoding\": {\n            \"x\": {\"field\": \"nx\", \"type\": \"quantitative\", \"axis\": null},\n            \"x2\": {\"field\": \"nx2\"},\n            \"y\": {\"field\": \"ny\", \"type\": \"quantitative\", \"axis\": null},\n            \"y2\": {\"field\": \"ny2\"},\n            \"color\": {\n              \"field\": \"[xPivot]\",\n              \"type\": \"ordinal\",\n              \"legend\": null,\n              \"scale\": {\"scheme\": \"[Color]\"}\n            },\n            \"opacity\": {\"field\": \"[yPivot]\", \"type\": \"ordinal\", \"legend\": null},\n            \"tooltip\": [\n              {\"field\": \"[xPivot]\", \"type\": \"ordinal\"},\n              {\"field\": \"[yPivot]\", \"type\": \"ordinal\"}\n            ]\n          }\n        },\n        {\n          \"mark\": {\"type\": \"text\", \"baseline\": \"middle\"},\n          \"height\": 500,\n          \"encoding\": {\n            \"x\": {\"field\": \"xc\", \"type\": \"quantitative\", \"axis\": null},\n            \"y\": {\n              \"field\": \"yc\",\n              \"type\": \"quantitative\",\n              \"axis\": {\"title\": \"[yPivot]\"}\n            },\n            \"text\": {\"field\": \"[yPivot]\", \"type\": \"ordinal\"}\n          }\n        }\n      ]\n    }\n  ],\n  \"resolve\": {\"scale\": {\"x\": \"shared\"}},\n  \"config\": {\n    \"view\": {\"stroke\": \"\"},\n    \"concat\": {\"spacing\": 10},\n    \"axis\": {\"domain\": false, \"ticks\": false, \"labels\": false, \"grid\": false}\n  }\n}\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xPivot",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yPivot",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Section5",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"dark2\""
+      },
+      "displayName": "Color Scheme"
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "800",
+        "step": 1,
+        "defaultValue": "300"
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "800",
+        "step": 1,
+        "defaultValue": "300"
+      }
+    }
+  ]
+}

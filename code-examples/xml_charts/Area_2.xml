@@ -1,0 +1,65 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' margin='false' size='14' color='000000' alpha='50' orientation='horizontal' />
+	<axis_ticks value_ticks='true' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='1' major_color='000000' minor_color='222222' position='outside' />
+	<axis_value shadow='low' size='10' color='ffffff' alpha='75' steps='6' show_min='false' />
+
+	<chart_border color='000000' top_thickness='2' bottom_thickness='2' left_thickness='2' right_thickness='2' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>Region A</string>
+			<number tooltip='$20 Mil'>20</number>
+			<number tooltip='$75 Mil'>75</number>
+			<number tooltip='$85 Mil'>85</number>
+		</row>
+		<row>
+			<string>Region B</string>
+			<number tooltip='$40 Mil'>40</number>
+			<number tooltip='$25 Mil'>25</number>
+			<number tooltip='$105 Mil'>105</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='ff0000' thickness='1' />
+	<chart_grid_v alpha='20' color='ff0000' thickness='1' />
+	<chart_guide radius='8' line_color='ff4444' line_thickness='3' line_alpha='75' fill_alpha='0'  />
+	<chart_rect bevel='bg' shadow='high' x='170' y='25' width='220' height='235' positive_color='ffffff' positive_alpha='50' />
+	<chart_type>area</chart_type>
+
+	<draw>
+		<text layer='background' shadow='high' color='ffffff' alpha='10' size='30' x='0' y='257' width='500'>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+		<text shadow='high' color='000066' alpha='10' rotation='-10' size='125' x='70' y='0' width='400' height='300' h_align='center' v_align='middle'>up</text>
+		<text shadow='high' color='000066' alpha='3' rotation='60' size='70' x='100' y='90' width='275' height='360'>down</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='45' blurX='50' blurY='50' distance='25' highlightAlpha='75' shadowAlpha='25' type='inner' />  
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+	
+	<legend shadow='low' x='35' y='30' width='70' height='75' margin='10' fill_color='000000' fill_alpha='5' line_color='000000' line_alpha='20' line_thickness='0' layout='horizontal' bullet='circle' size='13' color='ffffff' alpha='75' />
+	<tooltip color='ff6600' alpha='90' size='12' background_color_1='000000' background_alpha='75' shadow='low' />
+
+	<series_color>
+		<color>564546</color>
+		<color>4e627c</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='9' color='000000' alpha='70' />
+	<axis_ticks value_ticks='false' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='3' major_color='000000' minor_color='888888' position='outside' />
+	<axis_value shadow='low' size='10' color='000000' alpha='60' steps='4' prefix='' suffix='' decimals='0' separator='' show_min='true' />
+
+	<chart_border color='000000' top_thickness='1' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>Jan</string>
+			<string>Feb</string>
+			<string>Mar</string>
+			<string>Apr</string>
+			<string>May</string>
+			<string>Jun</string>
+			<string>Jul</string>
+			<string>Aug</string>
+			<string>Sep</string>
+			<string>Oct</string>
+			<string>Nov</string>
+			<string>Dec</string>
+		</row>
+		<row>
+			<string>projected sales</string>
+			<number shadow='low'>20</number>
+			<number>30</number>
+			<number>35</number>
+			<number>37</number>
+			<number>40</number>
+			<number>40</number>
+			<number>37</number>
+			<number>35</number>
+			<number>40</number>
+			<number>60</number>
+			<number>70</number>
+			<number>85</number>
+		</row>
+		<row>
+			<string>actual sales</string>
+			<number shadow='low'>20</number>
+			<number shadow='low'>25</number>
+			<number shadow='low'>30</number>
+			<number shadow='low'>45</number>
+			<number shadow='low'>60</number>
+			<number shadow='low'>65</number>
+			<number shadow='low'>50</number>
+			<number shadow='low'>60</number>
+			<number shadow='low'>55</number>
+			<number shadow='low'>65</number>
+			<number shadow='low'>70</number>
+			<number shadow='low'>75</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='15' color='ffffff' thickness='10' />
+	<chart_guide horizontal='true' thickness='1' color='ffffff' alpha='90' type='dashed' radius='3' fill_color='FFFFFF' fill_alpha='90' line_thickness='0' text_h_alpha='90' background_color='ffffff' />	
+	<chart_label shadow='low' color='000000' alpha='50' size='9' position='middle' />
+	<chart_rect x='165' y='75' width='250' height='125' positive_color='FFFFFF' positive_alpha='50' />
+	<chart_transition type='dissolve' />
+	<chart_type>
+		<string>area</string>
+		<string>column</string>
+	</chart_type>
+
+	<draw>
+		<rect transition='dissolve' shadow='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='0' />
+		<text transition='dissolve' shadow='high' layer='background' color='eeffee' alpha='15' size='105' x='150' y='-25' width='400' height='200'>sales</text>
+		<line transition='slide_left' delay='0' shadow='inner' x1='140' y1='260' x2='490' y2='260' line_color='ccff66' line_alpha='90' line_thickness='54' />
+		<line transition='dissolve' layer='background' shadow='low' x1='-50' y1='80' x2='60' y2='80' line_color='ccff66' line_alpha='30' line_thickness='54' />
+		<line transition='dissolve' layer='background' shadow='low' x1='-50' y1='170' x2='60' y2='170' line_color='ccff66' line_alpha='45' line_thickness='54' />
+		<line transition='dissolve' layer='background' shadow='low' x1='-50' y1='260' x2='60' y2='260' line_color='ccff66' line_alpha='60' line_thickness='54' />
+		<text transition='slide_left' delay='.5' shadow='low' color='ff6600' alpha='90' size='53' x='40' y='0' width='380' height='290' h_align='right' v_align='bottom'>2009</text>
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='25' blurX='5' blurY='5' />
+		<shadow id='high' distance='7' angle='45' color='0' alpha='40' blurX='15' blurY='15' />
+		<shadow id='bg' inner='true' distance='25' angle='0' color='000000' alpha='20' blurX='200' blurY='0' knockout='true' />
+		<shadow id='inner' inner='true' distance='5' angle='45' color='000000' alpha='80' blurX='10' blurY='10' />
+		<bevel id='bevel1' angle='45' blurX='75' blurY='75' distance='25' highlightAlpha='10' highlightColor='ffffff' shadowAlpha='5' type='inner' knockout='true' />
+	</filter>
+
+	<legend shadow='low' x='165' y='50' width='250' height='20' margin='5' fill_color='000000' fill_alpha='0' line_color='000000' line_alpha='0' line_thickness='0' layout='horizontal' size='12' color='FFFFFF' alpha='90' />
+
+	<series_color>
+		<color>FF8844</color>
+		<color>7e6cee</color>
+	</series_color>
+	<series bar_gap='0' set_gap='35' />
+	
+</chart>
+
+
+
+
+
+
+
+

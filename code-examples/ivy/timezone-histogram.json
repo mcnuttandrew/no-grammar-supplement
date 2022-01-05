@@ -1,0 +1,198 @@
+{
+  "templateName": "Timezone Histogram",
+  "templateDescription": "Timezone based histogram. Expects a list of offsets",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A choropleth map depicting U.S. unemployment rates by county in 2009.\",\n  \"width\": \"[width]\",\n  \"height\": \"[height]\",\n  \"autosize\": \"none\",\n  \"signals\": {\n    \"$cond\": {\n      \"query\": \"parameters.interactive.includes(true)\",\n      \"true\": [\n        {\"name\": \"tx\", \"update\": \"width / 2\"},\n        {\"name\": \"ty\", \"update\": \"height / 2\"},\n        {\n          \"name\": \"scale\",\n          \"value\": 150,\n          \"on\": [\n            {\n              \"events\": {\"type\": \"wheel\", \"consume\": true},\n              \"update\": \"clamp(scale * pow(1.0005, -event.deltaY * pow(16, event.deltaMode)), 50, 3000)\"\n            }\n          ]\n        },\n        {\n          \"name\": \"angles\",\n          \"value\": [0, 0],\n          \"on\": [{\"events\": \"mousedown\", \"update\": \"[rotateX, centerY]\"}]\n        },\n        {\n          \"name\": \"cloned\",\n          \"value\": null,\n          \"on\": [{\"events\": \"mousedown\", \"update\": \"copy(tzProj)\"}]\n        },\n        {\n          \"name\": \"start\",\n          \"value\": null,\n          \"on\": [{\"events\": \"mousedown\", \"update\": \"invert(cloned, xy())\"}]\n        },\n        {\n          \"name\": \"drag\",\n          \"value\": null,\n          \"on\": [\n            {\n              \"events\": \"[mousedown, window:mouseup] > window:mousemove\",\n              \"update\": \"invert(cloned, xy())\"\n            }\n          ]\n        },\n        {\n          \"name\": \"delta\",\n          \"value\": null,\n          \"on\": [\n            {\n              \"events\": {\"signal\": \"drag\"},\n              \"update\": \"[drag[0] - start[0], start[1] - drag[1]]\"\n            }\n          ]\n        },\n        {\n          \"name\": \"rotateX\",\n          \"value\": 0,\n          \"on\": [\n            {\"events\": {\"signal\": \"delta\"}, \"update\": \"angles[0] + delta[0]\"}\n          ]\n        },\n        {\n          \"name\": \"centerY\",\n          \"value\": 0,\n          \"on\": [\n            {\n              \"events\": {\"signal\": \"delta\"},\n              \"update\": \"clamp(angles[1] + delta[1], -60, 60)\"\n            }\n          ]\n        }\n      ],\n      \"false\": [\n        {\"name\": \"tx\", \"update\": \"width / 2\"},\n        {\"name\": \"ty\", \"update\": \"height / 2\"}\n      ]\n    }\n  },\n  \"data\": [\n    {\n      \"$cond\": {\n        \"query\": \"parameters.offset\",\n        \"true\": {\n          \"name\": \"table\",\n          \"values\": \"myData\",\n          \"transform\": [\n            {\n              \"type\": \"aggregate\",\n              \"groupby\": [\"[offset]\"],\n              \"fields\": [\"[offset]\"],\n              \"ops\": [\"count\"],\n              \"as\": [\"count\"]\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"timezones\",\n      \"url\": \"https://gist.githubusercontent.com/mbostock/f0ae25cf1f057d443ca903277e3eb330/raw/254996390d4e19ef5eb1429103e0138ad08e19d0/timezones.json\",\n      \"format\": {\"type\": \"topojson\", \"feature\": \"timezones\"},\n      \"transform\": [\n        {\"type\": \"formula\", \"expr\": \"datum.properties.name\", \"as\": \"name\"},\n        {\n          \"$cond\": {\n            \"query\": \"parameters.offset\",\n            \"true\": {\n              \"type\": \"lookup\",\n              \"from\": \"table\",\n              \"key\": \"[offset]\",\n              \"fields\": [\"name\"],\n              \"as\": [\"count\"],\n              \"values\": [\"count\"]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"land\",\n      \"url\": \"https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json\",\n      \"format\": {\"type\": \"topojson\", \"feature\": \"land\"}\n    }\n  ],\n  \"projections\": [\n    {\n      \"$cond\": {\n        \"query\": \"parameters.interactive.includes(true)\",\n        \"true\": {\n          \"name\": \"tzProj\",\n          \"type\": \"[projection]\",\n          \"scale\": {\"signal\": \"scale\"},\n          \"rotate\": [{\"signal\": \"rotateX\"}, 0, 0],\n          \"center\": [0, {\"signal\": \"centerY\"}],\n          \"translate\": [{\"signal\": \"tx\"}, {\"signal\": \"ty\"}]\n        },\n        \"false\": {\n          \"name\": \"tzProj\",\n          \"type\": \"[projection]\",\n          \"scale\": \"[scale]\",\n          \"rotate\": [\"[rotateX]\", \"[rotateY]\", \"[rotateZ]\"],\n          \"center\": [\"[centerX]\", \"[centerY]\"],\n          \"translate\": [{\"signal\": \"tx\"}, {\"signal\": \"ty\"}]\n        }\n      }\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"color\",\n      \"type\": {\n        \"$cond\": {\n          \"query\": \"parameters.offset\",\n          \"true\": \"quantize\",\n          \"false\": \"sequential\"\n        }\n      },\n      \"domain\": {\n        \"data\": \"timezones\",\n        \"field\": {\n          \"$cond\": {\n            \"query\": \"parameters.offset\",\n            \"true\": \"count\",\n            \"false\": \"name\"\n          }\n        }\n      },\n      \"range\": {\"scheme\": \"[ColorScheme]\"}\n    }\n  ],\n  \"legends\": [\n    {\n      \"fill\": \"color\",\n      \"direction\": \"horizontal\",\n      \"orient\": \"bottom-left\",\n      \"title\": \"[offset]\"\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"shape\",\n      \"from\": {\"data\": \"land\"},\n      \"encode\": {\"enter\": {\"fill\": {\"value\": \"#e5e8d3\"}}},\n      \"transform\": [{\"type\": \"geoshape\", \"projection\": \"tzProj\"}]\n    },\n    {\n      \"type\": \"shape\",\n      \"from\": {\"data\": \"timezones\"},\n      \"encode\": {\n        \"enter\": {\n          \"tooltip\": {\n            \"signal\": \"{zone: datum.name, count: datum.count ? datum.count : 0}\"\n          },\n          \"fillOpacity\": {\"value\": 0.6}\n        },\n        \"hover\": {\"stroke\": {\"value\": \"black\"}},\n        \"update\": {\n          \"fill\": {\n            \"signal\": {\n              \"$cond\": {\n                \"query\": \"parameters.offset\",\n                \"true\": \"scale(color, datum.count)\",\n                \"false\": \"scale(color, datum.name)\"\n              }\n            }\n          },\n          \"fillOpacity\": {\n            \"signal\": {\n              \"$cond\": {\n                \"query\": \"parameters.offset\",\n                \"true\": \"datum.count ? 0.6 : 0\",\n                \"false\": \"0.6\"\n              }\n            }\n          },\n          \"stroke\": {\"value\": \"white\"},\n          \"strokeOpacity\": {\"value\": 0.6}\n        }\n      },\n      \"transform\": [{\"type\": \"geoshape\", \"projection\": \"tzProj\"}]\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega",
+  "widgets": [
+    {
+      "name": "offset",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "ColorScheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"blues\"",
+            "value": "\"blues\""
+          },
+          {
+            "display": "\"redblue\"",
+            "value": "\"redblue\""
+          }
+        ],
+        "defaultValue": null
+      },
+      "displayName": "Color Scheme"
+    },
+    {
+      "name": "projection",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "\"albers\"",
+          "\"albersUsa\"",
+          "\"azimuthalEqualArea\"",
+          "\"azimuthalEquidistant\"",
+          "\"conicConformal\"",
+          "\"conicEqualArea\"",
+          "\"conicEquidistant\"",
+          "\"equalEarth\"",
+          "\"equirectangular\"",
+          "\"gnomonic\"",
+          "\"mercator\"",
+          "\"mollweide\"",
+          "\"naturalEarth1\"",
+          "\"orthographic\"",
+          "\"stereographic\"",
+          "\"transverseMercator\""
+        ],
+        "defaultValue": "\"equirectangular\""
+      }
+    },
+    {
+      "name": "height",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "10",
+        "defaultValue": "700"
+      },
+      "displayName": "Height"
+    },
+    {
+      "name": "width",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "10",
+        "defaultValue": "700"
+      },
+      "displayName": "Width"
+    },
+    {
+      "name": "interactive",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Map Should Be interactive"
+    },
+    {
+      "name": "rotateX",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleX",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "rotateY",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleY",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "rotateZ",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleZ",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "centerX",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "CenterX",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "centerY",
+      "type": "Slider",
+      "config": {
+        "minVal": "-90",
+        "maxVal": "90",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "CenterY",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "scale",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "1000",
+        "step": 1,
+        "defaultValue": "72"
+      },
+      "displayName": "Zoom",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    }
+  ],
+  "templateAuthor": "Draco-Pisces-17",
+  "customCards": []
+}

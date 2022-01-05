@@ -1,0 +1,24 @@
+{
+  "templateName": "Responsive Bar Chart",
+  "templateDescription": "An simple responsive bar chart",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"width\": 400,\n  \"height\": 250,\n  \"data\": {\n    \"name\": \"myData\"\n  },\n  \"mark\": \"bar\",\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[Var1]\",\n      \"type\": \"nominal\"\n    },\n    \"y\": {\n      \"aggregate\": \"count\",\n      \"type\": \"quantitative\"\n    }\n  }\n}",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "Var1",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

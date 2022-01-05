@@ -1,0 +1,19 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "smooth": {},
+  "rebin": {
+    "type": "voronoi",
+    "size": 32,
+    "stroke": "black"
+  },
+  "compose": {
+    "mix": "glyph",
+    "glyphSpec": {
+      "template": "bars",
+      "width": 20,
+      "height": 20
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "operations": [
+    {
+      "$match": {
+        "MotherAge": [20, 30]
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "line",
+        "color": "steelblue",
+        "opacity": 0.15,
+        "y": [
+          "BabyWeight",
+          "MotherWeight",
+          "MotherWgtGain",
+          "MotherHeight"
+        ], "brush": {
+          "unselected": {
+            "color": "lightgrey"
+          }
+        }
+      }
+    }
+  ]
+}

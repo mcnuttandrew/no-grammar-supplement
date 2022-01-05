@@ -1,0 +1,84 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='16' alpha='65' />
+	<axis_value shadow='low' />
+
+	<chart_border color='000000' top_thickness='1' bottom_thickness='3' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>mon</string>
+			<string>tue</string>
+			<string>wed</string>
+			<string>thu</string>
+			<string>fri</string>
+		</row>
+		<row>
+			<string>max</string>
+			<number shadow='low' tooltip='4'>4</number>
+			<number shadow='low' glow='red' tooltip='5'>5</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='8'>8</number>
+			<number shadow='low' tooltip='10'>10</number>
+		</row>
+		<row>
+			<string>min</string>
+			<number tooltip='1'>1</number>
+			<number tooltip='1'>1</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='0.5'>0.5</number>
+			<number tooltip='2'>2</number>
+		</row>
+		<row>
+			<string>open</string>
+			<number tooltip='3'>3</number>
+			<number tooltip='4.5'>4.5</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='5'>5</number>
+		</row>
+		<row>
+			<string>close</string>
+			<number tooltip='3.5' note='IPO'>3.5</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='8' note='TV Ad' note_offset_x='-10' note_x='-20' note_y='-35'>8</number>
+		</row>
+	</chart_data>
+	<chart_guide radius='3' fill_color='FF3300' fill_alpha='75' line_alpha='0' />	
+	<chart_note type='flag' color='88ff00' alpha='90' x='0' y='-50' offset_x='10' background_color_1='ff4400' background_alpha='85' shadow='low' />
+	<chart_pref line_thickness='2' />
+	<chart_rect bevel='bg' x='115' y='50' width='300' height='200' positive_color='000066' positive_alpha='10' />
+	<chart_type>candlestick</chart_type>
+
+	<draw>
+		<text shadow='high' color='000044' alpha='15' rotation='-90' size='90' x='19' y='270' width='300' height='200'>stock</text>
+		<text shadow='low' color='000033' alpha='25' rotation='-90' size='20' x='34' y='127' width='300' height='50'>price</text>
+		<text color='8888ff' alpha='15' size='30' x='0' y='-3' width='480' height='35' h_align='center' v_align='bottom'>||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='90' blurX='20' blurY='20' distance='5' highlightAlpha='100' shadowAlpha='100' type='full' />
+		<shadow id='high' distance='5' angle='45' alpha='75' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<glow id='red' color='ff8800' alpha='50' blurX='30' blurY='30' inner='false' />   
+	</filter>
+	<tooltip color='FFFFFF' alpha='90' size='14' background_color_1='aa44ff' background_color_2='8888ff' background_alpha='90' shadow='low' />
+
+	<series_color>
+		<color>333333</color>
+	</series_color>
+
+</chart>
+
+
+
+
+
+
+
+

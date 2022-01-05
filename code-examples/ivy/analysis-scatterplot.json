@@ -1,0 +1,114 @@
+{
+  "templateAuthor": "Dorado-Pavo-54",
+  "templateLanguage": "vega-lite",
+  "templateName": "analysis scatterplot",
+  "templateDescription": "FILL IN DESCRIPTION",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"height\": 600,\n  \"width\": 500,\n  \"layer\": [\n    {\n      \"mark\": {\"type\": \"point\", \"filled\": true},\n      \"encoding\": {\n        \"x\": {\"field\": \"[xDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": false}},\n        \"y\": {\"field\": \"[yDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": false}},\n        \"color\": {\n          \"field\": \"[Size/Color]\",\n          \"type\": \"quantitative\",\n          \"scale\": {\"scheme\": \"[quantColor]\"},\n          \"bin\": true\n        },\n        \"size\": {\"field\": \"[Size/Color]\", \"type\": \"quantitative\", \"bin\": true, \"scale\": {\"range\": [20, 1000]}}\n      }\n    },\n    {\n      \"mark\": {\"type\": \"line\", \"color\": \"steelblue\"},\n      \"transform\": [\n        {\"filter\": {\"valid\": true, \"field\": \"[xDim]\"}},\n        {\"filter\": {\"valid\": true, \"field\": \"[yDim]\"}},\n        {\"regression\": \"[yDim]\", \"on\": \"[xDim]\"}\n      ],\n      \"encoding\": {\n        \"x\": {\"field\": \"[xDim]\", \"type\": \"quantitative\"},\n        \"y\": {\"field\": \"[yDim]\", \"type\": \"quantitative\"}\n      }\n    },\n    {\n      \"transform\": [\n        {\"filter\": {\"valid\": true, \"field\": \"[xDim]\"}},\n        {\"filter\": {\"valid\": true, \"field\": \"[yDim]\"}},\n        {\"regression\": \"[yDim]\", \"on\": \"[xDim]\", \"params\": true},\n        {\"calculate\": \"'R²: '+format(datum.rSquared, '.2f')\", \"as\": \"R2\"}\n      ],\n      \"mark\": {\"type\": \"text\", \"color\": \"steelblue\", \"x\": \"width\", \"align\": \"right\", \"y\": -5},\n      \"encoding\": {\"text\": {\"type\": \"nominal\", \"field\": \"R2\"}}\n    }\n  ]\n}\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Size/Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "type": "List",
+      "name": "quantColor",
+      "displayName": "Color Scheme",
+      "config": {
+        "allowedValues": [
+          "\"blues\"",
+          "\"tealblues\"",
+          "\"teals\"",
+          "\"greens\"",
+          "\"browns\"",
+          "\"oranges\"",
+          "\"reds\"",
+          "\"purples\"",
+          "\"warmgreys\"",
+          "\"greys\"",
+          "\"viridis\"",
+          "\"magma\"",
+          "\"inferno\"",
+          "\"plasma\"",
+          "\"bluegreen\"",
+          "\"bluepurple\"",
+          "\"goldgreen\"",
+          "\"goldorange\"",
+          "\"goldred\"",
+          "\"greenblue\"",
+          "\"orangered\"",
+          "\"purplebluegreen\"",
+          "\"purpleblue\"",
+          "\"purplered\"",
+          "\"redpurple\"",
+          "\"yellowgreenblue\"",
+          "\"yellowgreen\"",
+          "\"yelloworangebrown\"",
+          "\"yelloworangered\"",
+          "\"darkblue\"",
+          "\"darkgold\"",
+          "\"darkgreen\"",
+          "\"darkmulti\"",
+          "\"darkred\"",
+          "\"lightgreyred\"",
+          "\"lightgreyteal\"",
+          "\"lightmulti\"",
+          "\"lightorange\"",
+          "\"lighttealblue\"",
+          "\"blueorange\"",
+          "\"brownbluegreen\"",
+          "\"purplegreen\"",
+          "\"pinkyellowgreen\"",
+          "\"purpleorange\"",
+          "\"redblue\"",
+          "\"redgrey\"",
+          "\"redyellowblue\"",
+          "\"redyellowgreen\"",
+          "\"spectral\"",
+          "\"rainbow\"",
+          "\"sinebow\""
+        ],
+        "defaultValue": "\"blues\""
+      }
+    },
+    {
+      "name": "name",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    }
+  ]
+}

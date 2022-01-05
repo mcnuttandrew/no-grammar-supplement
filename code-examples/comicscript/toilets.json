@@ -1,0 +1,216 @@
+{
+    "currentLayout": "init",
+    "layouts": [
+        {
+            "name": "init",
+            "panels": [
+                [
+                    "background"
+                ],
+                [
+                    "baseline"
+                ],
+                [
+                    "phome"
+                ]
+            ]
+        }
+    ],
+    "classes": [],
+    "variables": [
+        {
+            "name": "income",
+            "value": 897
+        },
+        {
+            "name": "dividedincome",
+            "value": 8.97,
+            "what": [
+                "income",
+                "/",
+                100
+            ]
+        }
+    ],
+    "panels": [
+        {
+            "id": "background",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/background.svg"
+        },
+        {
+            "id": "baseline",
+            "url": "https://raw.githubusercontent.com/wangzezhong/comics/abe224060e0791624e68e8ba73870e9dbd27be16/Test/baseline.svg",
+            "input": [
+                {
+                    "id": "inputNumber",
+                    "variable": "income"
+                }
+            ]
+        },
+        {
+            "id": "p1",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/01.png"
+        },
+        {
+            "id": "p2",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/02.png"
+        },
+        {
+            "id": "p3",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/03.png"
+        },
+        {
+            "id": "p4",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/04.png"
+        },
+        {
+            "id": "p5",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/05.png"
+        },
+        {
+            "id": "p6",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/06.png"
+        },
+        {
+            "id": "p7",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/07.png"
+        },
+        {
+            "id": "p8",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/08.png"
+        },
+        {
+            "id": "p9",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/09.png"
+        },
+        {
+            "id": "phome",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/home.png"
+        },
+        {
+            "id": "youIcon",
+            "url": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/youIcon.svg"
+        }
+    ],
+    "operations": [
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "A",
+            "layout": [
+                [
+                    "p1"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "B",
+            "layout": [
+                [
+                    "p2"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "C",
+            "layout": [
+                [
+                    "p3"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "D",
+            "layout": [
+                [
+                    "p4"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "E",
+            "layout": [
+                [
+                    "p5"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "F",
+            "layout": [
+                [
+                    "p6"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "G",
+            "layout": [
+                [
+                    "p7"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "H",
+            "layout": [
+                [
+                    "p8"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "trigger": "click",
+            "operation": "loadLayout",
+            "element": "I",
+            "layout": [
+                [
+                    "p9"
+                ]
+            ],
+            "after": "baseline",
+            "group": "group1"
+        },
+        {
+            "operation": "isotype",
+            "variable": "dividedincome",
+            "to": "iconPlacehoulder",
+            "attr": {
+                "widthIcon": 12
+            },
+            "icon": "https://raw.githubusercontent.com/Heduar2/Data-comic/b91b9c24261850ac07cc1b9aaa4b885fde4414c0/youIcon.svg"
+        }
+    ],
+    "coding": "true",
+    "gutter": 0
+}

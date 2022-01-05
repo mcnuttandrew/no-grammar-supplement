@@ -1,0 +1,302 @@
+{
+  "templateName": "Area Chart",
+  "templateDescription": "A multifacted area chart",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"width\": \"[ChartSize]\",\n  \"height\": \"[ChartSize]\",\n  \"data\": {\"name\": \"myData\"},\n  \"mark\": {\n    \"type\": \"area\",\n    \"color\": {\"$cond\": {\"query\": \"!parameters.Color\", \"true\": \"[SingleColor]\"}},\n    \"opacity\": \"[Opacity]\",\n    \"interpolate\": \"[Curve]\",\n    \"point\": \"[points]\"\n  },\n  \"encoding\": {\n    \"x\": {\n      \"timeUnit\": \"[TimeUnit]\",\n      \"field\": \"[Var1]\",\n      \"type\": \"temporal\",\n      \"axis\": {\"format\": \"%Y\"}\n    },\n    \"y\": {\n      \"aggregate\": \"[Aggregation]\",\n      \"field\": \"[yDim]\",\n      \"type\": \"quantitative\",\n      \"stack\": \"[Stack]\"\n    },\n    \"color\": {\n      \"$cond\": {\n        \"query\": \"parameters.Color\",\n        \"true\": {\n          \"field\": \"[Color]\",\n          \"type\": \"nominal\",\n          \"scale\": {\"scheme\": \"[ColorScheme]\"}\n        }\n      }\n    }\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "Var1",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "TimeUnit",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"yearmonth\"",
+            "value": "\"yearmonth\""
+          },
+          {
+            "display": "\"year\"",
+            "value": "\"year\""
+          },
+          {
+            "display": "\"month\"",
+            "value": "\"month\""
+          },
+          {
+            "display": "\"day\"",
+            "value": "\"day\""
+          }
+        ],
+        "defaultValue": "\"yearmonth\""
+      }
+    },
+    {
+      "name": "Curve",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "linear",
+            "value": "\"linear\""
+          },
+          {
+            "display": "step",
+            "value": "\"step\""
+          },
+          {
+            "display": "basis",
+            "value": "\"basis\""
+          },
+          {
+            "display": "cardinal",
+            "value": "\"cardinal\""
+          },
+          {
+            "display": "bundle",
+            "value": "\"bundle\""
+          },
+          {
+            "display": "monotone",
+            "value": "\"monotone\""
+          }
+        ],
+        "defaultValue": "\"linear\""
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Aggregation",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"sum\"",
+            "value": "\"sum\""
+          },
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          },
+          {
+            "display": "null",
+            "value": "null"
+          }
+        ],
+        "defaultValue": "\"sum\""
+      }
+    },
+    {
+      "name": "Stack",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"normalize\"",
+            "value": "\"normalize\""
+          },
+          {
+            "display": "\"zero\"",
+            "value": "\"zero\""
+          },
+          {
+            "display": "\"center\"",
+            "value": "\"center\""
+          },
+          {
+            "display": "null",
+            "value": "null"
+          }
+        ],
+        "defaultValue": "\"normalize\""
+      }
+    },
+    {
+      "name": "points",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": false
+      },
+      "displayName": "Show Points"
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "SingleColor",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    },
+    {
+      "name": "ColorScheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"category20\""
+      }
+    },
+    {
+      "name": "Opacity",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "1",
+        "step": "0.1",
+        "defaultValue": "1"
+      }
+    },
+    {
+      "name": "Section10",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "ChartSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "150",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "200"
+      },
+      "displayName": "Chart Size"
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": []
+}

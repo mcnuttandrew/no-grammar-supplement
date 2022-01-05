@@ -1,0 +1,96 @@
+{
+  "templateAuthor": "Columba-Cepheus-9",
+  "templateLanguage": "vega-lite",
+  "templateName": "Pie Chart",
+  "templateDescription": "A simple and popular way to create part to whole displays",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"description\": \"A simple radial chart with embedded data.\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [\n    {\n      \"aggregate\": [{\"op\": \"[AggType]\", \"field\": \"[value]\", \"as\": \"acc\"}],\n      \"groupby\": [\"[category]\"]\n    }\n  ],\n  \"layer\": [\n    {\"mark\": {\"type\": \"arc\", \"innerRadius\": \"[DonutSize]\", \"stroke\": \"#fff\"}},\n    {\n      \"mark\": {\n        \"type\": \"text\",\n        \"radiusOffset\": {\n          \"$cond\": {\n            \"query\": \"parameters.useRadius.includes(true)\",\n            \"true\": 20\n          }\n        },\n        \"radius\": {\n          \"$cond\": {\n            \"query\": \"!parameters.useRadius.includes(true)\",\n            \"true\": 120\n          }\n        }\n      },\n      \"encoding\": {\"text\": {\"field\": \"[category]\", \"type\": \"nominal\"}}\n    }\n  ],\n  \"encoding\": {\n    \"theta\": {\"field\": \"acc\", \"type\": \"quantitative\", \"stack\": true},\n    \"radius\": {\n      \"$cond\": {\n        \"query\": \"parameters.useRadius.includes(true)\",\n        \"true\": {\"field\": \"acc\", \"scale\": {\"type\": \"sqrt\", \"zero\": true}}\n      }\n    },\n    \"color\": {\"field\": \"[category]\", \"type\": \"nominal\", \"legend\": null}\n  },\n  \"view\": {\"stroke\": null}\n}\n",
+  "widgets": [
+    {
+      "name": "value",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "useRadius",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Show as radius and angle"
+    },
+    {
+      "name": "category",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "DonutSize",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "0",
+            "value": "0"
+          },
+          {
+            "display": "20",
+            "value": "20"
+          },
+          {
+            "display": "50",
+            "value": "50"
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "AggType",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"sum\"",
+            "value": "\"sum\""
+          },
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          },
+          {
+            "display": "\"min\"",
+            "value": "\"min\""
+          },
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"max\"",
+            "value": "\"max\""
+          }
+        ],
+        "defaultValue": "\"mean\""
+      },
+      "displayName": "Aggregate"
+    }
+  ]
+}

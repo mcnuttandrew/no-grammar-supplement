@@ -1,0 +1,26 @@
+{
+	"data": {
+		"graphFile":"singlefile.dot",
+		"structureFile":"singlefile.structures.json"
+	},
+
+	"rendering": {
+		"node": {
+			"shape": "diamond",
+			"style": "filled",
+			"fillcolor": "#78d838",
+			"fontcolor": "white",
+			"label": "id"
+		},
+		"edge": {
+			"style": "solid",
+			"color": "black"
+		},
+		"loop": {
+			"background": true
+		},
+		"function": {
+			"boundary": true
+		}
+	}
+}

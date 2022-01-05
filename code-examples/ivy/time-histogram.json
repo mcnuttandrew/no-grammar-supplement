@@ -1,0 +1,46 @@
+{
+  "templateName": "Time Histogram",
+  "templateDescription": "Visualize univariate data over time",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"mark\": \"bar\",\n  \"encoding\": {\n    \"x\": { \"field\": \"[xDim]\", \"type\": \"temporal\", \"timeUnit\": \"[timeUnit]\"},\n    \"y\": {\"aggregate\": \"count\", \"type\": \"quantitative\"}\n  },\n  \"width\": 400,\n  \"height\": 100\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "timeUnit",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"year\"",
+            "value": "\"year\""
+          },
+          {
+            "display": "\"yearmonth\"",
+            "value": "\"yearmonth\""
+          },
+          {
+            "display": "\"month\"",
+            "value": "\"month\""
+          },
+          {
+            "display": "\"day\"",
+            "value": "\"day\""
+          }
+        ],
+        "defaultValue": null
+      }
+    }
+  ],
+  "templateAuthor": "Vered",
+  "customCards": []
+}

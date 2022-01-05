@@ -1,0 +1,970 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 720,
+    "padding": 5,
+    "data": [
+        {
+            "name": "sp500",
+            "values": [
+                {
+                    "date": 1420448320651,
+                    "price": 1777
+                },
+                {
+                    "date": 1423126720651,
+                    "price": 1609
+                },
+                {
+                    "date": 1425545920651,
+                    "price": 1375
+                },
+                {
+                    "date": 1428224320651,
+                    "price": 1198
+                },
+                {
+                    "date": 1430816320651,
+                    "price": 1464
+                },
+                {
+                    "date": 1433494720651,
+                    "price": 1813
+                },
+                {
+                    "date": 1436086720651,
+                    "price": 1237
+                },
+                {
+                    "date": 1438765120651,
+                    "price": 1526
+                },
+                {
+                    "date": 1441443520651,
+                    "price": 1732
+                },
+                {
+                    "date": 1444035520651,
+                    "price": 1310
+                },
+                {
+                    "date": 1446713920651,
+                    "price": 1969
+                },
+                {
+                    "date": 1449305920651,
+                    "price": 1553
+                },
+                {
+                    "date": 1451984320651,
+                    "price": 1382
+                },
+                {
+                    "date": 1454662720651,
+                    "price": 1046
+                },
+                {
+                    "date": 1457168320651,
+                    "price": 1057
+                },
+                {
+                    "date": 1459846720651,
+                    "price": 1298
+                },
+                {
+                    "date": 1462438720651,
+                    "price": 1444
+                },
+                {
+                    "date": 1465117120651,
+                    "price": 1199
+                },
+                {
+                    "date": 1467709120651,
+                    "price": 1896
+                },
+                {
+                    "date": 1470387520651,
+                    "price": 1287
+                },
+                {
+                    "date": 1473065920651,
+                    "price": 1567
+                },
+                {
+                    "date": 1475657920651,
+                    "price": 1305
+                },
+                {
+                    "date": 1478336320651,
+                    "price": 1164
+                },
+                {
+                    "date": 1480928320651,
+                    "price": 1441
+                },
+                {
+                    "date": 1483606720651,
+                    "price": 1483
+                },
+                {
+                    "date": 1486285120651,
+                    "price": 1162
+                },
+                {
+                    "date": 1488704320651,
+                    "price": 1796
+                },
+                {
+                    "date": 1491382720651,
+                    "price": 1559
+                },
+                {
+                    "date": 1493974720651,
+                    "price": 1216
+                },
+                {
+                    "date": 1496653120651,
+                    "price": 1456
+                },
+                {
+                    "date": 1499245120651,
+                    "price": 1328
+                },
+                {
+                    "date": 1501923520651,
+                    "price": 1525
+                },
+                {
+                    "date": 1504601920651,
+                    "price": 1008
+                },
+                {
+                    "date": 1507193920651,
+                    "price": 1025
+                },
+                {
+                    "date": 1509872320651,
+                    "price": 1195
+                },
+                {
+                    "date": 1512464320651,
+                    "price": 1158
+                },
+                {
+                    "date": 1515142720651,
+                    "price": 1196
+                },
+                {
+                    "date": 1517821120651,
+                    "price": 1638
+                },
+                {
+                    "date": 1520240320651,
+                    "price": 1033
+                },
+                {
+                    "date": 1522918720651,
+                    "price": 1255
+                },
+                {
+                    "date": 1525510720651,
+                    "price": 1942
+                },
+                {
+                    "date": 1528189120651,
+                    "price": 1508
+                },
+                {
+                    "date": 1530781120651,
+                    "price": 1336
+                },
+                {
+                    "date": 1533459520651,
+                    "price": 1766
+                },
+                {
+                    "date": 1536137920651,
+                    "price": 1492
+                },
+                {
+                    "date": 1538729920651,
+                    "price": 1921
+                },
+                {
+                    "date": 1541408320651,
+                    "price": 1223
+                },
+                {
+                    "date": 1544000320651,
+                    "price": 1799
+                },
+                {
+                    "date": 1546678720651,
+                    "price": 1286
+                },
+                {
+                    "date": 1549357120651,
+                    "price": 1165
+                },
+                {
+                    "date": 1551776320651,
+                    "price": 1163
+                },
+                {
+                    "date": 1554454720651,
+                    "price": 1911
+                },
+                {
+                    "date": 1557046720651,
+                    "price": 1200
+                },
+                {
+                    "date": 1559725120651,
+                    "price": 1979
+                },
+                {
+                    "date": 1562317120651,
+                    "price": 1505
+                },
+                {
+                    "date": 1564995520651,
+                    "price": 1806
+                },
+                {
+                    "date": 1567673920651,
+                    "price": 1360
+                },
+                {
+                    "date": 1570265920651,
+                    "price": 1705
+                },
+                {
+                    "date": 1572944320651,
+                    "price": 1266
+                },
+                {
+                    "date": 1575536320651,
+                    "price": 1906
+                },
+                {
+                    "date": 1578214720651,
+                    "price": 1451
+                },
+                {
+                    "date": 1580893120651,
+                    "price": 1808
+                },
+                {
+                    "date": 1583398720651,
+                    "price": 1589
+                },
+                {
+                    "date": 1586077120651,
+                    "price": 1792
+                },
+                {
+                    "date": 1588669120651,
+                    "price": 1683
+                },
+                {
+                    "date": 1591347520651,
+                    "price": 1452
+                },
+                {
+                    "date": 1593939520651,
+                    "price": 1319
+                },
+                {
+                    "date": 1596617920651,
+                    "price": 1506
+                },
+                {
+                    "date": 1599296320651,
+                    "price": 1312
+                },
+                {
+                    "date": 1601888320651,
+                    "price": 1332
+                },
+                {
+                    "date": 1604566720651,
+                    "price": 1630
+                },
+                {
+                    "date": 1607158720651,
+                    "price": 1123
+                },
+                {
+                    "date": 1609837120651,
+                    "price": 1825
+                },
+                {
+                    "date": 1612515520651,
+                    "price": 1571
+                },
+                {
+                    "date": 1614934720651,
+                    "price": 1217
+                },
+                {
+                    "date": 1617613120651,
+                    "price": 1324
+                },
+                {
+                    "date": 1620205120651,
+                    "price": 1711
+                },
+                {
+                    "date": 1622883520651,
+                    "price": 1890
+                },
+                {
+                    "date": 1625475520651,
+                    "price": 1373
+                },
+                {
+                    "date": 1628153920651,
+                    "price": 1688
+                },
+                {
+                    "date": 1630832320651,
+                    "price": 1789
+                },
+                {
+                    "date": 1633424320651,
+                    "price": 1504
+                },
+                {
+                    "date": 1636102720651,
+                    "price": 1932
+                },
+                {
+                    "date": 1638694720651,
+                    "price": 1245
+                }
+            ]
+        },
+        {
+            "name": "sp500ar",
+            "values": []
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "sp500ar",
+                "values": [
+                    {
+                        "date": 1420448320651,
+                        "price": 1777
+                    },
+                    {
+                        "date": 1423126720651,
+                        "price": 1609
+                    },
+                    {
+                        "date": 1425545920651,
+                        "price": 1375
+                    },
+                    {
+                        "date": 1428224320651,
+                        "price": 1198
+                    },
+                    {
+                        "date": 1430816320651,
+                        "price": 1464
+                    },
+                    {
+                        "date": 1433494720651,
+                        "price": 1813
+                    },
+                    {
+                        "date": 1436086720651,
+                        "price": 1237
+                    },
+                    {
+                        "date": 1438765120651,
+                        "price": 1526
+                    },
+                    {
+                        "date": 1441443520651,
+                        "price": 1732
+                    },
+                    {
+                        "date": 1444035520651,
+                        "price": 1310
+                    },
+                    {
+                        "date": 1446713920651,
+                        "price": 1969
+                    },
+                    {
+                        "date": 1449305920651,
+                        "price": 1553
+                    },
+                    {
+                        "date": 1451984320651,
+                        "price": 1382
+                    },
+                    {
+                        "date": 1454662720651,
+                        "price": 1046
+                    },
+                    {
+                        "date": 1457168320651,
+                        "price": 1057
+                    },
+                    {
+                        "date": 1459846720651,
+                        "price": 1298
+                    },
+                    {
+                        "date": 1462438720651,
+                        "price": 1444
+                    },
+                    {
+                        "date": 1465117120651,
+                        "price": 1199
+                    },
+                    {
+                        "date": 1467709120651,
+                        "price": 1896
+                    },
+                    {
+                        "date": 1470387520651,
+                        "price": 1287
+                    },
+                    {
+                        "date": 1473065920651,
+                        "price": 1567
+                    },
+                    {
+                        "date": 1475657920651,
+                        "price": 1305
+                    },
+                    {
+                        "date": 1478336320651,
+                        "price": 1164
+                    },
+                    {
+                        "date": 1480928320651,
+                        "price": 1441
+                    },
+                    {
+                        "date": 1483606720651,
+                        "price": 1483
+                    },
+                    {
+                        "date": 1486285120651,
+                        "price": 1162
+                    },
+                    {
+                        "date": 1488704320651,
+                        "price": 1796
+                    },
+                    {
+                        "date": 1491382720651,
+                        "price": 1559
+                    },
+                    {
+                        "date": 1493974720651,
+                        "price": 1216
+                    },
+                    {
+                        "date": 1496653120651,
+                        "price": 1456
+                    },
+                    {
+                        "date": 1499245120651,
+                        "price": 1328
+                    },
+                    {
+                        "date": 1501923520651,
+                        "price": 1525
+                    },
+                    {
+                        "date": 1504601920651,
+                        "price": 1008
+                    },
+                    {
+                        "date": 1507193920651,
+                        "price": 1025
+                    },
+                    {
+                        "date": 1509872320651,
+                        "price": 1195
+                    },
+                    {
+                        "date": 1512464320651,
+                        "price": 1158
+                    },
+                    {
+                        "date": 1515142720651,
+                        "price": 1196
+                    },
+                    {
+                        "date": 1517821120651,
+                        "price": 1638
+                    },
+                    {
+                        "date": 1520240320651,
+                        "price": 1033
+                    },
+                    {
+                        "date": 1522918720651,
+                        "price": 1255
+                    },
+                    {
+                        "date": 1525510720651,
+                        "price": 1942
+                    },
+                    {
+                        "date": 1528189120651,
+                        "price": 1508
+                    },
+                    {
+                        "date": 1530781120651,
+                        "price": 1336
+                    },
+                    {
+                        "date": 1533459520651,
+                        "price": 1766
+                    },
+                    {
+                        "date": 1536137920651,
+                        "price": 1492
+                    },
+                    {
+                        "date": 1538729920651,
+                        "price": 1921
+                    },
+                    {
+                        "date": 1541408320651,
+                        "price": 1223
+                    },
+                    {
+                        "date": 1544000320651,
+                        "price": 1799
+                    },
+                    {
+                        "date": 1546678720651,
+                        "price": 1286
+                    },
+                    {
+                        "date": 1549357120651,
+                        "price": 1165
+                    },
+                    {
+                        "date": 1551776320651,
+                        "price": 1163
+                    },
+                    {
+                        "date": 1554454720651,
+                        "price": 1911
+                    },
+                    {
+                        "date": 1557046720651,
+                        "price": 1200
+                    },
+                    {
+                        "date": 1559725120651,
+                        "price": 1979
+                    },
+                    {
+                        "date": 1562317120651,
+                        "price": 1505
+                    },
+                    {
+                        "date": 1564995520651,
+                        "price": 1806
+                    },
+                    {
+                        "date": 1567673920651,
+                        "price": 1360
+                    },
+                    {
+                        "date": 1570265920651,
+                        "price": 1705
+                    },
+                    {
+                        "date": 1572944320651,
+                        "price": 1266
+                    },
+                    {
+                        "date": 1575536320651,
+                        "price": 1906
+                    },
+                    {
+                        "date": 1578214720651,
+                        "price": 1451
+                    },
+                    {
+                        "date": 1580893120651,
+                        "price": 1808
+                    },
+                    {
+                        "date": 1583398720651,
+                        "price": 1589
+                    },
+                    {
+                        "date": 1586077120651,
+                        "price": 1792
+                    },
+                    {
+                        "date": 1588669120651,
+                        "price": 1683
+                    },
+                    {
+                        "date": 1591347520651,
+                        "price": 1452
+                    },
+                    {
+                        "date": 1593939520651,
+                        "price": 1319
+                    },
+                    {
+                        "date": 1596617920651,
+                        "price": 1506
+                    },
+                    {
+                        "date": 1599296320651,
+                        "price": 1312
+                    },
+                    {
+                        "date": 1601888320651,
+                        "price": 1332
+                    },
+                    {
+                        "date": 1604566720651,
+                        "price": 1630
+                    },
+                    {
+                        "date": 1607158720651,
+                        "price": 1123
+                    },
+                    {
+                        "date": 1609837120651,
+                        "price": 1825
+                    },
+                    {
+                        "date": 1612515520651,
+                        "price": 1571
+                    },
+                    {
+                        "date": 1614934720651,
+                        "price": 1217
+                    },
+                    {
+                        "date": 1617613120651,
+                        "price": 1324
+                    },
+                    {
+                        "date": 1620205120651,
+                        "price": 1711
+                    },
+                    {
+                        "date": 1622883520651,
+                        "price": 1890
+                    },
+                    {
+                        "date": 1625475520651,
+                        "price": 1373
+                    },
+                    {
+                        "date": 1628153920651,
+                        "price": 1688
+                    },
+                    {
+                        "date": 1630832320651,
+                        "price": 1789
+                    },
+                    {
+                        "date": 1633424320651,
+                        "price": 1504
+                    },
+                    {
+                        "date": 1636102720651,
+                        "price": 1932
+                    },
+                    {
+                        "date": 1638694720651,
+                        "price": 1245
+                    }
+                ]
+            }
+        ]
+    },
+    "signals": [
+        {
+            "name": "detailDomain"
+        }
+    ],
+    "axes": [],
+    "marks": [
+        {
+            "type": "group",
+            "name": "detail",
+            "encode": {
+                "enter": {
+                    "height": {
+                        "value": 390
+                    },
+                    "width": {
+                        "value": 720
+                    }
+                }
+            },
+            "scales": [
+                {
+                    "name": "xDetail",
+                    "type": "time",
+                    "range": "width",
+                    "domain": {
+                        "data": "sp500",
+                        "field": "date"
+                    },
+                    "domainRaw": {
+                        "signal": "[datetime(2018, 0), datetime(2019, 0)]"
+                    }
+                },
+                {
+                    "name": "yDetail",
+                    "type": "linear",
+                    "range": [
+                        390,
+                        0
+                    ],
+                    "domain": {
+                        "data": "sp500",
+                        "field": "price"
+                    },
+                    "nice": true,
+                    "zero": true
+                }
+            ],
+            "axes": [
+                {
+                    "orient": "bottom",
+                    "scale": "xDetail"
+                },
+                {
+                    "orient": "left",
+                    "scale": "yDetail"
+                }
+            ],
+            "marks": [
+                {
+                    "type": "group",
+                    "encode": {
+                        "enter": {
+                            "height": {
+                                "field": {
+                                    "group": "height"
+                                }
+                            },
+                            "width": {
+                                "field": {
+                                    "group": "width"
+                                }
+                            },
+                            "clip": {
+                                "value": true
+                            }
+                        }
+                    },
+                    "marks": [
+                        {
+                            "type": "area",
+                            "from": {
+                                "data": "sp500"
+                            },
+                            "encode": {
+                                "update": {
+                                    "interpolate": {"value": "monotone"},
+                                    "x": {
+                                        "scale": "xDetail",
+                                        "field": "date"
+                                    },
+                                    "y": {
+                                        "scale": "yDetail",
+                                        "field": "price"
+                                    },
+                                    "y2": {
+                                        "scale": "yDetail",
+                                        "value": 0
+                                    },
+                                    "fill": {
+                                        "value": "steelblue"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "name": "overview",
+            "encode": {
+                "enter": {
+                    "x": {
+                        "value": 0
+                    },
+                    "y": {
+                        "value": 420
+                    },
+                    "height": {
+                        "signal": "data('sp500ar').length ? 70 : 0"
+                    },
+                    "width": {
+                        "value": 720
+                    },
+                    "fill": {
+                        "value": "transparent"
+                    }
+                }
+            },
+            "scales": [
+                {
+                    "name": "xOverview",
+                    "type": "time",
+                    "range": "width",
+                    "domain": {
+                        "data": "sp500ar",
+                        "field": "date"
+                    }
+                },
+                {
+                    "name": "yOverview",
+                    "type": "linear",
+                    "range": [
+                        70,
+                        0
+                    ],
+                    "domain": {
+                        "data": "sp500ar",
+                        "field": "price"
+                    },
+                    "nice": true,
+                    "zero": true
+                }
+            ],
+            "axes": [
+                {
+                    "scale": "xOverview",
+                    "orient": "bottom",
+                    "domain": false
+                }
+            ],
+            "marks": [
+                {
+                    "type": "area",
+                    "interactive": false,
+                    "from": {
+                        "data": "sp500ar"
+                    },
+                    "encode": {
+                        "update": {
+                            "interpolate": {"value": "monotone"},
+                            "x": {
+                                "scale": "xOverview",
+                                "field": "date"
+                            },
+                            "y": {
+                                "scale": "yOverview",
+                                "field": "price"
+                            },
+                            "y2": {
+                                "scale": "yOverview",
+                                "value": 0
+                            },
+                            "fill": {
+                                "value": "steelblue"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "rect",
+                    "name": "brush",
+                    "encode": {
+                        "enter": {
+                            "y": {
+                                "value": 0
+                            },
+                            "height": {
+                                "signal": "data('sp500ar').length ? 70 : 0"
+                            },
+                            "fill": {
+                                "value": "#333"
+                            },
+                            "fillOpacity": {
+                                "value": 0.2
+                            }
+                        },
+                        "update": {
+                            "x": {
+                                "signal": "scale('xOverview', datetime(2018, 0))"
+                            },
+                            "x2": {
+                                "signal": "scale('xOverview', datetime(2019, 0))"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "rect",
+                    "interactive": false,
+                    "encode": {
+                        "enter": {
+                            "y": {
+                                "value": 0
+                            },
+                            "height": {
+                                "signal": "data('sp500ar').length ? 70 : 0"
+                            },
+                            "width": {
+                                "value": 1
+                            },
+                            "fill": {
+                                "value": "firebrick"
+                            }
+                        },
+                        "update": {
+                            "x": {
+                                "signal": "scale('xOverview', datetime(2018, 0))"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "rect",
+                    "interactive": false,
+                    "encode": {
+                        "enter": {
+                            "y": {
+                                "value": 0
+                            },
+                            "height": {
+                                "signal": "data('sp500ar').length ? 70 : 0"
+                            },
+                            "width": {
+                                "value": 1
+                            },
+                            "fill": {
+                                "value": "firebrick"
+                            }
+                        },
+                        "update": {
+                            "x": {
+                                "signal": "scale('xOverview', datetime(2019, 0))"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

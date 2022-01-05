@@ -1,0 +1,44 @@
+{
+  "Bar Chart": [
+    {"name": "bar", "howTo": "jup6"}
+  ],
+  "Circular Chart": [
+    {"name": "pie"}
+  ],
+  "Simple Tabular Data": [
+    {"name": "line", "howTo": "jup6"},
+    {"name": "multi-line", "howTo": "ove68"}
+  ],
+  "Geographic Data":[
+    {"name": "contour-scatter", "howTo": "oveI"}
+  ],
+  "Network Data": [
+    {"name": "arc-diagram", "howTo": "ove68"},
+    {"name": "network-radial", "howTo": "oveO"},
+    {"name": "matrix-reorder", "howTo": "ove3"}
+  ],
+  "Hierachy Data": [
+    {"name": "tree-cluster", "howTo": "jup2"},
+    {"name": "partition", "howTo": "jup2"},
+    {"name": "treemap", "howTo": "oveI"}
+  ],
+  "User Study": [
+    {"name": "tabular"},
+    {"name": "tree"},
+    {"name": "network"},
+    {"name": "network-arc"},
+    {"name":"geo-contour"}
+  ],
+  "Demo": [
+    {"name": "hkust-timeline"},
+    {"name": "news"},
+    {"name": "sunburst"},
+    {"name": "sunburst-pie"},
+    {"name": "grades"},
+    {"name": "namecard"},
+    {"name": "scholar"},
+    {"name": "context"},
+    {"name": "cv"},
+    {"name": "multi"}
+  ]
+}

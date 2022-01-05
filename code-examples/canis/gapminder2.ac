@@ -1,0 +1,56 @@
+{
+    "charts": [
+        {
+            "id": "africa",
+            "source": "./charts/gapminder/eva_gap2_africa_",
+            "start": 0,
+            "end": 9
+        },
+        {
+            "id": "america",
+            "source": "./charts/gapminder/eva_gap2_america_",
+            "start": 0,
+            "end": 9
+        },
+        {
+            "id": "asia",
+            "source": "./charts/gapminder/eva_gap2_asia_",
+            "start": 0,
+            "end": 9
+        }
+    ],
+    "facet": {
+        "type": "column",
+        "views": [
+            {
+                "range": [
+                    "africa0",
+                    "africa9"
+                ]
+            },
+            {
+                "range": [
+                    "america0",
+                    "america9"
+                ]
+            },
+            {
+                "range": [
+                    "asia0",
+                    "asia9"
+                ]
+            }
+        ]
+    },
+    "animations": [
+        {
+            "selector": ".path, .text",
+            "effects": [
+                {
+                    "type": "magic move",
+                    "duration": 1000
+                }
+            ]
+        }
+    ]
+}

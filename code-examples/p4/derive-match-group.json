@@ -1,0 +1,40 @@
+{
+  "views": [
+    {
+      "id": "chart",
+      "width": 640,
+      "height": 420,
+      "padding": {"left": 80, "right": 60, "top" : 10, "bottom": 60},
+      "legend": true
+    }
+  ],
+  "operations": [
+    {
+      "$derive": {
+        "AgeDiff": "abs(FatherAge - MotherAge)"
+      }
+    },
+    {
+      "$match": {
+        "AgeDiff": [0, 10]
+      }
+    },
+    {
+      "$aggregate": {
+        "$group": "AgeDiff",
+        "$collect": {
+          "Babies": {"$count": "*"},
+          "BabyAvgWeight": {"$avg": "BabyWeight"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "bar",
+        "height": "Babies",
+        "x": "AgeDiff",
+        "color": "BabyAvgWeight"
+      }
+    }
+  ]
+}

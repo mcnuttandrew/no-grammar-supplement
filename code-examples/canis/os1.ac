@@ -1,0 +1,83 @@
+{
+    "constants": [
+        {
+            "name": "unitTime",
+            "value": 400
+        }
+    ],
+    "charts": [
+        {
+            "source": "./charts/os.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".axis-domain",
+            "effects": [
+                {
+                    "type": "grow",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "selector": ".axis-tick, .axis-label",
+            "effects": [
+                {
+                    "type": "fade",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "reference": "start after previous",
+            "selector": ".text",
+            "effects": [
+                {
+                    "type": "fade",
+                    "duration": "unitTime"
+                }
+            ]
+        },
+        {
+            "reference": "start after previous",
+            "selector": ".rectangle",
+            "grouping": {
+                "groupBy": "OperatingSystem",
+                "reference": "start after previous",
+                "grouping": {
+                    "groupBy": "Year",
+                    "reference": "start after previous",
+                    "delay": "unitTime"
+                }
+            },
+            "effects": [
+                {
+                    "type": "fade",
+                    "duration": "unitTime"
+                }
+            ]
+        },
+        {
+            "offset": "unitTime",
+            "selector": ".link",
+            "grouping": {
+                "groupBy": "OperatingSystem",
+                "reference": "start after previous",
+                "delay": "calc(unitTime*2)",
+                "grouping": {
+                    "groupBy": "Year",
+                    "reference": "start after previous",
+                    "delay": "unitTime"
+                }
+            },
+            "effects": [
+                {
+                    "type": "wipe left",
+                    "easing": "easeOutCubic",
+                    "duration": "unitTime"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+  "templateName": "BigNumber",
+  "templateDescription": "Visualize vital statistics about particular columns of data",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"height\": 400,\n  \"width\": 400,\n  \"signals\": [\n    {\"name\": \"height\", \"value\": 400},\n    {\"name\": \"width\", \"value\": 400}\n  ],\n  \"data\": [\n    {\n      \"values\": \"myData\",\n      \"name\": \"table\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"fields\": [\"[Column]\"],\n          \"ops\": [\"[Agg]\"],\n          \"as\": [\"value\"]\n        }\n      ]\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"text\",\n      \"name\": \"label\",\n      \"from\": {\"data\": \"table\"},\n      \"zindex\": 1,\n      \"encode\": {\n        \"enter\": {\n          \"x\": {\"value\": 20},\n          \"y\": {\"signal\": \"width / 2 - [fontSize]\"},\n          \"text\": {\"value\": \"[Column] - [Agg]\"},\n          \"fontWeight\": {\"value\": \"bolder\"},\n          \"fontSize\": {\"value\": 30}\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"value\",\n      \"from\": {\"data\": \"table\"},\n      \"encode\": {\n        \"enter\": {\n          \"y\": {\"signal\": \"height / 2\"},\n          \"x\": {\"signal\": \"width / 2\"},\n          \"text\": {\n            \"$cond\": {\n              \"query\": \"parameters.round.includes(true)\",\n              \"true\": {\"signal\": \"format(datum.value, .[roundAmount]f)\"},\n              \"false\": {\"field\": \"value\"}\n            }\n          },\n          \"fontSize\": {\"value\": \"[fontSize]\"},\n          \"fontWeight\": {\"value\": \"100\"},\n          \"align\": {\"value\": \"center\"},\n          \"baseline\": {\"value\": \"middle\"}\n        }\n      }\n    }\n  ]\n}\n\n\n\n\n\n",
+  "templateLanguage": "vega",
+  "widgets": [
+    {
+      "name": "Column",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Agg",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "count",
+            "value": "\"count\""
+          },
+          {
+            "display": "valid",
+            "value": "\"valid\""
+          },
+          {
+            "display": "missing",
+            "value": "\"missing\""
+          },
+          {
+            "display": "distinct",
+            "value": "\"distinct\""
+          },
+          {
+            "display": "sum",
+            "value": "\"sum\""
+          },
+          {
+            "display": "product",
+            "value": "\"product\""
+          },
+          {
+            "display": "mean",
+            "value": "\"mean\""
+          },
+          {
+            "display": "average",
+            "value": "\"average\""
+          },
+          {
+            "display": "variance",
+            "value": "\"variance\""
+          },
+          {
+            "display": "variancep",
+            "value": "\"variancep\""
+          },
+          {
+            "display": "stdev",
+            "value": "\"stdev\""
+          },
+          {
+            "display": "stdevp",
+            "value": "\"stdevp\""
+          },
+          {
+            "display": "stderr",
+            "value": "\"stderr\""
+          },
+          {
+            "display": "median",
+            "value": "\"median\""
+          },
+          {
+            "display": "q1",
+            "value": "\"q1\""
+          },
+          {
+            "display": "q3",
+            "value": "\"q3\""
+          },
+          {
+            "display": "ci0",
+            "value": "\"ci0\""
+          },
+          {
+            "display": "ci1",
+            "value": "\"ci1\""
+          },
+          {
+            "display": "min",
+            "value": "\"min\""
+          },
+          {
+            "display": "max",
+            "value": "\"max\""
+          },
+          {
+            "display": "argmin",
+            "value": "\"argmin\""
+          },
+          {
+            "display": "argmax",
+            "value": "\"argmax\""
+          }
+        ],
+        "defaultValue": "\"count\""
+      },
+      "displayName": "Aggregate"
+    },
+    {
+      "name": "fontSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "30",
+        "maxVal": "150",
+        "step": 1,
+        "defaultValue": "100"
+      },
+      "displayName": "Font Size"
+    },
+    {
+      "name": "round",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "roundAmount",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": 10,
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "Decimals in Rounding",
+      "conditions": [
+        {
+          "query": "!parameters.round.includes(false)",
+          "queryResult": "show"
+        }
+      ]
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": []
+}

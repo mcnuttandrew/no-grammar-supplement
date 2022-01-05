@@ -1,0 +1,38 @@
+{
+  "title": "Starbuck Food",
+  "description": "This displays glyphs that can be manually placed on physical referrents.",
+  "data": { "url": "starbucks-example.csv" },
+  "mark": "sphere",
+  "width": 500,
+  "height": 500,
+  "encoding": {
+    "x": {
+      "field": "PosX",
+      "type": "quantitative",
+      "axis": "none"
+    },
+    "y": {
+      "field": "PosY",
+      "type": "quantitative",
+      "axis": "none"
+    },
+    "color": {
+      "field": "Price",
+      "type": "quantitative",
+      "scale": {
+        "type": "sequential",
+        "domain": [ 0, 5, 10 ],
+        "range": [ "#1a9641", "#ffffbf", "#d7191c" ]
+      }
+    },
+    "width": {
+      "field": "Calories",
+      "type": "quantitative",
+      "scale": {
+        "type": "linear",
+        "domain": [ "120", "400" ],
+        "range": [ "20", "50" ]
+      }
+    }
+  }
+}

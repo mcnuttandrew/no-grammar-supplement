@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <delimitedFileSource fileName="/pubs/gpl/data/Employee data.csv" header="true"
+    id="empdata"/>
+  <sourceVariable categorical="true" id="jobcat" source="empdata"
+    sourceName="jobcat"/>
+  <graph>
+    <coordinates>
+      <dimension>
+        <axis>
+          <label>
+            <text>Job Category</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Count</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <interval>
+      <summaryStatistic method="count"/>
+      <x variable="jobcat"/>
+    </interval>
+  </graph>
+</visualization>

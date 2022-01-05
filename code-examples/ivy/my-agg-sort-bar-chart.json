@@ -1,0 +1,85 @@
+{
+  "templateName": "My Agg Sort Bar Chart",
+  "templateDescription": "FILL IN DESCRIPTION",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [{\"filter\": \"datum.year == [filter]\"}],\n  \"height\": {\"step\": 17},\n  \"mark\": {\"type\": \"bar\", \"color\": \"[color]\"},\n  \"encoding\": {\n    \"y\": {\"field\": \"[yDim]\", \"type\": \"ordinal\", \n          \"sort\": {\"$if\": \"sort.includes('true')\", \"true\": \"-x\"}},\n    \"x\": {\"aggregate\": \"sum\", \"field\": \"[xDim]\"}\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"purple\"",
+            "value": "\"purple\""
+          },
+          {
+            "display": "\"steelblue\"",
+            "value": "\"steelblue\""
+          },
+          {
+            "display": "\"black\"",
+            "value": "\"black\""
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "sort",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "filter",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "1850",
+          "1860",
+          "1870",
+          "1880",
+          "1900",
+          "1910",
+          "1920",
+          "1930",
+          "1940",
+          "1950",
+          "1960",
+          "1970",
+          "1980",
+          "1990",
+          "2000"
+        ],
+        "defaultValue": null
+      }
+    }
+  ],
+  "templateAuthor": "Lupus-Clock-18",
+  "customCards": []
+}

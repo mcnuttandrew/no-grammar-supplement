@@ -1,0 +1,48 @@
+{
+  "templateName": "Splom",
+  "templateDescription": "Scatterplot matrices, for exploration convience! Features click+drag zooming.",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"repeat\": {\n    \"row\": \"[columns]\",\n    \"column\": \"[columns]\"\n  },\n  \"spec\": {\n    \"height\": \"[Size]\",\n    \"width\": \"[Size]\",\n    \"mark\": \"point\",\n    \"selection\": {\n      \"brush\": {\n        \"type\": \"interval\",\n        \"resolve\": \"union\",\n        \"on\": \"[mousedown[event.shiftKey], window:mouseup] > window:mousemove!\",\n        \"translate\": \"[mousedown[event.shiftKey], window:mouseup] > window:mousemove!\",\n        \"zoom\": \"wheel![event.shiftKey]\"\n      },\n      \"grid\": {\n        \"type\": \"interval\",\n        \"resolve\": \"global\",\n        \"bind\": \"scales\",\n        \"translate\": \"[mousedown[!event.shiftKey], window:mouseup] > window:mousemove!\",\n        \"zoom\": \"wheel![!event.shiftKey]\"\n      }\n    },\n    \"encoding\": {\n      \"x\": {\"field\": {\"repeat\": \"column\"}, \"type\": \"quantitative\"},\n      \"y\": {\n        \"field\": {\"repeat\": \"row\"},\n        \"type\": \"quantitative\",\n        \"axis\": {\"minExtent\": 20}\n      },\n      \"color\": {\n        \"condition\": {\n          \"selection\": \"brush\",\n          \"field\": \"[Color]\",\n          \"type\": \"nominal\"\n        },\n\n        \"value\": \"grey\"\n      }\n    }\n  }\n}\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "columns",
+      "type": "MultiDataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true,
+        "minNumberOfTargets": "1"
+      }
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Section3",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Size",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "100"
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

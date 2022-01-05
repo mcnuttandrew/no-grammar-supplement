@@ -1,0 +1,143 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 500,
+  "height": 300,
+  "padding": 2.5,
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        { "id": 1, "name": "flare" },
+        { "id": 12, "name": "data", "parent": 1,  "size": 200 },
+        { "id": 13, "name": "analytics", "parent": 1 },
+        { "id": 131, "name": "AgglomerativeCluster", "parent": 13, "size": 150 },
+        { "id": 132, "name": "CommunityStructure", "parent": 13, "size": 100 }
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "size",
+          "sort": {"field": "value"},
+          "round": true,
+          "method": "squarify",
+          "ratio": 1.6,
+          "size": [{"signal": "width"}, {"signal": "height"}]
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": "tree",
+      "transform": [{ "type": "filter", "expr": "datum.children" }]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "tree",
+        "values": [
+          { "id": 121, "name": "test3", "parent": 12, "size": 50},
+          { "id": 122, "name": "test4", "parent": 12, "size": 50},
+          { "id": 123, "name": "test5", "parent": 12, "size": 25},
+          { "id": 124, "name": "test6", "parent": 12, "size": 75},
+          {"id": 1311, "name": "test7", "parent": 131, "size": 70},
+          {"id": 1312, "name": "test8", "parent": 131, "size": 40},
+          {"id": 1313, "name": "test9", "parent": 131, "size": 40},
+          { "id": 1321, "name": "test", "parent": 132, "size": 50 },
+          { "id": 1322, "name": "test2", "parent": 132, "size": 50 }
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": [
+        "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#e6550d",
+        "#fd8d3c", "#fdae6b", "#fdd0a2", "#31a354", "#74c476",
+        "#a1d99b", "#c7e9c0", "#756bb1", "#9e9ac8", "#bcbddc",
+        "#dadaeb", "#636363", "#969696", "#bdbdbd", "#d9d9d9"
+      ]
+    },
+    {
+      "name": "size",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [80, 28, 20, 14]
+    },
+    {
+      "name": "opacity",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [0.15, 0.5, 0.8, 1.0]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "fill": {"scale": "color", "field": "name"}
+        },
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "stroke": {"value": "#fff"}
+        },
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+          "fill": {"value": "transparent"}
+        },
+        "hover": {
+          "fill": {"value": "red"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "font": {"value": "Helvetica Neue"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "name"},
+          "fontSize": {"scale": "size", "field": "depth"},
+          "fillOpacity": {"scale": "opacity", "field": "depth"}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    }
+  ]
+}

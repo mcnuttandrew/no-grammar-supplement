@@ -1,0 +1,177 @@
+{
+  "templateName": "HorizonChart",
+  "templateDescription": "Display trends over a variable (such as time) using this folded area chart.",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"width\": 450,\n  \"height\": 100,\n  \"signals\": [\n    {\"name\": \"layers\", \"value\": \"[NumLayers]\"},\n    {\"name\": \"height\", \"update\": \"floor(200 / layers)\"},\n    {\"name\": \"vheight\", \"update\": \"height * layers\"},\n    {\"name\": \"opacity\", \"update\": \"pow(layers, -2/3)\"}\n  ],\n  \"data\": [\n    {\n      \"name\": \"layer_indices\",\n      \"values\": [0, 1, 2, 3],\n      \"transform\": [\n        {\"type\": \"filter\", \"expr\": \"datum.data < layers\"},\n        {\"type\": \"formula\", \"expr\": \"datum.data * -height\", \"as\": \"offset\"}\n      ]\n    },\n    {\n      \"name\": \"table\",\n      \"values\": \"myData\",\n      \"transform\": [\n        {\"type\": \"formula\", \"as\": \"xAxis\", \"expr\": \"[type](datum['[xDim]'])\"},\n        {\"type\": \"collect\", \"sort\": {\"field\": \"[xDim]\"}},\n        {\"type\": \"aggregate\", \"groupby\": [\"xAxis\"], \"fields\": [\"[yDim]\"], \"ops\": [\"[Aggregate]\"], \"as\": [\"y\"]}\n      ]\n    }\n  ],\n  \"scales\": [\n    {\"name\": \"x\", \"type\": \"time\", \"range\": \"width\", \"domain\": {\"data\": \"table\", \"field\": \"xAxis\"}},\n    {\n      \"name\": \"y\",\n      \"type\": \"linear\",\n      \"range\": [{\"signal\": \"vheight\"}, 0],\n      \"nice\": true,\n      \"zero\": true,\n      \"domain\": {\"data\": \"table\", \"field\": \"y\"}\n    }\n  ],\n  \"axes\": [{\"orient\": \"bottom\", \"scale\": \"x\", \"title\": \"[Aggregate] [yDim] per [xDim]\"}],\n  \"marks\": [\n    {\n      \"type\": \"group\",\n      \"encode\": {\n        \"update\": {\n          \"width\": {\"field\": {\"group\": \"width\"}},\n          \"height\": {\"field\": {\"group\": \"height\"}},\n          \"clip\": {\"value\": true}\n        }\n      },\n      \"marks\": [\n        {\n          \"type\": \"group\",\n          \"from\": {\"data\": \"layer_indices\"},\n          \"encode\": {\"update\": {\"y\": {\"field\": \"offset\"}}},\n          \"marks\": [\n            {\n              \"type\": \"area\",\n              \"from\": {\"data\": \"table\"},\n              \"encode\": {\n                \"enter\": {\n                  \"interpolate\": {\"value\": \"[interpolate]\"},\n                  \"x\": {\"scale\": \"x\", \"field\": \"xAxis\"},\n                  \"fill\": {\"value\": \"[color]\"}\n                },\n                \"update\": {\n                  \"y\": {\"scale\": \"y\", \"field\": \"y\"},\n                  \"y2\": {\"scale\": \"y\", \"value\": 0},\n                  \"fillOpacity\": {\"signal\": \"opacity\"}\n                }\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+  "templateLanguage": "vega",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "type",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "number",
+            "value": "\"toNumber\""
+          },
+          {
+            "display": "time",
+            "value": "\"toDate\""
+          }
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "name": "interpolate",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"monotone\"",
+            "value": "\"monotone\""
+          },
+          {
+            "display": "\"linear\"",
+            "value": "\"linear\""
+          },
+          {
+            "display": "\"step\"",
+            "value": "\"step\""
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "NumLayers",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "2",
+            "value": "2"
+          },
+          {
+            "display": "3",
+            "value": "3"
+          },
+          {
+            "display": "4",
+            "value": "4"
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "Aggregate",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"average\"",
+            "value": "\"average\""
+          },
+          {
+            "display": "\"sum\"",
+            "value": "\"sum\""
+          },
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"max\"",
+            "value": "\"max\""
+          },
+          {
+            "display": "\"min\"",
+            "value": "\"min\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          },
+          {
+            "display": "\"asd\"",
+            "value": "\"asd\""
+          }
+        ]
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

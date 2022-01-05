@@ -1,0 +1,23 @@
+{
+  "operations": [
+    {
+      "$match": { "MotherAge": [15, 46] }
+    },
+    {
+      "$aggregate": {
+        "$bin": { "MotherAge": 6 },
+        "$collect": {
+          "Babies": { "$count": "*" }
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "bar",
+        "color": "steelblue",
+        "x": "MotherAge",
+        "height": "Babies"
+      }
+    }
+  ]
+}

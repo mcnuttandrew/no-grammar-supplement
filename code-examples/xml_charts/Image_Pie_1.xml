@@ -1,0 +1,54 @@
+
+
+
+
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string></string>
+			<string></string>
+			<string></string>
+		</row>
+		<row url='images/pie.jpg'>
+			<string></string>
+			<number shadow='high' label='Region A'>17</number>
+			<number shadow='high' label='Region B'>35</number>
+			<number shadow='high' label='Region C'>85</number>
+		</row>
+	</chart_data>
+	<chart_label shadow='low' color='aaddff' alpha='90' size='12' prefix='$' suffix=' mil' position='circular' />
+	<chart_pref select='true' />
+	<chart_rect x='120' y='75' width='275' height='175' positive_alpha='0' />
+	<chart_transition type='dissolve' duration='.5' />
+	<chart_type>image pie</chart_type>
+	
+	<draw>
+		<rect transition='dissolve' duration='.5' bevel='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='444477' line_thickness='0' />
+		<text transition='dissolve' duration='.5' layer='background' shadow='high2' bevel='thin' color='ff4400' alpha='90' rotation='-90' size='80' x='-30' y='306' width='500' height='200'>revenue</text>
+		<text transition='dissolve' duration='.5' layer='background' shadow='low' color='0' alpha='15' rotation='0' size='79' x='45' y='-12' width='500' height='200'>distribution</text>
+	</draw>
+	<filter>
+		<shadow id='high' distance='0' angle='45' alpha='65' blurX='20' blurY='20' />
+		<shadow id='high2' distance='5' angle='45' alpha='35' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<bevel id='bg' angle='-90' blurX='0' blurY='200' distance='50' highlightAlpha='0' shadowAlpha='15' type='inner' />
+		<bevel id='thin' angle='45' blurX='3' blurY='3' distance='1' highlightAlpha='15' shadowAlpha='15' type='inner' />
+	</filter>
+		
+	<series_explode>
+		<number>40</number>
+		<number>40</number>
+		<number>0</number>
+	</series_explode>
+   
+</chart>
+
+
+
+
+
+
+
+

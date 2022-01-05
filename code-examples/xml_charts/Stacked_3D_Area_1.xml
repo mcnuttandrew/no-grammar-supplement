@@ -1,0 +1,73 @@
+
+
+
+
+<chart>
+
+	<axis_category margin='false' size='12' alpha='75' />
+	<axis_value size='10' color='ffffff' alpha='60' steps='6' prefix='' suffix='' decimals='0' separator='' show_min='false' />
+
+	<chart_border color='000000' top_thickness='1' bottom_thickness='2' left_thickness='1' right_thickness='1' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2006</string>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number tooltip='$12 Mil'>12</number>
+			<number tooltip='$50 Mil'>50</number>
+			<number tooltip='$55 Mil'>35</number>
+			<number tooltip='$65 Mil'>65</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number tooltip='$27 Mil'>27</number>
+			<number tooltip='$30 Mil'>30</number>
+			<number tooltip='$60 Mil'>60</number>
+			<number tooltip='$80 Mil'>80</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='000000' thickness='1' />
+	<chart_guide radius='3' fill_color='ff6600' fill_alpha='75' line_thickness='0' />
+	<chart_rect x='80' y='90' width='370' height='160' positive_color='88ff88' positive_alpha='30' negative_color='ff0000' negative_alpha='10' />
+	<chart_pref min_x='0' max_x='70' min_y='0' max_y='60' />
+	<chart_transition type='slide_down' delay='0' duration='1' order='series' />
+	<chart_type>stacked 3d area</chart_type>
+
+	<draw>
+		<text shadow='high' transition='dissolve' delay='0' duration='1' color='ffffff' alpha='30' size='68' x='-02' y='17' width='500' height='150'>stacked region</text>
+		<text shadow='low' transition='dissolve' delay='0' duration='1' color='000066' alpha='20' rotation='0' size='45' x='4' y='-11' width='200' height='50' h_align='left' v_align='top'>report</text>
+		<text layer='background' rotation='-90' color='000000' alpha='4' size='50' x='0' y='300' width='400' height='200'>|||||||||||||||||||||||||||</text>
+	</draw>
+
+	<filter>
+		<bevel id='bg' angle='45' blurX='200' blurY='200' distance='20' highlightAlpha='75' highlightColor='ffffff' shadowColor='000000' shadowAlpha='20' type='inner' />
+		<bevel id='bevel1' angle='45' blurX='30' blurY='30' distance='10' highlightAlpha='30' shadowAlpha='35' type='full' />
+		<bevel id='bevel2' angle='45' blurX='30' blurY='30' distance='10' highlightAlpha='20' shadowAlpha='15' type='full' />
+		<glow id='glow1' color='ee88ff' alpha='100' blurX='50' blurY='50' strength='1' quality='2' inner='false'  />   
+		<shadow id='high' distance='5' angle='45' color='000000' alpha='50' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' color='000000' alpha='35' blurX='5' blurY='5' />
+	</filter>
+	
+	<legend shadow='low' type='dissolve' delay='0' duration='1' x='150' y='7' width='170' height='25' margin='0' line_color='000000' fill_alpha='0' line_alpha='0' line_thickness='0' bullet='circle' size='12' color='ffffff' alpha='75' />
+	<tooltip color='ff6600' alpha='80' size='12' background_color_1='000000' background_alpha='75' shadow='low' />
+
+	<series_color>
+		<color>844648</color>
+		<color>4d4d4d</color>
+		<color>5a4b6e</color>
+	</series_color>
+
+</chart>
+
+
+
+
+
+
+
+

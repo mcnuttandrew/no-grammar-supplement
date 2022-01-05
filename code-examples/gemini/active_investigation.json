@@ -1,0 +1,24 @@
+{
+  "title": "Adding Mark Layers",
+  "sSpecURL": "./test/20191109_TEST/vgSpecs/xy-qq-circle.vg.json",
+  "eSpecURL": "./test/20191109_TEST/vgSpecs/xy-qq-circle.vg.json",
+  "gemSpecs": [
+    {
+      "meta": {"name": "All at Once"},
+      "timeline": {
+        "sync": [
+          {
+            "component": {"mark": "highlight_bar"},
+            "timing": {"duration": {"ratio": 1}}
+          },
+          {"component": {"mark": "rule"}, "timing": {"duration": {"ratio": 1}}},
+          {
+            "component": {"mark": "annotation_label"},
+            "timing": {"duration": {"ratio": 1}}
+          }
+        ]
+      },
+      "totalDuration": 2000
+    }
+  ]
+}

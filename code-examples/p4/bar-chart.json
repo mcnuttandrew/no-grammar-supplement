@@ -1,0 +1,31 @@
+{
+  "views": [
+    {
+      "width": 640,
+      "height": 420,
+      "padding": {
+        "left": 150, "right": 10, "top": 10, "bottom": 60
+      }
+    }
+  ],
+  
+  "operations": [
+    {
+      "$aggregate": {
+        "$group": "MotherEdu",
+        "$collect": {
+          "Babies": {"$count": "*"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "rect",
+        "color": "steelblue",
+        "y": "MotherEdu",
+        "width": "Babies",
+        "zero": true
+      }
+    }
+  ]
+}

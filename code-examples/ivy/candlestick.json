@@ -1,0 +1,90 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "CandleStick",
+  "templateDescription": "See the variance in several critical statistics across a dataset",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A box plot example showing aggregate statistics for iris flower data.\",\n  \"width\": 500,\n  \"padding\": 5,\n  \"config\": {\n    \"axisBand\": {\"bandPosition\": 1, \"tickExtra\": true, \"tickOffset\": 0}\n  },\n  \"signals\": [\n    {\"name\": \"plotWidth\", \"value\": 60},\n    {\"name\": \"height\", \"update\": \"400\"}\n  ],\n  \"data\": [{\"name\": \"table\", \"values\": \"myData\"}],\n  \"scales\": [\n    {\n      \"name\": \"xscale\",\n      \"type\": \"band\",\n      \"range\": \"width\",\n      \"domain\": {\"data\": \"table\", \"field\": \"[xDim]\"}\n    },\n    {\n      \"name\": \"yscale\",\n      \"type\": \"linear\",\n      \"range\": \"height\",\n      \"round\": true,\n      \"domain\": {\"data\": \"table\", \"field\": \"[yDim]\"},\n      \"zero\": \"[Zeroes]\",\n      \"nice\": true\n    }\n  ],\n  \"axes\": [\n    {\"orient\": \"bottom\", \"scale\": \"xscale\", \"zindex\": 1},\n    {\"orient\": \"left\", \"scale\": \"yscale\", \"tickCount\": 5, \"zindex\": 1}\n  ],\n  \"marks\": [\n    {\n      \"type\": \"group\",\n      \"from\": {\n        \"facet\": {\"data\": \"table\", \"name\": \"group\", \"groupby\": \"[xDim]\"}\n      },\n      \"encode\": {\n        \"enter\": {\n          \"xc\": {\"scale\": \"xscale\", \"field\": \"[xDim]\", \"band\": 0.5},\n          \"width\": {\"signal\": \"plotWidth\"},\n          \"height\": {\"signal\": \"width\"}\n        }\n      },\n      \"data\": [\n        {\n          \"name\": \"summary\",\n          \"source\": \"group\",\n          \"transform\": [\n            {\n              \"type\": \"aggregate\",\n              \"fields\": [\"[yDim]\", \"[yDim]\", \"[yDim]\", \"[yDim]\", \"[yDim]\"],\n              \"ops\": [\"min\", \"q1\", \"median\", \"q3\", \"max\"],\n              \"as\": [\"min\", \"q1\", \"median\", \"q3\", \"max\"]\n            }\n          ]\n        }\n      ],\n      \"marks\": [\n        {\n          \"type\": \"rect\",\n          \"from\": {\"data\": \"summary\"},\n          \"encode\": {\n            \"enter\": {\"fill\": {\"value\": \"black\"}, \"width\": {\"value\": 1}},\n            \"update\": {\n              \"xc\": {\"signal\": \"plotWidth / 2\", \"offset\": -0.5},\n              \"y\": {\"scale\": \"yscale\", \"field\": \"min\"},\n              \"y2\": {\"scale\": \"yscale\", \"field\": \"max\"}\n            }\n          }\n        },\n        {\n          \"type\": \"rect\",\n          \"from\": {\"data\": \"summary\"},\n          \"encode\": {\n            \"enter\": {\n              \"fill\": {\"value\": \"[Color]\"},\n              \"cornerRadius\": {\"value\": 4}\n            },\n            \"update\": {\n              \"xc\": {\"signal\": \"plotWidth / 2\"},\n              \"width\": {\"signal\": \"plotWidth / 2\"},\n              \"y\": {\"scale\": \"yscale\", \"field\": \"q1\"},\n              \"y2\": {\"scale\": \"yscale\", \"field\": \"q3\"}\n            }\n          }\n        },\n        {\n          \"type\": \"rect\",\n          \"from\": {\"data\": \"summary\"},\n          \"encode\": {\n            \"enter\": {\"fill\": {\"value\": \"white\"}, \"height\": {\"value\": 2}},\n            \"update\": {\n              \"xc\": {\"signal\": \"plotWidth / 2\"},\n              \"width\": {\"signal\": \"plotWidth / 2\"},\n              \"y\": {\"scale\": \"yscale\", \"field\": \"median\"}\n            }\n          }\n        }\n      ]\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Zeroes",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    }
+  ]
+}

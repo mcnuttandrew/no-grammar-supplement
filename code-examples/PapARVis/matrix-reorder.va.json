@@ -1,0 +1,238 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 300,
+  "height": 300,
+  "padding": 2,
+
+  "signals": [
+    { "name": "defaultGroup", "value": "0" }
+  ],
+
+  "data": [
+    {
+      "name": "links",
+      "url":"http://vegaar.hkustvis.org/data/miserables-links.json"
+    },
+    {
+      "name": "sourceDegree",
+      "source": "links",
+      "transform": [
+        {"type": "aggregate", "groupby": ["source"]}
+      ]
+    },
+    {
+      "name": "targetDegree",
+      "source": "links",
+      "transform": [
+        {"type": "aggregate", "groupby": ["target"]}
+      ]
+    },
+    {
+      "name": "nodes",
+      "url": "http://vegaar.hkustvis.org/data/miserables-nodes.json",
+      "transform": [
+        { "type": "formula", "as": "order", "expr": "datum.group" },
+        { "type": "window", "sort": {"field": "order"}, "ops": ["row_number"], "as": ["order"] },
+        {
+          "type": "lookup", "from": "sourceDegree", "key": "source",
+          "fields": ["id"], "as": ["sourceDegree"],
+          "default": {"count": 0}
+        },
+        {
+          "type": "lookup", "from": "targetDegree", "key": "target",
+          "fields": ["id"], "as": ["targetDegree"],
+          "default": {"count": 0}
+        },
+        {
+          "type": "formula", "as": "degree",
+          "expr": "datum.sourceDegree.count + datum.targetDegree.count"
+        }
+      ]
+    },
+    {
+      "name": "edges",
+      "source": "links",
+      "transform": [
+        {
+          "type": "lookup", "from": "nodes", "key": "id",
+          "fields": ["source", "target"], "as": ["sourceNode", "targetNode"]
+        },
+        {
+          "type": "formula", "as": "group",
+          "expr": "datum.sourceNode.group === datum.targetNode.group ? datum.sourceNode.group : defaultGroup"
+        }
+      ]
+    },
+    {
+      "name": "cross",
+      "source": "nodes",
+      "transform": [ { "type": "cross" } ]
+    }
+  ],
+
+  "ar":{
+    "mode": "ON",
+    "data": [
+      {
+        "name": "nodes",
+        "values": [
+          {"name":"Enjolras","group":"h","id":58},
+          {"name":"Combeferre","group":"h","id":59},
+          {"name":"Prouvaire","group":"h","id":60},
+          {"name":"Feuilly","group":"h","id":61},
+          {"name":"Courfeyrac","group":"h","id":62},
+          {"name":"Bahorel","group":"h","id":63},
+          {"name":"Bossuet","group":"h","id":64},
+          {"name":"Joly","group":"h","id":65},
+          {"name":"Grantaire","group":"h","id":66},
+          {"name":"MotherPlutarch","group":"i","id":67},
+          {"name":"Gueulemer","group":"i","id":68},
+          {"name":"Babet","group":"i","id":69},
+          {"name":"Claquesous","group":"i","id":70},
+          {"name":"Montparnasse","group":"i","id":71},
+          {"name":"Toussaint","group":"i","id":72},
+          {"name":"Mme.Hucheloup","group":"h","id":76},
+          {"name":"Brujon","group":"j","id":75},
+          {"name":"Child1","group":"j","id":73},
+          {"name":"Child2","group":"j","id":74}
+        ]
+      },{
+        "name": "links",
+        "values": [
+
+          {"source":59,"target":58,"value":15},
+          {"source":60,"target":58,"value":4},
+          {"source":60,"target":59,"value":2},
+          {"source":61,"target":58,"value":6},
+          {"source":61,"target":60,"value":2},
+          {"source":61,"target":59,"value":5},
+          {"source":62,"target":58,"value":17},
+          {"source":62,"target":59,"value":13},
+          {"source":62,"target":61,"value":6},
+          {"source":62,"target":60,"value":3},
+          {"source":63,"target":59,"value":5},
+          {"source":63,"target":62,"value":6},
+          {"source":63,"target":58,"value":4},
+          {"source":63,"target":61,"value":3},
+          {"source":63,"target":60,"value":2},
+          {"source":64,"target":62,"value":12},
+          {"source":64,"target":63,"value":4},{"source":64,"target":58,"value":10},{"source":64,"target":61,"value":6},{"source":64,"target":60,"value":2},
+          {"source":64,"target":59,"value":9},{"source":65,"target":63,"value":5},{"source":65,"target":64,"value":7},{"source":65,"target":62,"value":5},
+          {"source":65,"target":58,"value":5},{"source":65,"target":61,"value":5},{"source":65,"target":60,"value":2},{"source":65,"target":59,"value":5},
+          {"source":66,"target":64,"value":3},{"source":66,"target":58,"value":3},{"source":66,"target":59,"value":1},
+          {"source":66,"target":62,"value":2},{"source":66,"target":65,"value":2},{"source":66,"target":63,"value":1},{"source":66,"target":61,"value":1},
+          {"source":66,"target":60,"value":1},
+          {"source":69,"target":68,"value":6},
+          {"source":70,"target":69,"value":4},{"source":70,"target":68,"value":4},
+          {"source":70,"target":58,"value":1},{"source":71,"target":69,"value":2},
+          {"source":71,"target":68,"value":2},{"source":71,"target":70,"value":2},
+          {"source":74,"target":73,"value":3},{"source":75,"target":69,"value":3},{"source":75,"target":68,"value":3},{"source":75,"target":70,"value":1},{"source":75,"target":71,"value":1},{"source":76,"target":64,"value":1},{"source":76,"target":65,"value":1},{"source":76,"target":66,"value":1},{"source":76,"target":63,"value":1},{"source":76,"target":62,"value":1},{"source":76,"target":58,"value":1}
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "position",
+      "type": "band",
+      "domain": {"data": "nodes", "field": "order", "sort": true},
+      "range": {"step": 10}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": "category",
+      "domain": {
+        "fields": [
+          {"data": "edges", "field": "group"},
+          {"signal": "defaultGroup"}
+        ],
+        "sort": true
+      }
+    },
+    {
+      "name": "fontSizeScale",
+      "type": "linear",
+      "domain":{
+        "data": "nodes", "field": "degree"
+      },
+      "range": [10, 13]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "cross"},
+      "encode": {
+        "update": {
+          "x": {"scale": "position", "field": "a.order"},
+          "y": {"scale": "position", "field": "b.order"},
+          "width": {"scale": "position", "band": 1, "offset": -1},
+          "height": {"scale": "position", "band": 1, "offset": -1},
+          "fill": {"value": "#f5f5f5"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "edges"},
+      "encode": {
+        "update": {
+          "x": {"scale": "position", "field": "sourceNode.order"},
+          "y": {"scale": "position", "field": "targetNode.order"},
+          "width": {"scale": "position", "band": 1, "offset": -1},
+          "height": {"scale": "position", "band": 1, "offset": -1},
+          "fill": {"scale": "color", "field": "group"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "edges"},
+      "encode": {
+        "update": {
+          "x": {"scale": "position", "field": "targetNode.order"},
+          "y": {"scale": "position", "field": "sourceNode.order"},
+          "width": {"scale": "position", "band": 1, "offset": -1},
+          "height": {"scale": "position", "band": 1, "offset": -1},
+          "fill": {"scale": "color", "field": "group"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "columns",
+      "from": {"data": "nodes"},
+      "encode": {
+        "update": {
+          "x": {"scale": "position", "field": "order", "band": 0.5},
+          "y": {"offset": -2},
+          "text": {"field": "name"},
+          "fontSize": {"field": "degree", "scale":"fontSizeScale"},
+          "angle": {"value": -90},
+          "align": {"value": "left"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "black"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "rows",
+      "from": {"data": "nodes"},
+      "encode": {
+        "update": {
+          "x": {"offset": -2},
+          "y": {"scale": "position", "field": "order", "band": 0.5},
+          "text": {"field": "name"},
+          "fontSize": {"field": "degree", "scale":"fontSizeScale"},
+          "align": {"value": "right"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "black"}
+        }
+      }
+    }
+  ]
+}

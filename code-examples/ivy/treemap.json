@@ -1,0 +1,144 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "Treemap",
+  "templateDescription": "Use a tree map to show a data tree where objects are organized into parent-child hierarchies",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"An example of treemap layout for hierarchical data.\",\n  \"width\": 960,\n  \"height\": 500,\n  \"padding\": 2.5,\n  \"autosize\": \"none\",\n  \"data\": [\n    {\n      \"name\": \"tree\",\n      \"values\": \"myData\",\n      \"transform\": [\n        {\"type\": \"nest\", \"keys\": \"[Pivots]\", \"generate\": true},\n        {\n          \"type\": \"treemap\",\n          \"field\": {\"$if\": \"Value\", \"true\": \"[Value]\"},\n          \"sort\": {\n            \"$if\": \"Value\", \"true\": {\"field\": \"[Value]\"}\n          },\n          \"round\": true,\n          \"method\": \"[layout]\",\n          \"ratio\": \"[aspectRatio]\",\n          \"size\": [{\"signal\": \"width\"}, {\"signal\": \"height\"}]\n        },\n                {\n  \"type\": \"collect\",\n  \"sort\": {\"field\": \"depth\"}\n}\n      ]\n    },\n    {\n      \"name\": \"nodes\",\n      \"source\": \"tree\",\n      \"transform\": [{\"type\": \"filter\", \"expr\": \"datum.children\"}]\n    },\n    {\n      \"name\": \"leaves\",\n      \"source\": \"tree\",\n      \"transform\": [{\"type\": \"filter\", \"expr\": \"!datum.children\"}]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": {\"data\": \"tree\", \"field\": \"[Color]\"},\n      \"range\": {\"scheme\": \"[scheme]\"}\n    },\n    {\n      \"name\": \"size\",\n      \"type\": \"ordinal\",\n      \"domain\": [0, 1, 2, 3],\n      \"range\": [256, 28, 20, 14]\n    },\n    {\n      \"name\": \"opacity\",\n      \"type\": \"ordinal\",\n      \"domain\": [0, 1, 2, 3],\n      \"range\": [0.15, 0.5, 0.8, 1]\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"rect\",\n      \"from\": {\"data\": \"tree\"},\n      \"interactive\": false,\n      \"encode\": {\n        \"enter\": {\"fill\": {\"signal\": \"scale('color', datum['[Color]'])\"}},\n        \"update\": {\n          \"x\": {\"field\": \"x0\"},\n          \"y\": {\"field\": \"y0\"},\n          \"x2\": {\"field\": \"x1\"},\n          \"y2\": {\"field\": \"y1\"}\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"from\": {\"data\": \"leaves\"},\n      \"encode\": {\n        \"enter\": {\"stroke\": {\"value\": \"#fff\"}},\n        \"update\": {\n          \"x\": {\"field\": \"x0\"},\n          \"y\": {\"field\": \"y0\"},\n          \"x2\": {\"field\": \"x1\"},\n          \"y2\": {\"field\": \"y1\"},\n          \"fill\": {\"value\": \"transparent\"}\n        },\n        \"hover\": {\"fill\": {\"value\": \"red\"}}\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"from\": {\"data\": \"nodes\"},\n      \"interactive\": false,\n      \"encode\": {\n        \"enter\": {\n          \"font\": {\"value\": \"Helvetica Neue, Arial\"},\n          \"align\": {\"value\": \"center\"},\n          \"baseline\": {\"value\": \"middle\"},\n          \"fill\": {\"value\": \"#000\"},\n          \"text\": {\"field\": \"[Color]\"},\n          \"fontSize\": {\"scale\": \"size\", \"field\": \"depth\"},\n          \"fillOpacity\": {\"scale\": \"opacity\", \"field\": \"depth\"}\n        },\n        \"update\": {\n          \"x\": {\"signal\": \"0.5 * (datum.x0 + datum.x1)\"},\n          \"y\": {\"signal\": \"0.5 * (datum.y0 + datum.y1)\"}\n        }\n      }\n    }\n  ]\n}\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Pivots",
+      "type": "MultiDataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true,
+        "minNumberOfTargets": 0
+      }
+    },
+    {
+      "name": "Value",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "layout",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"squarify\"",
+            "value": "\"squarify\""
+          },
+          {
+            "display": "\"binary\"",
+            "value": "\"binary\""
+          },
+          {
+            "display": "\"slicedice\"",
+            "value": "\"slicedice\""
+          }
+        ],
+        "defaultValue": "\"squarify\""
+      }
+    },
+    {
+      "name": "aspectRatio",
+      "type": "Slider",
+      "config": {
+        "minVal": "1",
+        "maxVal": "5",
+        "step": "0.1",
+        "defaultValue": "1.6"
+      }
+    },
+    {
+      "name": "scheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ]
+      },
+      "displayName": "Color Scheme"
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    }
+  ]
+}

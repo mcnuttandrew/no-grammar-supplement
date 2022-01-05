@@ -1,0 +1,26 @@
+{
+    "charts": [
+        {
+            "source": "./charts/polio_s1.dsvg"
+        },
+        {
+            "source": "./charts/polio_s2.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".symbol, .text",
+            "grouping": {
+                "groupBy": "Year",
+                "delay": 200
+            },
+            "effects": [
+                {
+                    "type": "magic move",
+                    "easing": "easeOutCubic",
+                    "duration": 1000
+                }
+            ]
+        }
+    ]
+}

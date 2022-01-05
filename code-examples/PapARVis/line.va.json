@@ -1,0 +1,113 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 500,
+  "height": 200,
+  "padding": 5,
+
+  "signals": [
+    { "name": "strokeColor", "value": "blue"}
+  ],
+
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"ts": 1565703890312, "total": 28},
+        {"ts": 1565703891312, "total": 43},
+        {"ts": 1565703892312, "total": 81},
+        {"ts": 1565703893312, "total": 19},
+        {"ts": 1565703894312, "total": 52},
+        {"ts": 1565703895312, "total": 24},
+        {"ts": 1565703896312, "total": 87}
+
+      ]
+    }
+  ],
+
+  "ar": {
+      "mode": "ON",
+      "data": [{
+          "name": "table",
+          "values": [
+            {"ts": 1565703897312, "total": 17},
+            {"ts": 1565703898312, "total": 68},
+            {"ts": 1565703899312, "total": 49}
+          ]
+      }]
+  },
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "range": "width",
+      "domain": {"data": "table", "field": "ts"}
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "table", "field": "total"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": "category",
+      "domain": {"data": "table", "field": "year"}
+    }
+  ],
+
+  "axes": [
+    {"orient": "bottom", "scale": "x"},
+    {"orient": "left", "scale": "y"}
+  ],
+
+
+  "legends": [
+    {
+      "stroke": "color",
+      "orient": "bottom-left",
+      "title": "A placeholder",
+      "direction": "horizontal",
+      "encode": {
+        "symbols": {
+          "name": "legendSymbol",
+          "interactive": false,
+          "update": {
+            "fill": {"value": "transparent"},
+            "strokeWidth": {"value": 2},
+            "size": {"value": 100}
+          }
+        },
+        "labels": {
+          "name": "legendLabel",
+          "interactive": false
+        }
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "stroke":  {"scale":"color", "field":"year"},
+          "strokeWidth": {"value": 2}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "ts"},
+          "y": {"scale": "y", "field": "total"},
+          "interpolate": {"value": "linear"},
+          "fillOpacity": {"value": 1}
+        },
+        "hover": {
+          "fillOpacity": {"value": 0.5}
+        }
+      }
+    }
+  ]
+}

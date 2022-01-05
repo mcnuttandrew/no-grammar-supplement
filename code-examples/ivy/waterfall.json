@@ -1,0 +1,51 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Waterfall",
+  "templateDescription": "Visualize the rises and falls of quantitative trends",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"width\": \"[Width]\",\n  \"height\": \"[Height]\",\n  \"transform\": [\n    {\"window\": [{\"op\": \"row_number\", \"as\": \"index\"}]},\n    {\"window\": [{\"op\": \"count\", \"field\": \"[Value]\", \"as\": \"count\"}]},\n    {\"window\": [{\"op\": \"sum\", \"field\": \"[Value]\", \"as\": \"sum\"}]},\n    {\"window\": [{\"op\": \"lead\", \"field\": \"[Date]\", \"as\": \"lead\"}]},\n    {\n      \"calculate\": \"datum.lead === null ? datum.row_number : datum.lead\",\n      \"as\": \"lead\"\n    },\n    {\n      \"calculate\": \"datum.row_number === datum.count ? 0 : datum.sum - datum.[Value]\",\n      \"as\": \"previous_sum\"\n    },\n    {\n      \"calculate\": \"datum.row_number === datum.count ? datum.sum : datum.[Value]\",\n      \"as\": \"[Value]\"\n    },\n    {\n      \"calculate\": \"(datum.row_number !== 0 && datum.row_number !== datum.count && datum.[Value] > 0 ? + : ) + datum.[Value]\",\n      \"as\": \"text_[Value]\"\n    },\n    {\"calculate\": \"(datum.sum + datum.previous_sum) / 2\", \"as\": \"center\"},\n    {\n      \"calculate\": \"datum.sum < datum.previous_sum ? datum.sum : \",\n      \"as\": \"sum_dec\"\n    },\n    {\n      \"calculate\": \"datum.sum > datum.previous_sum ? datum.sum : \",\n      \"as\": \"sum_inc\"\n    }\n  ],\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[Date]\",\n      \"type\": \"temporal\",\n      \"sort\": null,\n      \"axis\": {\"labelAngle\": 0, \"title\": \"[Date]\"}\n    }\n  },\n  \"layer\": [\n    {\n      \"mark\": {\"type\": \"bar\", \"size\": 45},\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"previous_sum\",\n          \"type\": \"quantitative\",\n          \"title\": \"[Value]\"\n        },\n        \"y2\": {\"field\": \"sum\"},\n        \"color\": {\n          \"condition\": [\n            {\n              \"test\": \"datum.row_number === 0 || datum.row_number === datum.count\",\n              \"value\": \"#f7e0b6\"\n            },\n            {\"test\": \"datum.sum < datum.previous_sum\", \"value\": \"#f78a64\"}\n          ],\n          \"value\": \"#93c4aa\"\n        }\n      }\n    },\n    {\n      \"mark\": {\n        \"type\": \"rule\",\n        \"color\": \"#404040\",\n        \"opacity\": 1,\n        \"strokeWidth\": 2,\n        \"xOffset\": -22.5,\n        \"x2Offset\": 22.5\n      },\n      \"encoding\": {\n        \"x2\": {\"field\": \"lead\"},\n        \"y\": {\"field\": \"sum\", \"type\": \"quantitative\"}\n      }\n    },\n    {\n      \"mark\": {\"type\": \"text\", \"dy\": -4, \"baseline\": \"bottom\"},\n      \"encoding\": {\n        \"y\": {\"field\": \"sum_inc\", \"type\": \"quantitative\"},\n        \"text\": {\"field\": \"sum_inc\", \"type\": \"nominal\", \"format\": \".2f\"},\n        \"opacity\": {\n          \"condition\": [{\"test\": \"round(datum.sum_inc) === 0\", \"value\": 0}],\n          \"value\": 1\n        }\n      }\n    },\n    {\n      \"mark\": {\"type\": \"text\", \"dy\": 4, \"baseline\": \"top\"},\n      \"encoding\": {\n        \"y\": {\"field\": \"sum_dec\", \"type\": \"quantitative\"},\n        \"text\": {\"field\": \"sum_dec\", \"type\": \"nominal\", \"format\": \".2f\"},\n        \"opacity\": {\n          \"condition\": [{\"test\": \"round(datum.sum_dec) === 0\", \"value\": 0}],\n          \"value\": 1\n        }\n      }\n    },\n    {\n      \"mark\": {\"type\": \"text\", \"fontWeight\": \"bold\", \"baseline\": \"middle\"},\n      \"encoding\": {\n        \"y\": {\"field\": \"center\", \"type\": \"quantitative\"},\n        \"text\": {\"field\": \"text_[Value]\", \"type\": \"nominal\", \"format\": \".2f\"},\n        \"color\": {\n          \"condition\": [\n            {\n              \"test\": \"datum.row_number === 0 || datum.row_number === datum.count\",\n              \"value\": \"#725a30\"\n            }\n          ],\n          \"value\": \"white\"\n        },\n        \"opacity\": {\n          \"condition\": [{\"test\": \"round(datum.text_[Value]) === 0\", \"value\": 0}],\n          \"value\": 1\n        }\n      }\n    }\n  ],\n  \"config\": {\"text\": {\"fontWeight\": \"bold\", \"color\": \"#404040\"}}\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Date",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Value",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "400",
+        "maxVal": "1000",
+        "step": 1,
+        "defaultValue": "800"
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "600",
+        "step": 1,
+        "defaultValue": "450"
+      }
+    }
+  ]
+}

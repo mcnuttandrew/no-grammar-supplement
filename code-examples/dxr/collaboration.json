@@ -1,0 +1,35 @@
+{
+  "data" : {
+    "url" : "collaboration.csv"
+  },
+  "mark" : "cube",
+  "encoding" : {
+    "x" : {
+      "field" : "name1",
+      "type" : "nominal"
+    },
+    "y" : {
+      "field" : "name2",
+      "type" : "nominal"
+    },
+    "z" : {
+      "field" : "time",
+      "type" : "ordinal"
+    },
+    "color" : {
+      "field" : "weight",
+      "type" : "quantitative",
+      "scale" : {
+        "domain": [ 0, 14 ]
+      }
+    },
+    "size" : {
+      "field" : "weight",
+      "type" : "quantitative",
+      "scale": {
+        "domain": [ 0, 14 ],
+        "range": [ 0, 50 ]
+      }
+    }
+  }
+}

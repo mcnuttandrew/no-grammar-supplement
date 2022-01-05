@@ -1,0 +1,77 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' alpha='100' size='10' color='ffaa22' />
+	<axis_ticks value_ticks='false' category_ticks='true' />
+	<axis_value shadow='low' size='10' color='ffffff' alpha='75' />
+	
+	<chart_border top_thickness='0' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>Mon</string>
+			<string>Tue</string>
+			<string>Wed</string>
+			<string>Thu</string>
+			<string>Fri</string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+		</row>
+		<row>
+			<string>region 1</string>
+			<number shadow='high'>95</number>
+			<number>90</number>
+			<number>105</number>
+			<number>85</number>
+			<number>110</number>
+			<null/>
+			<null/>
+			<null/>
+			<number>40</number>
+			<null/>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' thickness='1' />
+	<chart_pref tip='arrow' connect='true' line_thickness='10' point_shape='none' point_size='25' />
+	<chart_rect bevel='chart' x='125' y='80' width='250' height='150' positive_color='bbcccc' positive_alpha='40' />
+	<chart_type>Line</chart_type>
+
+	<draw>
+		<rect bevel='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='96a5aa' line_thickness='0' />
+		<image url='images/dreamstime_2230903.gif' x='308' y='190' width='133' height='114' />
+		<text layer='background' color='738b7b' alpha='80' size='84' x='-1' y='5' width='500' height='100' shadow='high2'>Stock Value</text>
+		<text color='aaff00' alpha='50' size='84' x='-1' y='-14' width='500' height='100' shadow='high' bevel='thin'>Stock Value</text>
+		<text shadow='high' layer='background' rotation='-90' alpha='8' size='50' x='-20' y='300' width='500' height='200'>|||||||||||||||||||||||||||||</text>
+	</draw>
+
+	<filter>
+		<shadow id='high' distance='3' angle='45' color='0' alpha='20' blurX='10' blurY='10' />
+		<shadow id='high2' distance='3' angle='45' color='0' alpha='15' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='2' blurY='2' />
+		<bevel id='bg' angle='-90' blurX='200' blurY='200' distance='30' highlightAlpha='0' shadowAlpha='10' type='inner' />
+		<bevel id='thin' angle='45' blurX='2' blurY='2' distance='1' highlightAlpha='15' shadowAlpha='15' type='inner' />
+		<bevel id='chart' angle='45' blurX='40' blurY='40' distance='15' highlightAlpha='30' shadowAlpha='10' type='full' />
+	</filter>
+	
+	<context_menu full_screen='false' />
+	<legend layout='hide' />
+
+	<series_color>
+		<color>ff5500</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

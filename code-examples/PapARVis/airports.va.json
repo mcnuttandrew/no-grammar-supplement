@@ -1,0 +1,144 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 900,
+  "height": 560,
+  "padding": {"top": 25, "left": 0, "right": 0, "bottom": 0},
+  "autosize": "none",
+
+  "data": [
+    {
+      "name": "airports",
+      "url": "http://vegaar.hkustvis.org/data/airports.json",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.traffic != null"
+        },
+        {
+          "type": "filter",
+          "expr": "datum.x != null && datum.y != null"
+        },
+        {
+          "type": "voronoi", "x": "x", "y": "y"
+        },
+        {
+          "type": "collect", "sort": {
+            "field": "traffic.flights",
+            "order": "descending"
+          }
+        }
+      ]
+    },
+    {
+      "name": "routes",
+      "url": "http://vegaar.hkustvis.org/data/flights-airport2.csv",
+      "format": {"type": "csv", "parse": "auto"},
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "airports", "key": "iata",
+          "fields": ["origin", "destination"], "as": ["source", "target"]
+        },
+        { "type": "filter", "expr": "datum.source && datum.target" },
+        { "type": "linkpath", "shape": "line" }
+      ]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "routes",
+        "values": [
+          {"origin": "ABE", "destination": "CLE", "count": 805},
+          {"origin": "ABE", "destination": "CLT", "count": 465},
+          {"origin": "ABE", "destination": "CVG", "count": 247},
+          {"origin": "ABE", "destination": "DTW", "count": 997},
+          {"origin": "ABE", "destination": "JFK", "count": 3},
+          {"origin": "ABE", "destination": "LGA", "count": 9},
+          {"origin": "ABE", "destination": "ORD", "count": 1425},
+          {"origin": "ABE", "destination": "PHL", "count": 2}
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "size",
+      "type": "linear",
+      "domain": {"data": "airports", "field": "traffic.flights"},
+      "range": [16, 1000]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "image",
+      "encode": {
+        "enter": {
+            "url": {"value":"http://vegaar.hkustvis.org/us.png"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "airports"},
+      "encode": {
+        "enter": {
+          "size": {"scale": "size", "field": "traffic.flights"},
+          "fill": {"value": "steelblue"},
+          "fillOpacity": {"value": 0.8},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1.5}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "name": "cell",
+      "from": {"data": "airports"},
+      "encode": {
+        "enter": {
+          "fill": {"value": "transparent"},
+          "strokeWidth": {"value": 0.35}
+        },
+        "update": {
+          "path": {"field": "path"},
+          "stroke": {"value": null}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "interactive": false,
+      "from": {"data": "routes"},
+      "encode": {
+        "enter": {
+          "path": {"field": "path"},
+          "stroke": {"value": "black"},
+          "strokeOpacity": {"value": 0.35}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {"value": 895},
+          "y": {"value": 0},
+          "fill": {"value": "black"},
+          "fontSize": {"value": 20},
+          "align": {"value": "right"},
+          "text": {"value": "U.S. Airports, 2008"}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+    "charts": [
+        {
+            "source": "./charts/barRace/comp2010",
+            "start": 1,
+            "end": 9
+        },
+        {
+            "source": "./charts/barRace/comp2011",
+            "start": 1,
+            "end": 9
+        },
+        {
+            "source": "./charts/barRace/comp2012",
+            "start": 1,
+            "end": 9
+        },
+        {
+            "source": "./charts/barRace/comp2013",
+            "start": 1,
+            "end": 9
+        }
+    ],
+    "animations": [
+        {
+            "selection": ".icon, .rectangle, .text",
+            "actions": [
+                {
+                    "type": "magic move",
+                    "duration": 600
+                }
+            ]
+        }
+    ]
+}

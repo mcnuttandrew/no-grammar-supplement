@@ -1,0 +1,286 @@
+{
+  "templateName": "2D Histogram Heatmap",
+  "templateDescription": "Visualize bivariate trends, with labels or without! ",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [\n    {\n      \"filter\": {\n        \"and\": [\n          {\"field\": \"[XDim]\", \"valid\": true},\n          {\"field\": \"[YDim]\", \"valid\": true}\n        ]\n      }\n    }\n  ],\n  \"width\": \"[ChartSize]\",\n  \"height\": \"[ChartSize]\",\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[XDim]\",\n      \"type\": \"quantitative\",\n      \"bin\": {\"maxbins\": \"[xBins]\"}\n    },\n    \"y\": {\n      \"field\": \"[YDim]\",\n      \"type\": \"quantitative\",\n      \"bin\": {\"maxbins\": \"[yBins]\"}\n    },\n    \"color\": {\"aggregate\": \"count\", \"type\": \"quantitative\"}\n  },\n  \"layer\": [\n    {\n      \"mark\": \"rect\",\n      \"encoding\": {\"color\": {\"aggregate\": \"count\", \"type\": \"quantitative\", \"scale\": {\"scheme\": \"[ColorScheme]\"}}}\n    },\n    {\n      \"$cond\": {\n        \"query\": \"parameters.showText.includes(true)\",\n        \"true\": {\n          \"mark\": \"text\",\n          \"encoding\": {\n            \"text\": {\"aggregate\": \"count\", \"type\": \"quantitative\"},\n            \"color\": {\"value\": \"black\"}\n          }\n        }\n      }\n    }\n  ],\n  \"config\": {\"view\": {\"stroke\": \"transparent\"}}\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "XDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "xBins",
+      "type": "Slider",
+      "config": {
+        "minVal": "10",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "60"
+      },
+      "displayName": "Number of Bins"
+    },
+    {
+      "name": "YDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yBins",
+      "type": "Slider",
+      "config": {
+        "minVal": "10",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "60"
+      },
+      "displayName": "Number of Bins"
+    },
+    {
+      "name": "Section5",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "ChartSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "600",
+        "step": 1,
+        "defaultValue": "300"
+      },
+      "displayName": "Chart Size"
+    },
+    {
+      "name": "showText",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Show Cell Labels"
+    },
+    {
+      "name": "ColorScheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "blues",
+            "value": "\"blues\""
+          },
+          {
+            "display": "tealblues",
+            "value": "\"tealblues\""
+          },
+          {
+            "display": "teals",
+            "value": "\"teals\""
+          },
+          {
+            "display": "greens",
+            "value": "\"greens\""
+          },
+          {
+            "display": "browns",
+            "value": "\"browns\""
+          },
+          {
+            "display": "oranges",
+            "value": "\"oranges\""
+          },
+          {
+            "display": "reds",
+            "value": "\"reds\""
+          },
+          {
+            "display": "purples",
+            "value": "\"purples\""
+          },
+          {
+            "display": "warmgreys",
+            "value": "\"warmgreys\""
+          },
+          {
+            "display": "greys",
+            "value": "\"greys\""
+          },
+          {
+            "display": "viridis",
+            "value": "\"viridis\""
+          },
+          {
+            "display": "magma",
+            "value": "\"magma\""
+          },
+          {
+            "display": "inferno",
+            "value": "\"inferno\""
+          },
+          {
+            "display": "plasma",
+            "value": "\"plasma\""
+          },
+          {
+            "display": "bluegreen",
+            "value": "\"bluegreen\""
+          },
+          {
+            "display": "bluepurple",
+            "value": "\"bluepurple\""
+          },
+          {
+            "display": "goldgreen",
+            "value": "\"goldgreen\""
+          },
+          {
+            "display": "goldorange",
+            "value": "\"goldorange\""
+          },
+          {
+            "display": "goldred",
+            "value": "\"goldred\""
+          },
+          {
+            "display": "greenblue",
+            "value": "\"greenblue\""
+          },
+          {
+            "display": "orangered",
+            "value": "\"orangered\""
+          },
+          {
+            "display": "purplebluegreen",
+            "value": "\"purplebluegreen\""
+          },
+          {
+            "display": "purpleblue",
+            "value": "\"purpleblue\""
+          },
+          {
+            "display": "purplered",
+            "value": "\"purplered\""
+          },
+          {
+            "display": "redpurple",
+            "value": "\"redpurple\""
+          },
+          {
+            "display": "yellowgreenblue",
+            "value": "\"yellowgreenblue\""
+          },
+          {
+            "display": "yellowgreen",
+            "value": "\"yellowgreen\""
+          },
+          {
+            "display": "yelloworangebrown",
+            "value": "\"yelloworangebrown\""
+          },
+          {
+            "display": "yelloworangered",
+            "value": "\"yelloworangered\""
+          },
+          {
+            "display": "darkblue",
+            "value": "\"darkblue\""
+          },
+          {
+            "display": "darkgold",
+            "value": "\"darkgold\""
+          },
+          {
+            "display": "darkgreen",
+            "value": "\"darkgreen\""
+          },
+          {
+            "display": "darkmulti",
+            "value": "\"darkmulti\""
+          },
+          {
+            "display": "darkred",
+            "value": "\"darkred\""
+          },
+          {
+            "display": "lightgreyred",
+            "value": "\"lightgreyred\""
+          },
+          {
+            "display": "lightgreyteal",
+            "value": "\"lightgreyteal\""
+          },
+          {
+            "display": "lightmulti",
+            "value": "\"lightmulti\""
+          },
+          {
+            "display": "lightorange",
+            "value": "\"lightorange\""
+          },
+          {
+            "display": "lighttealblue",
+            "value": "\"lighttealblue\""
+          },
+          {
+            "display": "blueorange",
+            "value": "\"blueorange\""
+          },
+          {
+            "display": "brownbluegreen",
+            "value": "\"brownbluegreen\""
+          },
+          {
+            "display": "purplegreen",
+            "value": "\"purplegreen\""
+          },
+          {
+            "display": "pinkyellowgreen",
+            "value": "\"pinkyellowgreen\""
+          },
+          {
+            "display": "purpleorange",
+            "value": "\"purpleorange\""
+          },
+          {
+            "display": "redblue",
+            "value": "\"redblue\""
+          },
+          {
+            "display": "redgrey",
+            "value": "\"redgrey\""
+          },
+          {
+            "display": "redyellowblue",
+            "value": "\"redyellowblue\""
+          },
+          {
+            "display": "redyellowgreen",
+            "value": "\"redyellowgreen\""
+          },
+          {
+            "display": "spectral",
+            "value": "\"spectral\""
+          }
+        ],
+        "defaultValue": "\"inferno\""
+      },
+      "displayName": "Color"
+    }
+  ],
+  "templateAuthor": "CanisMajor-Clock-29",
+  "customCards": []
+}

@@ -1,0 +1,12 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "separate"
+  },
+  "rescale": {
+    "type": "equidepth",
+    "levels": 4
+  }
+}

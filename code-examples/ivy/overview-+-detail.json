@@ -1,0 +1,41 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Overview + Detail",
+  "templateDescription": "Get a timeline view of your data with context!",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"vconcat\": [\n    {\n      \"width\": 480,\n      \"mark\": \"area\",\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"[Dim1]\",\n          \"type\": \"temporal\",\n          \"scale\": {\"domain\": {\"selection\": \"brush\"}},\n          \"axis\": {\"title\": \"\"}\n        },\n        \"y\": {\"field\": \"[Dim2]\", \"type\": \"quantitative\", \"stack\": null},\n        \"color\": {\"field\": \"[Color]\", \"type\": \"ordinal\"}\n      }\n    },\n    {\n      \"width\": 480,\n      \"height\": 60,\n      \"mark\": \"area\",\n      \"selection\": {\"brush\": {\"type\": \"interval\", \"encodings\": [\"x\"]}},\n      \"encoding\": {\n        \"x\": {\"field\": \"[Dim1]\", \"type\": \"temporal\"},\n        \"y\": {\n          \"field\": \"[Dim2]\",\n          \"type\": \"quantitative\",\n          \"axis\": {\"tickCount\": 3, \"grid\": false}\n        }\n      }\n    }\n  ]\n}",
+  "widgets": [
+    {
+      "name": "Dim1",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Dim2",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    }
+  ]
+}

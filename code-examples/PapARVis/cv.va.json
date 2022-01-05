@@ -1,0 +1,484 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 350,
+    "height": 500,
+    "background": "#E7E7E7",
+    "padding": {
+        "top": 5,
+        "bottom": 5,
+        "left": 5,
+        "right": 5
+    },
+    "data": [
+        {
+            "name": "raw",
+            "values": [
+                {
+                    "id": 1,
+                    "name": "Computer skills"
+                },
+                {
+                    "id": 2,
+                    "parent": 17,
+                    "name": "Frontend"
+                },
+                {
+                    "id": 3,
+                    "parent": 17,
+                    "name": "Backend"
+                },
+                {
+                    "id": 4,
+                    "parent": 1,
+                    "name": "OOP"
+                },
+                {
+                    "id": 5,
+                    "parent": 1,
+                    "name": "Data Visualization"
+                },
+                {
+                    "id": 6,
+                    "parent": 5,
+                    "size": 5,
+                    "name": "D3"
+                },
+                {
+                    "id": 7,
+                    "parent": 5,
+                    "size": 5,
+                    "name": "Vega"
+                },
+                {
+                    "id": 8,
+                    "parent": 4,
+                    "size": 5,
+                    "name": "C/C++"
+                },
+                {
+                    "id": 10,
+                    "parent": 5,
+                    "size": 4,
+                    "name": "Excel"
+                },
+                {
+                    "id": 11,
+                    "parent": 5,
+                    "size": 3,
+                    "name": "Tableau"
+                },
+                {
+                    "id": 12,
+                    "parent": 3,
+                    "size": 5,
+                    "name": "PHP"
+                },
+                {
+                    "id": 13,
+                    "parent": 3,
+                    "size": 2,
+                    "name": "Python"
+                },
+                {
+                    "id": 14,
+                    "parent": 2,
+                    "size": 5,
+                    "name": "HTML"
+                },
+                {
+                    "id": 15,
+                    "parent": 2,
+                    "size": 4,
+                    "name": "CSS"
+                },
+                {
+                    "id": 16,
+                    "parent": 2,
+                    "size": 5,
+                    "name": "Javascript"
+                },
+                {
+                    "id": 17,
+                    "parent": 1,
+                    "name": "Web development"
+                }
+            ]
+        },
+        {
+            "name": "tree",
+            "source": "raw",
+            "transform": [
+                {
+                    "type": "stratify",
+                    "key": "id",
+                    "parentKey": "parent"
+                },
+                {
+                    "type": "tree",
+                    "method": "cluster",
+                    "size": [
+                        {
+                            "signal": "height"
+                        },
+                        {
+                            "signal": "width-100"
+                        }
+                    ],
+                    "separation": false,
+                    "as": [
+                        "y",
+                        "x",
+                        "depth",
+                        "children"
+                    ]
+                },
+                {
+                    "type": "filter",
+                    "expr": "datum.children == 0"
+                }
+            ]
+        }
+    ],
+    "ar": {
+        "mode": "NN",
+        "width": 350,
+        "height": 500,
+        "padding": {
+            "top": 32,
+            "bottom": 0,
+            "left": 0,
+            "right": 5
+        },
+        "data": [
+            {
+                "name": "artree",
+                "values": [
+                    {
+                        "id": 1,
+                        "name": "Computer skills"
+                    },
+                    {
+                        "id": 2,
+                        "parent": 17,
+                        "name": "Frontend"
+                    },
+                    {
+                        "id": 3,
+                        "parent": 17,
+                        "name": "Backend"
+                    },
+                    {
+                        "id": 4,
+                        "parent": 1,
+                        "name": "OOP"
+                    },
+                    {
+                        "id": 5,
+                        "parent": 1,
+                        "name": "Data Visualization"
+                    },
+                    {
+                        "id": 6,
+                        "parent": 5,
+                        "size": 5,
+                        "name": "D3"
+                    },
+                    {
+                        "id": 7,
+                        "parent": 5,
+                        "size": 5,
+                        "name": "Vega"
+                    },
+                    {
+                        "id": 8,
+                        "parent": 4,
+                        "size": 5,
+                        "name": "C/C++"
+                    },
+                    {
+                        "id": 10,
+                        "parent": 5,
+                        "size": 4,
+                        "name": "Excel"
+                    },
+                    {
+                        "id": 11,
+                        "parent": 5,
+                        "size": 3,
+                        "name": "Tableau"
+                    },
+                    {
+                        "id": 12,
+                        "parent": 3,
+                        "size": 5,
+                        "name": "PHP"
+                    },
+                    {
+                        "id": 13,
+                        "parent": 3,
+                        "size": 2,
+                        "name": "Python"
+                    },
+                    {
+                        "id": 14,
+                        "parent": 2,
+                        "size": 5,
+                        "name": "HTML"
+                    },
+                    {
+                        "id": 15,
+                        "parent": 2,
+                        "size": 4,
+                        "name": "CSS"
+                    },
+                    {
+                        "id": 16,
+                        "parent": 2,
+                        "size": 5,
+                        "name": "Javascript"
+                    },
+                    {
+                        "id": 17,
+                        "parent": 1,
+                        "name": "Web development"
+                    }
+                ],
+                "transform": [
+                    {
+                        "type": "stratify",
+                        "key": "id",
+                        "parentKey": "parent"
+                    },
+                    {
+                        "type": "tree",
+                        "method": "cluster",
+                        "size": [
+                            { "signal": "height"},
+                            { "signal": "width-100"}
+                        ],
+                        "separation": false,
+                        "as": [
+                            "y",
+                            "x",
+                            "depth",
+                            "children"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "arlinks",
+                "source": "artree",
+                "transform": [
+                    {
+                        "type": "treelinks"
+                    },
+                    {
+                        "type": "linkpath",
+                        "orient": "horizontal",
+                        "shape": "diagonal"
+                    }
+                ]
+            }
+        ],
+        "scales": [
+            {
+                "name": "color",
+                "type": "ordinal",
+                "range": {
+                    "scheme": "tableau20"
+                },
+                "domain": {
+                    "data": "artree",
+                    "field": "parent"
+                }
+            }
+        ],
+        "marks": [
+            {
+                "type": "path",
+                "from": {
+                    "data": "arlinks"
+                },
+                "encode": {
+                    "update": {
+                        "path": {
+                            "field": "path"
+                        },
+                        "stroke": {
+                            "value": "#ccc"
+                        }
+                    }
+                }
+            },
+            {
+                "type": "symbol",
+                "from": {"data": "artree"},
+                "encode": {
+                    "enter": {
+                        "size": { "signal": "datum.children ? 200 : 100"},
+                        "stroke": { "value": "#fff"}
+                    },
+                    "update": {
+                        "x": { "signal": "datum.children ? datum.x - 0: datum.x - 5"},
+                        "y": {"field": "y"},
+                        "fill": { "scale": "color", "field": "parent"}
+                    }
+                }
+            },
+            {
+                "type": "text",
+                "from": {
+                    "data": "artree"
+                },
+                "encode": {
+                    "enter": {
+                        "text": {
+                            "field": "name"
+                        },
+                        "fontSize": {
+                            "value": 12
+                        },
+                        "baseline": {
+                            "value": "middle"
+                        }
+                    },
+                    "update": {
+                        "x": {
+                            "field": "x"
+                        },
+                        "y": {
+                            "field": "y"
+                        },
+                        "dx": { "signal": "datum.children ? -5 : -8"},
+                        "dy": { "signal": "datum.children ? 11 : 0"},
+                        "align": {"signal": "datum.children ? 'left' : 'right'"},
+                        "opacity": { "value": 1}
+                    }
+                }
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "color",
+            "type": "ordinal",
+            "range": {
+                "scheme": "tableau20"
+            },
+            "domain": {
+                "data": "raw",
+                "field": "parent"
+            }
+        },
+        {
+            "name": "y",
+            "type": "linear",
+            "range": [0, 170],
+            "domain": {
+                "data": "tree",
+                "field": "size"
+            }
+        }
+    ],
+    "axes": [
+        {
+            "scale": "y",
+            "orient": "top",
+            "position": {"signal": "width-100+10"},
+            "tickCount": 5,
+            "grid": true,
+            "gridColor": "black"
+        }
+    ],
+    "marks": [
+        {
+            "type": "symbol",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "size": {
+                        "value": 200
+                    },
+                    "stroke": {
+                        "value": "#fff"
+                    }
+                },
+                "update": {
+                    "x": {
+                        "field": "x"
+                    },
+                    "y": {
+                        "signal": "datum.y + 10"
+                    },
+                    "fill": {
+                        "scale": "color",
+                        "field": "parent"
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "text": {
+                        "field": "name"
+                    },
+                    "fontSize": {
+                        "value": 12
+                    },
+                    "baseline": {
+                        "value": "middle"
+                    }
+                },
+                "update": {
+                    "x": {
+                        "field": "x"
+                    },
+                    "y": {
+                        "signal": "datum.y + 10"
+                    },
+                    "dx": {
+                        "value": -8
+                    },
+                    "align": {
+                        "value": "right"
+                    }
+                }
+            }
+        },
+        {
+            "type": "rect",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "update": {
+                    "x": {
+                        "signal": "datum.x + 10"
+                    },
+                    "y": {
+                        "signal": "datum.y - 5"
+                    },
+                    "height": {
+                        "value": 30
+                    },
+                    "width": {
+                        "scale": "y",
+                        "field": "size"
+                    },
+                    "fill": {
+                        "scale": "color",
+                        "field": "parent"
+                    }
+                }
+            }
+        }
+    ]
+}

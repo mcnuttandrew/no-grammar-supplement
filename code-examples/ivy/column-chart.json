@@ -1,0 +1,175 @@
+{
+  "templateName": "Column Chart",
+  "templateDescription": "Show one or more categories, or groups, of data, especially if categories have subcategories. Also supports bar charts.",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"width\": \"[Width]\",\n  \"selection\": {\n    \"$cond\": {\n      \"query\": \"parameters.Stacker\",\n      \"true\": {\n        \"industry\": {\"type\": \"multi\", \"fields\": [\"[Stacker]\"], \"bind\": \"legend\"}\n      }\n    }\n  },\n  \"encoding\": {\n    \"y\": {\n      \"$cond\": {\n        \"query\": \"parameters.useBar.includes(true)\",\n        \"true\": {\"field\": \"[Category]\", \"type\": \"nominal\"},\n        \"false\": {\n          \"field\": {\"$cond\": {\"query\": \"parameters.Value\", \"true\": \"[Value]\"}},\n          \"type\": \"quantitative\",\n          \"aggregate\": \"[Agg]\",\n          \"scale\": {\"type\": \"linear\"},\n          \"stack\": \"[Stack]\"\n        }\n      }\n    },\n    \"x\": {\n      \"$cond\": {\n        \"query\": \"parameters.useBar.includes(true)\",\n        \"true\": {\n          \"field\": {\"$cond\": {\"query\": \"parameters.Value\", \"true\": \"[Value]\"}},\n          \"type\": \"quantitative\",\n          \"aggregate\": \"[Agg]\",\n          \"scale\": {\"type\": \"linear\"},\n          \"stack\": \"[Stack]\"\n        },\n        \"false\": {\"field\": \"[Category]\", \"type\": \"nominal\", \"sort\": \"[Sort]\"}\n      }\n    },\n    \"color\": {\n      \"$cond\": {\n        \"query\": \"true\",\n        \"true\": {\"field\": \"[Stacker]\", \"type\": \"nominal\"}\n      }\n    },\n    \"column\": {\n      \"$cond\": {\n        \"query\": \"!parameters.StackItems.includes(true)\",\n        \"true\": {\"field\": \"[Stacker]\", \"type\": \"ordinal\", \"spacing\": 10}\n      }\n    },\n    \"opacity\": {\n      \"$cond\": {\n        \"query\": \"parameters.Stacker\",\n        \"true\": {\n          \"condition\": {\"selection\": \"industry\", \"value\": 1},\n          \"value\": 0.2\n        }\n      }\n    }\n  },\n  \"mark\": {\n    \"type\": \"bar\",\n    \"tooltip\": true,\n    \"cornerRadiusTopLeft\": \"[roundedCorners]\",\n    \"cornerRadiusTopRight\": \"[roundedCorners]\"\n  },\n  \"height\": \"[Height]\"\n}",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "Section12",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "useBar",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "Category",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Sort",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"y\"",
+            "value": "\"y\""
+          },
+          {
+            "display": "\"-y\"",
+            "value": "\"-y\""
+          },
+          {
+            "display": "null",
+            "value": "null"
+          }
+        ],
+        "defaultValue": "\"y\""
+      }
+    },
+    {
+      "name": "Value",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Agg",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"sum\"",
+            "value": "\"sum\""
+          },
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          },
+          {
+            "display": "\"min\"",
+            "value": "\"min\""
+          },
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"max\"",
+            "value": "\"max\""
+          }
+        ],
+        "defaultValue": "\"count\""
+      },
+      "displayName": "Aggregate"
+    },
+    {
+      "name": "Stacker",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "StackItems",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "Stack",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"zero\"",
+            "value": "\"zero\""
+          },
+          {
+            "display": "\"normalize\"",
+            "value": "\"normalize\""
+          },
+          {
+            "display": "\"null\"",
+            "value": "\"null\""
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "Section9",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "20",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "100"
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "20",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "100"
+      }
+    },
+    {
+      "name": "roundedCorners",
+      "type": "Switch",
+      "config": {
+        "active": "20",
+        "inactive": "0",
+        "defaultsToActive": false
+      },
+      "displayName": "Rounded Corder"
+    }
+  ],
+  "templateAuthor": "Columba-Cepheus-9",
+  "customCards": []
+}

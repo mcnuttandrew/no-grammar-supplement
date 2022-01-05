@@ -1,0 +1,27 @@
+{
+    "charts": [
+        {
+            "source": "./charts/polio.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".symbol",
+            "grouping": {
+                "groupBy": "id",
+                "sort": {
+                    "field": "Polio Cases",
+                    "order": "ascending"
+                },
+                "delay": 50
+            },
+            "effects": [
+                {
+                    "type": "fade",
+                    "easing": "easeOutCubic",
+                    "duration": 1000
+                }
+            ]
+        }
+    ]
+}

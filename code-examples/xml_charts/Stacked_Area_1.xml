@@ -1,0 +1,67 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' margin='false' size='12' color='000000' alpha='75' orientation='horizontal' />
+	<axis_value shadow='low' size='10' color='ffffff' alpha='60' steps='6' prefix='' suffix=' K' decimals='0' separator='' show_min='false' />
+
+	<chart_border color='000000' top_thickness='0' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>'05</string>
+			<string>'06</string>
+			<string>'07</string>
+			<string>'08</string>
+			<string>'09</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number bevel='data' line_color='ff4400' line_thickness='0' line_alpha='0' tooltip='12,000'>12</number>
+			<number tooltip='50,000'>50</number>
+			<number tooltip='35,000'>35</number>
+			<number tooltip='65,000'>65</number>
+			<number tooltip='65,000'>65</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number bevel='data' line_color='000000' line_thickness='0' line_alpha='0' tooltip='27,000'>27</number>
+			<number tooltip='30,000'>30</number>
+			<number tooltip='60,000'>60</number>
+			<number tooltip='80,000'>80</number>
+			<number tooltip='65,000'>65</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='000000' thickness='1' />
+	<chart_grid_v alpha='20' color='000000' thickness='1' type='dashed' />
+	<chart_guide horizontal='true' thickness='1' color='ffffff' alpha='50' type='dashed' radius='7' line_color='ff4400' line_alpha='90' line_thickness='3' text_h_alpha='0' />
+	<chart_rect bevel='bg' x='90' y='75' width='320' height='150' positive_color='8088aa' positive_alpha='60' corner_tl='20' corner_tr='20' corner_br='0' corner_bl='0' />
+	<chart_type>stacked area</chart_type>
+	<chart_transition type='dissolve' delay='0' duration='1' order='all' />
+
+	<draw>
+		<text shadow='low' transition='dissolve' delay='0' duration='1' color='000066' alpha='15' size='45' x='0' y='-15' width='200' height='50'>report</text>
+		<text shadow='high' transition='dissolve' delay='0' duration='1' color='ffffff' alpha='35' rotation='-2' size='67' x='2' y='10' width='500' height='150'>stacked region</text>
+		<text shadow='low' layer='background' transition='dissolve' delay='0' duration='1' color='ffffff' alpha='15' size='115' x='80' y='190' width='800' height='300'>report</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='90' blurX='20' blurY='20' distance='5' highlightAlpha='20' shadowAlpha='25' type='full' />
+		<bevel id='data' angle='90' blurX='20' blurY='15' distance='5' highlightAlpha='20' shadowAlpha='20' type='full' />
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+
+	<legend shadow='low' transition='dissolve' delay='0' duration='1' x='108' y='92' width='10' height='40' margin='5' fill_color='000000' fill_alpha='10' line_alpha='0' line_thickness='0' layout='vertical' bullet='circle' size='12' color='ffffff' alpha='75' />
+	<tooltip color='ffffff' alpha='75' size='12' background_color_1='ff8800' background_color_2='ff4400' background_alpha='85' shadow='low' />
+
+</chart>
+
+
+
+
+
+
+
+

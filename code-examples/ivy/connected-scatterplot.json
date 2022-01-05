@@ -1,0 +1,57 @@
+{
+  "templateName": "Connected Scatterplot",
+  "templateDescription": "A simple connected scatterplot",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"mark\": {\"type\": \"line\", \"point\": \"[point]\"},\n  \"encoding\": {\n    \"x\": {\"field\": \"[xDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": false}},\n    \"y\": {\"field\": \"[yDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": false}},\n    \"order\": {\"field\": \"[Time]\", \"type\": \"temporal\"}\n  }\n}\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Time",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Section3",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "point",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Show Dot"
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

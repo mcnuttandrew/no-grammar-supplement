@@ -1,0 +1,13 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "weaving",
+    "shape": "tri",
+    "random": true
+  },
+  "rescale": {
+    "type": "equidepth"
+  }
+}

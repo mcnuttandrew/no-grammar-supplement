@@ -1,0 +1,72 @@
+
+
+
+
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+		</row>
+		<row>
+			<string>2007</string>
+			<number tooltip='region A' line_color='eeffee' line_thickness='2' line_alpha='50'>75</number>
+			<number tooltip='region B' line_color='eeffee' line_thickness='2' line_alpha='50'>25</number>
+			<number tooltip='region C' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<null/>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<string>2008</string>
+			<number tooltip='region A' line_color='eeffee' line_thickness='2' line_alpha='50'>35</number>
+			<number tooltip='region B' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<number tooltip='region C' line_color='eeffee' line_thickness='2' line_alpha='50'>20</number>
+			<null/>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<string>2009</string>
+			<number tooltip='region A' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<number tooltip='region B' line_color='eeffee' line_thickness='2' line_alpha='50'>25</number>
+			<number tooltip='region C' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<number tooltip='region D' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<number tooltip='region E' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+			<number tooltip='region F' line_color='eeffee' line_thickness='2' line_alpha='50'>10</number>
+		</row>
+	</chart_data>
+	<chart_label shadow='low' color='000000' alpha='75' size='9' position='inside' as_percentage='true' />
+	<chart_pref bevel='bg' select='true' empty_center='true' />
+	<chart_type>donut</chart_type>
+
+	<draw>
+		<circle layer='background' x='250' y='157' radius='112' fill_color='eeffee' fill_alpha='100' line_thickness='0' bevel='bg' />
+		<circle layer='background' x='250' y='157' radius='24' fill_color='eeffee' fill_alpha='100' line_thickness='0' shadow='inner' />
+		<text shadow='high' x='-20' y='295' width='400' size='100' color='0' rotation='-90' alpha='5'>donut</text>	
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='20' blurX='5' blurY='5' />
+		<shadow id='high' distance='5' angle='90' color='0' alpha='50' blurX='10' blurY='10' />
+		<shadow id='inner' distance='5' angle='45' color='0' alpha='30' blurX='10' blurY='10' inner='true' />
+		<bevel id='bg' angle='45' blurX='35' blurY='35' distance='10' highlightColor='eeeeff' highlightAlpha='100' shadowColor='0' shadowAlpha='15' type='full' />
+	</filter>
+	
+	<legend shadow='low' transition='dissolve' x='360' width='50' height='60' bevel='low' fill_alpha='0' line_alpha='0' bullet='line' size='12' alpha='75' />
+	<tooltip color='000000' alpha='75' size='12' background_color_1='ffffff' background_color_2='ddeedd' background_alpha='85' shadow='low' />
+
+</chart>
+
+
+
+
+
+
+
+

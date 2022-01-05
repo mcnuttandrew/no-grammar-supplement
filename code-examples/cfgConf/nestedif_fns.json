@@ -1,0 +1,8 @@
+{
+	"functions": [
+		{
+            "id": "main",
+            "nodes": ["A", "B", "C", "D", "E", "F", "G"]
+        }
+	]
+}

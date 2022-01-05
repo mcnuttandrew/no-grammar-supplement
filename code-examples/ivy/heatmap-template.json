@@ -1,0 +1,65 @@
+{
+  "templateAuthor": "Pisces-Norma-8",
+  "templateLanguage": "vega-lite",
+  "templateName": "Heatmap Template",
+  "templateDescription": "simple heatmap",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"transform\": [],\n  \"encoding\": {\n    \"x\": {\"field\": \"[x]\", \"type\": \"nominal\", \"scale\": {}},\n    \"y\": {\"field\": \"[y]\", \"type\": \"nominal\", \"scale\": {}},\n    \"color\": {\n      \"field\": \"[color]\",\n      \"type\": \"quantitative\",\n      \"aggregate\": \"[agg]\",\n      \"scale\": {\"scheme\": \"blues\"}\n    }\n  },\n  \"mark\": {\"type\": \"rect\", \"tooltip\": true, \"opacity\": 0.8},\n  \"height\": 300,\n  \"width\": 300\n}\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "x",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "y",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "agg",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          }
+        ],
+        "defaultValue": null
+      },
+      "conditions": []
+    }
+  ]
+}

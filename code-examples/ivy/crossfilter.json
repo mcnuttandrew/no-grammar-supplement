@@ -1,0 +1,32 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Crossfilter",
+  "templateDescription": "Dynamically filter many bar charts simultaneously.",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"repeat\": {\"column\": \"[Variables]\"},\n  \"spec\": {\n    \"layer\": [\n      {\n        \"selection\": {\"brush\": {\"type\": \"interval\", \"encodings\": [\"x\"]}},\n        \"mark\": \"bar\",\n        \"encoding\": {\n          \"x\": {\n            \"field\": {\"repeat\": \"column\"},\n            \"bin\": {\"maxbins\": \"[NumBins]\"},\n            \"type\": \"quantitative\"\n          },\n          \"y\": {\"aggregate\": \"count\", \"type\": \"quantitative\"},\n          \"color\": {\"value\": \"#ddd\"}\n        }\n      },\n      {\n        \"transform\": [{\"filter\": {\"selection\": \"brush\"}}],\n        \"mark\": \"bar\",\n        \"encoding\": {\n          \"x\": {\n            \"field\": {\"repeat\": \"column\"},\n            \"bin\": {\"maxbins\": \"[NumBins]\"},\n            \"type\": \"quantitative\"\n          },\n          \"y\": {\"aggregate\": \"count\", \"type\": \"quantitative\"}\n        }\n      }\n    ]\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Variables",
+      "type": "MultiDataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true,
+        "minNumberOfTargets": 0
+      }
+    },
+    {
+      "name": "NumBins",
+      "type": "Slider",
+      "config": {
+        "minVal": "10",
+        "maxVal": "40",
+        "step": 1,
+        "defaultValue": 5
+      }
+    }
+  ]
+}

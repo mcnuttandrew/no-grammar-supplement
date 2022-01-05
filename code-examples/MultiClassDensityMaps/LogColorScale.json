@@ -1,0 +1,11 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "max"
+  },
+  "rescale": {
+    "type": "log"
+  }
+}

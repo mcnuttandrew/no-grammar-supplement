@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <delimitedFileSource id="stocksdata" fileName="/pubs/gpl/data/stocks.csv"
+    header="true"/>
+  <sourceVariable id="date" categorical="false" inputDateFormatPattern="MM/dd/yy"
+    source="stocksdata" sourceName="Date"/>
+  <sourceVariable id="close" categorical="false" source="stocksdata"
+    sourceName="Close"/>
+  <intervalDomain id="dateDomain" date="true"/>
+  <graph>
+    <coordinates>
+      <dimension domain="dateDomain">
+        <axis>
+          <label>
+            <text>Date</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Close</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <line>
+      <x variable="date"/>
+      <y variable="close"/>
+    </line>
+  </graph>
+</visualization>

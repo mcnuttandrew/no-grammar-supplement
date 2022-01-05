@@ -1,0 +1,62 @@
+
+
+
+
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string></string>
+			<string></string>
+		</row>
+		<row url='images/globe.jpg'>
+			<string></string>
+			<number alpha='35'>50</number>
+			<number>50</number>
+		</row>
+	</chart_data>
+	<chart_label position='none' />
+	<chart_pref select='false' />
+	<chart_rect x='115' y='50' width='300' height='200' positive_alpha='0' />
+	<chart_transition type='dissolve' duration='.5' />
+	<chart_type>image pie</chart_type>
+
+	<draw>
+		<text transition='dissolve' duration='.5' color='FF5500' size='50' x='0' y='250' width='400' height='50'>50%</text>
+		<text transition='dissolve' duration='.5' color='9999FF' size='24' x='105' y='275' width='400' height='50'>of the world's forests have fallen!</text>
+		
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='60' y='20' radius='1' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5'  layer='background' blur='star' fill_color='ffffff' x='420' y='150' radius='1' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='60' y='170' radius='2' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='120' y='50' radius='1' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='340' y='50' radius='2' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='380' y='250' radius='1' fill_alpha='75' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='240' y='30' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='110' y='150' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='460' y='100' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='290' y='25' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='30' y='100' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='405' y='200' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='260' y='270' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='435' y='25' radius='2' fill_alpha='50' />
+		<circle transition='dissolve' duration='.5' layer='background' blur='star' fill_color='ffffff' x='120' y='235' radius='2' fill_alpha='50' />
+	</draw>
+	<filter>
+		<blur id='star' blurX='3' blurY='3' />   
+	</filter>
+	
+	<series_explode>
+		<number>0</number>
+		<number>35</number>
+	</series_explode>
+   
+</chart>
+
+
+
+
+
+
+
+

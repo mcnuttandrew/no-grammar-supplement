@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <derivedVariable id="x" categorical="false" key="false"
+    value="iter(0,10,0.01)" weight="false"/>
+  <derivedVariable id="y" categorical="false" key="false"
+    value="sin(x)*cos(x)*(x-5)" weight="false"/>
+  <graph>
+    <coordinates>
+      <dimension>
+        <axis>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <line>
+      <x variable="x"/>
+      <y variable="y"/>
+    </line>
+  </graph>
+</visualization>

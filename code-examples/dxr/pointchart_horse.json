@@ -1,0 +1,52 @@
+{
+  "data": {
+    "values": [
+     {"horsename": "A", "speed": 28},
+      {"horsename": "B", "speed": 55},
+      {"horsename": "C", "speed": 43},
+      {"horsename": "D", "speed": 91},
+      {"horsename": "E", "speed": 81},
+      {"horsename": "F", "speed": 53},
+      {"horsename": "G", "speed": 19},
+      {"horsename": "H", "speed": 87},
+      {"horsename": "I", "speed": 52}
+    ]
+  },
+  "mark": "horse",
+  "encoding": {
+    "x": {
+      "field": "horsename",
+      "type": "nominal",
+      "axis": {
+        "title": "Racehorse Name"
+      }
+    },
+    "y": {
+      "field": "speed",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 0, 100 ]
+      },
+      "axis": {
+        "title": "Speed (mph)",
+        "ticks": true,
+        "tickCount": 6,
+        "values": [
+          "0",
+          "20",
+          "40",
+          "60",
+          "80",
+          "100"
+        ],
+        "labels": true
+      }
+    },
+    "size": {
+      "value": 30
+    },
+    "xrotation": {
+      "value":  -90
+    }
+  }
+}

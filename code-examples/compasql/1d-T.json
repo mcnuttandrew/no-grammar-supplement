@@ -1,0 +1,39 @@
+{
+  "spec": {
+    "data": {"url": "data/movies.json"},
+    "mark": "?",
+    "encodings": [
+      {
+        "channel": "?",
+        "timeUnit": "?",
+        "field": "Release_Date",
+        "type": "temporal"
+      }
+    ]
+  },
+  "nest": [
+    {
+      "groupBy": ["field", "aggregate", "bin", "timeUnit", "stack"],
+      "orderGroupBy": "aggregationQuality"
+    },
+    {
+      "groupBy": [{
+        "property": "channel",
+        "replace": {
+          "x": "xy", "y": "xy",
+          "color": "style", "size": "style", "shape": "style", "opacity": "style",
+          "row": "facet", "column": "facet"
+        }
+      }],
+      "orderGroupBy": "effectiveness"
+    },
+    {
+      "groupBy": ["channel"],
+      "orderGroupBy": "effectiveness"
+    }
+  ],
+  "orderBy": "effectiveness",
+  "config": {
+    "autoAddCount": true
+  }
+}

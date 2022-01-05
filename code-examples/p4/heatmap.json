@@ -1,0 +1,37 @@
+{
+  "views": [
+    {
+      "id": "chart",
+      "width": 640,
+      "height": 420,
+      "padding": {"left": 60, "right": 60, "top" : 10, "bottom": 60},
+      "legend": true
+    }
+  ],
+  "operations": [
+    {
+      "$match": {
+        "MotherAge": [16, 60],
+        "FatherAge": [16, 60]
+      }
+    },
+    {
+      "$aggregate": {
+        "$group": ["FatherAge", "MotherAge"],
+        "$collect": {
+          "Babies": {
+            "$count": "*"
+          }
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "rect",
+        "x": "MotherAge",
+        "y": "FatherAge",
+        "color": "Babies"
+      }
+    }
+  ]
+}

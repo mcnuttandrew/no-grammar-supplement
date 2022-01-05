@@ -1,0 +1,82 @@
+{
+  "data": {
+    "db": "fifa20",
+    "query": "select * from fifa20;"
+  },
+  "layout": {
+    "x": {
+      "field": "rating",
+      "extent": [
+        40,
+        100
+      ]
+    },
+    "y": {
+      "field": "wage",
+      "extent": [
+        600,
+        0
+      ]
+    },
+    "z": {
+      "field": "wage",
+      "order": "desc"
+    }
+  },
+  "marks": {
+    "cluster": {
+      "mode": "pie",
+      "aggregate": {
+        "dimensions": [
+          {
+            "field": "agegroup",
+            "domain": [
+              "U20",
+              "U23",
+              "U29",
+              "Older"
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "field": "*",
+            "function": "count"
+          }
+        ]
+      },
+      "config": {
+        "piePadAngle": 0.05,
+        "pieCornerRadius": 5,
+        "pieOuterRadius": 80,
+        "pieInnerRadius": 1,
+        "pieLegendTitle": "Age Groups of Soccer Players in FIFA 2020",
+        "pieLegendDomain": [
+          "Under 20",
+          "Under 23",
+          "Under 29",
+          "Older"
+        ]
+      }
+    },
+    "hover": {
+      "rankList": {
+        "mode": "tabular",
+        "fields": [
+          "name",
+          "nationality",
+          "rating",
+          "wage"
+        ],
+        "topk": 3
+      },
+      "boundary": "convexhull"
+    }
+  },
+  "config": {
+    "topLevelWidth": 1500,
+    "topLevelHeight": 1000,
+    "axis": true,
+    "numberFormat": ".2~s"
+  }
+}

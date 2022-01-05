@@ -1,0 +1,158 @@
+
+
+
+
+<chart>
+	
+	<axis_category alpha='0' />
+	<axis_ticks value_ticks='' category_ticks='1' major_thickness='1' />
+	<axis_value shadow='low' size='10' color='ffffff' alpha='65' steps='4' show_min='' />
+	
+	<chart_border bottom_thickness='3' left_thickness='0' color='222222' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>1</string>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+			<string>5</string>
+			<string>6</string>
+			<string>7</string>
+			<string>8</string>
+			<string>9</string>
+			<string>10</string>
+			<string>11</string>
+			<string>12</string>
+			<string>13</string>
+			<string>14</string>
+			<string>15</string>
+			<string>16</string>
+			<string>17</string>
+			<string>18</string>
+			<string>19</string>
+			<string>20</string>
+		</row>
+		<row>
+			<string>max</string>
+			<number shadow='low' tooltip='4'>4</number>
+			<number shadow='low' tooltip='5'>5</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='7'>7</number>
+			<number shadow='low' tooltip='8'>8</number>
+			<number shadow='low' tooltip='9'>9</number>
+			<number shadow='low' tooltip='10'>10</number>
+			<number shadow='low' tooltip='9'>9</number>
+			<number shadow='low' tooltip='8'>8</number>
+			<number shadow='low' tooltip='7'>7</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='5'>5</number>
+			<number shadow='low' tooltip='6'>6</number>
+			<number shadow='low' tooltip='7'>7</number>
+			<number shadow='low' tooltip='5'>5</number>
+			<number shadow='low' tooltip='10'>10</number>
+			<number shadow='low' tooltip='15'>15</number>
+			<number shadow='low' tooltip='16'>16</number>
+		</row>
+		<row>
+			<string>min</string>
+			<number tooltip='2'>2</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='8'>8</number>
+		</row>
+		<row>
+			<string>open</string>
+			<number tooltip='2'>2</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='8'>8</number>
+			<number tooltip='8'>8</number>
+			<number tooltip='9'>9</number>
+			<number tooltip='8'>8</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='6'>6</number>
+			<number tooltip='12'>12</number>
+		</row>
+		<row>
+			<string>close</string>
+			<number tooltip='3'>3</number>
+			<number tooltip='2'>2</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='8'>8</number>
+			<number tooltip='9'>9</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='5'>5</number>
+			<number tooltip='3'>3</number>
+			<number tooltip='4'>4</number>
+			<number tooltip='7'>7</number>
+			<number tooltip='9'>9</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='000000' thickness='1' />
+	<chart_grid_v alpha='5' color='000000' thickness='10' />
+	<chart_guide radius='4' line_color='FFFFFF' line_alpha='100' line_thickness='1' fill_alpha='0' />	
+	<chart_pref type='bar' line_thickness='2' bull_color='88ff88' bear_color='ff6600' />
+	<chart_rect x='92' y='42' width='275' height='150' positive_color='000000' positive_alpha='20' />
+	<chart_transition type='zoom' delay='0.5' duration='0.5' order='all' />
+	<chart_type>candlestick</chart_type>
+	
+	<draw>
+		<circle glow='red' transition='slide_down' delay='0' duration='2' layer='background' x='50' y='400' radius='400' fill_color='444466' fill_alpha='95' line_alpha='0' />
+		<text shadow='low' transition='dissolve' delay='0' duration='1' color='000000' alpha='5' size='100' x='0' y='220' width='400' height='200'>|||||||||||||||||||||||||||||||||||||||</text>
+		<text shadow='high' transition='dissolve' delay='0' duration='1' color='444466' alpha='100' size='100' x='75' y='180' width='400' height='200'>DSPIX</text>
+		<text transition='dissolve' delay='0' duration='1' color='666699' alpha='100' size='100' x='75' y='180' width='400' height='200'>D</text>
+	</draw>
+	<filter> 
+		<shadow id='high' distance='5' angle='45' alpha='25' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+		<glow id='red' color='ff88ff' alpha='25' blurX='150' blurY='150' inner='false' />   
+	</filter>
+	<tooltip color='000000' alpha='80' size='12' background_color_1='FFFFFF' background_alpha='95' shadow='high' />
+	
+</chart>
+
+
+
+
+
+
+
+

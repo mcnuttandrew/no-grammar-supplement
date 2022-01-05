@@ -1,0 +1,10 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "weaving",
+    "shape": "square",
+    "random": true
+  }
+}

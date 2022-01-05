@@ -1,0 +1,31 @@
+{
+    "Name": "RadialTree",
+    "Element": {
+        "Node": "circle",
+        "Link": "straight",
+        "Color": "depth"
+    },
+    "Layout": {
+        "X": {
+            "Root": {
+                "Relation": "within",
+                "Alignment": "middle"
+            },
+            "Subtree": {
+                "Relation": "flatten",
+            }
+        },
+        "Y": {
+            "Root": {
+                "Relation": "juxtapose",
+                "Position": "top"
+            },
+            "Subtree": {
+                "Relation": "align",
+                "Alignment": "top"
+            }
+        },
+        "CoordinateSystem": {
+            "Category": "polar"
+        }
+    }

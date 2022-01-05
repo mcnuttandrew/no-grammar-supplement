@@ -1,0 +1,294 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 300,
+    "height": 300,
+    "padding": 5,
+    "data": [
+        {
+            "name": "tree",
+            "values": [
+                {
+                    "id": 1,
+                    "name": "Welcome University"
+                },
+                {
+                    "id": 2,
+                    "parent": 1,
+                    "name": "SSCI",
+                    "size": 120
+                },
+                {
+                    "id": 3,
+                    "parent": 1,
+                    "name": "SHSS",
+                    "size": 120
+                },
+                {
+                    "id": 4,
+                    "parent": 1,
+                    "name": "SBM",
+                    "size": 120
+                },
+                {
+                    "id": 5,
+                    "parent": 1,
+                    "name": "SENG",
+                    "size": 120
+                }
+            ],
+            "transform": [
+                {
+                    "type": "stratify",
+                    "key": "id",
+                    "parentKey": "parent"
+                },
+                {
+                    "type": "partition",
+                    "field": "size",
+                    "sort": {
+                        "field": "value"
+                    },
+                    "size": [
+                        {
+                            "signal": "2 * PI"
+                        },
+                        {
+                            "signal": "width / 2"
+                        }
+                    ],
+                    "as": [
+                        "a0",
+                        "r0",
+                        "a1",
+                        "r1",
+                        "depth",
+                        "children"
+                    ]
+                }
+            ]
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "tree",
+                "values": [
+                    {
+                        "id": 6,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "MAE"
+                    },
+                    {
+                        "id": 7,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "ECE"
+                    },
+                    {
+                        "id": 8,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "ECON"
+                    },
+                    {
+                        "id": 9,
+                        "parent": 2,
+                        "size": 30,
+                        "name": "PHYS"
+                    },
+                    {
+                        "id": 10,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CBME"
+                    },
+                    {
+                        "id": 11,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "IELM"
+                    },
+                    {
+                        "id": 12,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CIVL"
+                    },
+                    {
+                        "id": 13,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CSE"
+                    },
+                    {
+                        "id": 14,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "ISOM"
+                    },
+                    {
+                        "id": 15,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "MARK"
+                    },
+                    {
+                        "id": 16,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "ACCT"
+                    },
+                    {
+                        "id": 17,
+                        "parent": 3,
+                        "size": 60,
+                        "name": "HUMA"
+                    },
+                    {
+                        "id": 18,
+                        "parent": 3,
+                        "size": 60,
+                        "name": "SOSC"
+                    },
+                    {
+                        "id": 19,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "MGMT"
+                    },
+                    {
+                        "id": 20,
+                        "parent": 4,
+                        "size": 20,
+                        "name": "FINA"
+                    },
+                    {
+                        "id": 21,
+                        "parent": 2,
+                        "size": 30,
+                        "name": "LIFS"
+                    },
+                    {
+                        "id": 22,
+                        "parent": 2,
+                        "size": 30,
+                        "name": "CHEM"
+                    },
+                    {
+                        "id": 23,
+                        "parent": 2,
+                        "size": 30,
+                        "name": "MATH"
+                    }
+                ]
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "color",
+            "type": "ordinal",
+            "domain": {
+                "data": "tree",
+                "field": "depth"
+            },
+            "range": {
+                "scheme": "tableau20"
+            }
+        },
+        {
+            "name": "area",
+            "type": "ordinal",
+            "domain": {
+                "data": "tree",
+                "field": "name"
+            },
+            "range": [
+                "#F1C40F",
+                "#E74C3C",
+                "#3498DB",
+                "#2ECC71"
+            ]
+        }
+    ],
+    "marks": [
+        {
+            "type": "arc",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "x": {
+                        "signal": "width / 2"
+                    },
+                    "y": {
+                        "signal": "height / 2"
+                    },
+                    "fill": {
+                        "signal": "datum.depth != 1 ? scale('color', datum.depth):scale('area', datum.name)"
+                    }
+                },
+                "update": {
+                    "startAngle": {
+                        "field": "a0"
+                    },
+                    "endAngle": {
+                        "field": "a1"
+                    },
+                    "innerRadius": {
+                        "field": "r0"
+                    },
+                    "outerRadius": {
+                        "field": "r1"
+                    },
+                    "stroke": {
+                        "value": "white"
+                    },
+                    "strokeWidth": {
+                        "value": 1
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "update": {
+                    "x": {
+                        "signal": "width / 2"
+                    },
+                    "y": {
+                        "signal": "height / 2"
+                    },
+                    "radius": {
+                        "signal": "datum.depth ? (datum.r0 + datum.r1)/2 : 0"
+                    },
+                    "theta": {
+                        "signal": "(datum.a0 + datum.a1)/2"
+                    },
+                    "fill": {
+                        "value": "black"
+                    },
+                    "align": {
+                        "value": "center"
+                    },
+                    "baseline": {
+                        "value": "middle"
+                    },
+                    "text": {
+                        "field": "name"
+                    },
+                    "fontSize": {
+                        "value": 12
+                    }
+                }
+            }
+        }
+    ]
+}

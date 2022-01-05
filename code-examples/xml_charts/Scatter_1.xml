@@ -1,0 +1,89 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='13' color='111111' alpha='85' orientation='horizontal' />
+	<axis_ticks value_ticks='true' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='1' major_color='333344' minor_color='333344' position='outside' />
+	<axis_value shadow='low' min='300' max='700' size='10' color='ff6644' alpha='100' steps='4' prefix='' suffix='' decimals='0' separator='' show_min='true' />
+
+	<chart_border color='222222' top_thickness='0' bottom_thickness='2' left_thickness='2' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>x</string>
+			<string>y</string>
+		</row>
+		<row>
+			<string>veh 1</string>
+			<number shadow='low'>90</number>
+			<number>500</number>
+		</row>
+		<row>
+			<string>veh 2</string>
+			<number shadow='low'>105</number>
+			<number>400</number>
+		</row>
+		<row>
+			<string>veh 3</string>
+			<number shadow='low' label='115, 600\r(best)'>115</number>
+			<number>600</number>
+		</row>
+		<row>
+			<string>veh 4</string>
+			<number shadow='low'>85</number>
+			<number>650</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='ffffff' thickness='1' type='dashed' />
+	<chart_grid_v alpha='10' color='ffffff' thickness='1' type='dashed' />
+	<chart_label shadow='low' position='below' size='10' color='000000' alpha='65' />
+	<chart_pref point_shape='x' point_size='10' />
+	<chart_rect bevel='bg' x='115' y='100' width='300' height='125' positive_color='4c5e6f' positive_alpha='50' />
+	<chart_type>scatter</chart_type>
+
+	<draw>
+		<rect bevel='bevel1' layer='background' x='0' y='0' width='480' height='300' fill_color='7777CC' line_thickness='0' />
+		<text layer='background' shadow='low' color='ffffff' alpha='10' size='150' x='95' y='-48' width='400' height='200'>range</text>
+		<text layer='background' shadow='low' color='ffffff' alpha='10' size='150' x='40' y='180' width='400' height='200'>speed</text>
+		<text blur='blur1' color='ffffff' alpha='75' size='50' x='65' y='32' width='400' height='100'>performance</text>
+		<text shadow='high' color='eeffee' alpha='80' size='50' x='45' y='32' width='400' height='100'>performance</text>
+		<text bevel='small' shadow='low' color='88ff44' alpha='70' size='50' x='40' y='0' width='365' height='287' h_align='right' v_align='bottom'>speed</text>
+		<text shadow='low' color='ffffff' alpha='75' size='14' x='40' y='0' width='365' height='291' h_align='right' v_align='bottom'>miles/hour</text>
+		<text bevel='small' shadow='low' color='88ff44' alpha='70' rotation='-90' size='50' x='40' y='250' width='150' height='42' h_align='right' v_align='bottom'>range</text>
+		<text shadow='low' color='ffffff' alpha='75' rotation='-90' size='14' x='40' y='250' width='155' height='47' h_align='right' v_align='bottom'>miles</text>
+	</draw>
+	<filter>
+		<shadow id='shadow1' inner='true' quality='1' distance='50' angle='135' color='000000' alpha='20' blurX='300' blurY='200' />
+		<shadow id='low' distance='2' angle='45' color='0' alpha='50' blurX='5' blurY='5' />
+		<shadow id='high' distance='3' angle='45' color='0' alpha='75high' blurX='10' blurY='10' />
+		<bevel id='bevel1' angle='45' blurX='150' blurY='100' distance='20' highlightAlpha='20' highlightColor='aa44ff' shadowColor='002266' shadowAlpha='10' type='inner' />
+		<bevel id='small' angle='45' blurX='2' blurY='2' distance='1' highlightAlpha='35' shadowAlpha='25' type='inner' />
+		<bevel id='bg' angle='10' blurX='50' blurY='50' distance='10' highlightAlpha='20' shadowAlpha='25' type='full' />
+		<blur id='blur1' blurX='100' blurY='0' quality='1' />   
+	</filter>
+
+	<legend shadow='low' x='115' y='82' width='300' height='10' margin='3' fill_color='ffffff' fill_alpha='20' line_color='000000' line_alpha='0' line_thickness='0' layout='horizontal' bullet='circle' size='12' color='ffffff' alpha='65' />
+
+	<series_color>
+		<color>88ff44</color>
+		<color>ff8800</color>
+		<color>FFDD00</color>
+		<color>ffffff</color>
+	</series_color>
+	<series_explode>
+		<number>100</number>
+		<number>100</number>
+		<number>200</number>
+	</series_explode>
+	
+</chart>
+
+
+
+
+
+
+
+

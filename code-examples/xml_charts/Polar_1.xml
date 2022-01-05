@@ -1,0 +1,70 @@
+
+
+
+
+<chart>
+	<axis_category shadow='shadow2' size='13' color='4e627c' alpha='75' orientation='circular' />
+	<axis_ticks value_ticks='' category_ticks='' />
+	<axis_value alpha='0' min='0' />
+	
+	<chart_border bottom_thickness='0' left_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>speed</string>
+			<string>power</string>
+			<string>cost</string>
+			<string>reliability</string>
+			<string>efficiency</string>
+		</row>
+		<row>
+			<string>car 1</string>
+			<number>60</number>
+			<number>90</number>
+			<number>40</number>
+			<number>90</number>
+			<number>50</number>
+		</row>
+		<row>
+			<string>car 2</string>
+			<number>85</number>
+			<number>70</number>
+			<number>80</number>
+			<number>40</number>
+			<number>90</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='000000' thickness='1' type='dashed' />
+	<chart_grid_v alpha='5' color='000000' thickness='20' type='solid' />
+	<chart_pref point_shape='circle' point_size='8' fill_shape='true' grid='circular' />
+	<chart_rect bevel='bevel1' x='90' y='40' width='350' height='225' positive_color='008888' positive_alpha='25' />
+	<chart_transition type='zoom' delay='1' duration='1' order='series' />
+	<chart_type>polar</chart_type>
+	
+	<draw>
+		<text layer='background' shadow='shadow1' transition='slide_right' delay='0' duration='3' color='000000' width='550' alpha='8' size='115' x='0' y='-30'>compare</text>
+		<text shadow='shadow1' transition='slide_right' delay='0' duration='5' color='000000' alpha='5' size='80' x='490' y='75'>speed</text>
+		<text shadow='shadow1' transition='slide_right' delay='0' duration='10' color='000000' alpha='4' size='50' x='640' y='150'>cost</text>
+	</draw>
+	<filter>
+		<shadow id='shadow1' distance='2' angle='45' color='0' alpha='100' blurX='10' blurY='10' />
+		<shadow id='shadow2' distance='1' angle='45' color='0' alpha='50' blurX='3' blurY='3' />
+		<bevel id='bevel1' angle='45' blurX='10' blurY='10' distance='5' highlightAlpha='25' highlightColor='ffffff' shadowAlpha='35' type='outer' />
+	</filter>
+	
+	<legend shadow='shadow2' x='40' y='100' width='20' height='40' margin='3' fill_alpha='0' layout='vertical' bullet='circle' size='12' color='4e627c' alpha='75' />
+	
+	<series_color>
+		<color>ff4400</color>
+		<color>4e627c</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

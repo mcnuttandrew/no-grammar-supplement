@@ -1,0 +1,70 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='10' alpha='75' />
+	<axis_ticks value_ticks='false' category_ticks='false' />
+	<axis_value alpha='0' max='220' />
+
+	<chart_border top_thickness='0' bottom_thickness='0' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region 1</string>
+			<number tooltip='90'>90</number>
+			<number tooltip='50'>50</number>
+			<number tooltip='40'>40</number>
+		</row>
+		<row>
+			<string>region 2</string>
+			<number tooltip='150'>150</number>
+			<number tooltip='100'>100</number>
+			<number tooltip='70'>70</number>
+		</row>
+		<row>
+			<string>region 2</string>
+			<number tooltip='200'>200</number>
+			<number tooltip='160'>160</number>
+			<number tooltip='90'>90</number>
+		</row>
+	</chart_data>
+	<chart_grid_h color='000000' thickness='0' alpha='5' />
+	<chart_rect x='90' y='50' width='300' height='200' positive_color='888888' positive_alpha='10' />
+	<chart_type>parallel 3d column</chart_type>
+
+	<draw>
+		<!-- draw a Flash file that contains the elements that follow the cursor -->
+		<image url='images/cursor.swf' x='0' y='0' width='481' height='301' alpha='75' />
+	</draw>
+	<filter>
+		<bevel id='bg' angle='45' blurX='50' blurY='50' distance='25' highlightAlpha='75' shadowAlpha='25' type='inner' />  
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+
+	<legend layout='hide' />
+	<tooltip color='ffffff' alpha='80' size='12' background_color_1='000000' background_alpha='50' shadow='low' />
+
+	<series_color>
+		<color>666666</color>
+		<color>768bb3</color>
+		<color>884400</color>
+	</series_color>
+	<series bar_gap='30' set_gap='30' />
+
+</chart>
+
+
+
+
+
+
+
+

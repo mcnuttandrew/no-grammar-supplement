@@ -1,0 +1,37 @@
+{
+  "data": {
+    "db": "kyrix",
+    "query": "SELECT * from dots;"
+  },
+  "layout": {
+    "x": {
+      "field": "x",
+      "extent": [
+        0,
+        1000000
+      ]
+    },
+    "y": {
+      "field": "y",
+      "extent": [
+        0,
+        1000000
+      ]
+    },
+    "z": {
+      "field": "z",
+      "order": "asc"
+    }
+  },
+  "marks": {
+    "cluster": {
+      "mode": "circle",
+      "config": {}
+    }
+  },
+  "config": {
+    "numLevels": 8,
+    "axis": true,
+    "topLevelWidth": 1500
+  }
+}

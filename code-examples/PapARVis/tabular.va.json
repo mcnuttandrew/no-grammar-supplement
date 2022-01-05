@@ -1,0 +1,150 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 500,
+    "height": 200,
+    "padding": 5,
+    "data": [
+        {
+            "name": "table",
+            "url": "http://vegaar.hkustvis.org/us/lab-time.json"
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "table",
+                "values": [
+                  {"ts": 1546272000000, "total": 11.3, "year": 2019, "month": 1},
+                  {"ts": 1548950400000, "total": 9.0, "year": 2019, "month": 2},
+                  {"ts": 1551369600000, "total": 12.0, "year": 2019, "month": 3},
+                  {"ts": 1554048000000, "total": 8.9, "year": 2019, "month": 4},
+                  {"ts": 1556640000000, "total": 7.5, "year": 2019, "month": 5},
+                  {"ts": 1559318400000, "total": 6.7, "year": 2019, "month": 6},
+                  {"ts": 1561910400000, "total": 6.5, "year": 2019, "month": 7},
+                  {"ts": 1564588800000, "total": 7.8, "year": 2019, "month": 8},
+                  {"ts": 1567267200000, "total": 6.5, "year": 2019, "month": 9},
+                  {"ts": 1569859200000,  "total": 7.1, "year": 2019, "month": 10},
+                  {"ts": 1572537600000,  "total": 7.6, "year": 2019, "month": 11},
+                  {"ts": 1575129600000,  "total": 8.2, "year": 2019, "month": 12}
+              ]
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "x",
+            "type": "point",
+            "range": "width",
+            "domain": {
+                "data": "table",
+                "field": "month"
+            }
+        },
+        {
+            "name": "y",
+            "type": "linear",
+            "range": "height",
+            "nice": true,
+            "zero": true,
+            "domain": {
+                "data": "table",
+                "field": "total"
+            }
+        },
+        {
+            "name": "color",
+            "type": "ordinal",
+            "range": "category",
+            "domain": {
+                "data": "table",
+                "field": "year"
+            }
+        }
+    ],
+    "axes": [
+        {
+            "orient": "bottom",
+            "scale": "x"
+        },
+        {
+            "orient": "left",
+            "scale": "y"
+        }
+    ],
+    "legends": [
+        {
+          "stroke": "color",
+          "orient": "bottom-left",
+          "title": "Year",
+          "direction": "horizontal",
+          "encode": {
+            "symbols": {
+              "name": "legendSymbol",
+              "interactive": false,
+              "update": {
+                "fill": {"value": "transparent"},
+                "strokeWidth": {"value": 5},
+                "size": {"value": 500}
+              }
+            },
+            "labels": {
+              "name": "legendLabel",
+              "interactive": false
+            }
+          }
+        }
+      ],
+    "marks": [
+        {
+            "type": "group",
+            "from": {
+                "facet": {
+                    "name": "series",
+                    "data": "table",
+                    "groupby": "year"
+                }
+            },
+            "marks": [
+                {
+                    "type": "line",
+                    "from": {
+                        "data": "series"
+                    },
+                    "encode": {
+                        "enter": {
+                            "stroke": {
+                                "scale": "color",
+                                "field": "year"
+                            },
+                            "strokeWidth": {
+                                "value": 5
+                            }
+                        },
+                        "update": {
+                            "x": {
+                                "scale": "x",
+                                "field": "month"
+                            },
+                            "y": {
+                                "scale": "y",
+                                "field": "total"
+                            },
+                            "interpolate": {
+                                "value": "linear"
+                            },
+                            "fillOpacity": {
+                                "value": 1
+                            }
+                        },
+                        "hover": {
+                            "fillOpacity": {
+                                "value": 0.5
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

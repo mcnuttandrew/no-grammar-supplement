@@ -1,0 +1,40 @@
+{
+  "spec": {
+    "data": {"url": "data/driving.json"},
+    "mark": "bar",
+    "encodings": [
+      {
+        "channel": "x",
+        "scale": {"zero": "?"},
+        "field": "miles",
+        "type": "quantitative"
+      }
+    ]
+  },
+  "nest": [
+    {
+      "groupBy": ["field", "aggregate", "bin", "timeUnit", "stack"],
+      "orderGroupBy": "aggregationQuality"
+    },
+    {
+      "groupBy": [{
+        "property": "channel",
+        "replace": {
+          "x": "xy", "y": "xy",
+          "color": "style", "size": "style", "shape": "style", "opacity": "style",
+          "row": "facet", "column": "facet"
+        }
+      }],
+      "orderGroupBy": "effectiveness"
+    },
+    {
+      "groupBy": ["channel"],
+      "orderGroupBy": "effectiveness"
+    }
+  ],
+  "orderBy": "effectiveness",
+  "config": {
+    "autoAddCount": true
+  }
+
+}

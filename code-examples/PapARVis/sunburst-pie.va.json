@@ -1,0 +1,149 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 300,
+  "height": 300,
+  "padding": 5,
+  "data": [
+      {
+          "name": "tree",
+          "values": [
+              {
+                  "id": 1,
+                  "name": "HKUST"
+              },
+              {
+                  "id": 2,
+                  "parent": 1,
+                  "name": "SSCI",
+                  "size": 200
+              },
+              {
+                  "id": 3,
+                  "parent": 1,
+                  "name": "SHSS",
+                  "size": 100
+              },
+              {
+                  "id": 4,
+                  "parent": 1,
+                  "name": "SBM",
+                  "size": 300
+              },
+              {
+                  "id": 5,
+                  "parent": 1,
+                  "name": "SENG",
+                  "size": 300
+              }
+          ],
+              "transform": [
+          {
+            "type": "stratify",
+            "key": "id",
+            "parentKey": "parent"
+          },
+          {
+            "type": "partition",
+            "field": "size",
+            "sort": {"field": "value"},
+            "size": [{"signal": "2 * PI"}, {"signal": "width / 2"}],
+            "as": ["a0", "r0", "a1", "r1", "depth", "children"]
+          }
+        ]
+      }
+  ],
+  "ar": {
+      "mode": "ON",
+      "data": [
+          {
+              "name": "tree",
+              "values": [{
+      "id": 6,
+      "parent": 5,
+      "size": 50,
+      "name": "MAE"
+  },
+  {
+      "id": 7,
+      "parent": 5,
+      "size": 50,
+      "name": "ECE"
+  },
+  {
+      "id": 10,
+      "parent": 5,
+      "size": 50,
+      "name": "CBME"
+  },
+  {
+      "id": 11,
+      "parent": 5,
+      "size": 50,
+      "name": "IELM"
+  },
+  {
+      "id": 12,
+      "parent": 5,
+      "size": 50,
+      "name": "CIVL"
+  },
+
+  {
+      "id": 13,
+      "parent": 5,
+      "size": 50,
+      "name": "CSE"
+  }
+  ]
+          }
+      ]
+  },
+  "scales": [
+  {
+    "name": "color",
+    "type": "ordinal",
+    "domain": {"data": "tree", "field": "depth"},
+    "range": {"scheme": "tableau20"}
+  }
+],
+
+"marks": [
+  {
+    "type": "arc",
+    "from": {"data": "tree"},
+    "encode": {
+      "enter": {
+        "x": {"signal": "width / 2"},
+        "y": {"signal": "height / 2"},
+        "fill": {"scale": "color", "field": "depth"},
+        "tooltip": {"signal": "datum.name + (datum.size ? ', ' + datum.size + ' people' : '')"}
+      },
+      "update": {
+        "startAngle": {"field": "a0"},
+        "endAngle": {"field": "a1"},
+        "innerRadius": {"signal": "datum.depth ? datum.r0-data('tree')[0].r1 : 0"},
+        "outerRadius": {"signal": "datum.depth ? datum.r1-data('tree')[0].r1 : 0"},
+        "stroke": {"value": "white"},
+        "strokeWidth": {"value": 1},
+        "zindex": {"value": 0}
+      }
+    }
+  },
+  {
+    "type": "text",
+    "from": {"data": "tree"},
+    "encode": {
+      "update": {
+        "x": {"value": 150},
+        "y": {"value": 150},
+        "radius": {"signal": "(datum.r0 + datum.r1)/2/2"},
+        "theta": {"signal": "(datum.a0 + datum.a1)/2"},
+        "fill": {"value": "#000"},
+        "align": {"value": "center"},
+        "baseline": {"value": "middle"},
+        "text": {"signal": "datum.depth ? datum.name:''"}
+      }
+    }
+  }
+]
+}

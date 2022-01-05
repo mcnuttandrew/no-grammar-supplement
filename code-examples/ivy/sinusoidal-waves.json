@@ -1,0 +1,47 @@
+{
+  "templateName": "Sinusoidal Waves",
+  "templateDescription": "A data free wave generator",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"description\": \"Plots two functions using a generated sequence.\",\n  \"width\": \"[Width]\",\n  \"height\": \"[Height]\",\n  \"data\": {\n    \"sequence\": {\"start\": 0, \"stop\": \"[domainMax]\", \"step\": 0.1, \"as\": \"x\"}\n  },\n  \"transform\": [\n    {\"calculate\": \"sin(datum.x)\", \"as\": \"sin(x)\"},\n    {\"calculate\": \"cos(datum.x)\", \"as\": \"cos(x)\"},\n    {\"fold\": [\"sin(x)\", \"cos(x)\"]}\n  ],\n  \"mark\": \"line\",\n  \"encoding\": {\n    \"x\": {\"type\": \"quantitative\", \"field\": \"x\"},\n    \"y\": {\"field\": \"value\", \"type\": \"quantitative\"},\n    \"color\": {\"field\": \"key\", \"type\": \"nominal\", \"title\": null}\n  }\n}",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "Section3",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "domainMax",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": 5
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "250"
+      }
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "500",
+        "step": 1,
+        "defaultValue": "250"
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

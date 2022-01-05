@@ -1,0 +1,475 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 407,
+    "height": 400,
+    "padding": 0,
+    "signals": [
+        {
+            "name": "startingposition",
+            "value": 704
+        },
+        {
+            "name": "stickWidth",
+            "value": 4
+        },
+        {
+            "name": "stickHeight",
+            "value": 80
+        },
+        {
+            "name": "center",
+            "update": "height / 2 + 3.5"
+        },
+        {
+            "name": "centerStickHeight",
+            "value": 25
+        },
+        {
+            "name": "messagePadding",
+            "value": 25
+        }
+    ],
+    "data": [
+        {
+            "name": "raw",
+            "values": []
+        },
+        {
+            "name": "table",
+            "transform": [
+                {
+                    "type": "sequence",
+                    "start": 0,
+                    "stop": {
+                        "signal": "data('raw').length"
+                    }
+                },
+                {
+                    "type": "formula",
+                    "expr": "data('raw')[datum.data]",
+                    "as": "temp"
+                },
+                {
+                    "type": "project",
+                    "fields": [
+                        "data",
+                        "temp.year",
+                        "temp.quarter",
+                        "temp.value",
+                        "temp.timestamp",
+                        "temp.message",
+                        "temp.messageColor",
+                        "temp.messageSize",
+                        "temp.size"
+                    ],
+                    "as": [
+                        "id",
+                        "year",
+                        "quarter",
+                        "value",
+                        "timestamp",
+                        "message",
+                        "messageColor",
+                        "messageSize",
+                        "size"
+                    ]
+                }
+            ]
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "raw",
+                "values": [
+                    {
+                        "year": 2016,
+                        "quarter": 3,
+                        "value": "new",
+                        "timestamp": "201603",
+                        "message": [
+                            "Sets up a HK$50 million",
+                            "Fund to Support Startups"
+                        ],
+                        "size": 1500,
+                        "icon": ""
+                    },
+                    {
+                        "year": 2016,
+                        "quarter": 4,
+                        "value": "new",
+                        "timestamp": "201604",
+                        "message": [
+                            "New App Uses Street",
+                            "Level Air Quality Data",
+                            "to Reduce Personal",
+                            "Exposure and Health Risk"
+                        ],
+                        "size": 2500,
+                        "icon": "",
+                        "image": ""
+                    },
+                    {
+                        "year": 2017,
+                        "quarter": 1,
+                        "value": "NEW",
+                        "timestamp": "201701",
+                        "message": [
+                            "2017"
+                        ],
+                        "messageColor": "#FFC000",
+                        "messageSize": 16,
+                        "size": 1500
+                    },
+                    {
+                        "year": 2017,
+                        "quarter": 2,
+                        "value": "ENG",
+                        "timestamp": "201702",
+                        "message": [
+                            "Research Successfully",
+                            "Develops Rechargeable",
+                            "Liquid Fuels to Power",
+                            "Electric Vehicles and",
+                            "Electricity Grid"
+                        ],
+                        "size": 1500,
+                        "image": ""
+                    },
+                    {
+                        "year": 2017,
+                        "quarter": 3,
+                        "value": "new",
+                        "timestamp": "201703",
+                        "message": [
+                            "One Million Dollar",
+                            "Entrepreneurship Competition",
+                            "Breathes Life into Business Ideas"
+                        ],
+                        "size": 1500,
+                        "icon": "",
+                        "image": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "xscale",
+            "type": "band",
+            "domain": {
+                "data": "table",
+                "field": "timestamp"
+            },
+            "range": [
+                {
+                    "signal": "startingposition"
+                },
+                {
+                    "signal": "startingposition + width"
+                }
+            ]
+        },
+        {
+            "name": "yearscale",
+            "type": "ordinal",
+            "domain": {
+                "data": "table",
+                "field": "year"
+            },
+            "range": [
+                "#004D82",
+                "#FFC000"
+            ]
+        }
+    ],
+    "marks": [
+        {
+            "type": "image",
+            "encode": {
+                "enter": {
+                    "url": {
+                        "value": "http://vegaar.hkustvis.org/data/oldimage2.jpg"
+                    },
+                    "width": {
+                        "value": 704
+                    },
+                    "height": {
+                        "signal": "height"
+                    }
+                }
+            }
+        },
+        {
+            "type": "group",
+            "name": "group",
+            "from": {
+                "facet": {
+                    "data": "table",
+                    "name": "item",
+                    "groupby": "timestamp"
+                }
+            },
+            "data": [
+                {
+                    "name": "message",
+                    "source": "item",
+                    "transform": [
+                        {
+                            "type": "lookup",
+                            "from": "table",
+                            "key": "timestamp",
+                            "fields": [
+                                "timestamp"
+                            ],
+                            "values": [
+                                "message",
+                                "messageColor",
+                                "messageSize",
+                                "id"
+                            ],
+                            "as": [
+                                "messages",
+                                "messageColor",
+                                "messageSize",
+                                "id"
+                            ]
+                        },
+                        {
+                            "type": "flatten",
+                            "fields": [
+                                "messages"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "message2",
+                    "transform": [
+                        {
+                            "type": "sequence",
+                            "start": 0,
+                            "stop": {
+                                "signal": "data('message').length"
+                            }
+                        },
+                        {
+                            "type": "formula",
+                            "expr": "data('message')[datum.data]",
+                            "as": "temp"
+                        },
+                        {
+                            "type": "formula",
+                            "expr": "data('message').length",
+                            "as": "total"
+                        },
+                        {
+                            "type": "project",
+                            "fields": [
+                                "data",
+                                "total",
+                                "temp.id",
+                                "temp.messages",
+                                "temp.messageSize",
+                                "temp.messageColor"
+                            ],
+                            "as": [
+                                "num",
+                                "total",
+                                "id",
+                                "messages",
+                                "messageSize",
+                                "messageColor"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "encode": {
+                "enter": {
+                    "x": {
+                        "scale": "xscale",
+                        "field": "timestamp",
+                        "offset": {
+                            "signal": "bandwidth('xscale')/2"
+                        }
+                    },
+                    "y": {
+                        "signal": "center"
+                    }
+                }
+            },
+            "signals": [],
+            "marks": [
+                {
+                    "type": "text",
+                    "from": {
+                        "data": "message2"
+                    },
+                    "encode": {
+                        "enter": {
+                            "fill": {
+                                "signal": "datum.messageColor ? datum.messageColor : '#000'"
+                            },
+                            "fontSize": {
+                                "signal": "datum.messageSize ? datum.messageSize : 6"
+                            },
+                            "y": {
+                                "signal": "datum.id % 2 ? -(messagePadding+(datum.total -1- datum.num)*(datum.messageSize ? datum.messageSize : 6)) : (messagePadding+(datum.num)*(datum.messageSize ? datum.messageSize : 6))"
+                            },
+                            "text": {
+                                "signal": "datum.messages"
+                            },
+                            "align": {
+                                "value": "center"
+                            },
+                            "baseline": {
+                                "signal": "datum.id % 2 ? 'bottom' : 'top'"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "rect",
+                    "from": {
+                        "data": "item"
+                    },
+                    "encode": {
+                        "enter": {
+                            "x": {
+                                "signal": "-bandwidth('xscale')/2"
+                            },
+                            "y": {
+                                "signal": "-centerStickHeight/2"
+                            },
+                            "width": {
+                                "signal": "bandwidth('xscale')"
+                            },
+                            "height": {
+                                "signal": "centerStickHeight"
+                            },
+                            "fill": {
+                                "scale": "yearscale",
+                                "field": "year"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "rect",
+                    "from": {
+                        "data": "item"
+                    },
+                    "encode": {
+                        "enter": {
+                            "x": {
+                                "signal": "-stickWidth/2"
+                            },
+                            "width": {
+                                "signal": "stickWidth"
+                            },
+                            "height": {
+                                "signal": "datum.id % 2 ? stickHeight : -stickHeight"
+                            },
+                            "fill": {
+                                "scale": "yearscale",
+                                "field": "year"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "symbol",
+                    "from": {
+                        "data": "item"
+                    },
+                    "encode": {
+                        "enter": {
+                            "size": {
+                                "field": "size"
+                            },
+                            "fill": {
+                                "scale": "yearscale",
+                                "field": "year"
+                            },
+                            "y": {
+                                "signal": "datum.id % 2 ? stickHeight : -stickHeight"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "symbol",
+                    "encode": {
+                        "enter": {
+                            "size": {
+                                "value": 20
+                            },
+                            "fill": {
+                                "value": "white"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "from": {
+                        "data": "item"
+                    },
+                    "encode": {
+                        "enter": {
+                            "y": {
+                                "signal": "datum.id % 2 ? stickHeight : -stickHeight"
+                            },
+                            "fill": {
+                                "value": "#fff"
+                            },
+                            "text": {
+                                "field": "value"
+                            },
+                            "fontSize": {
+                                "value": 12
+                            },
+                            "baseline": {
+                                "value": "middle"
+                            },
+                            "align": {
+                                "value": "center"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "image",
+                    "from": {
+                        "data": "item"
+                    },
+                    "encode": {
+                        "enter": {
+                            "x": {
+                                "signal": "-100/2"
+                            },
+                            "y": {
+                                "signal": "datum.id % 2 ? -stickHeight : stickHeight"
+                            },
+                            "url": {
+                                "value": "http://vegaar.hkustvis.org/data/oldimage2.jpg"
+                            },
+                            "width": {
+                                "value": 100
+                            },
+                            "height": {
+                                "value": 100
+                            },
+                            "baseline": {
+                                "signal": "datum.id % 2 ? 'bottom' : 'top'"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

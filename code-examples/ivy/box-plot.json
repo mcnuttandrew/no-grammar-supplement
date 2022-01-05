@@ -1,0 +1,135 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Box Plot",
+  "templateDescription": "A flexible way to see the distributions over a variables.",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"description\": \"A vertical 2D box plot showing median, min, and max in the US population distribution of age groups in 2000.\",\n  \"data\": {\"name\": \"myData\"},\n  \"mark\": {\"type\": \"boxplot\", \"extent\": \"[extent]\", \"color\": \"[Color]\"},\n  \"encoding\": {\n    \"x\": {\"field\": \"[xDim]\", \"type\": \"ordinal\"},\n    \"y\": {\n      \"field\": \"[yDim]\",\n      \"type\": \"quantitative\",\n      \"axis\": {\"title\": \"population\"}\n    },\n    \"size\": {\"value\": \"[BarSize]\"}\n  },\n  \"height\": \"[height]\",\n  \"width\": \"[width]\"\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "extent",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "1.5",
+            "value": "1.5"
+          },
+          {
+            "display": "\"min-max\"",
+            "value": "\"min-max\""
+          }
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Section6",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    },
+    {
+      "name": "BarSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "1",
+        "maxVal": "30",
+        "step": 1,
+        "defaultValue": 5
+      },
+      "displayName": "Bar Size"
+    },
+    {
+      "name": "width",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "800",
+        "step": 1,
+        "defaultValue": "100"
+      },
+      "displayName": "Width"
+    },
+    {
+      "name": "height",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "800",
+        "step": 1,
+        "defaultValue": "100"
+      },
+      "displayName": "Height"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+	"nodes": [
+		{"id": "A"},
+		{"id": "B"},
+		{"id": "C"},
+		{"id": "D"},
+		{"id": "E"},
+		{"id": "F"},
+		{"id": "G"}
+	],
+
+	"edges": [
+		{
+			"source": "A",
+			"target": "B"
+		},
+		{
+			"source": "B",
+			"target": "C"
+		},
+		{
+			"source": "B",
+			"target": "G"
+		},
+		{
+			"source": "C",
+			"target": "D"
+		},
+		{
+			"source": "D",
+			"target": "E"
+		},
+		{
+			"source": "D",
+			"target": "F"
+		},
+		{
+			"source": "E",
+			"target": "D"
+		},
+		{
+			"source": "F",
+			"target": "B"
+		}
+	],
+
+	"loops": [
+		{
+			"backedges": [["F", "B"]], 
+			"id": "loop_1",
+            "nodes": ["F", "D", "C", "E", "B"],
+			"loops": [
+				{
+					"backedges": [["E", "D"]],
+					"id": "loop_2",
+		 			"nodes": ["E", "D"]
+				} 
+			]
+		}
+	]
+}

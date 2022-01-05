@@ -1,0 +1,66 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='13' color='000022' alpha='50' orientation='diagonal_up' />
+	<axis_ticks value_ticks='false' category_ticks='true' />
+	<axis_value shadow='low' size='10' color='000022' alpha='50' steps='4' prefix='' suffix='' decimals='0' separator='' show_min='false' orientation='horizontal' />
+
+	<chart_border color='000000' top_thickness='0' bottom_thickness='0' left_thickness='3' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2006</string>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number shadow='low'>-60</number>
+			<number shadow='low'>-25</number>
+			<number shadow='low'>75</number>
+			<number shadow='low'>50</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number shadow='low'>60</number>
+			<number shadow='low'>10</number>
+			<number shadow='low'>75</number>
+			<number shadow='low'>25</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='5' color='000000' thickness='15' />
+	<chart_grid_v alpha='10' color='000000' thickness='1' />
+	<chart_rect bevel='bg' x='90' y='50' width='320' height='200' positive_color='00ff00' negative_color='ff0000' positive_alpha='20' negative_alpha='20' corner_tl='0' corner_tr='30' corner_br='30' corner_bl='0' />
+	<chart_transition type='slide_right' delay='0' duration='1' order='series' />
+	<chart_type>stacked bar</chart_type>
+
+	<draw>
+		<text shadow='low' transition='dissolve' delay='1' duration='0.5' color='ffffff' alpha='60'  rotation='-2' size='55' x='40' y='0' width='400' height='300'>regional report</text>
+		<text shadow='high' transition='dissolve' delay='1' duration='0.5' color='ffffff' alpha='40' rotation='-5' size='150' x='150' y='290' width='400' height='50' h_align='left' v_align='bottom'>2009</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='45' blurX='30' blurY='30' distance='5' highlightAlpha='80' shadowAlpha='60' type='full' />
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+	</filter>
+
+	<legend shadow='low' transition='dissolve' delay='1' duration='0.5' x='325' y='60' width='10' height='30' margin='0' fill_color='000066' fill_alpha='0' line_thickness='0' layout='vertical' size='13' color='000022' alpha='50' />
+
+	<series_color>
+		<color>444b99</color>
+		<color>FF6600</color>
+	</series_color>
+
+</chart>
+
+
+
+
+
+
+
+

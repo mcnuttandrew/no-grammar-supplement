@@ -1,0 +1,34 @@
+{
+  "width" : 500,
+  "height" : 500,
+  "depth" : 500,
+  "data" : {
+    "url" : "trade1.csv"
+  },
+  "mark" : "cube",
+  "encoding" : {
+    "x" : {
+      "field" : "country1",
+      "type" : "nominal"
+    },
+    "y" : {
+      "field" : "country2",
+      "type" : "nominal"
+    },
+    "z" : {
+      "field" : "time",
+      "type" : "ordinal"
+    },
+    "size" : {
+      "field" : "weight",
+      "type": "quantitative",
+      "scale": {
+        "range": [0,50]
+      }
+    },
+    "color" : {
+      "field" : "weight",
+      "type" : "quantitative"
+    }
+  }
+}

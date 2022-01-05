@@ -1,0 +1,25 @@
+{
+    "charts": [
+        {
+            "source": "./charts/eva_overview.dsvg"
+        },
+        {
+            "source": "./charts/eva_opacity.dsvg"
+        },
+        {
+            "source": "./charts/eva_drill.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".mark",
+            "effects": [
+                {
+                    "offset": 600,
+                    "duration": 1600,
+                    "type": "magic move"
+                }
+            ]
+        }
+    ]
+}

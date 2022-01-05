@@ -1,0 +1,68 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 200,
+    "height": 200,
+  
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"category": "A", "amount": 28},
+          {"category": "B", "amount": 55},
+          {"category": "C", "amount": 43},
+          {"category": "D", "amount": 91},
+          {"category": "E", "amount": 81},
+          {"category": "F", "amount": 53}
+        ],
+        "transform": [
+          {
+            "type": "pie",
+            "field": "amount",
+            "startAngle": 0,
+            "endAngle": {"signal": "2 * PI"}
+          }
+        ]
+      }
+    ],
+
+    "ar": {
+        "mode": "ON",
+        "data": [{
+            "name": "table",
+            "values": [
+              {"category": "I", "amount": 24},
+              {"category": "J", "amount": 87}
+            ]
+        }]
+    },
+  
+    "scales": [
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "category"},
+        "range": {"scheme": "category20"}
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "arc",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "fill": {"scale": "color", "field": "category"},
+            "x": {"signal": "width / 2"},
+            "y": {"signal": "height / 2"}
+          },
+          "update": {
+            "startAngle": {"field": "startAngle"},
+            "endAngle": {"field": "endAngle"},
+            "innerRadius": {"value": 0},
+            "outerRadius": {"signal": "width / 2"}
+          }
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,76 @@
+{
+  "templateAuthor": "Draco-Pisces-17",
+  "templateLanguage": "unit-vis",
+  "templateName": "Unit Mosaic",
+  "templateDescription": "A unit vis approach to showing the part-to-whole distribution across 2 variations",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"title\": \"Titanic\",\n  \"width\": \"[Width]\",\n  \"height\": \"[Height]\",\n  \"padding\": {\"top\": 5, \"left\": 5, \"bottom\": 5, \"right\": 5},\n  \"layouts\": [\n    {\n      \"name\": \"layout1\",\n      \"type\": \"gridxy\",\n      \"subgroup\": {\"type\": \"groupby\", \"key\": \"[yPivot]\", \"isShared\": false},\n      \"aspect_ratio\": \"fillY\",\n      \"size\": {\"type\": \"count\", \"isShared\": true},\n      \"direction\": \"LRBT\",\n      \"align\": \"LB\",\n      \"margin\": {\"top\": 1, \"left\": 1, \"bottom\": 1, \"right\": 1},\n      \"padding\": {\"top\": 2, \"left\": 2, \"bottom\": 2, \"right\": 2},\n      \"box\": {\n        \"fill\": \"none\",\n        \"stroke\": \"black\",\n        \"stroke-width\": {\n          \"$cond\": {\n            \"query\": \"parameters.gridLines.includes(true)\",\n            \"true\": 1,\n            \"false\": 0\n          }\n        },\n        \"opacity\": 1\n      }\n    },\n    {\n      \"name\": \"layout2\",\n      \"type\": \"gridxy\",\n      \"subgroup\": {\"type\": \"groupby\", \"key\": \"[xPivot]\", \"isShared\": true},\n      \"aspect_ratio\": \"fillX\",\n      \"size\": {\"type\": \"count\", \"isShared\": false},\n      \"direction\": \"LRBT\",\n      \"align\": \"LB\",\n      \"margin\": {\"top\": 1, \"left\": 1, \"bottom\": 1, \"right\": 1},\n      \"padding\": {\"top\": 1, \"left\": 1, \"bottom\": 1, \"right\": 1},\n      \"box\": {\n        \"fill\": \"none\",\n        \"stroke\": \"black\",\n        \"stroke-width\": {\n          \"$cond\": {\n            \"query\": \"parameters.gridLines.includes(true)\",\n            \"true\": 1,\n            \"false\": 0\n          }\n        },\n        \"opacity\": 1\n      }\n    },\n    {\n      \"name\": \"layout4\",\n      \"type\": \"gridxy\",\n      \"subgroup\": {\"type\": \"flatten\"},\n      \"aspect_ratio\": \"maxfill\",\n      \"size\": {\"type\": \"uniform\", \"isShared\": false},\n      \"direction\": \"LRBT\",\n      \"align\": \"LT\",\n      \"margin\": {\"top\": 0, \"left\": 0, \"bottom\": 0, \"right\": 0},\n      \"padding\": {\"top\": 0, \"left\": 0, \"bottom\": 0, \"right\": 0},\n      \"box\": {\n        \"fill\": \"none\",\n        \"stroke\": \"black\",\n        \"stroke-width\": {\n          \"$cond\": {\n            \"query\": \"parameters.gridLines.includes(true)\",\n            \"true\": 1,\n            \"false\": 0\n          }\n        },\n        \"opacity\": 1\n      }\n    }\n  ],\n  \"mark\": {\n    \"shape\": \"circle\",\n    \"color\": {\"key\": \"[Color]\", \"type\": \"categorical\"},\n    \"size\": {\"type\": \"max\", \"isShared\": false},\n    \"isColorScaleShared\": true\n  },\n  \"$schema\": \"https://unit-vis.netlify.com/assets/unit-vis-schema.json\"\n}\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xPivot",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yPivot",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Section6",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "20",
+        "defaultValue": "500"
+      }
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "20",
+        "defaultValue": "500"
+      }
+    },
+    {
+      "name": "gridLines",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Show Grid Lines"
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    }
+  ]
+}

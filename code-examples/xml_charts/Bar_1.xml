@@ -1,0 +1,74 @@
+
+
+
+
+<chart>
+	<axis_category shadow='low' size='12' color='ff8844' alpha='85' />
+	<axis_ticks value_ticks='true' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='1' major_color='222222' minor_color='222222' position='centered' />
+	<axis_value shadow='low' size='10' color='ffffff' alpha='50' steps='6' prefix='' suffix='' decimals='0' separator='' show_min='true' />
+
+	<chart_border color='000000' top_thickness='0' bottom_thickness='1' left_thickness='3' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number shadow='low'>-25</number>
+			<number shadow='low'>45</number>
+			<number shadow='low' note='Record\rRevenue'>100</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number shadow='low'>-35</number>
+			<number shadow='low'>65</number>
+			<number shadow='low'>80</number>
+		</row>
+		<row>
+			<string>region C</string>
+			<number shadow='low'>10</number>
+			<number shadow='low'>30</number>
+			<number shadow='low'>55</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='000000' thickness='1' type='dashed' />
+	<chart_grid_v alpha='20' color='000000' thickness='1' />
+	<chart_label shadow='low' color='ffffff' alpha='90' size='10' position='center' prefix='' suffix='' decimals='0' separator='' as_percentage='false' />
+	<chart_note type='balloon' color='004444' alpha='75' size='11' x='0' y='-30' offset_x='-20' background_color_1='ff4400' background_color_2='ffff88' background_alpha='75' shadow='high' />
+	<chart_rect bevel='bg' x='90' y='30' width='320' height='230' positive_color='ffeebb' negative_color='ff0000' positive_alpha='80' negative_alpha='20' corner_tl='0' corner_tr='40' corner_br='0' corner_bl='0' />
+	<chart_transition type='scale' delay='1' duration='1' order='series' />
+	<chart_type>bar</chart_type>
+
+	<draw>
+		<rect shadow='high2' layer='background' transition='dissolve' delay='.5' duration='0.5' x='90' y='30' width='320' height='230' corner_tl='0' corner_tr='40' corner_br='0' corner_bl='0' />
+		<text shadow='low' transition='dissolve' delay='.5' duration='0.5' color='000022' alpha='60' size='45' x='240' y='23' width='300' height='240'>growth</text>
+		<text shadow='high' color='000022' alpha='50' rotation='-90' size='60' x='-1' y='270' width='300' height='100' h_align='left' v_align='bottom'>y  e  a   r</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='45' blurX='50' blurY='50' distance='10' highlightAlpha='25' shadowAlpha='15' type='inner' /> 
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='high2' knockout='true' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+
+	<legend layout='hide' />
+
+	<series_color>
+		<color>4e627c</color>
+		<color>c89341</color>
+		<color>4c6b41</color>
+	</series_color>
+	<series set_gap='20' bar_gap='15' />
+
+</chart>
+
+
+
+
+
+
+
+

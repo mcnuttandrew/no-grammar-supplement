@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "$aggregate": {
+        "$group": ["FatherAge", "MotherAge"],
+        "$collect": {
+          "Babies": {
+            "$count": "*"
+          }
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "rect",
+        "x": "MotherAge",
+        "y": "FatherAge",
+        "brush": {
+          "selected": {
+            "color": "red"
+          }
+        },
+        "color": "teal",
+        "opacity": "Babies"
+      }
+    }
+  ]
+}

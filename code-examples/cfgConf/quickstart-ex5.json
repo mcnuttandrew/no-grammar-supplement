@@ -1,0 +1,20 @@
+{
+	"data": {
+		"graphFile":"singlefile.dot",
+		"structureFile":"singlefile.structures.json"
+	},
+
+	"rendering": {
+		"node": {
+			"label": "id"
+		}
+	},
+
+	"filtering": {
+		"isHopFilterOn":true, 
+		"selectedNodes": ["B44"],
+		"maxHops":4, 
+		"minNodes":10, 
+		"isLoopFilterOn": true
+	}
+}

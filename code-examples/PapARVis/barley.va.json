@@ -1,0 +1,159 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 200,
+  "height": 690,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "barley",
+      "url": "http://vegaar.hkustvis.org/data/barley.json"
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "barley",
+        "url": "http://vegaar.hkustvis.org/data/barley2.json"
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "gscale",
+      "type": "band",
+      "range": [0, {"signal": "height"}],
+      "round": true,
+      "domain": { "data": "barley", "field": "site" }
+    },
+    {
+      "name": "xscale",
+      "type": "linear",
+      "nice": true,
+      "range": "width",
+      "round": true,
+      "domain": {"data": "barley", "field": "yield"}
+    },
+    {
+      "name": "cscale",
+      "type": "ordinal",
+      "range": "category",
+      "domain": {"data": "barley", "field": "year"}
+    }
+  ],
+
+  "axes": [
+    {"orient": "bottom", "scale": "xscale", "tickCount": 5, "zindex": 1}
+  ],
+
+  "legends": [
+    {
+      "stroke": "cscale",
+      "title": "Year",
+      "padding": 4,
+      "encode": {
+        "symbols": {
+          "update": {
+            "strokeWidth": {"value": 2},
+            "size": {"value": 50}
+          }
+        }
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "name": "site",
+      "type": "group",
+
+      "from": {
+        "facet": {
+          "data": "barley",
+          "name": "sites",
+          "groupby": "site"
+        }
+      },
+
+      "encode": {
+        "update": {
+          "y": {"scale": "gscale", "field": "site", "offset": {"value": 15}},
+          "height": {"value": 100},
+          "width": {"signal": "width"},
+          "stroke": {"value": "#ccc"}
+        }
+      },
+
+      "scales": [
+        {
+          "name": "yscale",
+          "type": "point",
+          "range": [0, 100],
+          "padding": 1,
+          "round": true,
+          "domain": {
+            "data": "barley",
+            "field": "variety"
+          }
+        }
+      ],
+
+      "axes": [
+        {
+          "orient": "left",
+          "scale": "yscale",
+          "tickSize": 0,
+          "domain": false,
+          "grid": true,
+          "encode": {
+            "grid": {
+              "update": {"strokeDash": {"value": [3,3]}}
+            }
+          }
+        },
+        {
+          "orient": "right",
+          "scale": "yscale",
+          "tickSize": 0,
+          "domain": false
+        }
+      ],
+
+      "marks": [
+        {
+          "type": "symbol",
+          "from": {"data": "sites"},
+          "encode": {
+            "update": {
+              "x": {"scale": "xscale", "field": "yield"},
+              "y": {"scale": "yscale", "field": "variety"},
+              "stroke": {"scale": "cscale", "field": "year"},
+              "strokeWidth": {"value": 2},
+              "size": {"value": 50}
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "text",
+      "from": {"data": "site"},
+      "encode": {
+        "update": {
+          "x": {"field": "width", "mult": 0.5},
+          "y": {"field": "y"},
+          "fontSize": {"value": 11},
+          "fontWeight": {"value": "bold"},
+          "text": {"field": "datum.site"},
+          "align": {"value": "center"},
+          "baseline": {"value": "bottom"},
+          "fill": {"value": "#000"}
+        }
+      }
+    }
+  ]
+}

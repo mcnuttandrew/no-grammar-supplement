@@ -1,0 +1,415 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 300,
+    "height": 240,
+    "padding": 5,
+    "data": [
+        {
+            "name": "table",
+            "values": [
+                { "x": "Jan", "y": 28, "c": "engineering"},
+                { "x": "Feb", "y": 43, "c": "engineering"},
+                { "x": "Mar", "y": 81, "c": "engineering"},
+                { "x": "Apr", "y": 19, "c": "engineering"},
+                { "x": "May", "y": 52, "c": "engineering"},
+                { "x": "Jun", "y": 24, "c": "engineering"},
+                { "x": "Jul", "y": 87, "c": "engineering"},
+                { "x": "Aug", "y": 17, "c": "engineering"},
+                { "x": "Sep", "y": 68, "c": "engineering"},
+                { "x": "Oct", "y": 49, "c": "engineering"},
+                { "x": "Nov", "y": 40, "c": "engineering"},
+                { "x": "Dec", "y": 81, "c": "engineering"}
+            ]
+        }
+    ],
+    "ar": {
+        "mode": "NN",
+        "padding": 5,
+        "signals": [
+            {
+                "name": "chartWidth",
+                "value": 300
+            },
+            {
+                "name": "chartSize",
+                "value": 240
+            },
+            {
+                "name": "chartPad",
+                "value": 15
+            },
+            {
+                "name": "chartStep",
+                "update": "chartSize + chartPad*2"
+            },
+            {
+                "name": "width",
+                "update": "(chartWidth + chartPad * 2) * 2"
+            },
+            {
+                "name": "height",
+                "update": "chartStep * 2"
+            },
+            {
+                "name": "numOfCol",
+                "value": 2
+            }
+        ],
+        "data": [
+            {
+                "name": "raw",
+                "values": [
+                    { "x": "Jan", "y": 28, "c": "engineering"},
+                    { "x": "Feb", "y": 43, "c": "engineering"},
+                    { "x": "Mar", "y": 81, "c": "engineering"},
+                    { "x": "Apr", "y": 19, "c": "engineering"},
+                    { "x": "May", "y": 52, "c": "engineering"},
+                    { "x": "Jun", "y": 24, "c": "engineering"},
+                    { "x": "Jul", "y": 87, "c": "engineering"},
+                    { "x": "Aug", "y": 17, "c": "engineering"},
+                    { "x": "Sep", "y": 68, "c": "engineering"},
+                    { "x": "Oct", "y": 49, "c": "engineering"},
+                    { "x": "Nov", "y": 40, "c": "engineering"},
+                    { "x": "Dec", "y": 81, "c": "engineering"},
+
+                    { "x": "Jan", "y": 20, "c": "science"},
+                    { "x": "Feb", "y": 35, "c": "science"},
+                    { "x": "Mar", "y": 10, "c": "science"},
+                    { "x": "Apr", "y": 15, "c": "science"},
+                    { "x": "May", "y": 48, "c": "science"},
+                    { "x": "Jun", "y": 28, "c": "science"},
+                    { "x": "Jul", "y": 66, "c": "science"},
+                    { "x": "Aug", "y": 27, "c": "science"},
+                    { "x": "Sep", "y": 16, "c": "science"},
+                    { "x": "Oct", "y": 25, "c": "science"},
+                    { "x": "Nov", "y": 28, "c": "science"},
+                    { "x": "Dec", "y": 66, "c": "science"},
+
+                    { "x": "Jan", "y": 22, "c": "account"},
+                    { "x": "Feb", "y": 63, "c": "account"},
+                    { "x": "Mar", "y": 23, "c": "account"},
+                    { "x": "Apr", "y": 46, "c": "account"},
+                    { "x": "May", "y": 57, "c": "account"},
+                    { "x": "Jun", "y": 94, "c": "account"},
+                    { "x": "Jul", "y": 34, "c": "account"},
+                    { "x": "Aug", "y": 56, "c": "account"},
+                    { "x": "Sep", "y": 23, "c": "account"},
+                    { "x": "Oct", "y": 46, "c": "account"},
+                    { "x": "Nov", "y": 23, "c": "account"},
+                    { "x": "Dec", "y": 63, "c": "account"},
+
+                    { "x": "Jan", "y": 23, "c": "social"},
+                    { "x": "Feb", "y": 34, "c": "social"},
+                    { "x": "Mar", "y": 51, "c": "social"},
+                    { "x": "Apr", "y": 12, "c": "social"},
+                    { "x": "May", "y": 36, "c": "social"},
+                    { "x": "Jun", "y": 56, "c": "social"},
+                    { "x": "Jul", "y": 74, "c": "social"},
+                    { "x": "Aug", "y": 68, "c": "social"},
+                    { "x": "Sep", "y": 24, "c": "social"},
+                    { "x": "Oct", "y": 57, "c": "social"},
+                    { "x": "Nov", "y": 74, "c": "social"},
+                    { "x": "Dec", "y": 68, "c": "social"}
+                ]
+            },
+            {
+                "name": "fields",
+                "values": [
+                    "engineering",
+                    "science",
+                    "account",
+                    "social"
+                ],
+                "transform": [
+                    {
+                        "type": "identifier",
+                        "as": "id"
+                    },
+                    {
+                        "type": "formula",
+                        "as": "x",
+                        "expr": "(datum.id-1) % numOfCol"
+                    },
+                    {
+                        "type": "formula",
+                        "as": "y",
+                        "expr": "floor((datum.id-1) / numOfCol)"
+                    }
+                ]
+            },
+            {
+                "name": "table",
+                "source": "raw",
+                "transform": [
+                    {
+                        "type": "lookup",
+                        "from": "fields",
+                        "key": "data",
+                        "fields": [
+                            "c"
+                        ],
+                        "values": [
+                            "x",
+                            "y"
+                        ],
+                        "as": [
+                            "gx",
+                            "gy"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "scales": [
+            {
+                "name": "groupx",
+                "type": "band",
+                "range": "width",
+                "domain": {
+                    "data": "fields",
+                    "field": "x"
+                }
+            },
+            {
+                "name": "groupy",
+                "type": "band",
+                "range": "height",
+                "domain": {
+                    "data": "fields",
+                    "field": "y"
+                }
+            }
+        ],
+        "marks": [
+            {
+                "name": "site",
+                "type": "group",
+                "from": {
+                    "facet": {
+                        "name": "series",
+                        "data": "table",
+                        "groupby": [
+                            "c",
+                            "gx",
+                            "gy"
+                        ]
+                    }
+                },
+                "encode": {
+                    "enter": {
+                        "x": {
+                            "scale": "groupx",
+                            "field": "gx",
+                            "offset": {
+                                "signal": "chartPad"
+                            }
+                        },
+                        "y": {
+                            "scale": "groupy",
+                            "field": "gy",
+                            "offset": {
+                                "signal": "chartPad"
+                            }
+                        },
+                        "width": {
+                            "signal": "chartWidth"
+                        },
+                        "height": {
+                            "signal": "chartSize"
+                        }
+                    }
+                },
+                "scales": [
+                    {
+                        "name": "x",
+                        "type": "point",
+                        "range": [
+                            0,
+                            {
+                                "signal": "chartWidth"
+                            }
+                        ],
+                        "domain": {
+                            "data": "series",
+                            "field": "x"
+                        }
+                    },
+                    {
+                        "name": "y",
+                        "type": "linear",
+                        "range": [
+                            {
+                                "signal": "chartSize"
+                            },
+                            0
+                        ],
+                        "domain": {
+                            "data": "series",
+                            "field": "y"
+                        }
+                    }
+                ],
+                "axes": [
+                    {
+                        "orient": "bottom",
+                        "scale": "x"
+                    },
+                    {
+                        "orient": "left",
+                        "scale": "y"
+                    }
+                ],
+                "marks": [
+                    {
+                        "type": "line",
+                        "from": {
+                            "data": "series"
+                        },
+                        "encode": {
+                            "enter": {
+                                "x": {
+                                    "signal": "scale('x',datum.x)"
+                                },
+                                "y": {
+                                    "signal": "scale('y',datum.y)"
+                                },
+                                "strokeWidth": {
+                                    "value": 2
+                                },
+                                "interpolate": {
+                                    "value": "basis"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "from": {
+                    "data": "site"
+                },
+                "encode": {
+                    "enter": {
+                        "x": {
+                            "signal": "datum.x + datum.width / 2"
+                        },
+                        "y": {
+                            "signal": "datum.y + datum.height"
+                        },
+                        "fontSize": {
+                            "value": 11
+                        },
+                        "fontWeight": {
+                            "value": "bold"
+                        },
+                        "text": {
+                            "field": "datum.c"
+                        },
+                        "align": {
+                            "value": "center"
+                        },
+                        "baseline": {
+                            "value": "bottom"
+                        },
+                        "fill": {
+                            "value": "#000"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "x",
+            "type": "point",
+            "range": "width",
+            "domain": {
+                "data": "table",
+                "field": "x"
+            }
+        },
+        {
+            "name": "y",
+            "type": "linear",
+            "range": "height",
+            "domain": {
+                "data": "table",
+                "field": "y"
+            }
+        }
+    ],
+    "axes": [
+        {
+            "orient": "bottom",
+            "scale": "x"
+        },
+        {
+            "orient": "left",
+            "scale": "y"
+        }
+    ],
+    "marks": [
+        {
+            "type": "line",
+            "from": {
+                "data": "table"
+            },
+            "encode": {
+                "enter": {
+                    "strokeWidth": {
+                        "value": 1
+                    }
+                },
+                "update": {
+                    "x": {
+                        "scale": "x",
+                        "field": "x"
+                    },
+                    "y": {
+                        "scale": "y",
+                        "field": "y"
+                    },
+                    "strokeWidth": {
+                        "value": 2
+                    },
+                    "interpolate": {
+                        "value": "basis"
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "encode": {
+                "enter": {
+                    "x": {
+                        "signal": "width / 2"
+                    },
+                    "y": {
+                        "signal": "height"
+                    },
+                    "fontSize": {
+                        "value": 11
+                    },
+                    "fontWeight": {
+                        "value": "bold"
+                    },
+                    "text": {
+                        "value": "engineering"
+                    },
+                    "align": {
+                        "value": "center"
+                    },
+                    "baseline": {
+                        "value": "bottom"
+                    },
+                    "fill": {
+                        "value": "#000"
+                    }
+                }
+            }
+        }
+    ]
+}

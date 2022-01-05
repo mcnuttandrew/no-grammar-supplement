@@ -1,0 +1,44 @@
+{
+  "templateAuthor": "CanisMinor-Scutum-78",
+  "templateLanguage": "vega-lite",
+  "templateName": "Sortable stacked bar chart",
+  "templateDescription": "I made this",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"description\": \"A bar chart showing the US population distribution of age groups in 2000.\",\n  \"height\": {\"step\": 17},\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [{\"filter\": \"datum.year == 2000\"}],\n  \"mark\": \"bar\",\n  \"encoding\": {\n    \"y\": {\"field\": \"[y]\", \"type\": \"ordinal\", \"sort\": \"[sort_y]\"},\n    \"x\": {\"aggregate\": \"sum\", \"field\": \"[x]\", \"type\": \"quantitative\"}\n  }\n}",
+  "widgets": [
+    {
+      "name": "y",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "x",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "sort_y",
+      "type": "Switch",
+      "config": {
+        "active": "\"-x\"",
+        "inactive": "null",
+        "defaultsToActive": true
+      }
+    }
+  ]
+}

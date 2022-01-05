@@ -1,0 +1,50 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' alpha='50' />
+	<axis_value shadow='low' color='aaddff' size='10' alpha='65' />
+	<axis_ticks value_ticks='false' category_ticks='true' />
+	
+	<chart_border top_thickness='0' bottom_thickness='0' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row url='images/10_dollars.jpg'>
+			<string></string>
+			<number shadow='high'>70</number>
+			<number shadow='high'>50</number>
+			<number shadow='high'>100</number>
+		</row>
+	</chart_data>
+	<chart_grid_h color='ffffff' alpha='5' thickness='10' />
+	<chart_rect bevel='bg' x='140' y='55' width='275' height='175' positive_color='566069' positive_alpha='100' />
+	<chart_type>image column</chart_type>
+	
+	<draw>
+		<text shadow='high' color='ff4400' alpha='25' rotation='90' size='66' x='110' y='-2' width='500' height='200'>GROWTH</text>
+		<text shadow='high' color='ff4400' alpha='90' rotation='-90' size='66' x='-12' y='300' width='500' height='200'>GROWTH</text>
+		<text shadow='high' color='aaddff' alpha='65' rotation='0' size='55' x='140' y='-9' width='500' height='200'>2007-2009</text>
+		<text layer='background' shadow='high' color='ffff66' alpha='60' rotation='0' size='66' x='148' y='233' width='500' height='200'>revenue</text>
+	</draw>
+	<filter>
+		<shadow id='high' distance='5' angle='45' alpha='40' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<bevel id='bg' angle='45' blurX='60' blurY='60' distance='10' highlightAlpha='10' shadowAlpha='10' type='full' />
+	</filter>
+		
+</chart>
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+
+
+
+
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string>2005</string>
+			<string>2006</string>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string></string>
+			<number bevel='data'>20</number>
+			<number bevel='data'>10</number>
+			<number bevel='data' glow='glow1'>30</number>
+			<number bevel='data'>50</number>
+			<number bevel='data'>40</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='FFFFFF' thickness='1' type='solid' />
+	<chart_label shadow='low' color='ffffff' alpha='95' size='10' position='inside' as_percentage='true' />
+	<chart_pref select='true' />
+	<chart_rect bevel='bg' positive_color='4c5577' positive_alpha='75' />
+	<chart_type>pie</chart_type>
+
+	<draw>
+		<text layer='background' shadow='low' color='ffffff' alpha='5' size='30' x='4' y='0' width='480' height='150' >||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+		<text layer='background'  shadow='low' color='ffffff' alpha='5' size='30' x='4' y='140' width='480' height='150' v_align='bottom'>||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='50' blurX='5' blurY='5' />
+		<bevel id='data' angle='45' blurX='10' blurY='10' distance='3' highlightAlpha='5' highlightColor='ffffff' shadowColor='000000' shadowAlpha='50' type='full' />
+		<bevel id='bg' angle='10' blurX='20' blurY='20' distance='10' highlightAlpha='25' highlightColor='ff8888' shadowColor='8888ff' shadowAlpha='25' type='full' />
+		<glow id='glow1' color='ff88ff' alpha='75' blurX='30' blurY='30' inner='false' />
+	</filter>
+	
+	<context_menu full_screen='false' />
+	<legend shadow='low' fill_color='0' fill_alpha='5' line_alpha='0' line_thickness='0' bullet='circle' size='12' color='eeffff' alpha='75' margin='10' />
+
+	<series_color>
+		<color>ddaa41</color>
+		<color>88dd11</color>
+		<color>4e62dd</color>
+		<color>ff8811</color>
+		<color>4d4d4d</color>
+		<color>5a4b6e</color>
+	</series_color>
+	<series_explode>
+		<number>20</number>
+		<number>0</number>
+		<number>40</number>
+		<number>0</number>
+		<number>10</number>
+	</series_explode>
+
+</chart>
+
+
+
+
+
+
+
+

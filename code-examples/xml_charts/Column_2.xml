@@ -1,0 +1,148 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='11' color='000000' alpha='50' skip='2' />
+	<axis_ticks value_ticks='false' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='3' major_color='000000' minor_color='888888' position='outside' />
+	<axis_value shadow='low' size='10' color='000000' alpha='50' steps='4' prefix='' suffix='' decimals='0' separator='' show_min='true' />
+
+	<chart_border color='000000' top_thickness='1' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>1</string>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+			<string>5</string>
+			<string>6</string>
+			<string>7</string>
+			<string>8</string>
+			<string>9</string>
+			<string>10</string>
+			<string>11</string>
+			<string>12</string>
+			<string>13</string>
+			<string>14</string>
+			<string>15</string>
+			<string>16</string>
+			<string>17</string>
+			<string>18</string>
+			<string>19</string>
+			<string>20</string>
+			<string>21</string>
+			<string>22</string>
+			<string>23</string>
+			<string>24</string>
+			<string>25</string>
+			<string>26</string>
+			<string>27</string>
+			<string>28</string>
+			<string>29</string>
+			<string>30</string>
+			<string>31</string>
+		</row>
+		<row>
+			<string>Region A</string>
+			<number>10</number>
+			<number>12</number>
+			<number>11</number>
+			<number>15</number>
+			<number>20</number>
+			<number>22</number>
+			<number>21</number>
+			<number>30</number>
+			<number>31</number>
+			<number>32</number>
+			<number>28</number>
+			<number>29</number>
+			<number>40</number>
+			<number>41</number>
+			<number>45</number>
+			<number>50</number>
+			<number>65</number>
+			<number>45</number>
+			<number>50</number>
+			<number>51</number>
+			<number>65</number>
+			<number>60</number>
+			<number>62</number>
+			<number>65</number>
+			<number>45</number>
+			<number>55</number>
+			<number>59</number>
+			<number>52</number>
+			<number>53</number>
+			<number>40</number>
+			<number>45</number>
+		</row>
+		<row>
+			<string>Region B</string>
+			<number>30</number>
+			<number>32</number>
+			<number>35</number>
+			<number>40</number>
+			<number>42</number>
+			<number>35</number>
+			<number>36</number>
+			<number>31</number>
+			<number>35</number>
+			<number>36</number>
+			<number>40</number>
+			<number>42</number>
+			<number>40</number>
+			<number>41</number>
+			<number>45</number>
+			<number>40</number>
+			<number>38</number>
+			<number>36</number>
+			<number>30</number>
+			<number>29</number>
+			<number>28</number>
+			<number>25</number>
+			<number>28</number>
+			<number>29</number>
+			<number>30</number>
+			<number>40</number>
+			<number>32</number>
+			<number>33</number>
+			<number>34</number>
+			<number>30</number>
+			<number>35</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='0066FF' thickness='28' />
+	<chart_grid_v alpha='10' color='0066FF' thickness='1' />
+	<chart_guide horizontal='true' vertical='true' thickness='1' color='000000' alpha='35' type='dashed' radius='3' fill_alpha='75' line_alpha='0' background_color='FF4400' text_h_alpha='90' text_v_alpha='90' prefix_h='$' suffix_h=' Mil' suffix_v=' May' />	
+	<chart_rect x='70' y='50' width='370' height='220' positive_color='FFFFFF' positive_alpha='40' />
+
+	<draw>
+		<image shadow='bg' layer='background' url='images/note_paper.jpg' alpha='100' x='0' y='0' width='480' height='300' />
+		<text shadow='high' color='ff6644' alpha='75' rotation='2' size='53' x='55' y='0' width='400' height='400' h_align='center'>monthly report</text>
+		<text shadow='low' alpha='60' size='16' x='75' y='55' width='300' h_align='left'>May 2009</text>
+	</draw>
+	<filter>
+		<shadow id='high' distance='3' angle='45' color='0' alpha='50' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<shadow id='bg' inner='true' quality='1' distance='25' angle='135' color='000000' alpha='15' blurX='200' blurY='150' />
+	</filter>
+
+	<legend layout='hide' />
+
+	<series_color>
+		<color>dd6b66</color>
+		<color>7e6cee</color>
+	</series_color>
+	<series set_gap='0' bar_gap='0' />
+
+</chart>
+
+
+
+
+
+
+
+

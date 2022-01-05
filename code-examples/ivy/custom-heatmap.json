@@ -1,0 +1,64 @@
+{
+  "templateAuthor": "CanisMinor-Scutum-78",
+  "templateLanguage": "vega-lite",
+  "templateName": "Custom Heatmap",
+  "templateDescription": "A fun new custom heatmap template",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"transform\": [],\n  \"encoding\": {\n    \"x\": {\"field\": \"[X]\", \"type\": \"nominal\", \"scale\": {}},\n    \"y\": {\"field\": \"[Y]\", \"type\": \"nominal\", \"scale\": {}},\n    \"color\": {\n      \"field\": \"HappinessScore\",\n      \"type\": \"quantitative\",\n      \"aggregate\": \"[aggregate]\",\n      \"scale\": {\"scheme\": \"blues\"}\n    }\n  },\n  \"mark\": {\"type\": \"rect\", \"tooltip\": true, \"opacity\": 0.8}\n}\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "X",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Y",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "aggregate",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          },
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"max\"",
+            "value": "\"max\""
+          },
+          {
+            "display": "\"min\"",
+            "value": "\"min\""
+          }
+        ],
+        "defaultValue": null
+      }
+    }
+  ]
+}

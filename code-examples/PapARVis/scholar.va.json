@@ -1,0 +1,102 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 400,
+    "height": 200,
+    "autosize": "none",
+  
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"year": "2013", "amount": 14},
+          {"year": "2014", "amount": 18},
+          {"year": "2015", "amount": 28},
+          {"year": "2016", "amount": 55},
+          {"year": "2017", "amount": 64},
+          {"year": "2018", "amount": 100},
+          {"year": "2019", "amount": 110}
+        ]
+      }
+    ],
+    "ar": {
+      "mode": "ON",
+      "data": [
+        {
+          "name": "table",
+          "values": [
+            {"year": "2020", "amount": 130},
+            {"year": "2021", "amount": 140}
+          ]
+        }
+      ]
+    },
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "range": "width",
+        "padding": 0.5,
+        "domain": {"data": "table", "field": "year"}
+      },
+      {
+        "name": "yscale",
+        "type": "linear",
+        "range": "height",
+        "domain": {"data": "table", "field": "amount"}
+      }
+    ],
+  
+    "axes": [
+      {"orient": "bottom", "scale": "xscale", "labels": false, "domain": false, "ticks": false},
+      {"orient": "left", "scale": "yscale", "labels": false, "domain": false, "ticks": false, "grid": true, "gridOpacity": 0.5, "tickCount": 5}
+    ],
+  
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "table"},
+        "encode": {
+          "update": {
+            "fill": {"value": "grey"},
+            "x": {"scale": "xscale", "field": "year"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "amount"},
+            "y2": {"scale": "yscale", "value": 0}
+          }
+        }
+      },
+        {
+          "type": "text",
+          "from": {"data": "table"},
+          "encode":{
+            "enter": {
+              "baseline": {"value": "bottom"},
+              "align": {"value": "center"},
+              "fill": {"value": "white"}
+            },
+            "update": {
+              "x": {"scale": "xscale", "field": "year","band":0.5},
+              "y": {"signal": "height"},
+              "text": {"field": "year"}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "table"},
+          "encode":{
+            "enter": {
+              "baseline": {"value": "top"},
+              "align": {"value": "center"},
+              "fill": {"value": "white"}
+            },
+            "update": {
+              "x": {"scale": "xscale", "field": "year","band":0.5},
+              "y": {"scale": "yscale", "field": "amount"},
+              "text": {"field": "amount"}
+            }
+          }
+        }
+    ]
+  }
+  

@@ -1,0 +1,155 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "JoyPlot",
+  "templateDescription": "Compare univariate data across a facted and familiar plot type.",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v3.json\",\n  \"data\": {\"url\": \"data/movies.json\"},\n  \"transform\": [\n    {\"filter\": {\"and\": [{\"field\": \"[XDim]\", \"valid\": true}]}},\n    {\n      \"bin\": {\"maxbins\": \"[numbins]\"},\n      \"field\": \"[XDim]\",\n      \"as\": [\"Rating_bin_min\", \"Rating_bin_max\"]\n    },\n    {\n      \"calculate\": \"(datum[\\\"Rating_bin_min\\\"]+datum[\\\"Rating_bin_max\\\"])/2\",\n      \"as\": \"Rating_bin\"\n    },\n    {\n      \"aggregate\": [{\"op\": \"[Agg]\", \"field\": \"[XDim]\", \"as\": \"Movies\"}],\n      \"groupby\": [\"[Color]\", \"Rating_bin\"]\n    },\n    {\n      \"impute\": \"Movies\",\n      \"key\": \"Rating_bin\",\n      \"groupby\": [\"[Color]\"],\n      \"value\": 0\n    }\n  ],\n  \"mark\": {\n    \"type\": \"area\",\n    \"fillOpacity\": 0.5,\n    \"strokeOpacity\": 0.8,\n    \"strokeWidth\": 1,\n    \"interpolate\": \"[Curve]\"\n  },\n  \"width\": \"[Width]\",\n  \"height\": \"[Height]\",\n  \"bounds\": \"flush\",\n  \"encoding\": {\n    \"x\": {\n      \"bin\": \"binned\",\n      \"field\": \"Rating_bin\",\n      \"type\": \"quantitative\",\n      \"title\": \"[XDim]\"\n    },\n    \"x2\": {\"value\": 0},\n    \"y\": {\n      \"field\": \"Movies\",\n      \"type\": \"quantitative\",\n      \"scale\": {\"type\": \"[ScaleType]\"},\n      \"axis\": {\n        \"title\": null,\n        \"values\": [],\n        \"domain\": false,\n        \"labels\": false,\n        \"ticks\": false\n      }\n    },\n    \"row\": {\n      \"field\": \"[Color]\",\n      \"type\": \"nominal\",\n      \"title\": \"Movies\",\n      \"header\": {\n        \"labelAngle\": 0,\n        \"labelOrient\": \"left\",\n        \"labelAlign\": \"left\",\n        \"labelPadding\": 0\n      },\n      \"sort\": {\"field\": \"Movies\", \"op\": \"max\", \"order\": \"ascending\"},\n      \"spacing\": 0\n    },\n    \"fill\": {\"field\": \"[Color]\", \"type\": \"nominal\", \"legend\": null},\n    \"stroke\": {\"value\": \"white\"}\n  },\n  \"config\": {\"view\": {\"stroke\": \"transparent\"}}\n}",
+  "widgets": [
+    {
+      "name": "XDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "numbins",
+      "type": "Slider",
+      "config": {
+        "minVal": "5",
+        "maxVal": "50",
+        "step": 1,
+        "defaultValue": "30"
+      },
+      "displayName": "Number of Bins"
+    },
+    {
+      "name": "Curve",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "linear",
+            "value": "\"linear\""
+          },
+          {
+            "display": "step",
+            "value": "\"step\""
+          },
+          {
+            "display": "basis",
+            "value": "\"basis\""
+          },
+          {
+            "display": "cardinal",
+            "value": "\"cardinal\""
+          },
+          {
+            "display": "bundle",
+            "value": "\"bundle\""
+          },
+          {
+            "display": "monotone",
+            "value": "\"monotone\""
+          }
+        ],
+        "defaultValue": "\"monotone\""
+      }
+    },
+    {
+      "name": "Agg",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"sum\"",
+            "value": "\"sum\""
+          },
+          {
+            "display": "\"mean\"",
+            "value": "\"mean\""
+          },
+          {
+            "display": "\"median\"",
+            "value": "\"median\""
+          },
+          {
+            "display": "\"min\"",
+            "value": "\"min\""
+          },
+          {
+            "display": "\"count\"",
+            "value": "\"count\""
+          },
+          {
+            "display": "\"max\"",
+            "value": "\"max\""
+          }
+        ],
+        "defaultValue": "\"count\""
+      },
+      "displayName": "Aggregate"
+    },
+    {
+      "name": "ScaleType",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"linear\"",
+            "value": "\"linear\""
+          },
+          {
+            "display": "\"pow\"",
+            "value": "\"pow\""
+          },
+          {
+            "display": "\"symlog\"",
+            "value": "\"symlog\""
+          },
+          {
+            "display": "\"sqrt\"",
+            "value": "\"sqrt\""
+          }
+        ],
+        "defaultValue": null
+      },
+      "displayName": "Type of Scale"
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "5",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "10"
+      }
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "800",
+        "step": 1,
+        "defaultValue": "300"
+      }
+    }
+  ]
+}

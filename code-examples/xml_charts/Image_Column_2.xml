@@ -1,0 +1,53 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='10' color='ffffff' />
+	<axis_value shadow='low' size='10' alpha='60' max='40' prefix='$' suffix='k' />
+	
+	<chart_border top_thickness='0' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2009</string>
+		</row>
+		<row url='images/woman.gif'>
+			<string>women</string>
+			<number>29</number>
+		</row>
+		<row url='images/man.gif'>
+			<string>men</string>
+			<number>39</number>
+		</row>
+	</chart_data>
+	<chart_grid_h color='ffffff' alpha='35' thickness='1' type='dashed' />
+	<chart_rect bevel='bg' x='180' y='30' width='150' height='230' positive_color='bccdcb' positive_alpha='100' />
+	<chart_type>image column</chart_type>
+
+	<draw>
+		<text shadow='high' color='eeeeaa' rotation='-90' size='39' x='330' y='263' width='300' height='300'>Earning Gap</text>
+		<text shadow='low' color='566069' alpha='85' rotation='-90' size='21' x='373' y='263' width='300' height='40'>between men & women</text>
+		<text color='96a5aa' rotation='-90' alpha='25' size='100' x='-14' y='306' width='400' height='200'>||||||||||||</text>
+		<circle shadow='hole' x='50' y='50' radius='15' fill_alpha='100' fill_color='ffffff' line_alpha='0' />
+		<circle shadow='hole' x='50' y='250' radius='15' fill_alpha='100' fill_color='ffffff' line_alpha='0' />
+		<rect bevel='ground' x='180' y='30' width='150' height='230' />
+	</draw>
+	<filter>
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<shadow id='hole' distance='3' angle='45' alpha='75' blurX='8' blurY='8' inner='true' />
+		<bevel id='ground' distance='3' angle='90' highlightAlpha='20' shadowAlpha='35' blurX='0' blurY='50' type='inner' knockout='true' />
+		<bevel id='bg' angle='45' blurX='60' blurY='60' distance='10' highlightAlpha='40' shadowAlpha='15' type='outer' />
+	</filter>
+		
+</chart>
+
+
+
+
+
+
+
+

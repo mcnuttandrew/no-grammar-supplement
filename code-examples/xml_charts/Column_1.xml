@@ -1,0 +1,64 @@
+
+
+
+
+<chart>
+	<axis_category shadow='low' />
+	<axis_value shadow='low' min='-60' size='10' alpha='50' steps='4' />
+	
+	<chart_border color='000000' top_thickness='1' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number bevel='gray' shadow='low'>-20</number>
+			<number bevel='gray' shadow='low' note='Audited'>45</number>
+			<number bevel='gray' shadow='low'>100</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number bevel='blue' shadow='high'>-40</number>
+			<number bevel='blue' shadow='high'>65</number>
+			<number bevel='blue' shadow='high'>80</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' thickness='1' type='dashed' />
+	<chart_label color='ddffff' alpha='90' size='10' position='middle' />
+	<chart_note type='arrow' size='13' color='000000' alpha='75' x='-10' y='-30' background_color_1='FF4400' background_alpha='75' shadow='low' />
+	<chart_rect bevel='bg' shadow='high' x='75' y='50' width='360' height='200' positive_color='eeeeff' negative_color='dddddd' positive_alpha='100' negative_alpha='100'  corner_tl='0' corner_tr='0' corner_br='40' corner_bl='40' />
+	<chart_transition type='scale' delay='.5' duration='1' order='series' />
+
+	<draw>
+		<text shadow='high' color='f8f8ff' alpha='50' rotation='-90' size='75' x='-20' y='300' width='300' height='200' h_align='center'>revenue</text>
+		<text shadow='low' color='000033' alpha='50' rotation='-90' size='16' x='7' y='230' width='300' height='50' h_align='center' v_align='middle'>(millions)</text>
+	</draw>
+	<filter>
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<bevel id='bg' angle='45' blurX='50' blurY='50' distance='10' highlightAlpha='50' highlightColor='ffffff' shadowAlpha='10' inner='true' />
+		<bevel id='blue' angle='-80' blurX='0' blurY='30' distance='20' highlightColor='ffffff' highlightAlpha='50' shadowColor='000088' shadowAlpha='25' inner='true' />
+		<bevel id='gray' angle='-80' blurX='0' blurY='30' distance='20' highlightColor='ffffff' highlightAlpha='25' shadowColor='000000' shadowAlpha='20' inner='true' />
+	</filter>
+	
+	<legend shadow='low' x='75' y='27' width='360' height='20' margin='5' fill_color='000066' fill_alpha='8' line_alpha='0' line_thickness='0' size='12' color='333355' alpha='90' />
+
+	<series_color>
+		<color>666666</color>
+		<color>768bb3</color>
+	</series_color>
+	<series set_gap='40' bar_gap='-25' />
+	
+</chart>
+
+
+
+
+
+
+
+

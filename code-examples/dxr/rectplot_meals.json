@@ -1,0 +1,33 @@
+{
+  "title": "Cars Data",
+  "description": "Chart that uses rect marks.",
+  "data": { "url": "headcount.json" },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "day",
+      "type": "ordinal",
+      "axis": {
+        "titlePadding": 40
+      }
+    },
+    "y": {
+      "field": "meal",
+      "type": "ordinal",
+      "axis": {
+        "titlePadding": 60
+      }
+    },
+    "color": {
+      "field": "headcount",
+      "type": "quantitative",
+      "scale": {
+        "range": "ramp",
+        "scheme": "blues"
+      }
+    },
+    "size": {
+      "value": 50
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "reencoding": {
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range0": [
+          "White",
+          "White",
+          "White",
+          "White"
+        ],
+        "range1": [
+          "Blue",
+          "Orange",
+          "Red",
+          "Green"
+        ]
+      }
+    }
+  },
+  "rebin": {
+    "type": "voronoi",
+    "size": 32,
+    "stroke": "black"
+  },
+  "compose": {
+    "mix": "blend",
+    "blending": "multiplicative"
+  }
+}

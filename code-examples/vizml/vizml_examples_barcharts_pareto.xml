@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualization xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd" version="3.0">
+  <delimitedFileSource fileName="/pubs/gpl/data/Employee data.csv" header="true"
+    id="empdata"/>
+  <sourceVariable sourceName="educ" id="educ" source="empdata"
+    categorical="true"/>
+  <categoricalDomain id="catSort">
+    <variableReference ref="educ"/>
+    <statisticSort descending="true" sourceVariable="educ" statVariable="educ"
+      method="count"/>
+  </categoricalDomain>
+  <derivedVariable id="counted" categorical="true" value="constant(counted)"/>
+  <graph>
+    <coordinates>
+      <dimension domain="catSort">
+        <axis>
+          <label>
+            <text>Educational Level</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Count</text>
+          </label>
+          <majorTicks/>
+        </axis>
+        <axis opposite="true" transform="percent">
+          <label>
+            <text>Percent</text>
+          </label>
+          <majorTicks>
+            <numberFormat suffix="%"/>
+          </majorTicks>
+        </axis>
+      </dimension>
+    </coordinates>
+    <interval>
+      <summaryStatistic method="count"/>
+      <labeling variable="counted">
+        <summaryStatistic method="count"/>
+      </labeling>
+      <x variable="educ"/>
+    </interval>
+    <line>
+      <summaryStatistic method="cumulativeCount"/>
+      <x variable="educ"/>
+    </line>
+  </graph>
+</visualization>

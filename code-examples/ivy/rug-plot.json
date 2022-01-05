@@ -1,0 +1,98 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Rug Plot",
+  "templateDescription": "A simple univariate measure using ticks",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[Var1]\",\n      \"type\": \"quantitative\",\n      \"scale\": {\"type\": \"linear\", \"zero\": \"[Zeroes]\"}\n    },\n    \"y\": {\"field\": \"[Pivot]\", \"type\": \"ordinal\"}\n  },\n  \"mark\": {\"type\": \"tick\", \"tooltip\": true, \"height\": \"[Height]\", \"color\": \"[Color]\"},\n  \"height\": {\n    \"$cond\": {\n      \"query\": \"!parameters.Pivot\",\n      \"true\": \"[Height]\"\n    }\n  },\n  \"width\": 400\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Var1",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Zeroes",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "10",
+        "maxVal": "50",
+        "step": 1,
+        "defaultValue": "100"
+      }
+    },
+    {
+      "name": "Pivot",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    }
+  ]
+}

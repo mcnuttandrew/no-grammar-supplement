@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <delimitedFileSource fileName="/pubs/gpl/data/Employee data.csv" header="true"
+    id="empdata"/>
+  <sourceVariable categorical="true" id="jobcat" source="empdata"
+    sourceName="jobcat"/>
+  <sourceVariable categorical="true" id="gender" source="empdata"
+    sourceName="gender"/>
+  <sourceVariable id="salary" source="empdata" sourceName="salary"/>
+  <graph id="main">
+    <location part="right" method="attach" target="legend"/>
+    <coordinates>
+      <dimension>
+        <axis>
+          <label>
+            <text>Job Category</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Sum Salary</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <interval positionModifier="stack">
+      <summaryStatistic method="sum"/>
+      <color variable="gender" id="genderGroup"/>
+      <x variable="jobcat"/>
+      <y variable="salary"/>
+    </interval>
+  </graph>
+  <legend id="legend">
+    <location part="right" method="fixed" value="100%"/>
+    <location part="width" method="sizeToContent"/>
+    <label>
+      <text>Gender</text>
+    </label>
+    <legendTarget target="genderGroup"/>
+  </legend>
+</visualization>

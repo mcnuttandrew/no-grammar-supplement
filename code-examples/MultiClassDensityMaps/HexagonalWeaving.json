@@ -1,0 +1,10 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "weaving",
+    "shape": "hex"
+  }
+}

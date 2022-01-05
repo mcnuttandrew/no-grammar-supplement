@@ -1,0 +1,72 @@
+{
+  "data": {
+    "db": "fifa20",
+    "query": "select * from fifa20;"
+  },
+  "layout": {
+    "x": {
+      "field": "rating",
+      "extent": [
+        40,
+        100
+      ]
+    },
+    "y": {
+      "field": "wage",
+      "extent": [
+        600,
+        0
+      ]
+    },
+    "z": {
+      "field": "power",
+      "order": "desc"
+    }
+  },
+  "marks": {
+    "cluster": {
+      "mode": "dot",
+      "config": {
+        "dotSizeColumn": "defending",
+        "dotSizeDomain": [
+          0,
+          100
+        ],
+        "dotSizeLegendTitle": "Defensive Rating",
+        "dotColorColumn": "agegroup",
+        "dotColorDomain": [
+          "U29",
+          "U23",
+          "U20",
+          "Older"
+        ],
+        "dotColorLegendTitle": "Age Group"
+      }
+    },
+    "hover": {
+      "tooltip": {
+        "columns": [
+          "name",
+          "rating",
+          "wage",
+          "power",
+          "defending",
+          "position"
+        ],
+        "aliases": [
+          "Player Name",
+          "Overall Rating",
+          "Wage",
+          "Power",
+          "Defense",
+          "Position"
+        ]
+      }
+    }
+  },
+  "config": {
+    "topLevelWidth": 1500,
+    "topLevelHeight": 1000,
+    "axis": true
+  }
+}

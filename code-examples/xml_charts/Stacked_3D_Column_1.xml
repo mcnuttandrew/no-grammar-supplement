@@ -1,0 +1,67 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='12' color='ffffff' alpha='75' orientation='horizontal' />
+	<axis_ticks value_ticks='false' category_ticks='false' />
+	<axis_value alpha='0' />
+
+	<chart_border top_thickness='0' bottom_thickness='0' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>Region 1</string>
+			<number>50</number>
+			<number>70</number>
+			<number>110</number>
+		</row>
+		<row>
+			<string>Region 2</string>
+			<number>35</number>
+			<number>50</number>
+			<number>90</number>
+		</row>
+	</chart_data>
+	<chart_grid_h thickness='0' />
+	<chart_label shadow='low' alpha='70' size='9' position='middle' />
+	<chart_pref min_x='0' max_x='80' min_y='10' max_y='70' />
+	<chart_rect x='15' y='-10' width='425' height='245' positive_alpha='0' negative_alpha='25' />
+	<chart_transition type='slide_down' delay='0' duration='1' order='series' />
+	<chart_type>stacked 3d column</chart_type>
+
+	<draw>
+		<image shadow='high' transition='dissolve' delay='1' duration='.6' url='images/button_rollover.swf' x='330' y='250' width='75' height='30' />
+	</draw>
+
+	<filter>
+		<shadow id='high' distance='3' angle='45' color='0' alpha='50' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='2' blurY='2' />
+	</filter>
+	
+	<legend x='0' y='300' width='0' height='0' margin='0' fill_alpha='0' line_alpha='0' line_thickness='0' size='0' alpha='0' />
+	<link>
+		<area x='330' y='250' width='75' height='30' target='print' />
+	</link>
+
+	<series_color>
+		<color>666666</color>
+		<color>768bb3</color>
+	</series_color>
+	<series bar_gap='10' set_gap='20' />
+
+</chart>
+
+
+
+
+
+
+
+

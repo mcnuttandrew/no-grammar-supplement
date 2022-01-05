@@ -1,0 +1,352 @@
+
+
+
+
+<chart>
+
+	<axis_category alpha='0' />
+	<axis_ticks value_ticks='true' category_ticks='false' major_thickness='2' minor_thickness='1' minor_count='1' major_color='8888ff' minor_color='ff4400' position='outside' />
+	<axis_value size='10' color='ffffff' alpha='75' steps='4' prefix='' suffix='' decimals='0' separator='' show_min='true' max='100' min='-100' />
+
+	<chart_border color='8888ff' top_thickness='2' bottom_thickness='2' left_thickness='2' right_thickness='2' />
+	<chart_data>
+		<row>
+			<null/>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+		</row>
+		<row>
+			<string>hi</string>
+			<number>59</number>
+			<number>35</number>
+			<number>81</number>
+			<number>44</number>
+			<number>74</number>
+			<number>20</number>
+			<number>51</number>
+			<number>25</number>
+			<number>58</number>
+			<number>7</number>
+			<number>60</number>
+			<number>2</number>
+			<number>4</number>
+			<number>84</number>
+			<number>51</number>
+			<number>88</number>
+			<number>8</number>
+			<number>66</number>
+			<number>4</number>
+			<number>21</number>
+			<number>89</number>
+			<number>70</number>
+			<number>25</number>
+			<number>61</number>
+			<number>56</number>
+			<number>57</number>
+			<number>31</number>
+			<number>84</number>
+			<number>77</number>
+			<number>49</number>
+			<number>35</number>
+			<number>46</number>
+			<number>83</number>
+			<number>25</number>
+			<number>89</number>
+			<number>67</number>
+			<number>45</number>
+			<number>50</number>
+			<number>1</number>
+			<number>12</number>
+			<number>57</number>
+			<number>61</number>
+			<number>13</number>
+			<number>61</number>
+			<number>54</number>
+			<number>64</number>
+			<number>58</number>
+			<number>62</number>
+			<number>39</number>
+			<number>61</number>
+			<number>82</number>
+			<number>38</number>
+			<number>41</number>
+			<number>17</number>
+			<number>8</number>
+			<number>7</number>
+			<number>74</number>
+			<number>39</number>
+			<number>1</number>
+			<number>60</number>
+			<number>87</number>
+			<number>35</number>
+			<number>15</number>
+			<number>79</number>
+			<number>59</number>
+			<number>14</number>
+			<number>55</number>
+			<number>14</number>
+			<number>64</number>
+			<number>56</number>
+			<number>25</number>
+			<number>31</number>
+			<number>26</number>
+			<number>38</number>
+			<number>1</number>
+			<number>80</number>
+			<number>12</number>
+			<number>58</number>
+			<number>51</number>
+			<number>50</number>
+			<number>29</number>
+			<number>43</number>
+			<number>87</number>
+			<number>70</number>
+			<number>59</number>
+			<number>5</number>
+			<number>76</number>
+			<number>42</number>
+			<number>43</number>
+			<number>76</number>
+			<number>12</number>
+			<number>40</number>
+			<number>20</number>
+			<number>27</number>
+			<number>29</number>
+			<number>79</number>
+			<number>41</number>
+			<number>83</number>
+			<number>2</number>
+		</row>
+		<row>
+			<string>lo</string>
+			<number>-59</number>
+			<number>-35</number>
+			<number>-81</number>
+			<number>-44</number>
+			<number>-74</number>
+			<number>-20</number>
+			<number>-51</number>
+			<number>-25</number>
+			<number>-58</number>
+			<number>-7</number>
+			<number>-60</number>
+			<number>-2</number>
+			<number>-4</number>
+			<number>-84</number>
+			<number>-51</number>
+			<number>-88</number>
+			<number>-8</number>
+			<number>-66</number>
+			<number>-4</number>
+			<number>-21</number>
+			<number>-89</number>
+			<number>-70</number>
+			<number>-25</number>
+			<number>-61</number>
+			<number>-56</number>
+			<number>-57</number>
+			<number>-31</number>
+			<number>-84</number>
+			<number>-77</number>
+			<number>-49</number>
+			<number>-35</number>
+			<number>-46</number>
+			<number>-83</number>
+			<number>-25</number>
+			<number>-89</number>
+			<number>-67</number>
+			<number>-45</number>
+			<number>-50</number>
+			<number>-1</number>
+			<number>-12</number>
+			<number>-57</number>
+			<number>-61</number>
+			<number>-13</number>
+			<number>-61</number>
+			<number>-54</number>
+			<number>-64</number>
+			<number>-58</number>
+			<number>-62</number>
+			<number>-39</number>
+			<number>-61</number>
+			<number>-82</number>
+			<number>-38</number>
+			<number>-41</number>
+			<number>-17</number>
+			<number>-8</number>
+			<number>-7</number>
+			<number>-74</number>
+			<number>-39</number>
+			<number>-1</number>
+			<number>-60</number>
+			<number>-87</number>
+			<number>-35</number>
+			<number>-15</number>
+			<number>-79</number>
+			<number>-59</number>
+			<number>-14</number>
+			<number>-55</number>
+			<number>-14</number>
+			<number>-64</number>
+			<number>-56</number>
+			<number>-25</number>
+			<number>-31</number>
+			<number>-26</number>
+			<number>-38</number>
+			<number>-1</number>
+			<number>-80</number>
+			<number>-12</number>
+			<number>-58</number>
+			<number>-51</number>
+			<number>-50</number>
+			<number>-29</number>
+			<number>-43</number>
+			<number>-87</number>
+			<number>-70</number>
+			<number>-59</number>
+			<number>-5</number>
+			<number>-76</number>
+			<number>-42</number>
+			<number>-43</number>
+			<number>-76</number>
+			<number>-12</number>
+			<number>-40</number>
+			<number>-20</number>
+			<number>-27</number>
+			<number>-29</number>
+			<number>-79</number>
+			<number>-41</number>
+			<number>-83</number>
+			<number>-2</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='ffffff' thickness='12' type='solid' />
+	<chart_rect x='105' y='50' width='300' height='180' positive_color='88ff00' positive_alpha='80' negative_color='88ff00' negative_alpha='80' />
+	<chart_type>floating column</chart_type>
+
+	<!-- The first draw element is a flash file that plays music -->
+	<draw>
+		<image alpha='0' url='sound/slow.swf' />
+		<text color='ffffff' alpha='20' rotation='-10' size='200' x='320' y='-15' width='400' height='400' h_align='left'>&</text>
+		<text shadow='shadow1' color='88ff00' alpha='50' rotation='0' size='90' x='96' y='-36' width='400' height='400' h_align='left'>music</text>
+		<text shadow='shadow1' color='ff6644' alpha='40' rotation='3' size='150' x='50' y='150' width='400' height='400' h_align='left'>sound</text>
+	</draw>
+	<filter>
+		<shadow id='shadow1' distance='5' angle='45' color='0' alpha='30' blurX='8' blurY='8' />
+	</filter>
+	
+	<update url='xml/Gallery_Floating_Column_Update.php?count=1' delay='1' mode='stream_category' span='99' />
+	<context_menu full_screen='false' />
+	<scroll detail='100' />
+
+	<series_color>
+		<color>666666</color>
+	</series_color>
+	<series set_gap='20' />
+
+</chart>
+
+
+
+
+
+
+
+

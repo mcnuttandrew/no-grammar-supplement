@@ -1,0 +1,141 @@
+
+
+
+
+<chart>
+	<axis_category shadow='shadow2' size='12' color='000000' alpha='25' orientation='circular' />
+	<axis_ticks value_ticks='1' category_ticks='1' major_color='444444' major_thickness='2' minor_count='0' />
+	<axis_value max='60' size='11' alpha='90' color='ffffff' show_min='' background_color='446688' />
+	
+	<chart_border bottom_thickness='2' left_thickness='2' color='444444' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>North</string>
+			<string></string>
+			<string>North\rEast</string>
+			<string></string>
+			<string>East</string>
+			<string></string>
+			<string>South\rEast</string>
+			<string></string>
+			<string>South</string>
+			<string></string>
+			<string>South\rWest</string>
+			<string></string>
+			<string>West</string>
+			<string></string>
+			<string>North\rWest</string>
+			<string></string>
+		</row>
+		<row>
+			<string>Summer</string>
+			<number shadow='shadow1'>12</number>
+			<number>15</number>
+			<number>20</number>
+			<number>15</number>
+			<number>10</number>
+			<number>7</number>
+			<number>8</number>
+			<number>6</number>
+			<number>6</number>
+			<number>5</number>
+			<number>6</number>
+			<number>6</number>
+			<number>7</number>
+			<number>8</number>
+			<number>10</number>
+			<number>10</number>
+		</row>
+		<row>
+			<string>Autumn</string>
+			<number shadow='shadow1'>10</number>
+			<number>10</number>
+			<number>15</number>
+			<number>25</number>
+			<number>30</number>
+			<number>35</number>
+			<number>32</number>
+			<number>30</number>
+			<number>25</number>
+			<number>22</number>
+			<number>18</number>
+			<number>10</number>
+			<number>8</number>
+			<number>5</number>
+			<number>7</number>
+			<number>10</number>
+		</row>
+		<row>
+			<string>Winter</string>
+			<number shadow='shadow1'>10</number>
+			<number>10</number>
+			<number>15</number>
+			<number>20</number>
+			<number>25</number>
+			<number>30</number>
+			<number>40</number>
+			<number>50</number>
+			<number>40</number>
+			<number>30</number>
+			<number>30</number>
+			<number>25</number>
+			<number>20</number>
+			<number>10</number>
+			<number>10</number>
+			<number>10</number>
+		</row>
+		<row>
+			<string>Spring</string>
+			<number shadow='shadow1'>2</number>
+			<number>10</number>
+			<number>15</number>
+			<number>15</number>
+			<number>20</number>
+			<number>25</number>
+			<number>25</number>
+			<number>22</number>
+			<number>20</number>
+			<number>15</number>
+			<number>10</number>
+			<number>12</number>
+			<number>10</number>
+			<number>7</number>
+			<number>5</number>
+			<number>3</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='000000' thickness='1' type='solid' />
+	<chart_grid_v alpha='10' color='000000' thickness='2' type='dotted' />
+	<chart_pref line_thickness='2' point_size='0' type='line' grid='circular' />
+	<chart_rect bevel='bevel1' x='-20' y='40' width='350' height='200' positive_color='000000' positive_alpha='10' />
+	<chart_type>polar</chart_type>
+	
+	<draw>
+		<text shadow='shadow2' color='000033' alpha='25' rotation='0' size='30' x='0' y='0' width='415' height='295' h_align='right' v_align='bottom'>Wind Speed</text>
+		<circle bevel='bevel1' layer='background' x='155' y='140' radius='170' fill_alpha='0' line_color='000000' line_alpha='5' line_thickness='40' />
+	</draw>
+	<filter>
+		<shadow id='shadow1' distance='2' angle='45' color='0' alpha='75' blurX='10' blurY='10' />
+		<shadow id='shadow2' distance='1' angle='45' color='0' alpha='50' blurX='3' blurY='3' />
+		<bevel id='bevel1' angle='45' blurX='15' blurY='15' distance='5' highlightAlpha='25' highlightColor='ffffff' shadowAlpha='50' type='outer' />
+	</filter>
+	
+	<legend shadow='shadow2' x='320' y='180' width='20' height='70' margin='5' fill_alpha='20' layout='vertical' bullet='line' size='12' color='ffffff' alpha='90' />
+	
+	<series_color>
+		<color>ff4400</color>
+		<color>ffff00</color>
+		<color>88ffff</color>
+		<color>88ff00</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

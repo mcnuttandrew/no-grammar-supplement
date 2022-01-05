@@ -1,0 +1,59 @@
+{
+            "classes": [       ],
+            currentLayout: 'initialLayout',
+            layouts: [{
+              name: 'initialLayout',
+              panels: [
+                  ['title'],
+                  ['sub1', 'sub2','sub3'],
+                  ['legend']
+                  
+              ]
+            }],
+            "gutter": 10,
+            "variables": [
+            ],
+            "panels": [
+            {
+              "id": "title",
+              "url": "title.svg",
+             },
+            {
+              "id": "legend",
+              "url": "minardlegend.svg",
+             },
+             
+             {
+              "id": "sub1",
+              "url": "minard2.svg"
+             },
+             {
+                "id": 'sub2',
+                "url": "minard3.svg"
+               },
+               {
+                "id": 'sub3',
+                "url": "minard4.svg"
+               }
+            ],
+            "operations": [ 
+               {
+                  "operation": 'zoom', 
+                  "trigger": "zoom",
+                  'element': "sub1",
+                  'linked': ['map1', 'map2', 'map3']
+               },
+               {
+                  "operation": 'zoom', 
+                  "trigger": "zoom",
+                  'element': "sub2",
+                  'linked': ['map1', 'map2', 'map3']
+               },
+               {
+                  "operation": 'zoom', 
+                  "trigger": "zoom",
+                  'element': "sub3",
+                  'linked': ['map1', 'map2', 'map3']
+               }
+        ]
+    }

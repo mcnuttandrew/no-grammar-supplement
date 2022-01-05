@@ -1,0 +1,348 @@
+{
+    "gutter": 0,
+    "currentLayout": "init",
+    "layouts": [
+     {
+      "name": "init",
+      "panels": [
+       [
+        "p1"
+       ],
+       [
+        "p2"
+       ],
+       [
+        "p3"
+       ]
+      ]
+     }
+    ],
+    "panels": [
+     {
+      "id": "p1",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/top.svg"
+     },
+     {
+      "id": "p2",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/A.svg"
+     },
+     {
+      "id": "p3",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/B.svg"
+     },
+     {
+      "id": "p4",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1836.svg"
+     },
+     {
+      "id": "p5",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1837.svg"
+     },
+     {
+      "id": "p6",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1873-1879.svg"
+     },
+     {
+      "id": "p7",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1882-1914.svg"
+     },
+     {
+      "id": "p8",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1907-1918.svg"
+     },
+     {
+      "id": "p9",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1907.svg"
+     },
+     {
+      "id": "p10",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1914July23.svg"
+     },
+     {
+      "id": "p11",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panelAug.svg"
+     },
+     {
+      "id": "p12",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panelAug4.svg"
+     },
+     {
+      "id": "p13",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panelAug6.svg"
+     },
+     {
+      "id": "p14",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panels1873.svg"
+     },
+     {
+      "id": "p16",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1879.svg"
+     },
+     {
+      "id": "p17",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panels187982.svg"
+     },
+     {
+      "id": "p18",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1882.svg"
+     },
+     {
+      "id": "p19",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panels1907-1918Opened.svg"
+     },
+     {
+      "id": "p20",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1907opened.svg"
+     },
+     {
+      "id": "p21",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panel1914July23opened.svg"
+     },
+     {
+      "id": "p22",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panelJuly28.svg"
+     },
+     {
+      "id": "p23",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/PanelAug1.svg"
+     },
+     {
+      "id": "p24",
+      "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/comics/alliances/panelAug3.svg"
+     }
+    ],
+    "operations": [
+     {
+      "trigger": "click",
+      "element": "short",
+      "operation": "loadLayout",
+      "group": "group1",
+      "after": "p1",
+      "layout": [
+       [
+        "p2"
+       ],
+       [
+        "p3"
+       ]
+      ]
+     },
+     {
+      "trigger": "click",
+      "element": "medium",
+      "operation": "loadLayout",
+      "group": "group1",
+      "after": "p1",
+      "layout": [
+       [
+        "p4","p5"
+       ],
+       [
+        "p6","p7","p8"
+       ],
+       [
+        "p9","p10","p11"
+       ],
+       ["p12","p13"]
+      ]
+     },
+     {
+      "trigger": "click",
+      "element": "long",
+      "operation": "loadLayout",
+      "group": "group1",
+      "after": "p1",
+      "layout": [
+        [
+            "p4","p5"
+        ],
+           ["p14"],["p16","p17"],
+           ["p19"],
+           ["p20"],
+           ["p21","p22","p23","p24"],
+           ["p12","p13"]
+      ]
+     },
+     {
+   "trigger": "click",
+   "element": "detail-a",
+   "operation": "replace",
+   "replace": "p2",
+   "newpanels": [
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "p8"
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-1873-1879",
+   "operation": "replace",
+   "replace": "p6",
+   "newpanels": [
+    ["p14",
+    "p16"]
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-1879-1914",
+   "operation": "replace",
+   "replace": "p7",
+   "newpanels": [
+    "p17"
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-1907-1918",
+   "operation": "replace",
+   "replace": "p8",
+   "newpanels": [
+    ["p19"]
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-b",
+   "operation": "replace",
+   "replace": "p3",
+   "newpanels": [
+    "p9",
+    "p10",
+    "p11",
+    "p12",
+    "p13"
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-1907",
+   "operation": "replace",
+   "replace": "p9",
+   "newpanels": [
+    "p20"
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-july23",
+   "operation": "replace",
+   "replace": "p10",
+   "newpanels": [
+    "p21","p22"
+   ]
+  },
+  {
+   "trigger": "click",
+   "element": "detail-aug",
+   "operation": "replace",
+   "replace": "p11",
+   "newpanels": [
+    "p23","p24"
+   ]
+  },
+     {
+      "trigger": "mouseover",
+      "element": "uk",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "ger",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "fr",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "it",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "rus",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "aus",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "be",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "fill": "gray"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "three-emperors",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "stroke": "black"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "triple-alliance",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "stroke": "black"
+       }
+      }
+     },
+     {
+      "trigger": "mouseover",
+      "element": "triple-entente",
+      "operation": "highlight",
+      "after": {
+       "style": {
+        "stroke": "black"
+       }
+      }
+     }
+    ]
+   }

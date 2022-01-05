@@ -1,0 +1,27 @@
+{
+    "charts": [
+        {
+            "source": "./charts/groupedBar.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".rectangle",
+            "grouping": {
+                "groupBy": "position",
+                "reference": "start after previous",
+                "delay": 200,
+                "grouping": {
+                    "groupBy": "id",
+                    "delay": 100
+                }
+            },
+            "effects": [
+                {
+                    "type": "wipe bottom",
+                    "duration": 300
+                }
+            ]
+        }
+    ]
+}

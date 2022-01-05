@@ -1,0 +1,124 @@
+
+
+
+
+<chart>
+	
+	<axis_category shadow='low' prefix='$' min='2' max='4' decimals='2' size='13' color='000000' alpha='75' orientation='circular' />
+	<axis_ticks value_ticks='false' category_ticks='false' />
+	<axis_value shadow='low' show_min='false' min='0' max='120' color='ffffff' alpha='75' prefix='$' suffix='K' />
+	<axis_value_label>
+		<null/>
+		<null/>
+		<null/>
+		<null/>
+		<string></string>
+	</axis_value_label>
+
+	<chart_border color='0' bottom_thickness='2' left_thickness='0' top_thickness='1' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+		</row>
+		<row>
+			<string>Spring</string>
+			<number bevel='bevel1'>2.5</number>
+			<number>90</number>
+			<number tooltip='Revenue:\r$75 million'>75</number>
+			<number bevel='bevel1'>3</number>
+			<number>20</number>
+			<number tooltip='Revenue:\r$39 million'>39</number>
+			<number bevel='bevel1'>2.75</number>
+			<number>50</number>
+			<number tooltip='Revenue:\r$50 million'>50</number>
+		</row>
+		<row>
+			<string>Summer</string>
+			<number bevel='bevel1'>3.75</number>
+			<number>80</number>
+			<number tooltip='Revenue:\r$30 million'>30</number>
+			<number bevel='bevel1'>3.1</number>
+			<number>50</number>
+			<number tooltip='Revenue:\r$40 million'>40</number>
+			<number bevel='bevel1'>3.5</number>
+			<number>40</number>
+			<number tooltip='Revenue:\r$20 million'>20</number>
+		</row>
+		<row>
+			<string>Fall</string>
+			<number bevel='bevel1'>2.5</number>
+			<number>40</number>
+			<number tooltip='Revenue:\r$35 million'>35</number>
+			<number bevel='bevel1'>2.95</number>
+			<number>60</number>
+			<number tooltip='Revenue:\r$40 million'>40</number>
+			<number bevel='bevel1'>3.1</number>
+			<number>80</number>
+			<number tooltip='Revenue:\r$30 million'>30</number>
+		</row>
+		<row>
+			<string>Winter</string>
+			<number bevel='bevel1'>2.44</number>
+			<number>60</number>
+			<number tooltip='Revenue:\r$18 million'>18</number>
+			<number bevel='bevel1'>2.75</number>
+			<number>20</number>
+			<number tooltip='Revenue:\r$15 million'>15</number>
+			<number bevel='bevel1'>2.38</number>
+			<number>30</number>
+			<number tooltip='Revenue:\r$10 million'>10</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='50' color='aaaaff' thickness='1' type='dashed' />
+	<chart_grid_v alpha='15' color='aaaaff' thickness='40' type='solid' />
+	<chart_rect glow='glow1' bevel='bevel2' x='115' y='50' width='290' height='175' positive_color='eeffff' positive_alpha='100' corner_tl='30' corner_tr='30' corner_br='30' corner_bl='30' />
+	<chart_transition type='drop' delay='1' duration='3' order='all' />
+	<chart_type>bubble</chart_type>
+	
+	<draw>
+		<rect bevel='bg' layer='background' x='-100' y='0' width='600' height='300' fill_color='aaaaff' line_thickness='0' />
+		<text layer='background' shadow='high' color='ffffff' alpha='50' size='120' x='5' y='-43' width='500' height='200'>revenue</text>
+		<text layer='background' shadow='high' color='ffffff' alpha='40' size='108' x='29' y='17' width='500' height='200'>erevenu</text>
+		<text layer='background' shadow='high' color='ffffff' alpha='30' size='108' x='29' y='77' width='500' height='200'>uereven</text>
+		<text layer='background' shadow='high' color='ffffff' alpha='20' size='108' x='29' y='137' width='500' height='200'>nuereve</text>
+		<text layer='background' shadow='high' color='ffffff' alpha='10' size='120' x='5' y='185' width='500' height='200'>enuerev</text>
+		<text shadow='low' color='110044' alpha='65' size='64' x='40' y='220' width='398' height='50' h_align='right'>price</text>
+		<text shadow='low' delay='1.3' duration='0.7' color='110066' alpha='65' rotation='-90' size='25' x='50' y='230' width='300' height='50'>promotion</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='45' blurX='200' blurY='200' distance='20' highlightAlpha='75' shadowAlpha='20' type='inner' />
+		<bevel id='bevel1' angle='45' blurX='30' blurY='30' distance='10' highlightAlpha='30' shadowAlpha='35' type='full' />
+		<bevel id='bevel2' angle='45' blurX='30' blurY='30' distance='10' highlightAlpha='20' shadowAlpha='15' type='full' />
+		<glow id='glow1' color='ee88ff' alpha='100' blurX='50' blurY='50' quality='2' inner='false' />   
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='20' blurY='20' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+	
+	<legend shadow='low' x='115' y='30' width='290' height='20' margin='5' fill_alpha='10' size='10' color='ffffff' alpha='90' />
+	<tooltip color='FFFFFF' alpha='75' size='12' background_color_1='ff4400' background_alpha='85' shadow='low' />
+	
+	<series_color>
+		<color>4e62dd</color>
+		<color>ff8811</color>
+		<color>4d4d4d</color>
+		<color>ffdd33</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

@@ -1,0 +1,236 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 500,
+    "padding": 5,
+  
+    "config": {
+      "axisBand": {
+        "bandPosition": 1,
+        "tickExtra": true,
+        "tickOffset": 0
+      }
+    },
+  
+    "signals": [
+      { "name": "fields",
+        "value": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"] },
+      { "name": "plotWidth", "value": 60 },
+      { "name": "height", "update": "(plotWidth + 10) * length(fields)"}
+    ],
+  
+    "data": [
+      {
+        "name": "scores",
+        "values": [{"name":"stu1","q1":1,"q2":3,"q3":5,"q4":5,"q5":1,"q6":4,"q7":3,"q8":4,"q9":10,"q10":4,"total":40},{"name":"stu2","q1":2,"q2":2,"q3":6,"q4":7,"q5":2,"q6":7,"q7":1,"q8":9,"q9":5,"q10":5,"total":46},{"name":"stu3","q1":9,"q2":7,"q3":10,"q4":7,"q5":4,"q6":5,"q7":8,"q8":5,"q9":6,"q10":9,"total":70},{"name":"stu4","q1":1,"q2":3,"q3":7,"q4":5,"q5":9,"q6":3,"q7":8,"q8":1,"q9":1,"q10":1,"total":39},{"name":"stu5","q1":2,"q2":3,"q3":8,"q4":4,"q5":1,"q6":1,"q7":10,"q8":4,"q9":3,"q10":8,"total":44},{"name":"stu6","q1":7,"q2":8,"q3":1,"q4":6,"q5":6,"q6":10,"q7":7,"q8":8,"q9":7,"q10":10,"total":70},{"name":"stu7","q1":4,"q2":3,"q3":1,"q4":5,"q5":8,"q6":10,"q7":9,"q8":10,"q9":1,"q10":10,"total":61},{"name":"stu8","q1":8,"q2":5,"q3":8,"q4":10,"q5":8,"q6":10,"q7":3,"q8":8,"q9":2,"q10":3,"total":65},{"name":"stu9","q1":2,"q2":2,"q3":9,"q4":5,"q5":3,"q6":9,"q7":7,"q8":8,"q9":6,"q10":6,"total":57},{"name":"stu10","q1":5,"q2":6,"q3":9,"q4":6,"q5":1,"q6":10,"q7":7,"q8":3,"q9":6,"q10":3,"total":56},{"name":"stu11","q1":4,"q2":1,"q3":3,"q4":5,"q5":7,"q6":1,"q7":1,"q8":2,"q9":5,"q10":6,"total":35},{"name":"stu12","q1":3,"q2":4,"q3":6,"q4":7,"q5":5,"q6":5,"q7":1,"q8":8,"q9":9,"q10":3,"total":51},{"name":"stu13","q1":3,"q2":3,"q3":4,"q4":3,"q5":10,"q6":5,"q7":8,"q8":4,"q9":9,"q10":7,"total":56},{"name":"stu14","q1":8,"q2":8,"q3":5,"q4":2,"q5":6,"q6":9,"q7":3,"q8":10,"q9":7,"q10":7,"total":65},{"name":"stu15","q1":2,"q2":5,"q3":1,"q4":8,"q5":2,"q6":6,"q7":1,"q8":10,"q9":8,"q10":7,"total":50},{"name":"stu16","q1":7,"q2":3,"q3":10,"q4":6,"q5":7,"q6":10,"q7":7,"q8":9,"q9":6,"q10":7,"total":72},{"name":"stu17","q1":4,"q2":3,"q3":9,"q4":10,"q5":4,"q6":8,"q7":4,"q8":3,"q9":8,"q10":9,"total":62},{"name":"stu18","q1":5,"q2":5,"q3":7,"q4":1,"q5":10,"q6":7,"q7":9,"q8":7,"q9":9,"q10":6,"total":66},{"name":"stu19","q1":6,"q2":6,"q3":7,"q4":9,"q5":3,"q6":3,"q7":7,"q8":6,"q9":10,"q10":5,"total":62},{"name":"stu20","q1":1,"q2":10,"q3":5,"q4":10,"q5":5,"q6":10,"q7":6,"q8":5,"q9":4,"q10":2,"total":58},{"name":"stu21","q1":9,"q2":7,"q3":7,"q4":5,"q5":2,"q6":3,"q7":10,"q8":9,"q9":6,"q10":10,"total":68},{"name":"stu22","q1":7,"q2":4,"q3":1,"q4":1,"q5":1,"q6":9,"q7":4,"q8":7,"q9":3,"q10":1,"total":38},{"name":"stu23","q1":4,"q2":2,"q3":5,"q4":4,"q5":5,"q6":1,"q7":1,"q8":7,"q9":5,"q10":10,"total":44},{"name":"stu24","q1":3,"q2":10,"q3":7,"q4":4,"q5":5,"q6":7,"q7":8,"q8":4,"q9":4,"q10":1,"total":53},{"name":"stu25","q1":10,"q2":8,"q3":7,"q4":9,"q5":9,"q6":3,"q7":9,"q8":8,"q9":3,"q10":10,"total":76},{"name":"stu26","q1":6,"q2":3,"q3":8,"q4":1,"q5":9,"q6":7,"q7":5,"q8":3,"q9":4,"q10":7,"total":53},{"name":"stu27","q1":3,"q2":1,"q3":2,"q4":4,"q5":9,"q6":9,"q7":8,"q8":8,"q9":10,"q10":9,"total":63},{"name":"stu28","q1":5,"q2":1,"q3":9,"q4":6,"q5":2,"q6":10,"q7":8,"q8":10,"q9":5,"q10":1,"total":57},{"name":"stu29","q1":7,"q2":7,"q3":5,"q4":8,"q5":4,"q6":4,"q7":9,"q8":7,"q9":10,"q10":3,"total":64},{"name":"stu30","q1":2,"q2":1,"q3":3,"q4":1,"q5":2,"q6":9,"q7":1,"q8":8,"q9":1,"q10":9,"total":37}],
+        "transform": [
+          {
+            "type": "fold",
+            "fields": {"signal": "fields"},
+            "as": ["question", "value"]
+          }
+        ]
+      },
+      {
+        "name": "selected",
+        "values": [
+        ],
+        "transform": [
+        {
+          "type": "lookup",
+          "from": "scores",
+          "key": "name",
+          "values": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"],
+          "fields": ["name"],
+          "as": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]
+        },
+        {
+          "type": "fold",
+          "fields": {"signal": "fields"},
+          "as": ["question", "value"]
+        }
+      ]
+      }
+    ],
+  
+    "ar":{
+      "mode": "ON",
+      "data": [{
+        "name": "selected",
+        "values": [
+          {"name":  "stu29"}
+        ]
+      }]
+    },
+  
+    "scales": [
+      {
+        "name": "layout",
+        "type": "band",
+        "range": "height",
+        "domain": {"data": "scores", "field": "question"}
+      },
+      {
+        "name": "xscale",
+        "type": "linear",
+        "range": "width", "round": true,
+        "domain": {"data": "scores", "field": "value"},
+        "zero": true, "nice": true
+      }
+    ],
+  
+    "axes": [
+      {"orient": "bottom", "scale": "xscale", "zindex": 1},
+      {"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1}
+    ],
+  
+    "marks": [
+      {
+        "type": "group",
+        "from": {
+          "facet": {
+            "data": "scores",
+            "name": "questions",
+            "groupby": "question"
+          }
+        },
+  
+        "encode": {
+          "enter": {
+            "yc": {"scale": "layout", "field": "question", "band": 0.5},
+            "height": {"signal": "plotWidth"},
+            "width": {"signal": "width"}
+          }
+        },
+  
+        "data": [
+          {
+            "name": "summary",
+            "source": "questions",
+            "transform": [
+              {
+                "type": "aggregate",
+                "fields": ["value", "value", "value", "value", "value"],
+                "ops": ["min", "q1", "median", "q3", "max"],
+                "as": ["min", "q1", "median", "q3", "max"]
+              }
+            ]
+          }
+        ],
+  
+        "marks": [
+          {
+            "type": "rect",
+            "from": {"data": "summary"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "black"},
+                "height": {"value": 1}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2", "offset": -0.5},
+                "x": {"scale": "xscale", "field": "min"},
+                "x2": {"scale": "xscale", "field": "max"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "from": {"data": "summary"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "steelblue"}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2"},
+                "height": {"signal": "plotWidth / 2"},
+                "x": {"scale": "xscale", "field": "q1"},
+                "x2": {"scale": "xscale", "field": "q3"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "from": {"data": "summary"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "black"},
+                "width": {"value": 1}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2"},
+                "height": {"signal": "plotWidth / 2"},
+                "x": {"scale": "xscale", "field": "median"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "from": {"data": "summary"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "black"},
+                "width": {"value": 1}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2"},
+                "height": {"signal": "plotWidth / 2"},
+                "x": {"scale": "xscale", "field": "min"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "from": {"data": "summary"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "black"},
+                "width": {"value": 1}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2"},
+                "height": {"signal": "plotWidth / 2"},
+                "x": {"scale": "xscale", "field": "max"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "group",
+        "from": {
+          "facet": {
+            "data": "selected",
+            "name": "questions",
+            "groupby": "question"
+          }
+        },
+  
+        "encode": {
+          "enter": {
+            "yc": {"scale": "layout", "field": "question", "band": 0.5},
+            "height": {"signal": "plotWidth"},
+            "width": {"signal": "width"}
+          }
+        },
+  
+        "marks": [
+          {
+            "type": "rect",
+            "from": {"data": "questions"},
+            "encode": {
+              "enter": {
+                "fill": {"value": "red"},
+                "width": {"value": 1},
+                "zindex": {"value": 5}
+              },
+              "update": {
+                "yc": {"signal": "plotWidth / 2"},
+                "height": {"signal": "plotWidth / 2"},
+                "x": {"scale": "xscale", "field": "value"}
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }  

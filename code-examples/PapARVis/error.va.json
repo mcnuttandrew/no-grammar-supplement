@@ -1,0 +1,80 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 400,
+  "height": 100,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "aggregate",
+      "values": [
+        {"label": "Category A", "mean": 1, "lo": 0,   "hi": 2},
+        {"label": "Category B", "mean": 2, "lo": 1.5, "hi": 2.5},
+        {"label": "Category C", "mean": 3, "lo": 1.7, "hi": 4.3},
+        {"label": "Category D", "mean": 4, "lo": 3,   "hi": 5},
+        {"label": "Category E", "mean": 5, "lo": 4.1, "hi": 5.9}
+      ]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "aggregate",
+        "values": [
+          {"label": "Category F", "mean": 6, "lo": 0, "hi": 10}
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "y",
+      "type": "band",
+      "range": [{"signal": "height"}, 0],
+      "domain": {"data": "aggregate", "field": "label"}
+    },
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": {"data": "aggregate", "field": "hi"},
+      "range": "width",
+      "nice": true, "zero": true
+    }
+  ],
+
+  "axes": [
+    {"orient": "bottom", "scale": "x", "tickCount": 6},
+    {"orient": "left", "scale": "y", "zindex": 1}
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "aggregate"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "lo"},
+          "x2": {"scale": "x", "field": "hi"},
+          "y": {"scale": "y", "field": "label", "offset": -1},
+          "height": {"value": 1},
+          "fill": {"value": "#888"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "aggregate"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "mean"},
+          "y": {"scale": "y", "field": "label"},
+          "size": {"value": 40},
+          "fill": {"value": "#000"}
+        }
+      }
+    }
+  ]
+}

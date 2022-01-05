@@ -1,0 +1,9 @@
+{
+  "mark": { "type": "rect" },
+  "encoding": {
+    "x": { "scale": null, "field": "_svlx" },
+    "x2": { "scale": null, "field": "_svlx2" },
+    "stroke": { "scale": null, "field": "_svlColor" },
+    "fill": { "value": null }
+  }
+}

@@ -1,0 +1,182 @@
+{
+    "currentLayout": "init",
+    "layouts": [
+        {
+            "name": "init",
+            "panels": [
+                [
+                    "p1"
+                ],
+                [
+                    "p2"
+                ],
+                [
+                    "p4"
+                ],
+                [
+                    "p5_1",
+                    "p6"
+                ],
+                [
+                    "p7"
+                ]
+            ]
+        }
+    ],
+    "classes": [
+        {
+            "class": "Graph1",
+            "elements": [
+                "Btn1",
+                "Plastic1"
+            ]
+        },
+        {
+            "class": "Graph2",
+            "elements": [
+                "Btn2",
+                "Plastic2"
+            ]
+        },
+        {
+            "class": "Graph3",
+            "elements": [
+                "Btn3",
+                "Plastic3"
+            ]
+        },
+        {
+            "class": "Graph4",
+            "elements": [
+                "Btn4",
+                "Plastic4"
+            ]
+        },
+        {
+            "class": "Graph5",
+            "elements": [
+                "Btn5",
+                "Plastic5"
+            ]
+        },
+        {
+            "class": "Graph6",
+            "elements": [
+                "Btn6",
+                "Plastic6"
+            ]
+        }
+    ],
+    "variables": [
+        {
+            "name": "year",
+            "value": "1"
+        }
+    ],
+    "panels": [
+        {
+            "id": "p1",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Intro.png",
+            "width": "1000"
+        },
+        {
+            "id": "p2",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Slider.svg",
+            "width": "1000"
+        },
+        {
+            "id": "p4",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Underwater.png",
+            "width": "1010"
+        },
+        {
+            "id": "p5_1",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Plankton.png",
+            "width": "380"
+        },
+        {
+            "id": "p5_2",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Smallfish.png",
+            "width": "380"
+        },
+        {
+            "id": "p5_3",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Largefish.png",
+            "width": "380"
+        },
+        {
+            "id": "p5_4",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Plate.png",
+            "width": "380"
+        },
+        {
+            "id": "p6",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/Rain.png"
+        },
+        {
+            "id": "p7",
+            "url": "https://raw.githubusercontent.com/MomosArts/plastic/main/End.png",
+            "width": "1010"
+        }
+    ],
+    "operations": [
+        {
+            "trigger": "mouseover",
+            "element": [
+                "Btn1",
+                "Btn2",
+                "Btn3",
+                "Btn4",
+                "Btn5",
+                "Btn6"
+            ],
+            "operation": "loadLayers",
+            "layer": [
+                "Graph1",
+                "Graph2",
+                "Graph3",
+                "Graph4",
+                "Graph5",
+                "Graph6"
+            ]
+        },
+        {
+            "trigger": "click",
+            "element": "p5_1",
+            "operation": "replace",
+            "replace": "p5_1",
+            "newpanels": [
+                "p5_2"
+            ]
+        },
+        {
+            "trigger": "click",
+            "element": "p5_2",
+            "operation": "replace",
+            "replace": "p5_2",
+            "newpanels": [
+                "p5_3"
+            ]
+        },
+        {
+            "trigger": "click",
+            "element": "p5_3",
+            "operation": "replace",
+            "replace": "p5_3",
+            "newpanels": [
+                "p5_4"
+            ]
+        },
+        {
+            "trigger": "click",
+            "element": "p5_4",
+            "operation": "replace",
+            "replace": "p5_4",
+            "newpanels": [
+                "p5_1"
+            ]
+        }
+    ],
+    "coding": [],
+    "gutter": 5
+}

@@ -1,0 +1,86 @@
+
+
+
+
+<chart>
+
+	<axis_category margin='false' size='10' alpha='50' />
+	<axis_ticks value_ticks='true' category_ticks='true' major_thickness='0' minor_thickness='0' minor_count='1' major_color='666666' minor_color='222222' position='outside' />
+	<axis_value max='120' alpha='0' />
+
+	<chart_border color='000000' top_thickness='0' bottom_thickness='2' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2004</string>
+			<string>2005</string>
+			<string>2006</string>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number>10</number>
+			<number>25</number>
+			<number>25</number>
+			<number>35</number>
+			<number>25</number>
+			<number>30</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number>35</number>
+			<number>45</number>
+			<number>55</number>
+			<number>50</number>
+			<number>65</number>
+			<number>80</number>
+		</row>
+		<row>
+			<string>region C</string>
+			<number>10</number>
+			<number>20</number>
+			<number>15</number>
+			<number>10</number>
+			<number>15</number>
+			<number>10</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='0' />
+	<chart_grid_v alpha='0' />
+	<chart_label position='above' size='10' color='FFFFFF' alpha='85' />
+	<chart_pref drag='false' rotation_x='30' rotation_y='0' />
+	<chart_rect x='90' y='35' width='300' height='200' positive_color='888888' positive_alpha='0' />
+	<chart_type>stacked 3d area</chart_type>
+
+	<draw>
+		<rect bevel='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='AAAA99' line_thickness='0' />
+		<text color='000000' alpha='5' size='67' x='45' y='198' width='200' height='150' h_align='left' v_align='top' />
+		<text color='ffffff' alpha='15' size='75' x='2' y='0' width='500' height='300' v_align='bottom'>-------------------</text>
+		<text shadow='low' transition='dissolve' delay='1' duration='0.5' color='ffffff' alpha='20' rotation='-90' size='48' x='-8' y='295' width='300' height='50' h_align='center'>GROWTH</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='-90' blurX='0' blurY='200' distance='50' highlightAlpha='10' shadowAlpha='15' type='inner' />
+		<bevel id='small' angle='45' blurX='2' blurY='2' distance='1' highlightAlpha='35' shadowAlpha='35' type='inner' />   
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+
+	<legend bevel='small' shadow='high' x='10' y='5' width='470' height='30' margin='0' fill_alpha='0' line_alpha='50' line_thickness='0' size='18' color='ffffee' bullet='circle' alpha='85' />
+
+	<series_color>	
+		<color>77CC00</color>
+		<color>FF4400</color>
+		<color>8844FF</color>
+	</series_color>
+
+</chart>
+
+
+
+
+
+
+
+

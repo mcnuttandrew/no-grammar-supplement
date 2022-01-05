@@ -1,0 +1,33 @@
+{
+  "templateName": "Histogram",
+  "templateDescription": "A simple discrete univariate visualization",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"mark\": \"bar\",\n  \"encoding\": {\n    \"x\": {\"bin\": {\"maxbins\": \"[numBins]\"}, \"field\": \"[xDim]\", \"type\": \"quantitative\"},\n    \"y\": {\"aggregate\": \"count\", \"type\": \"quantitative\"}\n  },\n  \"width\": 400,\n  \"height\": 100\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "numBins",
+      "type": "Slider",
+      "config": {
+        "minVal": "5",
+        "maxVal": "30",
+        "step": 1,
+        "defaultValue": "10"
+      },
+      "displayName": "Number of Bins"
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

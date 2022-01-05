@@ -1,0 +1,77 @@
+
+
+
+
+<chart>
+
+	<axis_value shadow='low' size='10' color='000000' alpha='50' steps='6' prefix='' suffix='' decimals='0' separator='' show_min='true' />
+	<axis_category shadow='low'  />
+	<chart_border color='000000' top_thickness='0' bottom_thickness='3' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>2007</string>
+			<string>2008</string>
+			<string>2009</string>
+		</row>
+		<row>
+			<string>region A</string>
+			<number shadow='data' bevel='data' tooltip='$-25 Mil'>-25</number>
+			<number shadow='data' bevel='data' tooltip='$45 Mil'>45</number>
+			<number shadow='data' bevel='data' tooltip='$100 Mil'>100</number>
+		</row>
+		<row>
+			<string>region B</string>
+			<number shadow='data' bevel='data' tooltip='$25 Mil'>25</number>
+			<number shadow='data' bevel='data' tooltip='$65 Mil'>65</number>
+			<number shadow='data' bevel='data' tooltip='$80 Mil'>80</number>
+		</row>
+		<row>
+			<string>region C</string>
+			<number shadow='data' bevel='data' tooltip='$15 Mil'>15</number>
+			<number shadow='data' bevel='data' tooltip='$30 Mil'>30</number>
+			<number shadow='data' bevel='data' tooltip='$25 Mil'>25</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='20' color='000000' thickness='1' type='solid' />
+	<chart_grid_v alpha='20' color='000000' thickness='1' type='dashed' />
+	<chart_rect shadow='bg' x='125' y='65' width='280' height='200' positive_color='eeeeff' negative_color='ff4400' positive_alpha='90' negative_alpha='75' />
+	<chart_transition type='drop' delay='0' duration='3' order='series' />
+	<chart_type>stacked column</chart_type>
+
+	<draw>
+		<text shadow='title' transition='slide_up' delay='1' duration='0.5' color='000033' alpha='25' rotation='-90' size='64' x='0' y='298' width='300' height='50' h_align='right' v_align='middle'>GROWTH</text>
+		<text shadow='low' transition='slide_up' delay='1.3' duration='0.7' color='ffffff' alpha='50' rotation='-90' size='25' x='32' y='303' width='300' height='50' h_align='right' v_align='middle'>report</text>
+		<image transition='dissolve' delay='1.5' url='images/full_screen.swf' x='93' y='28' width='20' height='15' alpha='80' />
+	</draw>
+	<filter>
+		<shadow id='bg' distance='5' angle='10' alpha='40' blurX='10' blurY='10' inner='true' />
+		<shadow id='title'  distance='3' angle='45' alpha='100' blurX='8' blurY='8' inner='true' knockout='true' />
+		<shadow id='data' distance='3' angle='40' alpha='35' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='35' blurX='5' blurY='5' />
+		<bevel id='data' angle='2' blurX='20' blurY='5' distance='10' highlightAlpha='10' highlightColor='ffffff' shadowAlpha='40' />
+		<bevel id='tooltip' angle='45' blurX='10' blurY='10' distance='5' highlightAlpha='50' shadowAlpha='20' />
+	</filter>
+	
+	<legend shadow='low' transition='slide_left' delay='1' duration='1' x='125' y='25' width='280' height='10' margin='5' fill_color='ffffff' fill_alpha='60' line_color='000000' line_alpha='0' line_thickness='0' layout='horizontal' size='11' color='444466' alpha='95' />
+	<link>
+		<area x='93' y='28' width='20' height='15' target='toggle_fullscreen' />
+	</link>
+	<tooltip color='FFFFFF' alpha='90' size='12' background_color_1='ffffff' background_color_2='aaff00' background_alpha='80' shadow='low' bevel='tooltip' />
+
+	<series set_gap='35' />
+	<series_color>
+		<color>4e627c</color>
+		<color>559922</color>
+		<color>cc9944</color>
+	</series_color>
+
+</chart>
+
+
+
+
+
+
+
+

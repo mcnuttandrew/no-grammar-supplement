@@ -1,0 +1,30 @@
+{
+  "views": [
+    {
+      "id": "chart",
+      "width": 640,
+      "height": 420,
+      "padding": {"left": 80, "right": 80, "top" : 10, "bottom": 60},
+      "gridlines": {"y": true}
+    }
+  ],
+  "operations": [
+    {
+      "$aggregate": {
+        "$group": ["FatherAge"],
+        "$collect": {
+          "Babies": {"$count": "*"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "area",
+        "color": "steelblue",
+        "size": 2,
+        "x": "FatherAge",
+        "y": "Babies"
+      }
+    }
+  ]
+}

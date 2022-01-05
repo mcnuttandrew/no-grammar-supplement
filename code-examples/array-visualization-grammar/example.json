@@ -1,0 +1,138 @@
+{
+    "data": ["Array"],
+    "transform": [
+        [
+            {
+                "type": "initialize",
+                "value": [12, 45, 67, 78, 89]
+            },
+            {
+                "type": "add",
+                "index": [3, 4, 1],
+                "value": [10, 23, 82]
+            },
+            {
+                "type": "exchange",
+                "index": [
+                    [[0, 1], [2, 3]],
+                    [[0, 1], [2, 3]]
+                ]
+            }
+        ]
+    ],
+    "style": {
+        "diagram": {
+            "label": {
+                "font-family": "Fira Sans",
+                "font-size": "12px",
+                "font-weight": "normal",
+                "color": "#000000",
+                "opacity": 1
+            },
+            "container": {
+                "fill": "#FAFAFA",
+                "stroke": "#FAFAFA",
+                "stroke-width": "1px",
+                "opacity": 1
+            },
+            "index": {
+                "font-family": "Fira Sans",
+                "font-size": "10px",
+                "font-weight": "normal",
+                "color": "#646464",
+                "opacity": 1
+            },
+            "item": {
+                "fill": "#dfe5e8",
+                "stroke": "#dfe5e8",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "font-family": "Arial",
+                "font-size": "14px",
+                "font-weight": "normal",
+                "item-size": 30,
+                "padding": 10,
+                "opacity": 1
+            }
+        },
+        "transform": {
+            "global": {
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "initialize": {
+                "fill": "#befcb3",
+                "stroke": "#befcb3",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "add": {
+                "fill": "#befcb3",
+                "stroke": "#befcb3",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "remove": {
+                "fill": "#f9aeb7",
+                "stroke": "#f9aeb7",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "update": {
+                "add": {
+                    "fill": "#befcb3",
+                    "stroke": "#befcb3",
+                    "stroke-width": "1px",
+                    "color": "#000000"
+                },
+                "remove": {
+                    "fill": "#f9aeb7",
+                    "stroke": "#f9aeb7",
+                    "stroke-width": "1px",
+                    "color": "#000000"
+                },
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "highlight": {
+                "fill": "#99d8fc",
+                "stroke": "#99d8fc",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "select": {
+                "fill": "#99d8fc",
+                "stroke": "#99d8fc",
+                "stroke-width": "1px",
+                "color": "#000000",
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "deselect": {
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 2000
+            },
+            "exchange": {
+                "stagger": false,
+                "easing": "easeCubic",
+                "duration-each": 500
+            }
+        }
+    }
+}

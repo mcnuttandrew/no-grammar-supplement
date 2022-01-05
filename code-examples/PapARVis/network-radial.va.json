@@ -1,0 +1,130 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "padding": 5,
+  "width": 500,
+  "height": 500,
+
+  "signals": [
+    { "name": "radius", "update": "width / 2 - 20" },
+    { "name": "textOffset", "value": 2 },
+    { "name": "originX", "update": "width / 2" },
+    { "name": "originY", "update": "height / 2" }
+  ],
+
+  "data": [
+    {
+      "name": "leaves",
+      "url": "http://vegaar.hkustvis.org/data/miserables-nodes.json",
+      "transform": [
+        { "type": "pie"},
+        { "type": "formula", "expr": "360 * (datum.startAngle + datum.endAngle) / (2 * PI)", "as": "angle" },
+        {
+          "type": "formula",
+          "expr": "inrange(datum.angle, [90, 270])",
+          "as":   "leftside"
+        },
+        {
+          "type": "formula",
+          "expr": "originX + radius  * cos(PI * datum.angle / 180)",
+          "as":   "x"
+        },
+        {
+          "type": "formula",
+          "expr": "originY + radius * sin(PI * datum.angle / 180)",
+          "as":   "y"
+        }
+      ]
+    },
+    {
+      "name": "dependencies",
+      "url": "http://vegaar.hkustvis.org/data/miserables-links.json",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "leaves",
+          "key": "id",
+          "fields": ["source", "target"],
+          "as": ["source", "target"]
+        },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "sourceX": "source.x",
+          "sourceY": "source.y",
+          "targetX": "target.x",
+          "targetY": "target.y",
+          "shape": "line"
+        }
+      ]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "leaves",
+        "values": [
+          {"name":"Enjolras","group":8,"id":58},{"name":"Combeferre","group":8,"id":59},
+          {"name":"Prouvaire","group":8,"id":60},{"name":"Feuilly","group":8,"id":61},
+          {"name":"Courfeyrac","group":8,"id":62},{"name":"Bahorel","group":8,"id":63},
+          {"name":"Bossuet","group":8,"id":64},{"name":"Joly","group":8,"id":65},{"name":"Grantaire","group":8,"id":66},
+          {"name":"MotherPlutarch","group":9,"id":67},
+          {"name":"Gueulemer","group":9,"id":68},
+          {"name":"Babet","group":9,"id":69},
+          {"name":"Claquesous","group":9,"id":70},
+          {"name":"Montparnasse","group":9,"id":71},
+          {"name":"Toussaint","group":9,"id":72},
+          {"name":"Brujon","group":10,"id":75},
+          {"name":"Child1","group":10,"id":73},{"name":"Child2","group":10,"id":74},{"name":"Mme.Hucheloup","group":8,"id":76}
+        ]
+      },{
+        "name": "dependencies",
+        "values": [
+          {"source":57,"target":48,"value":1},{"source":58,"target":55,"value":7},{"source":58,"target":48,"value":7},{"source":58,"target":27,"value":6},{"source":58,"target":57,"value":1},{"source":59,"target":58,"value":15},{"source":59,"target":55,"value":5},{"source":59,"target":48,"value":6},{"source":59,"target":57,"value":2},{"source":60,"target":48,"value":1},{"source":60,"target":58,"value":4},{"source":60,"target":59,"value":2},{"source":61,"target":48,"value":2},{"source":61,"target":58,"value":6},{"source":61,"target":60,"value":2},{"source":61,"target":59,"value":5},{"source":61,"target":57,"value":1},{"source":61,"target":55,"value":1},{"source":62,"target":55,"value":9},{"source":62,"target":58,"value":17},{"source":62,"target":59,"value":13},{"source":62,"target":48,"value":7},{"source":62,"target":57,"value":2},{"source":62,"target":41,"value":1},{"source":62,"target":61,"value":6},{"source":62,"target":60,"value":3},{"source":63,"target":59,"value":5},{"source":63,"target":48,"value":5},{"source":63,"target":62,"value":6},
+          {"source":63,"target":57,"value":2},{"source":63,"target":58,"value":4},{"source":63,"target":61,"value":3},{"source":63,"target":60,"value":2},{"source":63,"target":55,"value":1},{"source":64,"target":55,"value":5},{"source":64,"target":62,"value":12},{"source":64,"target":48,"value":5},{"source":64,"target":63,"value":4},{"source":64,"target":58,"value":10},{"source":64,"target":61,"value":6},{"source":64,"target":60,"value":2},{"source":64,"target":59,"value":9},{"source":64,"target":57,"value":1},{"source":65,"target":63,"value":5},{"source":65,"target":64,"value":7},{"source":65,"target":48,"value":3},{"source":65,"target":62,"value":5},{"source":65,"target":58,"value":5},{"source":65,"target":61,"value":5},{"source":65,"target":60,"value":2},{"source":65,"target":59,"value":5},{"source":65,"target":57,"value":1},{"source":65,"target":55,"value":2},{"source":66,"target":64,"value":3},{"source":66,"target":58,"value":3},{"source":66,"target":59,"value":1},
+          {"source":66,"target":62,"value":2},{"source":66,"target":65,"value":2},{"source":66,"target":48,"value":1},{"source":66,"target":63,"value":1},{"source":66,"target":61,"value":1},{"source":66,"target":60,"value":1},{"source":67,"target":57,"value":3},{"source":68,"target":25,"value":5},{"source":68,"target":24,"value":1},{"source":68,"target":27,"value":1},{"source":68,"target":48,"value":1},{"source":68,"target":41,"value":1},{"source":69,"target":25,"value":6},{"source":69,"target":68,"value":6},{"source":69,"target":24,"value":1},
+          {"source":69,"target":27,"value":2},{"source":69,"target":48,"value":1},{"source":69,"target":41,"value":1},{"source":70,"target":25,"value":4},{"source":70,"target":69,"value":4},{"source":70,"target":68,"value":4},{"source":70,"target":24,"value":1},{"source":70,"target":27,"value":1},{"source":70,"target":41,"value":1},{"source":70,"target":58,"value":1},{"source":71,"target":27,"value":1},{"source":71,"target":69,"value":2},{"source":71,"target":68,"value":2},{"source":71,"target":70,"value":2},
+          {"source":71,"target":48,"value":1},{"source":71,"target":41,"value":1},{"source":71,"target":25,"value":1},{"source":72,"target":26,"value":2},{"source":72,"target":27,"value":1},
+          {"source":73,"target":48,"value":2},{"source":74,"target":48,"value":2},{"source":74,"target":73,"value":3},{"source":75,"target":69,"value":3},{"source":75,"target":68,"value":3},{"source":75,"target":25,"value":3},{"source":75,"target":48,"value":1},{"source":75,"target":41,"value":1},{"source":75,"target":70,"value":1},{"source":75,"target":71,"value":1},{"source":76,"target":64,"value":1},{"source":76,"target":65,"value":1},{"source":76,"target":66,"value":1},{"source":76,"target":63,"value":1},{"source":76,"target":62,"value":1},{"source":76,"target":48,"value":1},{"source":76,"target":58,"value":1}
+                ]
+      }
+    ]
+  },
+
+  "marks": [
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "text": {"field": "name"},
+          "baseline": {"value": "middle"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "dx": {"signal": "textOffset * (datum.leftside ? -1 : 1)"},
+          "angle": {"signal": "datum.leftside ? datum.angle - 180 : datum.angle"},
+          "align": {"signal": "datum.leftside ? 'right' : 'left'"},
+          "fontSize": {"value": 8},
+          "fill": {"value": "black"}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {"data": "dependencies"},
+      "encode": {
+        "enter": {
+          "interpolate": {"value": "bundle"},
+          "stroke": {"value": "steelblue"},
+          "strokeWidth": {"value": 1}
+        },
+        "update": {
+          "path": {"field": "path"}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "templateName": "QQ Plot",
+  "templateDescription": "Quantile v quantile, compare the relative distribution of univariate data.",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [\n    {\"quantile\": \"[Distrib]\", \"step\": \"[band]\", \"as\": [\"p\", \"v\"]},\n    {\"calculate\": \"quantileUniform(datum.p)\", \"as\": \"unif\"},\n    {\"calculate\": \"quantileNormal(datum.p)\", \"as\": \"norm\"}\n  ],\n  \"hconcat\": [\n    {\n      \"mark\": \"point\",\n      \"encoding\": {\n        \"x\": {\"field\": \"unif\", \"type\": \"quantitative\"},\n        \"y\": {\"field\": \"v\", \"type\": \"quantitative\"}\n      },\n      \"height\": \"[Size]\",\n      \"width\": \"[Size]\"\n    },\n    {\n      \"mark\": \"point\",\n      \"encoding\": {\n        \"x\": {\"field\": \"norm\", \"type\": \"quantitative\"},\n        \"y\": {\"field\": \"v\", \"type\": \"quantitative\"}\n      },\n      \"height\": \"[Size]\",\n      \"width\": \"[Size]\"\n    }\n  ]\n}\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "Distrib",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Size",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "300",
+        "step": 1,
+        "defaultValue": "100"
+      }
+    },
+    {
+      "name": "band",
+      "type": "Slider",
+      "config": {
+        "minVal": "0",
+        "maxVal": "0.3",
+        "step": "0.01",
+        "defaultValue": "0.01"
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

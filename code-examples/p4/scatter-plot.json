@@ -1,0 +1,25 @@
+{
+  "operations": [
+    {
+      "$match": {
+        "BabyWeight": [0, 15],
+        "MotherWeight": [70, 370]
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "circle",
+        "size": 8,
+        "color": "teal",
+        "opacity": "auto",
+        "x": "MotherWeight",
+        "y": "BabyWeight",
+        "brush": {
+          "unselected": {
+            "color": "gray"
+          }
+        }
+      }
+    }
+  ]
+}

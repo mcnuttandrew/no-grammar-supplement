@@ -1,0 +1,93 @@
+{
+  "views": [
+    {
+      "id": "c1",
+      "width": 260,
+      "height": 260,
+      "padding": {"left": 120, "right": 10, "top": 10, "bottom":40},
+      "offset": [0, 0]
+    },
+    {
+      "id": "c2",
+      "width": 260,
+      "height": 260,
+      "padding": {"left": 120, "right": 10, "top": 10, "bottom":40},
+      "offset": [260, 0]
+    },
+    {
+      "id": "c3",
+      "width": 520,
+      "height": 260,
+      "padding": {"left": 120, "right": 10, "top": 10, "bottom":40},
+      "offset": [0, 260]
+    }
+  ],
+  "operations": [
+    {
+      "$aggregate": {
+        "$group": "FatherAge",
+        "$collect": {
+          "Babies": {"$count": "*"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "id": "c3",
+        "mark": "area",
+        "color": "steelblue",
+        "x": "FatherAge",
+        "y": "Babies"
+      }
+    },
+    {
+      "$aggregate": {
+        "$group": "MotherEdu",
+        "$collect": {
+          "Babies": {"$count": "*"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "id": "c2",
+        "mark": "bar",
+        "color": "darkred",
+        "y": "MotherEdu",
+        "width": "Babies"
+      }
+    },
+    {
+      "$aggregate": {
+        "$group": "FatherEdu",
+        "$collect": {
+          "Babies": {"$count": "*"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "id": "c1",
+        "mark": "bar",
+        "color": "steelblue",
+        "y": "FatherEdu",
+        "width": "Babies"
+      }
+    },
+    {
+      "$interact": {
+        "event": "brush",
+        "condition": {"x": true},
+        "from": ["c3"],
+        "response": {
+          "c1": {
+            "unselected": {"color": "gray"}
+          },
+          "c2": {
+            "unselected": {"color": "gray"}
+          }
+        }
+      }
+    }
+  ]
+}

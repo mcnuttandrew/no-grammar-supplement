@@ -1,0 +1,16 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "rebin": {
+    "type": "voronoi",
+    "size": 32,
+    "stroke": "black"
+  },
+  "compose": {
+    "mix": "hatching",
+    "size": 2,
+    "widthprop": 1,
+    "colprop": false
+  }
+}

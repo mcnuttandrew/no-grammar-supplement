@@ -1,0 +1,167 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 500,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "edges",
+      "url": "http://vegaar.hkustvis.org/data/miserables-links.json"
+    },
+    {
+      "name": "sourceDegree",
+      "source": "edges",
+      "transform": [
+        {"type": "aggregate", "groupby": ["source"]}
+      ]
+    },
+    {
+      "name": "targetDegree",
+      "source": "edges",
+      "transform": [
+        {"type": "aggregate", "groupby": ["target"]}
+      ]
+    },
+    {
+      "name": "nodes",
+      "url": "http://vegaar.hkustvis.org/data/miserables-nodes.json",
+      "transform": [
+        { "type": "window", "ops": ["rank"], "as": ["order"] },
+        {
+          "type": "lookup", "from": "sourceDegree", "key": "source",
+          "fields": ["id"], "as": ["sourceDegree"],
+          "default": {"count": 0}
+        },
+        {
+          "type": "lookup", "from": "targetDegree", "key": "target",
+          "fields": ["id"], "as": ["targetDegree"],
+          "default": {"count": 0}
+        },
+        {
+          "type": "formula", "as": "degree",
+          "expr": "datum.sourceDegree.count + datum.targetDegree.count"
+        }
+      ]
+    }
+  ],
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "nodes",
+        "values": [
+          {"name":"Enjolras","group":8,"id":58},{"name":"Combeferre","group":8,"id":59},
+          {"name":"Prouvaire","group":8,"id":60},{"name":"Feuilly","group":8,"id":61},
+          {"name":"Courfeyrac","group":8,"id":62},{"name":"Bahorel","group":8,"id":63},
+          {"name":"Bossuet","group":8,"id":64},{"name":"Joly","group":8,"id":65},{"name":"Grantaire","group":8,"id":66},
+          {"name":"MotherPlutarch","group":9,"id":67},
+          {"name":"Gueulemer","group":9,"id":68},
+          {"name":"Babet","group":9,"id":69},
+          {"name":"Claquesous","group":9,"id":70},
+          {"name":"Montparnasse","group":9,"id":71},
+          {"name":"Toussaint","group":9,"id":72},
+          {"name":"Brujon","group":10,"id":75},
+          {"name":"Child1","group":10,"id":73},{"name":"Child2","group":10,"id":74},{"name":"Mme.Hucheloup","group":8,"id":76}
+        ]
+      }, {
+        "name": "edges",
+        "values": [
+          {"source":57,"target":48,"value":1},{"source":58,"target":55,"value":7},{"source":58,"target":48,"value":7},{"source":58,"target":27,"value":6},{"source":58,"target":57,"value":1},{"source":59,"target":58,"value":15},{"source":59,"target":55,"value":5},{"source":59,"target":48,"value":6},{"source":59,"target":57,"value":2},{"source":60,"target":48,"value":1},{"source":60,"target":58,"value":4},{"source":60,"target":59,"value":2},{"source":61,"target":48,"value":2},{"source":61,"target":58,"value":6},{"source":61,"target":60,"value":2},{"source":61,"target":59,"value":5},{"source":61,"target":57,"value":1},{"source":61,"target":55,"value":1},{"source":62,"target":55,"value":9},{"source":62,"target":58,"value":17},{"source":62,"target":59,"value":13},{"source":62,"target":48,"value":7},{"source":62,"target":57,"value":2},{"source":62,"target":41,"value":1},{"source":62,"target":61,"value":6},{"source":62,"target":60,"value":3},{"source":63,"target":59,"value":5},{"source":63,"target":48,"value":5},{"source":63,"target":62,"value":6},
+          {"source":63,"target":57,"value":2},{"source":63,"target":58,"value":4},{"source":63,"target":61,"value":3},{"source":63,"target":60,"value":2},{"source":63,"target":55,"value":1},{"source":64,"target":55,"value":5},{"source":64,"target":62,"value":12},{"source":64,"target":48,"value":5},{"source":64,"target":63,"value":4},{"source":64,"target":58,"value":10},{"source":64,"target":61,"value":6},{"source":64,"target":60,"value":2},{"source":64,"target":59,"value":9},{"source":64,"target":57,"value":1},{"source":65,"target":63,"value":5},{"source":65,"target":64,"value":7},{"source":65,"target":48,"value":3},{"source":65,"target":62,"value":5},{"source":65,"target":58,"value":5},{"source":65,"target":61,"value":5},{"source":65,"target":60,"value":2},{"source":65,"target":59,"value":5},{"source":65,"target":57,"value":1},{"source":65,"target":55,"value":2},{"source":66,"target":64,"value":3},{"source":66,"target":58,"value":3},{"source":66,"target":59,"value":1},
+          {"source":66,"target":62,"value":2},{"source":66,"target":65,"value":2},{"source":66,"target":48,"value":1},{"source":66,"target":63,"value":1},{"source":66,"target":61,"value":1},{"source":66,"target":60,"value":1},{"source":67,"target":57,"value":3},{"source":68,"target":25,"value":5},{"source":68,"target":24,"value":1},{"source":68,"target":27,"value":1},{"source":68,"target":48,"value":1},{"source":68,"target":41,"value":1},{"source":69,"target":25,"value":6},{"source":69,"target":68,"value":6},{"source":69,"target":24,"value":1},
+          {"source":69,"target":27,"value":2},{"source":69,"target":48,"value":1},{"source":69,"target":41,"value":1},{"source":70,"target":25,"value":4},{"source":70,"target":69,"value":4},{"source":70,"target":68,"value":4},{"source":70,"target":24,"value":1},{"source":70,"target":27,"value":1},{"source":70,"target":41,"value":1},{"source":70,"target":58,"value":1},{"source":71,"target":27,"value":1},{"source":71,"target":69,"value":2},{"source":71,"target":68,"value":2},{"source":71,"target":70,"value":2},
+          {"source":71,"target":48,"value":1},{"source":71,"target":41,"value":1},{"source":71,"target":25,"value":1},{"source":72,"target":26,"value":2},{"source":72,"target":27,"value":1},
+          {"source":73,"target":48,"value":2},{"source":74,"target":48,"value":2},{"source":74,"target":73,"value":3},{"source":75,"target":69,"value":3},{"source":75,"target":68,"value":3},{"source":75,"target":25,"value":3},{"source":75,"target":48,"value":1},{"source":75,"target":41,"value":1},{"source":75,"target":70,"value":1},{"source":75,"target":71,"value":1},{"source":76,"target":64,"value":1},{"source":76,"target":65,"value":1},{"source":76,"target":66,"value":1},{"source":76,"target":63,"value":1},{"source":76,"target":62,"value":1},{"source":76,"target":48,"value":1},{"source":76,"target":58,"value":1}
+                ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "position",
+      "type": "band",
+      "domain": {"data": "nodes", "field": "order", "sort": true},
+      "range": "width"
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": "category",
+      "domain": {"data": "nodes", "field": "group"}
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "symbol",
+      "name": "layout",
+      "interactive": false,
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "opacity": {"value": 0}
+        },
+        "update": {
+          "x": {"scale": "position", "field": "order"},
+          "y": {"value": 0},
+          "size": {"field": "degree", "mult": 5, "offset": 10},
+          "fill": {"scale": "color", "field": "group"}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {"data": "edges"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "#000"},
+          "strokeOpacity": {"value": 0.2},
+          "strokeWidth": {"field": "value"}
+        }
+      },
+      "transform": [
+        {
+          "type": "lookup", "from": "layout", "key": "datum.id",
+          "fields": ["datum.source", "datum.target"],
+          "as": ["sourceNode", "targetNode"]
+        },
+        {
+          "type": "linkpath",
+          "sourceX": {"expr": "min(datum.sourceNode.x, datum.targetNode.x)"},
+          "targetX": {"expr": "max(datum.sourceNode.x, datum.targetNode.x)"},
+          "sourceY": {"expr": "0"},
+          "targetY": {"expr": "0"},
+          "shape": "arc"
+        }
+      ]
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "layout"},
+      "encode": {
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "fill": {"field": "fill"},
+          "size": {"field": "size"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "encode": {
+        "update": {
+          "x": {"scale": "position", "field": "order"},
+          "y": {"value": 7},
+          "fontSize": {"value": 9},
+          "align": {"value": "right"},
+          "baseline": {"value": "middle"},
+          "angle": {"value": -90},
+          "text": {"field": "name"}
+        }
+      }
+    }
+  ]
+}

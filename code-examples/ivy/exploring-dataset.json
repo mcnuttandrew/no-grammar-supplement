@@ -1,0 +1,23 @@
+{
+  "templateAuthor": "Venatici-Tucana-31",
+  "templateLanguage": "vega-lite",
+  "templateName": "Exploring Dataset",
+  "templateDescription": "A simple polyvalent univariate bar chart",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"transform\": [],\n  \"encoding\": {\n    \"x\": {\"type\": \"quantitative\", \"aggregate\": \"count\"},\n    \"y\": {\"field\": \"[Var1]\", \"type\": \"nominal\", \"sort\": \"-x\"}\n  },\n  \"mark\": {\"type\": \"bar\", \"tooltip\": true},\n  \"height\": 700\n}\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Var1",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true
+      }
+    }
+  ]
+}

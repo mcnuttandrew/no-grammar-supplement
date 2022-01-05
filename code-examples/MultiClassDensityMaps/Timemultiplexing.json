@@ -1,0 +1,8 @@
+{
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "time"
+  }
+}

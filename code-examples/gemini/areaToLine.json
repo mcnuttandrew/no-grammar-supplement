@@ -1,0 +1,301 @@
+{
+  "title": "Unstacking Areas to Lines",
+  "sSpec": {
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 400,
+    "height": 100,
+    "style": "cell",
+    "data": [
+      {
+        "name": "source_0",
+        "url": "data/movies.json",
+        "format": {"type": "json"},
+        "transform": [
+          {
+            "type": "kde",
+            "field": "IMDB_Rating",
+            "bandwidth": 0.3,
+            "groupby": ["Major_Genre"],
+            "extent": [0, 10],
+            "counts": true,
+            "steps": 50,
+            "as": ["value", "density"]
+          },
+          {
+            "type": "impute",
+            "field": "density",
+            "groupby": ["Major_Genre"],
+            "key": "value",
+            "method": "value",
+            "value": 0
+          },
+          {
+            "type": "stack",
+            "groupby": ["value"],
+            "field": "density",
+            "sort": {"field": ["Major_Genre"], "order": ["descending"]},
+            "as": ["density_start", "density_end"],
+            "offset": "zero"
+          }
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "name": "pathgroup",
+        "type": "group",
+        "from": {
+          "facet": {
+            "name": "faceted_path_main",
+            "data": "source_0",
+            "groupby": ["Major_Genre"]
+          }
+        },
+        "encode": {
+          "update": {
+            "width": {"field": {"group": "width"}},
+            "height": {"field": {"group": "height"}}
+          }
+        },
+        "marks": [
+          {
+            "name": "marks",
+            "type": "area",
+            "style": ["area"],
+            "sort": {"field": "datum[\"value\"]"},
+            "from": {"data": "faceted_path_main"},
+            "encode": {
+              "update": {
+                "orient": {"value": "vertical"},
+                "fill": {"scale": "color", "field": "Major_Genre"},
+                "x": {"scale": "x", "field": "value"},
+                "y": {"scale": "y", "field": "density_end"},
+                "y2": {"scale": "y", "field": "density_start"},
+                "defined": {
+                  "signal": "isValid(datum[\"value\"]) && isFinite(+datum[\"value\"]) && isValid(datum[\"density\"]) && isFinite(+datum[\"density\"])"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "source_0", "field": "value"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": false
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "domain": {
+          "data": "source_0",
+          "fields": ["density_start", "density_end"]
+        },
+        "range": [{"signal": "height"}, 0],
+        "nice": true,
+        "zero": true
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "source_0", "field": "Major_Genre", "sort": true},
+        "range": {"scheme": "category20"}
+      }
+    ],
+    "axes": [
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": true,
+        "title": "value",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "encode": {"axis": {"name": "x"}},
+        "zindex": 0,
+        "gridScale": "y"
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "grid": true,
+        "title": "density",
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "encode": {"axis": {"name": "y"}},
+        "zindex": 0,
+        "gridScale": "x"
+      }
+    ],
+    "legends": [
+      {
+        "fill": "color",
+        "symbolType": "circle",
+        "title": "Major_Genre",
+        "encode": {"legend": {"name": "legend0"}}
+      }
+    ]
+  },
+  "eSpec": {
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 400,
+    "height": 100,
+    "style": "cell",
+    "data": [
+      {
+        "name": "source_0",
+        "url": "data/movies.json",
+        "format": {"type": "json"},
+        "transform": [
+          {
+            "type": "kde",
+            "field": "IMDB_Rating",
+            "bandwidth": 0.3,
+            "groupby": ["Major_Genre"],
+            "extent": [0, 10],
+            "counts": true,
+            "steps": 50,
+            "as": ["value", "density"]
+          }
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "name": "pathgroup",
+        "type": "group",
+        "from": {
+          "facet": {
+            "name": "faceted_path_main",
+            "data": "source_0",
+            "groupby": ["Major_Genre"]
+          }
+        },
+        "encode": {
+          "update": {
+            "width": {"field": {"group": "width"}},
+            "height": {"field": {"group": "height"}}
+          }
+        },
+        "marks": [
+          {
+            "name": "marks",
+            "type": "line",
+            "style": ["line"],
+            "sort": {"field": "datum[\"value\"]"},
+            "from": {"data": "faceted_path_main"},
+            "encode": {
+              "update": {
+                "stroke": {"scale": "color", "field": "Major_Genre"},
+                "x": {"scale": "x", "field": "value"},
+                "y": {"scale": "y", "field": "density"},
+                "defined": {
+                  "signal": "isValid(datum[\"value\"]) && isFinite(+datum[\"value\"]) && isValid(datum[\"density\"]) && isFinite(+datum[\"density\"])"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "source_0", "field": "value"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": false
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "domain": {"data": "source_0", "field": "density"},
+        "range": [{"signal": "height"}, 0],
+        "nice": true,
+        "zero": true
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "source_0", "field": "Major_Genre", "sort": true},
+        "range": {"scheme": "category20"}
+      }
+    ],
+    "axes": [
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": true,
+        "title": "value",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "encode": {"axis": {"name": "x"}},
+        "zindex": 0,
+        "gridScale": "y"
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "grid": true,
+        "title": "density",
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "encode": {"axis": {"name": "y"}},
+        "zindex": 0,
+        "gridScale": "x"
+      }
+    ],
+    "legends": [
+      {
+        "stroke": "color",
+        "symbolType": "stroke",
+        "title": "Major_Genre",
+        "encode": {"legend": {"name": "legend0"}}
+      }
+    ]
+  },
+  "gemSpecs": [
+    {
+      "meta": {"name": "At once"},
+      "timeline": {
+        "concat": [
+          {
+            "sync": [
+              {
+                "component": {"mark": "marks"},
+                "change": {
+                  "scale": ["y"],
+                  "data": true,
+                  "encode": {"update": true, "enter": true, "exit": true},
+                  "marktype": true
+                },
+                "timing": {"duration": {"ratio": 1}}
+              },
+              {
+                "component": {"legend": "legend0"},
+                "timing": {"duration": {"ratio": 1}}
+              },
+              {
+                "component": {"axis": "y"},
+                "change": {"scale": {"domainDimension": "same"}},
+                "timing": {"duration": {"ratio": 1}}
+              }
+            ]
+          }
+        ]
+      },
+      "totalDuration": 2000
+    }
+  ]
+}

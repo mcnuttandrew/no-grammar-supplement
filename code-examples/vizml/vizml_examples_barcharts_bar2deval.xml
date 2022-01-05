@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualization xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd" version="3.0">
+  <delimitedFileSource fileName="/pubs/gpl/data/Employee data.csv" header="true"
+    id="empdata"/>
+  <sourceVariable sourceName="jobcat" id="jobcat" categorical="true"
+    source="empdata"/>
+  <sourceVariable sourceName="gender" id="gender" categorical="true"
+    source="empdata"/>
+  <sourceVariable sourceName="salary" id="salary" source="empdata"/>
+  <sourceVariable sourceName="salbegin" id="salbegin" source="empdata"/>
+  <derivedVariable source="empdata" value="((salary-salbegin)/salbegin)*100"
+    id="salincrease"/>
+  <graph id="main">
+    <location part="right" method="attach" target="legend"/>
+    <coordinates>
+      <dimension clusterVariable="jobcat">
+        <axis>
+          <label>
+            <text>Employment Category</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Mean Percent Salary Increase</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <interval>
+      <summaryStatistic method="mean"/>
+      <color variable="gender" id="clustering"/>
+      <x variable="gender"/>
+      <y variable="salincrease"/>
+    </interval>
+  </graph>
+  <legend id="legend">
+    <location part="right" method="fixed" value="100%"/>
+    <location part="width" method="sizeToContent"/>
+    <label>
+      <text>Gender</text>
+    </label>
+    <legendTarget target="clustering"/>
+  </legend>
+</visualization>

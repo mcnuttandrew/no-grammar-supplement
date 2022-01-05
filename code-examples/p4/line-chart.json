@@ -1,0 +1,21 @@
+{
+  "operations": [
+    {
+      "$aggregate": {
+        "$group": ["BabyMonth"],
+        "$collect": {
+          "AvgWeight": {"$avg": "BabyWeight"}
+        }
+      }
+    },
+    {
+      "$visualize": {
+        "mark": "line",
+        "color": "steelblue",
+        "size": 2,
+        "x": "BabyMonth",
+        "y": "AvgWeight"
+      }
+    }
+  ]
+}

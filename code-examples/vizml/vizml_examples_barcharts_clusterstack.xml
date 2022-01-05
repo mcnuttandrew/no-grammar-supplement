@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <delimitedFileSource fileName="/pubs/gpl/data/Employee data.csv" header="true"
+    id="empdata"/>
+  <sourceVariable categorical="true" id="jobcat" source="empdata"
+    sourceName="jobcat"/>
+  <sourceVariable categorical="true" id="gender" source="empdata"
+    sourceName="gender"/>
+  <sourceVariable categorical="true" id="minority" source="empdata"
+    sourceName="minority"/>
+  <sourceVariable id="salary" source="empdata" sourceName="salary"/>
+  <graph id="main">
+    <location part="right" method="attach" target="legend"/>
+    <coordinates>
+      <dimension clusterVariable="jobcat">
+        <axis>
+          <label>
+            <text>Job Category</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+      <dimension>
+        <axis>
+          <label>
+            <text>Mean Salary</text>
+          </label>
+          <majorTicks/>
+        </axis>
+      </dimension>
+    </coordinates>
+    <interval>
+      <summaryStatistic method="sum"/>
+      <color variable="gender" id="genderGroup"/>
+      <pattern variable="minority" id="minorityGroup"/>
+      <x variable="gender"/>
+      <y variable="salary"/>
+    </interval>
+  </graph>
+  <legend id="legend">
+    <location part="top" method="fixed" value="0%"/>
+    <location part="right" method="fixed" value="100%"/>
+    <location part="width" method="sizeToContent"/>
+    <label>
+      <text>Gender</text>
+    </label>
+    <legendTarget target="genderGroup"/>
+  </legend>
+  <legend>
+    <location part="top" method="fixed" value="50%"/>
+    <location part="right" method="fixed" value="100%"/>
+    <location part="width" method="sizeToContent"/>
+    <label>
+      <text>Minority&#10;Classification</text>
+    </label>
+    <legendTarget target="minorityGroup"/>
+  </legend>
+</visualization>

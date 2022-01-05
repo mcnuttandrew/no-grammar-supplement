@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<visualization version="3.0" xmlns="http://www.ibm.com/software/analytics/spss/xml/visualization"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ibm.com/software/analytics/spss/xml/visualization
+  http://www.ibm.com/software/analytics/spss/xml/visualization/vizml-3.0.xsd">
+  <delimitedFileSource fileName="/pubs/gpl/data/customer_subset.csv"
+    id="customer_subset" header="true"/>
+  <derivedVariable id="ageString" categorical="true" key="false"
+    value="constant(Age)" weight="false"/>
+  <sourceVariable id="age" categorical="false" source="customer_subset"
+    sourceName="age"/>
+  <derivedVariable id="incomeString" categorical="true" key="false"
+    value="constant(Income)" weight="false"/>
+  <sourceVariable id="income" categorical="false" source="customer_subset"
+    sourceName="income"/>
+  <sourceVariable id="creddebt" categorical="false" source="customer_subset"
+    sourceName="creddebt"/>
+  <derivedVariable id="creddebtString" categorical="true" key="false"
+    value="constant(CC Debt)" weight="false"/>
+  <expressionVariable id="algebra1" categorical="false"
+    expression="age/ageString+income/incomeString+creddebt/creddebtString+
+    age/ageString+income/incomeString+creddebt/creddebtString+age/ageString+
+    income/incomeString+creddebt/creddebtString"/>
+  <expressionVariable id="algebra2" categorical="false"
+    expression="age/ageString+age/ageString+age/ageString+
+    income/incomeString+income/incomeString+income/incomeString+
+    creddebt/creddebtString+creddebt/creddebtString+creddebt/creddebtString"/>
+  <graph>
+    <coordinates>
+      <dimension>
+        <axis/>
+      </dimension>
+      <dimension>
+        <axis/>
+      </dimension>
+    </coordinates>
+    <facetLayout>
+      <facetLevel level="1">
+        <axis>
+          <majorTicks/>
+        </axis>
+      </facetLevel>
+      <facetLevel level="2">
+        <axis>
+          <majorTicks/>
+        </axis>
+      </facetLevel>
+    </facetLayout>
+    <point>
+      <x variable="algebra1"/>
+      <y variable="algebra2"/>
+    </point>
+  </graph>
+</visualization>

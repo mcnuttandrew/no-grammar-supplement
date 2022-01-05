@@ -1,0 +1,147 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "Contour Plot",
+  "templateDescription": "Plot bivariate patterns with contours",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A contour plot example, overlaying a density estimate on scatter plot points.\",\n  \"width\": 500,\n  \"height\": 400,\n  \"padding\": 5,\n  \"autosize\": \"pad\",\n  \"signals\": [\n    {\"name\": \"bandwidth\", \"value\": \"[bandwidth]\"},\n    {\"name\": \"resolve\", \"value\": \"[shared]\"},\n    {\"name\": \"counts\", \"value\": \"[counts]\"}\n  ],\n  \"data\": [\n    {\n      \"name\": \"source\",\n      \"values\": \"myData\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum[[xDim]] != null && datum[[yDim]] != null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"density\",\n      \"source\": \"source\",\n      \"transform\": [\n        {\n          \"type\": \"kde2d\",\n          \"groupby\": [\"[Color]\"],\n          \"size\": [{\"signal\": \"width\"}, {\"signal\": \"height\"}],\n          \"x\": {\"expr\": \"scale(x, datum[[xDim]])\"},\n          \"y\": {\"expr\": \"scale(y, datum[[yDim]])\"},\n          \"bandwidth\": {\"signal\": \"[bandwidth, bandwidth]\"},\n          \"counts\": {\"signal\": \"counts\"}\n        }\n      ]\n    },\n    {\n      \"name\": \"contours\",\n      \"source\": \"density\",\n      \"transform\": [\n        {\n          \"type\": \"isocontour\",\n          \"field\": \"grid\",\n          \"resolve\": {\"signal\": \"resolve\"},\n          \"levels\": 3\n        }\n      ]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"x\",\n      \"type\": \"linear\",\n      \"round\": true,\n      \"nice\": true,\n      \"zero\": true,\n      \"domain\": {\"data\": \"source\", \"field\": \"[xDim]\"},\n      \"range\": \"width\"\n    },\n    {\n      \"name\": \"y\",\n      \"type\": \"linear\",\n      \"round\": true,\n      \"nice\": true,\n      \"zero\": true,\n      \"domain\": {\"data\": \"source\", \"field\": \"[yDim]\"},\n      \"range\": \"height\"\n    },\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": {\n        \"data\": \"source\",\n        \"field\": \"[Color]\",\n        \"sort\": {\"order\": \"descending\"}\n      },\n      \"range\": {\"scheme\": \"[Scheme]\"}\n    }\n  ],\n  \"axes\": [\n    {\n      \"scale\": \"x\",\n      \"grid\": true,\n      \"domain\": false,\n      \"orient\": \"bottom\",\n      \"tickCount\": 5,\n      \"title\": \"[xDim]\"\n    },\n    {\n      \"scale\": \"y\",\n      \"grid\": true,\n      \"domain\": false,\n      \"orient\": \"left\",\n      \"titlePadding\": 5,\n      \"title\": \"[yDim]\"\n    }\n  ],\n  \"legends\": [{\"stroke\": \"color\", \"symbolType\": \"stroke\"}],\n  \"marks\": [\n    {\n      \"name\": \"marks\",\n      \"type\": \"symbol\",\n      \"from\": {\"data\": \"source\"},\n      \"encode\": {\n        \"update\": {\n          \"x\": {\"scale\": \"x\", \"field\": \"[xDim]\"},\n          \"y\": {\"scale\": \"y\", \"field\": \"[yDim]\"},\n          \"size\": {\"value\": 4},\n          \"fill\": {\"value\": \"#ccc\"}\n        }\n      }\n    },\n    {\n      \"type\": \"image\",\n      \"from\": {\"data\": \"density\"},\n      \"encode\": {\n        \"update\": {\n          \"x\": {\"value\": 0},\n          \"y\": {\"value\": 0},\n          \"width\": {\"signal\": \"width\"},\n          \"height\": {\"signal\": \"height\"},\n          \"aspect\": {\"value\": false}\n        }\n      },\n      \"transform\": [\n        {\n          \"type\": \"heatmap\",\n          \"field\": \"datum.grid\",\n          \"resolve\": {\"signal\": \"resolve\"},\n          \"color\": {\"expr\": \"scale(color, datum.datum[[Color]])\"}\n        }\n      ]\n    },\n    {\n      \"type\": \"path\",\n      \"clip\": true,\n      \"from\": {\"data\": \"contours\"},\n      \"encode\": {\n        \"enter\": {\n          \"strokeWidth\": {\"value\": 1},\n          \"strokeOpacity\": {\"value\": 1},\n          \"stroke\": {\"scale\": \"color\", \"field\": \"[Color]\"}\n        }\n      },\n      \"transform\": [{\"type\": \"geopath\", \"field\": \"datum.contour\"}]\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Scheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"dark2\""
+      }
+    },
+    {
+      "name": "Section5",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "counts",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "bandwidth",
+      "type": "Slider",
+      "config": {
+        "minVal": "-1",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "-1"
+      }
+    },
+    {
+      "name": "shared",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"independent\"",
+            "value": "\"independent\""
+          },
+          {
+            "display": "\"shared\"",
+            "value": "\"shared\""
+          }
+        ],
+        "defaultValue": null
+      }
+    }
+  ]
+}

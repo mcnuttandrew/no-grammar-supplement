@@ -1,0 +1,394 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 500,
+    "padding": 5,
+  
+    "data": [
+      {
+        "name": "edges",
+        "url": "http://vegaar.hkustvis.org/us/network.json",
+        "format": {"type": "json", "property": "links"}
+      },
+      {
+        "name": "sourceDegree",
+        "source": "edges",
+        "transform": [
+          {"type": "aggregate", "groupby": ["source"]}
+        ]
+      },
+      {
+        "name": "targetDegree",
+        "source": "edges",
+        "transform": [
+          {"type": "aggregate", "groupby": ["target"]}
+        ]
+      },
+      {
+        "name": "nodes",
+        "url": "http://vegaar.hkustvis.org/us/network.json",
+        "format": {"type": "json", "property": "nodes"},
+        "transform": [
+        {"type": "collect", "sort":{"field": "area"} },
+          { "type": "window", "ops": ["rank"],"as": ["order"] },
+          {
+            "type": "lookup", "from": "sourceDegree", "key": "source",
+            "fields": ["id"], "as": ["sourceDegree"],
+            "default": {"count": 0}
+          },
+          {
+            "type": "lookup", "from": "targetDegree", "key": "target",
+            "fields": ["id"], "as": ["targetDegree"],
+            "default": {"count": 0}
+          },
+          {
+            "type": "formula", "as": "degree",
+            "expr": "datum.sourceDegree.count + datum.targetDegree.count"
+          }
+        ]
+      }
+    ],
+    "ar": {
+      "mode": "ON",
+      "data": [
+        {
+          "name": "edges",
+          "values": [
+            {
+                "source": 53,
+                "target": 61,
+                "weight": 1
+            },
+            {
+                "source": 28,
+                "target": 61,
+                "weight": 1
+            },
+            {
+                "source": 40,
+                "target": 61,
+                "weight": 1
+            },
+            {
+                "source": 25,
+                "target": 39,
+                "weight": 1
+            },
+            {
+                "source": 27,
+                "target": 39,
+                "weight": 1
+            },
+            {
+                "source": 26,
+                "target": 37,
+                "weight": 1
+            },
+            {
+                "source": 30,
+                "target": 37,
+                "weight": 3
+            },
+            {
+                "source": 44,
+                "target": 58,
+                "weight": 1
+            },
+            {
+                "source": 44,
+                "target": 61,
+                "weight": 8
+            },
+            {
+                "source": 44,
+                "target": 55,
+                "weight": 1
+            },
+            {
+                "source": 37,
+                "target": 39,
+                "weight": 1
+            },
+            {
+                "source": 39,
+                "target": 61,
+                "weight": 7
+            },
+            {
+                "source": 39,
+                "target": 42,
+                "weight": 1
+            },
+            {
+                "source": 39,
+                "target": 45,
+                "weight": 1
+            },
+            {
+                "source": 39,
+                "target": 47,
+                "weight": 1
+            },
+            {
+                "source": 39,
+                "target": 52,
+                "weight": 1
+            },
+            {
+                "source": 39,
+                "target": 54,
+                "weight": 4
+            },
+            {
+                "source": 24,
+                "target": 25,
+                "weight": 7
+            },
+            {
+                "source": 24,
+                "target": 61,
+                "weight": 18
+            },
+            {
+                "source": 24,
+                "target": 36,
+                "weight": 1
+            },
+            {
+                "source": 24,
+                "target": 37,
+                "weight": 3
+            },
+            {
+                "source": 24,
+                "target": 39,
+                "weight": 2
+            },
+            {
+                "source": 24,
+                "target": 40,
+                "weight": 3
+            },
+            {
+                "source": 24,
+                "target": 43,
+                "weight": 2
+            },
+            {
+                "source": 74,
+                "target": 45,
+                "weight": 4
+            },
+            {
+                "source": 74,
+                "target": 63,
+                "weight": 4
+            },
+            {
+                "source": 74,
+                "target": 67,
+                "weight": 4
+            },
+            {
+                "source": 74,
+                "target": 56,
+                "weight": 4
+            },
+            {
+                "source": 75,
+                "target": 45,
+                "weight": 4
+            },
+            {
+                "source": 76,
+                "target": 46,
+                "weight": 4
+            },
+            {
+                "source": 75,
+                "target": 63,
+                "weight": 4
+            },
+            {
+                "source": 75,
+                "target": 35,
+                "weight": 4
+            },
+            {
+                "source": 74,
+                "target": 76,
+                "weight": 14
+            },
+            {
+                "source": 74,
+                "target": 75,
+                "weight": 24
+            }
+        ]
+        },
+        {
+          "name": "nodes",
+          "values": [
+            {
+                "name": "YEUNG, Dit-Yan",
+                "area": "new AI",
+                "id": 24,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "ZHANG, Nevin Lianwen",
+                "area": "new AI",
+                "id": 37,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "YANG, Qiang",
+                "area": "new AI",
+                "id": 39,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "MAK, Brian Kan-Wing",
+                "area": "new AI",
+                "id": 44,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "KWOK, James Tin-Yau",
+                "area": "new AI",
+                "id": 61,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "LIN, Fangzhen",
+                "area": "new AI",
+                "id": 67,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "WU, Deknew AI",
+                "area": "new AI",
+                "id": 69,
+                "parent": 11,
+                "size": 1
+            },
+            {
+                "name": "New Professor 1",
+                "id": 74,
+                "parent": 11,
+                "size": 1,
+                "area": "new area"
+            },
+            {
+                "name": "New Professor 2",
+                "id": 75,
+                "parent": 11,
+                "size": 1,
+                "area": "new area"
+            },
+            {
+                "name": "New Professor 3",
+                "id": 76,
+                "parent": 11,
+                "size": 1,
+                "area": "new area"
+            }
+        ]
+        }
+      ]
+    },
+  
+    "scales": [
+      {
+        "name": "position",
+        "type": "band",
+        "domain": {"data": "nodes", "field": "order", "sort": true},
+        "range": "width"
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "range": "category",
+        "domain": {"data": "nodes", "field": "area"}
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "symbol",
+        "name": "layout",
+        "interactive": false,
+        "from": {"data": "nodes"},
+        "encode": {
+          "enter": {
+            "opacity": {"value": 0}
+          },
+          "update": {
+            "x": {"scale": "position", "field": "order"},
+            "y": {"value": 0},
+            "size": {"value": 10, "mult": 5, "offset": 10},
+            "fill": {"scale": "color", "field": "area"}
+          }
+        }
+      },
+      {
+        "type": "path",
+        "from": {"data": "edges"},
+        "encode": {
+          "update": {
+            "stroke": {"value": "#000"},
+            "strokeOpacity": {"value": 0.2},
+            "strokeWidth": {"field": "value"}
+          }
+        },
+        "transform": [
+          {
+            "type": "lookup", "from": "layout", "key": "datum.id",
+            "fields": ["datum.source", "datum.target"],
+            "as": ["sourceNode", "targetNode"]
+          },
+          {
+            "type": "linkpath",
+            "sourceX": {"expr": "min(datum.sourceNode.x, datum.targetNode.x)"},
+            "targetX": {"expr": "max(datum.sourceNode.x, datum.targetNode.x)"},
+            "sourceY": {"expr": "0"},
+            "targetY": {"expr": "0"},
+            "shape": "arc"
+          }
+        ]
+      },
+      {
+        "type": "symbol",
+        "from": {"data": "layout"},
+        "encode": {
+          "update": {
+            "x": {"field": "x"},
+            "y": {"field": "y"},
+            "fill": {"field": "fill"},
+            "size": {"field": "size"}
+          }
+        }
+      },
+      {
+        "type": "text",
+        "from": {"data": "nodes"},
+        "encode": {
+          "update": {
+            "x": {"scale": "position", "field": "order"},
+            "y": {"value": 7},
+            "fontSize": {"value": 9},
+            "align": {"value": "right"},
+            "baseline": {"value": "middle"},
+            "angle": {"value": -90},
+            "text": {"field": "name"}
+          }
+        }
+      }
+    ]
+  }
+  

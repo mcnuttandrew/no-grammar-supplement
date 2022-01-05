@@ -1,0 +1,106 @@
+{
+  "templateAuthor": "Columba-Cepheus-9",
+  "templateLanguage": "vega-lite",
+  "templateName": "Horizon Chart (Simple)",
+  "templateDescription": "Horizon Graph with 2 layers. (See https://idl.cs.washington.edu/papers/horizon/ for more details on Horizon Graphs.)",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"description\": \"Horizon Graph with 2 layers. (See https://idl.cs.washington.edu/papers/horizon/ for more details on Horizon Graphs.)\",\n  \"width\": 300,\n  \"height\": 50,\n  \"data\": {\"name\": \"myData\"},\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[x]\",\n      \"type\": \"[xType]\",\n      \"scale\": {\"zero\": false, \"nice\": false}\n    },\n    \"y\": {\n      \"field\": \"[y]\",\n      \"type\": \"quantitative\",\n      \"scale\": {\"domain\": [0, \"[domainMax]\"]},\n      \"axis\": {\"title\": \"[y]\"}\n    }\n  },\n  \"layer\": [\n    {\n      \"mark\": {\n        \"type\": \"area\",\n        \"clip\": true,\n        \"orient\": \"vertical\",\n        \"opacity\": 0.6,\n        \"color\": \"[Color]\"\n      }\n    },\n    {\n      \"transform\": [{\"calculate\": \"datum[[y]] - [domainMax]\", \"as\": \"ny\"}],\n      \"mark\": {\n        \"type\": \"area\",\n        \"clip\": true,\n        \"orient\": \"vertical\",\n        \"color\": \"[Color]\"\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"ny\",\n          \"type\": \"quantitative\",\n          \"scale\": {\"domain\": [0, \"[domainMax]\"]}\n        },\n        \"opacity\": {\"value\": 0.3}\n      }\n    }\n  ],\n  \"config\": {\"area\": {\"interpolate\": \"monotone\"}}\n}",
+  "widgets": [
+    {
+      "name": "x",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "TIME"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "xType",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "quantitative",
+            "value": "\"quantitative\""
+          },
+          {
+            "display": "temporal",
+            "value": "\"temporal\""
+          }
+        ]
+      }
+    },
+    {
+      "name": "y",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "domainMax",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "200",
+        "step": 1,
+        "defaultValue": "50"
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    }
+  ]
+}

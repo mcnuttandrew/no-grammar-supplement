@@ -1,0 +1,61 @@
+{
+  "templateAuthor": "Northern-Camelopardalis-81",
+  "templateLanguage": "vega-lite",
+  "templateName": "template template",
+  "templateDescription": "it's a template",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n\n  \"encoding\": {\n    \"x\": {\"field\": \"[Country_Type]\", \"type\": \"nominal\", \"scale\": {}},\n    \"y\": {\"field\": \"[GovernmentType]\", \"type\": \"nominal\", \"scale\": {}},\n    \"color\": {\n      \"field\": \"HappinessScore\",\n      \"type\": \"quantitative\",\n      \"aggregate\": \"[aggregates]\",\n      \"scale\": {\"scheme\": \"viridis\"}\n    }\n  },\n  \"mark\": {\"type\": \"rect\", \"tooltip\": true, \"opacity\": 0.8}\n}\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Country_Type",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      },
+      "displayName": "x-axis",
+      "conditions": [
+        {
+          "query": "true",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "GovernmentType",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      },
+      "displayName": "y-axis"
+    },
+    {
+      "name": "aggregates",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "count",
+            "value": "\"count\""
+          },
+          {
+            "display": "distinct",
+            "value": "\"distinct\""
+          },
+          {
+            "display": "mean",
+            "value": "\"mean\""
+          }
+        ],
+        "defaultValue": null
+      },
+      "displayName": "aggregates"
+    }
+  ]
+}

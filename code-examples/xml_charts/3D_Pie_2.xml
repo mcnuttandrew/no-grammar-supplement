@@ -1,0 +1,54 @@
+
+
+
+
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string>Bob</string>
+			<string>Liz</string>
+			<string>Tina</string>
+			<string>Mark</string>
+			<string>Kate</string>
+		</row>
+		<row>
+			<string></string>
+			<number>40</number>
+			<number>13</number>
+			<number>17</number>
+			<number>10</number>
+			<number>5</number>
+		</row>
+	</chart_data>
+	<chart_label shadow='low' alpha='65' size='10' position='inside' as_percentage='true' />
+	<chart_pref select='true' drag='false' rotation_x='50' />
+	<chart_rect x='105' y='50' width='300' height='180' positive_alpha='0' />
+	<chart_type>3d pie</chart_type>
+	
+	<draw>
+		<rect bevel='bg' layer='background' x='0' y='0' width='480' height='300' fill_color='4c5577' line_thickness='0' />
+		<text layer='background' shadow='high' color='0' alpha='10' size='97' x='-3' y='205' width='500' height='150'>contest 10</text>
+		<text shadow='low' color='ffffff' alpha='10' rotation='-90' size='85' x='-10' y='235' width='300' height='50' >VOTE</text>
+		<circle layer='background' x='250' y='120' radius='150' fill_alpha='0' line_color='000000' line_alpha='5' line_thickness='65' />
+	</draw>
+	<filter>
+		<shadow id='high' distance='3' angle='45' alpha='50' blurX='10' blurY='10' />
+		<shadow id='low' distance='2' angle='45' alpha='60' blurX='10' blurY='10' />
+		<bevel id='bg' angle='90' blurX='0' blurY='200' distance='50' highlightAlpha='15' shadowAlpha='15' type='inner' />
+	</filter>
+	
+	<legend shadow='low' layout='horizontal' margin='20' x='65' y='-10' width='345' height='25' fill_alpha='0' color='ffffff' alpha='75' />
+	<update url='xml/Gallery_3D_Pie_Update.php?count=1521' delay='2' mode='data' /> 
+	<context_menu full_screen='false' />
+	
+</chart>
+
+
+
+
+
+
+
+

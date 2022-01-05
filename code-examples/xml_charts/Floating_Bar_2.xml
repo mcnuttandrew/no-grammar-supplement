@@ -1,0 +1,99 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='10' color='eebb66' alpha='90' />
+	<axis_ticks value_ticks='false' category_ticks='true' major_thickness='1' minor_thickness='0' minor_count='0' major_color='222222' minor_color='222222' position='centered' />
+	<axis_value shadow='low' min='0' max='24' steps='24' size='8' color='ffffff' alpha='75' />
+	<axis_value_label>
+		<string>12\ram</string>
+		<string>1</string>
+		<string>2</string>
+		<string>3</string>
+		<string>4</string>
+		<string>5</string>
+		<string>6</string>
+		<string>7</string>
+		<string>8</string>
+		<string>9</string>
+		<string>10</string>
+		<string>11</string>
+		<string>12\rpm</string>
+		<string>1</string>
+		<string>2</string>
+		<string>3</string>
+		<string>4</string>
+		<string>5</string>
+		<string>6</string>
+		<string>7</string>
+		<string>8</string>
+		<string>9</string>
+		<string>10</string>
+		<string>11</string>
+		<string>12\ram</string>
+	</axis_value_label>
+
+	<chart_border color='0' top_thickness='1' bottom_thickness='1' left_thickness='1' right_thickness='1' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>Sue</string>
+			<string>Mark</string>
+			<string>Joe</string>
+			<string>Kim</string>
+			<string>Bob</string>
+		</row>
+		<row>
+			<string>hi</string>
+			<number label='8:00 am' shadow='high'>8</number>
+			<number label='4:00 pm' shadow='high'>16</number>
+			<number label='4:00 pm' shadow='high'>16</number>
+			<number label='4:00 pm' shadow='high'>16</number>
+			<number label='12:00 am' shadow='high'>24</number>
+		</row>
+		<row>
+			<string>lo</string>
+			<number label='12:00 am'>0</number>
+			<number label='8:00 am'>8</number>
+			<number label='8:00 am'>8</number>
+			<number label='8:00 am'>8</number>
+			<number label='4:00 pm'>16</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='5' color='000000' thickness='10' />
+	<chart_grid_v alpha='20' color='000000' thickness='1' />
+	<chart_label shadow='low' color='ffffff' alpha='85' size='10' position='inside' />
+	<chart_rect bevel='bg' x='90' y='50' width='325' height='200' positive_color='ddd0ff' positive_alpha='90' />
+	<chart_type>floating bar</chart_type>
+	
+	<draw>
+		<text color='0' alpha='10' size='40' x='0' y='-15' width='500' height='150'>|||||||||||||||||||||||||||||||||||||||||||</text>
+		<text shadow='low' transition='none' delay='0' duration='1' color='ee7777' alpha='100' size='36' x='82' y='15' width='350' height='240'>Work Shifts</text>
+	</draw>
+	<filter>
+		<bevel id='bg' angle='225' blurX='20' blurY='20' distance='8' highlightAlpha='20' shadowAlpha='15' type='full' />
+		<bevel id='small' angle='45' blurX='2' blurY='2' distance='1' highlightAlpha='25' highlightColor='ffffff' shadowColor='000000' shadowAlpha='35' type='inner' />   
+		<shadow id='high' distance='5' angle='45' alpha='35' blurX='15' blurY='15' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+	</filter>
+
+	<series_color>
+		<color>666666</color>
+		<color>aa6688</color>
+		<color>668866</color>
+		<color>668899</color>
+		<color>eebb66</color>
+	</series_color>
+	<series set_gap='20' bar_gap='0' transfer='true' />
+
+</chart>
+
+
+
+
+
+
+
+

@@ -1,0 +1,201 @@
+{
+  "experiment": {
+    "data": [
+      {
+        "type": "RANDOM_3D_FOV",
+        "id": "dataPoints",
+        "params": {
+          "amount": 20,
+          "fovH": 80,
+          "fovV": 50,
+          "minDistance": 1,
+          "maxDistance": 2
+        },
+        "marks": [
+          {
+            "id": "cloudPoint1",
+            "mark": "cloudPoint",
+            "encoding": { "x": "x", "y": "y", "z": "z", "diameter": 0.05 },
+            "center": { "x": -0.4, "y": 1, "z": -1.5 }
+          }
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "type": "gaze",
+        "id": "gaze_mobile",
+        "signals": { "ray": "forwardRay" }
+      },
+      {
+        "type": "VR_Controller",
+        "id": "right_controller",
+        "params": { "hand": "right" },
+        "signals": { "ray": "forwardRay", "onTrigger": "onTrigger" }
+      },
+      {
+        "type": "Hand_Controller",
+        "id": "hand_hololens",
+        "signals": { "onTrigger": "onTap" }
+      },
+      {
+        "type": "Touch_Controller",
+        "id": "touch_mobile",
+        "signals": { "onTrigger": "onTap" }
+      }
+    ],
+    "states": [
+      {
+        "id": "selecting",
+        "actions": [
+          {
+            "id": "hit",
+            "signals": ["ray"],
+            "apply": { "value": "pick", "args": { "ray": "ray" } }
+          },
+          {
+            "id": "selected",
+            "signals": ["onTrigger"],
+            "apply": { "value": "hit.mesh" }
+          }
+        ],
+        "marks": [
+          {
+            "id": "laserRight",
+            "mark": "laserRay",
+            "encoding": {
+              "length": "hit.distance",
+              "parent": "right_controller"
+            }
+          },
+          {
+            "id": "targetMesh",
+            "mark": "cursorTarget",
+            "encoding": { "parent": "gaze_mobile", "hit": "hit", "ray": "ray" }
+          }
+        ]
+      }
+    ],
+    "viewerPosition": {
+      "coordinates": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      }
+    },
+    "devices": [
+      { "id": "MOBILE_AR", "type": "mobile" },
+      { "id": "WMR_LENOVO", "type": "HMD" },
+      { "id": "HOLOLENS", "type": "HMD_AR" }
+    ],
+    "conditions": [
+      {
+        "id": 0,
+        "devices": ["WMR_LENOVO"],
+        "inputs": ["right_controller"],
+        "marks": ["laserRight", "cloudPoint1"]
+      },
+      {
+        "id": 1,
+        "devices": ["MOBILE_AR"],
+        "inputs": ["gaze_mobile"],
+        "marks": ["targetMesh", "cloudPoint1"]
+      },
+      {
+        "id": 2,
+        "devices": ["HOLOLENS"],
+        "inputs": ["gaze_mobile"],
+        "marks": ["targetMesh", "cloudPoint1"]
+      }
+    ],
+    "task": {
+      "repetitions": [
+        {
+          "id": "random_repetition",
+          "amount": 2,
+          "data": "dataPoints",
+          "order": { "type": "random", "repeat": "false" }
+        }
+      ],
+      "measures": [
+        {
+          "id": "time_selecting",
+          "state": "selecting_start",
+          "type": "ellapsedTime"
+        },
+        {
+          "id": "errorCount",
+          "state": "selecting_start",
+          "value": "selecting_start.error",
+          "type": "count"
+        }
+      ],
+      "states": [
+        {
+          "id": "selecting_start",
+          "actions": [
+            {
+              "id": "nextRandom",
+              "signals": ["enter"],
+              "apply": {
+                "value": "getNext",
+                "args": {
+                  "repetition": "random_repetition",
+                  "objects": "cloudPoint1"
+                }
+              }
+            },
+            {
+              "id": "nextTarget",
+              "signals": ["nextRandom"],
+              "apply": {
+                "value": "setAttribute",
+                "args": {
+                  "object": "nextRandom",
+                  "attribute": "selected",
+                  "value": "true"
+                }
+              }
+            },
+            {
+              "id": "correct",
+              "signals": ["selecting.selected"],
+              "apply": {
+                "value": "isEqual",
+                "args": {
+                  "target": "nextTarget.mesh",
+                  "selected": "selecting.selected"
+                }
+              }
+            },
+            {
+              "id": "error",
+              "signals": ["selecting.selected"],
+              "apply": {
+                "value": "isDifferent",
+                "args": {
+                  "target": "nextTarget.mesh",
+                  "selected": "selecting.selected"
+                }
+              }
+            }
+          ],
+          "transitions": [
+            { "state": "selecting_start", "condition": "correct" }
+          ],
+          "marks": [
+            {
+              "id": "cloudPoint1",
+              "encoding": {
+                "color": {
+                  "selected?": "rgb(255,0,0)",
+                  "value": "rgb(200,255,0)"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

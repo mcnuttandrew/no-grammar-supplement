@@ -1,0 +1,91 @@
+
+
+
+
+<chart>
+	<axis_category shadow='low' min='0' max='2000' size='13' color='ffffff' alpha='75' orientation='circular' />
+	<axis_ticks value_ticks='false' category_ticks='false' />
+	<axis_value shadow='low' show_min='false' min='0' max='60' color='ffffff' alpha='75' />
+	
+	<chart_border color='ffffff' bottom_thickness='1' left_thickness='1' top_thickness='1' right_thickness='1' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+			<string>x</string>
+			<string>y</string>
+			<string>z</string>
+		</row>
+		<row>
+			<string>Spring</string>
+			<number bevel='bevel1'>500</number>
+			<number>25</number>
+			<number>100</number>
+			<number bevel='bevel1'>1780</number>
+			<number>15</number>
+			<number>40</number>
+			<number bevel='bevel1'>1300</number>
+			<number>30</number>
+			<number>25</number>
+			<number bevel='bevel1'>1100</number>
+			<number>45</number>
+			<number>65</number>
+		</row>
+		<row>
+			<string>Winter</string>
+			<number bevel='bevel1'>900</number>
+			<number>30</number>
+			<number>50</number>
+			<number bevel='bevel1'>1500</number>
+			<number>10</number>
+			<number>40</number>
+			<number bevel='bevel1'>1300</number>
+			<number>50</number>
+			<number>20</number>
+			<number bevel='bevel1'>1400</number>
+			<number>25</number>
+			<number>20</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='50' color='ffffff' thickness='1' type='dashed' />
+	<chart_grid_v alpha='10' color='000000' thickness='20' type='solid' />
+	<chart_pref point_shape='circle' point_size='8' fill_shape='true' grid='circular' />
+	<chart_rect x='190' y='100' width='220' height='150' positive_color='ffffff' positive_alpha='50' bevel='bevel1' corner_tl='40' corner_tr='40' corner_br='40' corner_bl='40' />
+	<chart_type>bubble</chart_type>
+	
+	<draw>
+		<image layer='background' x='0' y='0' width='480' height='300' url='images/flower2.jpg' />
+		<text shadow='low' color='ffff44' alpha='85' size='30' x='185' y='257' width='400' height='200' h_align='left'>elevation</text>
+		<text shadow='low' color='ffff44' alpha='85' size='26' x='147' y='255' width='400' height='200' h_align='left' rotation='-90'>wind</text>
+		<text shadow='high' color='ffffff' alpha='85' size='70' x='165' y='9' width='400' height='200' h_align='left'>pollen</text>
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='75' blurX='4' blurY='4' />
+		<shadow id='high' distance='5' angle='45' color='0' alpha='75' blurX='10' blurY='10' />
+		<bevel id='bevel1' angle='45' blurX='10' blurY='10' distance='5' highlightAlpha='25' highlightColor='ffffff' shadowAlpha='35' type='outer' />
+	</filter>
+	
+	<legend shadow='low'x='190' y='78' width='220' height='20'  margin='5' fill_color='0000ff' fill_alpha='20' line_color='ffffff' line_alpha='40' line_thickness='1' layout='horizontal' bullet='circle' size='11' color='ffffff' alpha='90' />
+	
+	<series_color>
+		<color>88ff00</color>
+		<color>ff6600</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

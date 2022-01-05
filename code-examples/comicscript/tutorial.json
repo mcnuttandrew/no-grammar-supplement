@@ -1,0 +1,111 @@
+{
+ "gutter": 20,
+ "currentLayout": "init",
+ "layouts": [
+  {
+   "name": "init",
+   "panels": [["p_price","p_units"]]
+  }
+ ],
+ "panels": [
+  {
+   "id": "p_price",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/price.svg"
+  },
+  {
+   "id": "p_units",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/units.svg"
+  },
+  {
+   "id": "p_sales-a",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-a.svg"
+  },
+  {
+   "id": "p_sales-b",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-b.svg"
+  },
+  {
+   "id": "p_sales-c",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-c.svg"
+  },
+  {
+   "id": "p_sales-a-small",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-a-small.svg"
+  },
+  {
+   "id": "p_sales-b-small",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-b-small.svg"
+  },
+  {
+   "id": "p_sales-c-small",
+   "url": "https://raw.githubusercontent.com/interactivedatacomics/interactivedatacomics.github.io/main/getstarted/panels/sales-c-small.svg"
+  }
+ ],
+ "operations": [
+  {
+   "trigger": "mouseover",
+   "element": "a",
+   "operation": "highlight",
+   "after": {
+    "style": {
+     "fill": "red",
+     "stroke": "red"
+    }
+   }
+  },
+  {
+   "trigger": "mouseover",
+   "element": "b",
+   "operation": "highlight",
+   "after": {
+    "style": {
+     "fill": "blue",
+     "stroke": "blue"
+    }
+   }
+  },
+  {
+   "trigger": "mouseover",
+   "element": "c",
+   "operation": "highlight",
+   "after": {
+    "style": {
+     "fill": "orange",
+     "stroke": "orange"
+    }
+   }
+  },
+  {
+   "trigger": "click",
+   "element": "a",
+   "operation": "loadLayout",
+   "after": "p_units",
+   "group": "group1",
+   "layout": [["p_sales-a"]]
+  },
+  {
+   "trigger": "click",
+   "element": "b",
+   "operation": "loadLayout",
+   "after": "p_units",
+   "group": "group1",
+   "layout": [["p_sales-b"]]
+  },
+  {
+   "trigger": "click",
+   "element": "c",
+   "operation": "loadLayout",
+   "after": "p_units",
+   "group": "group1",
+   "layout": [["p_sales-c"]]
+  },
+  {
+   "trigger": "click",
+   "element": "compare",
+   "operation": "loadLayout",
+   "group": "group1",
+   "after": "p_units",
+   "layout": [["p_sales-a-small","p_sales-b-small","p_sales-c-small"]]
+  }
+ ]
+}

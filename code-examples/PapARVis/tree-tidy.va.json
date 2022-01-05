@@ -1,0 +1,203 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 400,
+  "height": 450,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "tree",
+      "url": "http://vegaar.hkustvis.org/data/flare-tree.json",
+      "transform": [
+        { "type": "stratify", "key": "id", "parentKey": "parent" },
+        {
+          "type": "tree",
+          "method": "tidy",
+          "size": [ { "signal": "height" }, 300],
+          "separation": true,
+          "as": [ "y", "x", "depth", "children"]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        { "type": "treelinks" },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal"
+        }
+      ]
+    }
+  ],
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "tree",
+        "values": [
+          {
+            "id": 2,
+            "name": "analytics",
+            "parent": 1
+          },
+          {
+            "id": 3,
+            "name": "cluster",
+            "parent": 2
+          },
+          {
+            "id": 4,
+            "name": "AgglomerativeCluster",
+            "parent": 3,
+            "size": 3938
+          },
+          {
+            "id": 5,
+            "name": "CommunityStructure",
+            "parent": 3,
+            "size": 3812
+          },
+          {
+            "id": 6,
+            "name": "HierarchicalCluster",
+            "parent": 3,
+            "size": 6714
+          },
+          {
+            "id": 9,
+            "name": "BetweennessCentrality",
+            "parent": 8,
+            "size": 3534
+          },
+          {
+            "id": 10,
+            "name": "LinkDistance",
+            "parent": 8,
+            "size": 5731
+          },
+          {
+            "id": 11,
+            "name": "MaxFlowMinCut",
+            "parent": 8,
+            "size": 7840
+          },
+          {
+            "id": 12,
+            "name": "ShortestPaths",
+            "parent": 8,
+            "size": 5914
+          },
+          {
+            "id": 13,
+            "name": "SpanningTree",
+            "parent": 8,
+            "size": 3416
+          },
+          {
+            "id": 7,
+            "name": "MergeEdge",
+            "parent": 3,
+            "size": 743
+          },
+          {
+            "id": 8,
+            "name": "graph",
+            "parent": 2
+          },
+
+          {
+            "id": 10000,
+            "name": "PointInterpolator",
+            "parent": 6,
+            "size": 1675
+          },
+          {
+            "id": 10001,
+            "name": "PointInterpolator",
+            "parent": 6,
+            "size": 1675
+          },
+          {
+            "id": 10000,
+            "name": "PointInterpolator",
+            "parent": 5,
+            "size": 1675
+          },
+          {
+            "id": 10001,
+            "name": "PointInterpolator",
+            "parent": 5,
+            "size": 1675
+          },
+          {
+            "id": 10000,
+            "name": "PointInterpolator",
+            "parent": 57,
+            "size": 1675
+          },
+          {
+            "id": 10001,
+            "name": "PointInterpolator",
+            "parent": 57,
+            "size": 1675
+          }
+        ]
+      }
+    ]
+  },
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": { "scheme": "tableau20" },
+      "domain": { "data": "tree", "field": "depth" }
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": { "data": "links" },
+      "encode": {
+        "update": {
+          "path": { "field": "path" },
+          "stroke": { "value": "#ccc" }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "size": {"value": 100},
+          "stroke": {"value": "#fff"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "fill": {"scale": "color", "field": "depth"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": { "data": "tree" },
+      "encode": {
+        "enter": {
+          "text": { "field": "name" },
+          "fontSize": { "value": 8 },
+          "baseline": { "value": "middle" }
+        },
+        "update": {
+          "x": { "field": "x" },
+          "y": { "field": "y" },
+          "dx": { "value": 2 },
+          "align": { "value": "left" }
+        }
+      }
+    }
+  ]
+}

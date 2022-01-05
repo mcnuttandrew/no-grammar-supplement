@@ -1,0 +1,85 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 600,
+    "height": 600,
+    "padding": 5,
+    "autosize": "none",
+  
+    "data": [
+      {
+        "name": "tree",
+        "url": "http://vegaar.hkustvis.org/data/flare.json",
+        "transform": [
+          {
+            "type": "stratify",
+            "key": "id",
+            "parentKey": "parent"
+          },
+          {
+            "type": "pack",
+            "field": "size",
+            "sort": {"field": "value"},
+            "size": [{"signal": "width"}, {"signal": "height"}]
+          }
+        ]
+      }
+    ],
+
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "tree",
+                "values": [
+                      {
+                        "id": 10000,
+                        "name": "PointInterpolator",
+                        "parent": 57,
+                        "size": 1675
+                      },
+                      {
+                        "id": 10001,
+                        "name": "PointInterpolator",
+                        "parent": 57,
+                        "size": 1675
+                      }
+                ]
+            }
+        ]
+    },
+  
+    "scales": [
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "tree", "field": "depth"},
+        "range": {"scheme": "category20"}
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "symbol",
+        "from": {"data": "tree"},
+        "encode": {
+          "enter": {
+            "shape": {"value": "circle"},
+            "fill": {"scale": "color", "field": "depth"},
+            "tooltip": {"signal": "datum.name + (datum.size ? ', ' + datum.size + ' bytes' : '')"}
+          },
+          "update": {
+            "x": {"field": "x"},
+            "y": {"field": "y"},
+            "size": {"signal": "4 * datum.r * datum.r"},
+            "stroke": {"value": "white"},
+            "strokeWidth": {"value": 0.5}
+          },
+          "hover": {
+            "stroke": {"value": "red"},
+            "strokeWidth": {"value": 2}
+          }
+        }
+      }
+    ]
+  }
+  

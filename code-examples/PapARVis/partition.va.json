@@ -1,0 +1,77 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 600,
+  "height": 400,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        { "id": 1, "name": "flare" },
+        { "id": 12, "name": "data", "parent": 1,  "size": 200 },
+        { "id": 13, "name": "analytics", "parent": 1 },
+        { "id": 131, "name": "AgglomerativeCluster", "parent": 13, "size": 150 },
+        { "id": 132, "name": "CommunityStructure", "parent": 13, "size": 100 }
+      ],
+      "transform": [
+        { "type": "stratify", "key": "id", "parentKey": "parent" },
+        {
+          "type": "partition",
+          "field": "size",
+          "sort": {"field": "id"},
+          "round": false,
+          "padding": 2,
+          "size": [{"signal": "width"}, 300 ]
+        }
+      ]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "tree",
+        "values": [
+          { "id": 121, "name": "test3", "parent": 12, "size": 50},
+          { "id": 122, "name": "test4", "parent": 12, "size": 50},
+          { "id": 123, "name": "test5", "parent": 12, "size": 25},
+          { "id": 124, "name": "test6", "parent": 12, "size": 75},
+          {"id": 1311, "name": "test7", "parent": 131, "size": 70},
+          {"id": 1312, "name": "test8", "parent": 131, "size": 40},
+          {"id": 1313, "name": "test9", "parent": 131, "size": 40},
+          { "id": 1321, "name": "test", "parent": 132, "size": 50 },
+          { "id": 1322, "name": "test2", "parent": 132, "size": 50 }
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "tree", "field": "depth"},
+      "range": {"scheme": "tableau20"}
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "fill": {"scale": "color", "field": "depth"}
+        },
+        "update": {
+          "x": {"field": "x0"},
+          "x2": {"field": "x1"},
+          "y": {"field": "y0"},
+          "y2": {"field": "y1"}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 300,
+    "height": 300,
+    "padding": 5,
+    "data": [
+        {
+            "name": "tree",
+            "values": [
+                {
+                    "id": 1,
+                    "name": "Welcome University"
+                },
+                {
+                    "id": 2,
+                    "parent": 1,
+                    "name": "SSCI",
+                    "size": 120
+                },
+                {
+                    "id": 3,
+                    "parent": 1,
+                    "name": "SHSS",
+                    "size": 120
+                },
+                {
+                    "id": 4,
+                    "parent": 1,
+                    "name": "SBM",
+                    "size": 120
+                },
+                {
+                    "id": 5,
+                    "parent": 1,
+                    "name": "SENG",
+                    "size": 120
+                }
+            ],
+            "transform": [
+                {
+                    "type": "stratify",
+                    "key": "id",
+                    "parentKey": "parent"
+                },
+                {
+                    "type": "partition",
+                    "field": "size",
+                    "sort": {
+                        "field": "value"
+                    },
+                    "size": [
+                        {
+                            "signal": "2 * PI"
+                        },
+                        {
+                            "signal": "96"
+                        }
+                    ],
+                    "as": [
+                        "a0",
+                        "r0",
+                        "a1",
+                        "r1",
+                        "depth",
+                        "children"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "selected",
+            "values": []
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "tree",
+                "values": [
+                    {
+                        "id": 6,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "MAE"
+                    },
+                    {
+                        "id": 7,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "ECE"
+                    },
+                    {
+                        "id": 10,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CBME"
+                    },
+                    {
+                        "id": 11,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "IELM"
+                    },
+                    {
+                        "id": 12,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CIVL"
+                    },
+                    {
+                        "id": 13,
+                        "parent": 5,
+                        "size": 20,
+                        "name": "CSE"
+                    },
+                    {
+                        "id": 14,
+                        "parent": 11,
+                        "size": 5,
+                        "name": "DA"
+                    },
+                    {
+                        "id": 16,
+                        "parent": 11,
+                        "size": 5,
+                        "name": "EM"
+                    },
+                    {
+                        "id": 17,
+                        "parent": 11,
+                        "size": 5,
+                        "name": "L"
+                    },
+                    {
+                        "id": 18,
+                        "parent": 11,
+                        "size": 5,
+                        "name": "Other"
+                    }
+                ]
+            },
+            {
+                "name": "selected",
+                "values": [{"by": "me", "value": ["IELM", "L"]}]
+            }
+        ]
+    },
+    "axes": [
+        {
+            "orient": "bottom",
+            "scale": "color",
+            "ticks": false,
+            "domain": false,
+            "labels": false
+        }
+    ],
+    "scales": [
+        {
+            "name": "color",
+            "type": "ordinal",
+            "domain": {
+                "data": "tree",
+                "field": "depth"
+            },
+            "range": [
+                "none",
+                "white",
+                "#f16913",
+                "#fd8d3c"
+            ]
+        },
+        {
+            "name": "area",
+            "type": "ordinal",
+            "domain": {
+                "data": "tree",
+                "field": "name"
+            },
+            "range": [
+                "#F1C40F",
+                "#E74C3C",
+                "#3498DB",
+                "#2ECC71"
+            ]
+        }
+    ],
+    "marks": [
+        {
+            "type": "image",
+            "encode": {
+                "enter": {
+                    "url": {
+                        "value": "http://vegaar.hkustvis.org/projection.png"
+                    },
+                    "x": {"value": -144},
+                    "height": {"value": 300},
+                    "width": {"value": 600}
+                }
+            }
+        },
+        {
+            "type": "arc",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "x": {
+                        "signal": "width / 2"
+                    },
+                    "y": {
+                        "signal": "height / 2"
+                    },
+                    "fill": {
+                        "signal": "datum.depth != 1 ? scale('color', datum.depth):'none'"
+                    },
+                    "opacity": {
+                        "signal": "datum.depth != 1 ? 1:0"
+                    }
+                },
+                "update": {
+                    "startAngle": {
+                        "field": "a0"
+                    },
+                    "endAngle": {
+                        "field": "a1"
+                    },
+                    "innerRadius": {
+                        "field": "r0"
+                    },
+                    "outerRadius": {
+                        "field": "r1"
+                    },
+                    "stroke": {
+                        "value": "white"
+                    },
+                    "strokeWidth": {
+                        "value": 1
+                    }
+                }
+            }
+        },
+        {
+            "type": "arc",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "x": {
+                        "signal": "width / 2"
+                    },
+                    "y": {
+                        "signal": "height / 2"
+                    },
+                    "fill": {
+                        "value": "none"
+                    },
+                    "opacity": {
+                        "signal": "data('selected').length > 0 ? (indexof(data('selected')[0].value, datum.name)>=0?1:0) : 0"
+                    }
+                },
+                "update": {
+                    "startAngle": {
+                        "field": "a0"
+                    },
+                    "endAngle": {
+                        "field": "a1"
+                    },
+                    "innerRadius": {
+                        "field": "r0"
+                    },
+                    "outerRadius": {
+                        "field": "r1"
+                    },
+                    "strokeOpacity": {
+                        "signal": "data('selected').length > 0 ? (indexof(data('selected')[0].value, datum.name)>=0?1:0) : 0"
+                    },
+                    "stroke": {
+                        "signal": "data('selected').length > 0 ? (indexof(data('selected')[0].value, datum.name)>=0?'black':'white') : 'white'"
+                    },
+                    "strokeWidth": {
+                        "signal": "data('selected').length > 0 ? (indexof(data('selected')[0].value, datum.name)>=0?3:1) : 1"
+                    }
+                }
+            }
+        }
+    ]
+}

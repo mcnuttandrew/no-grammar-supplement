@@ -1,0 +1,52 @@
+{
+  "templateAuthor": "Draco-Pisces-17",
+  "templateLanguage": "vega-lite",
+  "templateName": "Simple Aggregate Bar Chart",
+  "templateDescription": "Just a simple aggregate bar chart",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"transform\": [],\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"[Val]\",\n      \"type\": \"quantitative\",\n      \"aggregate\": \"sum\",\n      \"scale\": {\"type\": \"linear\"}\n      \n    },\n    \"y\": {\"field\": \"[Category]\", \"type\": \"ordinal\", \"sort\": \"[Sort]\"}\n  },\n  \"mark\": {\"type\": \"bar\", \"tooltip\": true}\n}\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Val",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Category",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Sort",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "\"-x\"",
+            "value": "\"-x\""
+          },
+          {
+            "display": "\"x\"",
+            "value": "\"x\""
+          },
+          {
+            "display": "null",
+            "value": "null"
+          }
+        ],
+        "defaultValue": null
+      }
+    }
+  ]
+}

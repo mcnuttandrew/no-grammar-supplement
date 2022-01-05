@@ -1,0 +1,48 @@
+{
+  "data": {
+    "values": [
+     {"horsename": "A", "speed": 28},
+      {"horsename": "B", "speed": 55},
+      {"horsename": "C", "speed": 43},
+      {"horsename": "D", "speed": 91},
+      {"horsename": "E", "speed": 81},
+      {"horsename": "F", "speed": 53},
+      {"horsename": "G", "speed": 19},
+      {"horsename": "H", "speed": 87},
+      {"horsename": "I", "speed": 52}
+    ]
+  },
+  "mark": "cube",
+  "encoding": {
+    "x": {
+      "field": "horsename",
+      "type": "nominal",
+      "axis": "none"
+    },
+    "y": {
+      "field": "speed",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 0, 100 ]
+      },
+      "axis": "none"
+    },
+    "height": {
+      "field": "speed",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 0, 100 ]
+      },
+      "axis": "none"
+    },
+    "color": {
+      "value": "#2ca25f"
+    },
+    "yoffsetpct": {
+      "value": -0.5
+    },
+    "width": {
+      "value": 30
+    }
+  }
+}

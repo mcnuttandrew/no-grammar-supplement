@@ -1,0 +1,152 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 150,
+    "height": 300,
+    "padding": 5,
+    "data": [
+        {
+            "name": "tree",
+            "url": "http://vegaar.hkustvis.org/us/department.json",
+            "transform": [
+                {
+                    "type": "stratify",
+                    "key": "id",
+                    "parentKey": "parent"
+                },
+                {
+                    "type": "tree",
+                    "method": "tidy",
+                    "size": [
+                        { "signal": "height" },
+                        { "signal": "width" }
+                    ],
+                    "separation": true,
+                    "as": [ "y", "x", "depth", "children"]
+                }
+            ]
+        },
+        {
+            "name": "links",
+            "source": "tree",
+            "transform": [
+                {
+                    "type": "treelinks"
+                },
+                {
+                    "type": "linkpath",
+                    "orient": "horizontal",
+                    "shape": "diagonal"
+                }
+            ]
+        }
+    ],
+    "ar": {
+        "mode": "ON",
+        "data": [
+            {
+                "name": "tree",
+                "values": [{"id": 25, "name": "DB", "parent": 13}, {"id": 27, "name": "VG", "parent": 13}, 
+
+                    {"id": 29, "name": "NE", "parent": 13}, {"id": 30, "name": "ST", "parent": 13}, {"id": 24, "name": "AI", "parent": 13}, {"id": 26, "name": "CHI", "parent": 13}, {"id": 31, "name": "dean", "parent": 13}, {"name": "YEUNG, Dit-Yan", "area": "AI", "id": 32, "parent": 24, "size": 1}, {"name": "LOCHOVSKY, Frederick H.", "area": "DB", "id": 33, "parent": 25, "size": 1}, {"name": "LEE, Dik-Lun", "area": "DB", "id": 34, "parent": 25, "size": 1}, {"name": "liuyh", "area": "CHI", "id": 35, "parent": 26, "size": 1}, {"name": "SHEN, Helen C.", "area": "VG", "id": 36, "parent": 27, "size": 1}, 
+                
+                {"name": "MUPPALA, Jogesh K.", "area": "NE", "id": 38, "parent": 29, "size": 1}, {"name": "CHEN, Lei", "area": "DB", "id": 39, "parent": 25, "size": 1}, 
+                {"name": "TANG, Chi-Keung", "area": "VG", "id": 41, "parent": 27, "size": 1}, 
+                {"area": "VG", "name": "CHUNG, Albert Chi-Shing", "id": 44, "parent": 27, "size": 1}, {"name": "ZHANG, Nevin Lianwen", "area": "AI", "id": 45, "parent": 24, "size": 1}, {"name": "GU, Lin", "area": "NE", "id": 46, "parent": 29, "size": 1}, {"name": "YANG, Qiang", "area": "AI", "id": 47, "parent": 24, "size": 1}, {"name": "QUAN, Long", "area": "VG", "id": 48, "parent": 27, "size": 1}, {"name": "LEUNG, Wai Ting", "area": "DB", "id": 49, "parent": 25, "size": 1}, {"name": "LI, Bo", "area": "NE", "id": 50, "parent": 29, "size": 1}, {"name": "wng", "area": "CHI", "id": 51, "parent": 26, "size": 1}, {"name": "MAK, Brian Kan-Wing", "area": "AI", "id": 52, "parent": 24, "size": 1}, {"name": "LUO, Qiong", "area": "DB", "id": 53, "parent": 25, "size": 1}, {"name": "WONG, Raymond Chi-Wing", "area": "DB", "id": 54, "parent": 25, "size": 1}, {"name": "HORNER, Andrew B.", "area": "ST", "id": 55, "parent": 30, "size": 1}, {"name": "PAPADIAS, Dimitris", "area": "DB", "id": 56, "parent": 25, "size": 1}, {"name": "TAI, Chiew-Lan", "area": "VG", "id": 57, "parent": 27, "size": 1}, {"name": "KIM, Sunghun", "area": "ST", "id": 58, "parent": 30, "size": 1}, {"name": "HUI, Pan", "area": "NE", "id": 59, "parent": 29, "size": 1}, {"name": "CHEUNG, Shing-Chi", "area": "ST", "id": 60, "parent": 30, "size": 1}, {"name": "CHAN, Shueng-Han Gary", "area": "NE", "id": 61, "parent": 29, "size": 1}, {"name": "NI, Lionel M.", "area": "NE", "id": 62, "parent": 29, "size": 1}, {"name": "LAM, Gibson", "area": "ST", "id": 63, "parent": 30, "size": 1}, 
+
+                {"name": "jinzh", "area": "CHI", "id": 65, "parent": 26, "size": 1}, {"name": "ROSSITER, David Paul", "area": "ST", "id": 66, "parent": 30, "size": 1}, {"name": "HAMDI, Mounir", "area": "NE", "id": 67, "parent": 29, "size": 1}, {"name": "SANDER, Pedro", "area": "VG", "id": 68, "parent": 27, "size": 1}, {"name": "KWOK, James Tin-Yau", "area": "AI", "id": 69, "parent": 24, "size": 1}, {"name": "QU, Huamin", "area": "VG", "id": 70, "parent": 27, "size": 1}, {"name": "LI, Xin", "area": "NE", "id": 71, "parent": 29, "size": 1}, {"name": "stavrosp", "area": "CHI", "id": 72, "parent": 26, "size": 1}, {"name": "ZHANG, Qian", "area": "NE", "id": 73, "parent": 29, "size": 1}, {"name": "CHAN, Tony F.", "area": "dean", "id": 74, "parent": 31, "size": 1}, {"name": "LIN, Fangzhen", "area": "AI", "id": 75, "parent": 24, "size": 1}, {"name": "PONG, Ting-Chuen", "area": "VG", "id": 76, "parent": 27, "size": 1}, {"name": "WU, Dekai", "area": "AI", "id": 77, "parent": 24, "size": 1}, {"name": "BENSAOU, Brahim", "area": "NE", "id": 78, "parent": 29, "size": 1}, {"name": "NG, Wilfred Siu-Hung", "area": "DB", "id": 79, "parent": 25, "size": 1}, {"name": "ZHANG, Charles", "area": "ST", "id": 80, "parent": 30, "size": 1}, {"name": "CHEN, Kai", "area": "ST", "id": 81, "parent": 30, "size": 1}, {"id": 101, "name": "IPO", "parent": 1}, {"id": 102, "name": "FYT Graduate School", "parent": 1}, {"id": 103, "name": "IAS", "parent": 1}, {"id": 104, "name": "IPP", "parent": 1}, {"id": 105, "name": "IPO", "parent": 101}]
+            }
+        ]
+    },
+    "scales": [
+        {
+            "name": "color",
+            "type": "ordinal",
+            "range": {
+                "scheme": "tableau20"
+            },
+            "domain": {
+                "data": "tree",
+                "field": "depth"
+            }
+        }
+    ],
+    "marks": [
+        {
+            "type": "path",
+            "from": {
+                "data": "links"
+            },
+            "encode": {
+                "update": {
+                    "path": {
+                        "field": "path"
+                    },
+                    "stroke": {
+                        "value": "#ccc"
+                    }
+                }
+            }
+        },
+        {
+            "type": "symbol",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "size": {
+                        "value": 100
+                    },
+                    "stroke": {
+                        "value": "#fff"
+                    }
+                },
+                "update": {
+                    "x": {
+                        "field": "x"
+                    },
+                    "y": {
+                        "field": "y"
+                    },
+                    "fill": {
+                        "scale": "color",
+                        "field": "depth"
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "from": {
+                "data": "tree"
+            },
+            "encode": {
+                "enter": {
+                    "text": {
+                        "field": "name"
+                    },
+                    "fontSize": {
+                        "value": 8
+                    },
+                    "baseline": {
+                        "value": "middle"
+                    }
+                },
+                "update": {
+                    "x": {
+                        "field": "x"
+                    },
+                    "y": {
+                        "field": "y"
+                    },
+                    "dx": {
+                        "value": 2
+                    },
+                    "align": {
+                        "value": "left"
+                    }
+                }
+            }
+        }
+    ]
+}

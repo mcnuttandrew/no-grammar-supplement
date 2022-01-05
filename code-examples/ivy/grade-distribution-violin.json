@@ -1,0 +1,194 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "Grade Distribution Violin",
+  "templateDescription": "Compute Bar Chart of grades with variable cut offs",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A basic bar chart example, with value labels shown upon mouse hover.\",\n  \"width\": \"[Width]\",\n  \"height\": 0,\n  \"signals\": [{\"name\": \"plotWidth\", \"value\": 50}],\n  \"data\": [\n    {\n      \"name\": \"table\",\n      \"values\": \"myData\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"ops\": [\"mean\"],\n          \"fields\": [\"[Grade]\"],\n          \"as\": [\"numericalGrade\"],\n          \"groupby\": [\"[Student]\"]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"letterGrade\",\n          \"expr\": \"if(datum.numericalGrade >= [aMin] / 100, A, if(datum.numericalGrade >= [bMin] / 100, B, if(datum.numericalGrade >= [cMin] / 100, C, if(datum.numericalGrade >= [dMin] / 100, D, E)) ))\"\n        }\n      ]\n    },\n    {\n      \"name\": \"density\",\n      \"source\": \"table\",\n      \"transform\": [\n        {\n          \"type\": \"kde\",\n          \"field\": \"numericalGrade\",\n          \"groupby\": [\"letterGrade\"],\n          \"bandwidth\": \"[bandWidth]\",\n          \"counts\": true\n        }\n      ]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"layout\",\n      \"type\": \"band\",\n      \"range\": [0],\n      \"domain\": [\"A\", \"B\", \"C\", \"D\", \"E\"]\n    },\n    {\n      \"name\": \"xscale\",\n      \"type\": \"linear\",\n      \"range\": \"width\",\n      \"round\": false,\n      \"domain\": {\"data\": \"table\", \"field\": \"numericalGrade\"},\n      \"zero\": false,\n      \"nice\": false\n    },\n    {\n      \"name\": \"hscale\",\n      \"type\": \"linear\",\n      \"range\": [0, {\"signal\": \"plotWidth\"}],\n      \"domain\": {\"data\": \"density\", \"field\": \"density\"}\n    },\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n      \"range\": \"category\"\n    }\n  ],\n  \"legends\": [{\"fill\": \"color\", \"direction\": \"horizontal\", \"orient\": \"top\"}],\n  \"axes\": [{\"orient\": \"bottom\", \"scale\": \"xscale\", \"zindex\": 1}],\n  \"marks\": [\n    {\n      \"type\": \"group\",\n      \"from\": {\n        \"facet\": {\"data\": \"density\", \"name\": \"violin\", \"groupby\": \"letterGrade\"}\n      },\n      \"encode\": {\n        \"enter\": {\n          \"yc\": {\"scale\": \"layout\", \"field\": \"letterGrade\", \"band\": 0.5},\n          \"height\": {\"signal\": \"[Width]\"},\n          \"width\": {\"signal\": \"width\"}\n        }\n      },\n      \"marks\": [\n        {\n          \"type\": \"area\",\n          \"from\": {\"data\": \"violin\"},\n          \"encode\": {\n            \"enter\": {\n              \"fill\": {\"scale\": \"color\", \"field\": {\"parent\": \"letterGrade\"}}\n            },\n            \"update\": {\n              \"x\": {\"scale\": \"xscale\", \"field\": \"value\"},\n              \"yc\": {\"signal\": \"0\"},\n              \"height\": {\"scale\": \"hscale\", \"field\": \"density\"}\n            }\n          }\n        },\n        \n        {\n          \"type\": \"rect\",\n          \"from\": {\"data\": \"table\"},\n          \"encode\": {\n            \"enter\": {\"fill\": {\"value\": \"steelblue\"}, \"opacity\": {\"value\": 0.8}},\n            \"update\": {\n              \"x\": {\"scale\": \"xscale\", \"field\": \"numericalGrade\"},\n              \"y\": {\"signal\": \"0 - 20\"},\n              \"height\": {\"value\": 40},\n              \"width\": {\"value\": 1}\n            }\n          }\n        }\n      ]\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Student",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Assignment",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Grade",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "trim",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "bandWidth",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "0.2",
+        "step": "0.01",
+        "defaultValue": "0.8"
+      }
+    },
+    {
+      "name": "Section3",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Text6",
+      "type": "Text",
+      "config": {
+        "text": "Grade Cutoffs"
+      }
+    },
+    {
+      "name": "Text9",
+      "type": "Text",
+      "config": {
+        "text": "Invalid Cutoff Arrangement!! Grade values must be sequential"
+      },
+      "conditions": [
+        {
+          "query": "!((parameters.aMin > parameters.bMin) && (parameters.bMin > parameters.cMin) && (parameters.cMin > parameters.dMin))",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "aMin",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "90"
+      },
+      "displayName": "Minimum A Grade"
+    },
+    {
+      "name": "bMin",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "80"
+      },
+      "displayName": "Minimum B Grade"
+    },
+    {
+      "name": "cMin",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "70"
+      },
+      "displayName": "Minimum C Grade"
+    },
+    {
+      "name": "dMin",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "60"
+      },
+      "displayName": "Minimum D Grade"
+    },
+    {
+      "name": "Text11",
+      "type": "Text",
+      "config": {
+        "text": "Visual Configuration"
+      }
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "800",
+        "step": "20",
+        "defaultValue": "400"
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    }
+  ]
+}

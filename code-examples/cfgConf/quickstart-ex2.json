@@ -1,0 +1,54 @@
+{
+	"nodes": [
+		{"id": "A"},
+		{"id": "B"},
+		{"id": "C"},
+		{"id": "D"},
+		{"id": "E"},
+		{"id": "F"},
+		{"id": "G"}
+	],
+
+	"edges": [
+		{
+			"source": "A",
+			"target": "B"
+		},
+		{
+			"source": "A",
+			"target": "C"
+		},
+		{
+			"source": "B",
+			"target": "G"
+		},
+		{
+			"source": "C",
+			"target": "D"
+		},
+		{
+			"source": "C",
+			"target": "E"
+		},
+		{
+			"source": "D",
+			"target": "F"
+		},
+		{
+			"source": "E",
+			"target": "F"
+		},
+		{
+			"source": "F",
+			"target": "G"
+		}
+	],
+
+	"functions": [
+		{
+            "id": "main",
+            "nodes": ["A", "B", "C", "D", "E", "F", "G"]
+        }
+	]
+
+}

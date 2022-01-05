@@ -1,0 +1,155 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega-lite",
+  "templateName": "Isotype Waffle",
+  "templateDescription": "Categorize the distribution of things using an colored isotype plot!",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"config\": {\"view\": {\"stroke\": \"\"}},\n  \"width\": \"[Width]\",\n  \"height\": \"[Height]\",\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [\n    {\n      \"window\": [{\"op\": \"row_number\", \"as\": \"id\"}],\n      \"sort\": [{\"field\": \"[Color]\"}]\n    },\n    {\"calculate\": \"ceil (datum.id / [columnSize])\", \"as\": \"col\"},\n    {\"calculate\": \"datum.id - datum.col * [columnSize]\", \"as\": \"row\"}\n  ],\n  \"mark\": {\n    \"type\": \"point\",\n    \"filled\": true,\n    \"tooltip\": true,\n    \"stroke\": {\n      \"$cond\": {\"query\": \"parameters.outline.includes(true)\", \"true\": \"black\"}\n    },\n    \"strokeWidth\": 1\n  },\n  \"encoding\": {\n    \"x\": {\"field\": \"col\", \"type\": \"ordinal\", \"axis\": null},\n    \"y\": {\"field\": \"row\", \"type\": \"ordinal\", \"axis\": null},\n    \"shape\": {\n      \"value\": \"M1.7 -1.7h-0.8c0.3 -0.2 0.6 -0.5 0.6 -0.9c0 -0.6 -0.4 -1 -1 -1c-0.6 0 -1 0.4 -1 1c0 0.4 0.2 0.7 0.6 0.9h-0.8c-0.4 0 -0.7 0.3 -0.7 0.6v1.9c0 0.3 0.3 0.6 0.6 0.6h0.2c0 0 0 0.1 0 0.1v1.9c0 0.3 0.2 0.6 0.3 0.6h1.3c0.2 0 0.3 -0.3 0.3 -0.6v-1.8c0 0 0 -0.1 0 -0.1h0.2c0.3 0 0.6 -0.3 0.6 -0.6v-2c0.2 -0.3 -0.1 -0.6 -0.4 -0.6z\"\n    },\n    \"color\": {\n      \"field\": \"[Color]\",\n      \"type\": \"nominal\",\n      \"scale\": {\"scheme\": \"[Scheme]\"},\n      \"legend\": {\n        \"orient\": \"top\",\n        \"offset\": 10,\n        \"labelOffset\": 10,\n        \"titlePadding\": 15,\n        \"titleFontSize\": 20\n      }\n    },\n    \"size\": {\"value\": \"[size]\"},\n    \"tooltip\": {\n      \"$cond\": {\n        \"query\": \"parameters.Color || parameters.Id\",\n        \"true\": [\n          {\n            \"$cond\": {\n              \"query\": \"parameters.Color\",\n              \"true\": {\"field\": \"[Color]\", \"type\": \"nominal\"}\n            }\n          },\n          {\n            \"$cond\": {\n              \"query\": \"parameters.Id\",\n              \"true\": {\"field\": \"[Id]\", \"type\": \"nominal\"}\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Id",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Section7",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "Scheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"set2\""
+      }
+    },
+    {
+      "name": "size",
+      "type": "Slider",
+      "config": {
+        "minVal": "5",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": "60"
+      },
+      "displayName": "Man Size"
+    },
+    {
+      "name": "columnSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "3",
+        "maxVal": "50",
+        "step": 1,
+        "defaultValue": "16"
+      },
+      "displayName": "Number of Rows"
+    },
+    {
+      "name": "Height",
+      "type": "Slider",
+      "config": {
+        "minVal": "100",
+        "maxVal": "1000",
+        "step": "20",
+        "defaultValue": "686"
+      },
+      "displayName": "Height"
+    },
+    {
+      "name": "Width",
+      "type": "Slider",
+      "config": {
+        "minVal": "100",
+        "maxVal": "1200",
+        "step": "20",
+        "defaultValue": "1200"
+      },
+      "displayName": "Width"
+    },
+    {
+      "name": "outline",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Show Outline"
+    }
+  ]
+}

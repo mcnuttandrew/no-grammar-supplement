@@ -1,0 +1,219 @@
+{
+  "title": "Introducing Bars",
+  "sSpec": {
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 100,
+    "height": 200,
+    "style": "cell",
+    "data": [
+      {
+        "name": "source_0",
+        "values": [
+          {"who": "driver", "law_compliance": 0.85},
+          {"who": "cyclist", "law_compliance": 0.88}
+        ]
+      },
+      {
+        "name": "data_0",
+        "source": "source_0",
+        "transform": [
+          {"type": "filter", "expr": "datum.who === 0"},
+          {
+            "type": "filter",
+            "expr": "isValid(datum[\"law_compliance\"]) && isFinite(+datum[\"law_compliance\"])"
+          }
+        ]
+      }
+    ],
+    "marks": [
+
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "band",
+        "domain": ["cyclist", "driver"],
+        "range": [0, {"signal": "width"}],
+        "paddingInner": 0.1,
+        "paddingOuter": 0.05
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "domain": [0, 1],
+        "range": [{"signal": "height"}, 0],
+        "nice": true,
+        "zero": true
+      }
+    ],
+    "axes": [
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelBaseline": "top",
+        "labelOverlap": true,
+        "zindex": 0,
+        "encode": {"axis": {"name": "x"}}
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "grid": true,
+        "title": "Compliance with traffic laws",
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "zindex": 0,
+        "gridScale": "x",
+        "encode": {"axis": {"name": "y"}}
+      }
+    ]
+  },
+  "eSpec": {
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 100,
+    "height": 200,
+    "style": "cell",
+    "data": [
+      {
+        "name": "source_0",
+        "values": [
+          {"who": "driver", "law_compliance": 0.85},
+          {"who": "cyclist", "law_compliance": 0.88}
+        ]
+      },
+      {
+        "name": "data_0",
+        "source": "source_0",
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "isValid(datum[\"law_compliance\"]) && isFinite(+datum[\"law_compliance\"])"
+          }
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "name": "marks",
+        "type": "rect",
+        "style": ["bar"],
+        "from": {"data": "data_0"},
+        "encode": {
+          "update": {
+            "fill": {"value": "#4c78a8"},
+            "x": {"scale": "x", "field": "who"},
+            "width": {"scale": "x", "band": true},
+            "y": {"scale": "y", "field": "law_compliance"},
+            "y2": {"scale": "y", "value": 0}
+          }
+        }
+      }
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "band",
+        "domain": ["cyclist", "driver"],
+        "range": [0, {"signal": "width"}],
+        "paddingInner": 0.1,
+        "paddingOuter": 0.05
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "domain": [0, 1],
+        "range": [{"signal": "height"}, 0],
+        "nice": true,
+        "zero": true
+      }
+    ],
+    "axes": [
+      {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelBaseline": "top",
+        "labelOverlap": true,
+        "zindex": 0,
+        "encode": {"axis": {"name": "x"}}
+      },
+      {
+        "scale": "y",
+        "orient": "left",
+        "grid": true,
+        "title": "Compliance with traffic laws",
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(height/40)"},
+        "zindex": 0,
+        "gridScale": "x",
+        "encode": {"axis": {"name": "y"}}
+      }
+    ]
+  },
+  "gemSpecs": [
+    {
+      "meta": {
+        "name": "Raising up from the bottom",
+        "description": "It is one of typical styles to introduce the bar chart, e.g., https://youtu.be/DBP2LTQxqZ8?t=97."
+      },
+      "timeline": {
+        "component": {"mark": "marks"},
+        "change": {
+          "encode": {
+            "enter": {
+              "initial": {
+                "y": {"value": 0, "scale": "y"},
+                "opacity": {"value": 0, "scale": "y"}
+              }
+            }
+          }
+        },
+        "timing": {"duration": 1000, "staggering": "oneByOne"}
+      },
+      "staggerings": [
+        {"name": "oneByOne", "by": "who", "overlap": 0.4, "order": "ascending"}
+      ]
+    }
+  ],
+  "vlSpec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+      "values": [
+        {"who": "driver", "law_compliance": 0.85},
+        {"who": "cyclist", "law_compliance": 0.88}
+      ]
+    },
+    "transform": [
+      {"filter": "datum.who === 0"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "who", "type": "ordinal",
+        "scale": {"domain": ["cyclist", "driver"]},
+        "axis": {"labelAngle": 0, "title": null}
+      },
+      "y": {
+        "field": "law_compliance",
+        "type": "quantitative",
+        "scale": {"domain": [0,1]},
+        "axis": {"title": "Compliance with traffic laws"}
+      }
+    },
+    "width": 100
+  },
+  "userInput": {
+    "marks": {"marks": {"change": {"data": ["who"]}}},
+    "scales": {"x": {"domainDimension": "same"}, "y": {"domainDimension": "same"}}
+  }
+
+}

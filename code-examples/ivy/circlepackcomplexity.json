@@ -1,0 +1,117 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "CirclePackComplexity",
+  "templateDescription": "FILL IN DESCRIPTION",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"An example of a circle packing layout for hierarchical data.\",\n  \"width\": \"[ChartSize]\",\n  \"height\": \"[ChartSize]\",\n  \"padding\": 5,\n  \"autosize\": \"none\",\n\n  \"data\": [\n        {\n      \"name\": \"names\",\n      \"values\": \"[Pivots]\",\n      \"transform\": [\n        {\"type\": \"project\", \"fields\": [\"data\"], \"as\": [\"key\"]},\n        {\"type\": \"window\", \"ops\": [\"row_number\"], \"as\": [\"id\"]}\n      ]\n    },\n    {\n      \"name\": \"tree\",\n            \"values\": \"myData\",\n      \"transform\": [\n        {\"type\": \"nest\", \"keys\": \"[Pivots]\", \"generate\": true},\n        {\n          \"type\": \"pack\",\n                    \"field\": {\n            \"$cond\": {\n              \"query\": \"parameters.Value\",\n              \"true\": \"[Value]\"\n            }\n          }, \n          \"sort\": {\"field\": \"value\"},\n          \"size\": [{\"signal\": \"width\"}, {\"signal\": \"height\"}]\n        },\n                {\"type\": \"filter\", \"expr\": \"datum.children\"},\n        {\n          \"type\": \"lookup\",\n          \"from\": \"names\",\n          \"key\": \"id\",\n          \"fields\": [\"depth\"],\n          \"values\": [\"key\"],\n          \"as\": [\"tipper\"]\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"{field: datum.tipper, value: datum.key, children: datum.children}\",\n          \"as\": \"tooltip\"\n        }\n      ]\n    }\n  ],\n\n  \"scales\": [\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": {\"data\": \"tree\", \"field\": \"depth\"},\n      \"range\": {\"scheme\": \"[Color]\"}\n    }\n  ],\n\n  \"marks\": [\n    {\n      \"type\": \"symbol\",\n      \"from\": {\"data\": \"tree\"},\n      \"encode\": {\n        \"enter\": {\n          \"shape\": {\"value\": \"circle\"},\n          \"fill\": {\"scale\": \"color\", \"field\": \"depth\"},\n          \"tooltip\": {\"field\": \"tooltip\"}\n        },\n        \"update\": {\n          \"x\": {\"field\": \"x\"},\n          \"y\": {\"field\": \"y\"},\n          \"size\": {\"signal\": \"4 * datum.r * datum.r\"},\n          \"stroke\": {\"value\": \"white\"},\n          \"strokeWidth\": {\"value\": 0.5}\n        },\n        \"hover\": {\n          \"stroke\": {\"value\": \"red\"},\n          \"strokeWidth\": {\"value\": 2}\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"from\": {\"data\": \"tree\"},\n      \"encode\": {\n        \"enter\": {\n          \"text\": {\"signal\": \"datum.key\"},\n          \"baseline\": {\"value\": \"middle\"},\n          \"align\": {\"value\": \"center\"}\n        },\n        \"update\": {\n          \"x\": {\"field\": \"x\"},\n          \"y\": {\"field\": \"y\"},\n          \"opacity\": {\"signal\": \"datum.depth >= 2 ? 0 : 1\"}\n        }\n      }\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "Pivots",
+      "type": "MultiDataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE",
+          "DIMENSION",
+          "TIME"
+        ],
+        "required": true,
+        "minNumberOfTargets": "1"
+      }
+    },
+    {
+      "name": "Value",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Text2",
+      "type": "Text",
+      "config": {
+        "text": "The data field corresponding to a numeric value for the node. The sum of values for a node and all its descendants is available on the node object as the value property. This field determines the size of a node. If unspecified, the layout will instead tally the counts of leaf nodes."
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"set3\""
+      },
+      "displayName": "Color Scheme"
+    },
+    {
+      "name": "ChartSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "200",
+        "maxVal": "1000",
+        "step": 1,
+        "defaultValue": "600"
+      }
+    }
+  ]
+}

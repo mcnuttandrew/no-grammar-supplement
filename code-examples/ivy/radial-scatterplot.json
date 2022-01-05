@@ -1,0 +1,229 @@
+{
+  "templateAuthor": "Aquila-Volans-16",
+  "templateLanguage": "vega",
+  "templateName": "Radial Scatterplot",
+  "templateDescription": "Polar Coordinate Scatterplot",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A basic scatter plot example depicting automobile statistics.\",\n  \"width\": 300,\n  \"height\": 300,\n  \"padding\": 5,\n  \"signals\": [{\"name\": \"circSize\", \"update\": \"1 / [numCircles]\"}],\n  \"data\": [\n    {\n      \"name\": \"circles\",\n      \"transform\": [\n        {\n          \"type\": \"sequence\",\n          \"start\": 0,\n          \"stop\": {\"signal\": \"1 + circSize\"},\n          \"step\": {\"signal\": \"circSize\"},\n          \"as\": \"value\"\n        }\n      ]\n    },\n    {\n      \"name\": \"source\",\n      \"values\": \"myData\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": {\n            \"$cond\": {\n              \"query\": \"parameters.size\",\n              \"true\": \"datum['[radiii]'] != null && datum['[angle]'] != null && datum['[size]'] != null\",\n              \"false\": \"datum['[radiii]'] != null && datum['[angle]'] != null\"\n            }\n          }\n        },\n        {\"type\": \"extent\", \"field\": \"[radiii]\", \"signal\": \"extent\"}\n      ]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"r\",\n      \"type\": \"[ScaleType]\",\n      \"round\": false,\n      \"nice\": false,\n      \"zero\": {\n        \"$cond\": {\n          \"query\": \"parameters.ScaleType.includes('log')\",\n          \"true\": false,\n          \"false\": true\n        }\n      },\n      \"domain\": {\"data\": \"source\", \"field\": \"[radiii]\"},\n      \"range\": [0, 1]\n    },\n    {\n      \"name\": \"theta\",\n      \"type\": \"linear\",\n      \"round\": false,\n      \"nice\": false,\n      \"zero\": true,\n      \"domain\": {\"data\": \"source\", \"field\": \"[angle]\"},\n      \"range\": [0, 6.28318530718]\n    },\n    {\n      \"name\": \"rscale\",\n      \"type\": \"linear\",\n      \"round\": false,\n      \"nice\": false,\n      \"zero\": true,\n      \"domain\": {\"signal\": \"[-extent[1], extent[1]]\"},\n      \"range\": {\"signal\": \"[-height, height]\"}\n    },\n    {\n      \"$cond\": {\n        \"query\": \"parameters.ColorDim\",\n        \"true\": {\n          \"name\": \"color\",\n          \"type\": \"ordinal\",\n          \"domain\": {\"data\": \"source\", \"field\": \"[ColorDim]\"},\n          \"range\": {\"scheme\": \"[Scheme]\"}\n        }\n      }\n    },\n    {\n      \"name\": \"circleScale\",\n      \"type\": \"pow\",\n      \"exponent\": 2,\n      \"round\": false,\n      \"nice\": false,\n      \"zero\": true,\n      \"domain\": {\"signal\": \"[0, 1 /2]\"},\n      \"range\": {\"signal\": \"[0, height * height]\"}\n    },\n    {\n      \"$cond\": {\n        \"query\": \"parameters.size\",\n        \"true\": {\n          \"name\": \"size\",\n          \"type\": \"linear\",\n          \"round\": true,\n          \"nice\": false,\n          \"zero\": true,\n          \"domain\": {\"data\": \"source\", \"field\": \"[size]\"},\n          \"range\": [4, 361]\n        }\n      }\n    }\n  ],\n  \"axes\": [\n    {\n      \"scale\": \"rscale\",\n      \"grid\": false,\n      \"domain\": true,\n      \"orient\": \"bottom\",\n      \"tickCount\": 5,\n      \"title\": \"\",\n      \"offset\": {\"signal\": \"-height\"},\n      \"encode\": {\n        \"ticks\": {\"update\": {\"stroke\": {\"value\": \"steelblue\"}}},\n        \"labels\": {\"update\": {\"text\": {\"signal\": \"abs(datum.value)\"}}}\n      }\n    },\n    {\n      \"scale\": \"rscale\",\n      \"grid\": false,\n      \"domain\": true,\n      \"orient\": \"left\",\n      \"tickCount\": 5,\n      \"title\": \"YY\",\n      \"offset\": {\"signal\": \"0\"},\n      \"encode\": {\n        \"ticks\": {\"update\": {\"stroke\": {\"value\": \"steelblue\"}}},\n        \"labels\": {\"update\": {\"text\": {\"signal\": \"abs(datum.value)\"}}}\n      }\n    }\n  ],\n  \"legends\": [\n    {\n      \"$cond\": {\n        \"query\": \"parameters.size\",\n        \"true\": {\n          \"size\": \"size\",\n          \"title\": \"[size]\",\n          \"format\": \"s\",\n          \"symbolStrokeColor\": \"[Color]\",\n          \"symbolStrokeWidth\": 2,\n          \"symbolOpacity\": 0.5,\n          \"symbolType\": \"circle\"\n        }\n      }\n    },\n    {\n      \"$cond\": {\n        \"query\": \"parameters.ColorDim\",\n        \"true\": {\n          \"title\": \"[ColorDim]\",\n          \"stroke\": \"color\",\n          \"symbolType\": \"circle\"\n        }\n      }\n    }\n  ],\n  \"marks\": [\n    {\n      \"name\": \"axisCircles\",\n      \"type\": \"symbol\",\n      \"from\": {\"data\": \"circles\"},\n      \"encode\": {\n        \"update\": {\n          \"size\": {\"field\": \"value\", \"scale\": \"circleScale\"},\n          \"shape\": {\"value\": \"circle\"},\n          \"stroke\": {\"value\": \"lightgray\"}\n        }\n      }\n    },\n    {\n      \"name\": \"marks\",\n      \"type\": \"symbol\",\n      \"from\": {\"data\": \"source\"},\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"height * scale('r', datum['[radiii]']) * cos(scale('theta', datum['[angle]']))\"\n          },\n          \"y\": {\n            \"signal\": \"height * scale('r', datum['[radiii]']) * sin(scale('theta', datum['[angle]']))\"\n          },\n          \"size\": {\n            \"$cond\": {\n              \"query\": \"parameters.size\",\n              \"true\": {\"scale\": \"size\", \"field\": \"[size]\"},\n              \"false\": {\"value\": \"[CircSize]\"}\n            }\n          },\n          \"shape\": {\"value\": \"circle\"},\n          \"strokeWidth\": {\"value\": 2},\n          \"fillOpacity\": {\"value\": 0.5},\n          \"stroke\": {\n            \"$cond\": {\n              \"query\": \"parameters.center.includes('true')\",\n              \"true\": {\"value\": \"white\"},\n              \"false\": {\n                \"$cond\": {\n                  \"query\": \"parameters.ColorDim\",\n                  \"true\": {\"signal\": \"scale('color', datum['[ColorDim]'])\"},\n                  \"false\": {\"value\": \"[Color]\"}\n                }\n              }\n            }\n          },\n          \"fill\": {\n            \"$cond\": {\n              \"query\": \"parameters.center.includes('true')\",\n              \"true\": {\n                \"$cond\": {\n                  \"query\": \"!parameters.ColorDim\",\n                  \"true\": {\"value\": \"[Color]\"},\n                  \"false\": {\"signal\": \"scale('color', datum['[ColorDim]'])\"}\n                }\n              },\n              \"false\": {\"value\": \"transparent\"}\n            }\n          },\n          \"tooltip\": {\"signal\": \"datum\"}\n        }\n      }\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "widgets": [
+    {
+      "name": "radiii",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "ScaleType",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "\"linear\"",
+          "\"log\""
+        ],
+        "defaultValue": null
+      }
+    },
+    {
+      "name": "angle",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "size",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": false
+      },
+      "displayName": "Size"
+    },
+    {
+      "name": "center",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": false
+      },
+      "displayName": "Fill Center"
+    },
+    {
+      "name": "CircSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "1",
+        "maxVal": "300",
+        "step": 1,
+        "defaultValue": "100"
+      },
+      "conditions": [
+        {
+          "query": "!parameters.Size",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "ColorDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "query": "parameters.ColorDim",
+          "queryResult": "hide"
+        }
+      ]
+    },
+    {
+      "name": "Scheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"set2\""
+      },
+      "conditions": [
+        {
+          "query": "!parameters.ColorDim",
+          "queryResult": "hide"
+        }
+      ]
+    },
+    {
+      "name": "Section8",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "numCircles",
+      "type": "Slider",
+      "config": {
+        "minVal": 0,
+        "maxVal": 10,
+        "step": 1,
+        "defaultValue": 5
+      }
+    }
+  ]
+}

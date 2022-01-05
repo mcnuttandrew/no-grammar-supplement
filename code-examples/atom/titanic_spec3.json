@@ -1,0 +1,113 @@
+{
+  "title": "Titanic",
+  "data": {
+    "url": "data/titanic.csv"
+  },
+  "width": 1000,
+  "height": 480,
+  "padding": {
+    "top": 10,
+    "left": 30,
+    "bottom": 30,
+    "right": 10
+  },
+  "layouts": [
+    {
+      "name": "layout1",
+      "type": "gridxy",
+      "subgroup": {
+        "type": "groupby",
+        "key": "Class",
+        "isShared": true
+      },
+      "aspect_ratio": "fillX",
+      "size": {
+        "type": "uniform",
+        "isShared": false
+      },
+      "direction": "LRBT",
+      "align": "LB",
+      "margin": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      },
+      "padding": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      }
+    },
+    {
+      "name": "layout2",
+      "type": "gridxy",
+      "subgroup": {
+        "type": "groupby",
+        "key": "Sex",
+        "isShared": true
+      },
+      "aspect_ratio": "fillY",
+      "size": {
+        "type": "uniform",
+        "isShared": false
+      },
+      "direction": "LRTB",
+      "align": "LB",
+      "margin": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      },
+      "padding": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      }
+    },
+    {
+      "name": "layout3",
+      "type": "gridxy",
+      "subgroup": {
+        "type": "groupby",
+        "key": "id",
+        "isShared": false
+      },
+      "aspect_ratio": "square",
+      "size": {
+        "type": "uniform",
+        "isShared": false
+      },
+      "direction": "LRTB",
+      "align": "LB",
+      "margin": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      },
+      "padding": {
+        "top": 10,
+        "left": 30,
+        "bottom": 30,
+        "right": 10
+      }
+    }
+  ],
+  "mark": {
+    "shape": "circle",
+    "color": {
+      "key": "survival",
+      "type": "categorical"
+    },
+    "size": {
+      "type": "max",
+      "isShared": false
+    },
+    "isColorScaleShared": true
+  },
+  "$schema": "https://unit-vis.netlify.com/assets/unit-vis-schema.json"
+}

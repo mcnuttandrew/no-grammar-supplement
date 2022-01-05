@@ -1,0 +1,50 @@
+{
+  "templateAuthor": "Draco-Perseus-71",
+  "templateLanguage": "vega-lite",
+  "templateName": "my cool scatterplot",
+  "templateDescription": "tutorial plot",
+  "disallowFanOut": false,
+  "customCards": [],
+  "code": "{\n  \"$schema\": \"https:vega.github.io/schema/vega-lite/v4.json\",\n  \"transform\": [],\n  \"encoding\": {\n    \"x\": {\"field\": \"[xDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": \"[Zeroes]\", \"type\": \"linear\"}},\n    \"y\": {\"field\": \"[yDim]\", \"type\": \"quantitative\", \"scale\": {\"zero\": \"[Zeroes]\", \"type\": \"linear\"}},\n    \"color\": {\"field\": \"[Color]\", \"type\": \"nominal\", \"scale\": {\"scheme\": \"set2\"}}\n  },\n  \"mark\": {\"type\": \"point\", \"tooltip\": true, \"opacity\": 0.8}\n}\n",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Zeroes",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    }
+  ]
+}

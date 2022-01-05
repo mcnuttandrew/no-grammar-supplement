@@ -1,0 +1,14 @@
+{
+  "data": {
+    "url": "census.snappy_data.json"
+  },
+  "smooth": {
+    "radius": 1
+  },
+  "compose": {
+    "mix": "mean"
+  },
+  "rescale": {
+    "type": "log"
+  }
+}

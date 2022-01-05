@@ -1,0 +1,80 @@
+{
+  "templateName": "KDE",
+  "templateDescription": "Simple univariate diagram",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"data\": {\"name\": \"myData\"},\n  \"width\": 400,\n  \"height\": 100,\n  \"transform\": [{\"density\": \"[xDim]\", \"bandwidth\": \"[Bandwidth]\"}],\n  \"mark\": {\"type\": \"area\", \"color\": \"[Color]\"},\n  \"encoding\": {\n    \"x\": {\"field\": \"value\", \"title\": \"[xDim]\", \"type\": \"quantitative\"},\n    \"y\": {\"field\": \"density\", \"type\": \"quantitative\"}\n  }\n}",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Bandwidth",
+      "type": "Slider",
+      "config": {
+        "minVal": "0.1",
+        "maxVal": "1",
+        "step": 0.1,
+        "defaultValue": 0.6
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": [],
+  "dataTransforms": []
+}

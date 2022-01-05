@@ -1,0 +1,408 @@
+{
+  "templateName": "ScatterMap",
+  "templateDescription": "Draw dots on a map based on latitude and longitude",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"width\": \"[width]\",\n  \"height\": \"[height]\",\n  \"autosize\": \"none\",\n  \"signals\": {\n    \"$if\": \"interactive.includes('true')\",\n    \"true\": [\n      {\"name\": \"tx\", \"update\": \"width / 2\"},\n      {\"name\": \"ty\", \"update\": \"height / 2\"},\n      {\n        \"name\": \"scale\",\n        \"value\": \"[scale]\",\n        \"on\": [\n          {\n            \"events\": {\"type\": \"wheel\", \"consume\": true},\n            \"update\": \"clamp(scale * pow(1.0005, -event.deltaY * pow(16, event.deltaMode)), 50, 3000)\"\n          }\n        ]\n      },\n      {\"name\": \"angles\", \"value\": [0, 0], \"on\": [{\"events\": \"mousedown\", \"update\": \"[rotateX, centerY]\"}]},\n      {\"name\": \"cloned\", \"value\": null, \"on\": [{\"events\": \"mousedown\", \"update\": \"copy('tzProj')\"}]},\n      {\"name\": \"start\", \"value\": null, \"on\": [{\"events\": \"mousedown\", \"update\": \"invert(cloned, xy())\"}]},\n      {\n        \"name\": \"drag\",\n        \"value\": null,\n        \"on\": [{\"events\": \"[mousedown, window:mouseup] > window:mousemove\", \"update\": \"invert(cloned, xy())\"}]\n      },\n      {\n        \"name\": \"delta\",\n        \"value\": null,\n        \"on\": [{\"events\": {\"signal\": \"drag\"}, \"update\": \"[drag[0] - start[0], start[1] - drag[1]]\"}]\n      },\n      {\n        \"name\": \"rotateX\",\n        \"value\": \"[rotateX]\",\n        \"on\": [{\"events\": {\"signal\": \"delta\"}, \"update\": \"angles[0] + delta[0]\"}]\n      },\n      {\n        \"name\": \"centerY\",\n        \"value\": \"[centerY]\",\n        \"on\": [{\"events\": {\"signal\": \"delta\"}, \"update\": \"clamp(angles[1] + delta[1], -60, 60)\"}]\n      }\n    ],\n    \"false\": [{\"name\": \"tx\", \"update\": \"width / 2\"}, {\"name\": \"ty\", \"update\": \"height / 2\"}]\n  },\n  \"data\": [\n    {\n      \"name\": \"table\",\n      \"values\": \"myData\",\n      \"transform\": [{\"type\": \"geopoint\", \"projection\": \"tzProj\", \"fields\": [\"[Lng]\", \"[Lat]\"]}]\n    },\n    {\n      \"name\": \"land\",\n      \"url\": \"https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json\",\n      \"format\": {\"type\": \"topojson\", \"feature\": \"countries\"},\n      \"transform\": [\n        {\"type\": \"formula\", \"expr\": \"datum.properties.name\", \"as\": \"name\"},\n        {\n          \"type\": \"lookup\",\n          \"from\": \"table\",\n          \"key\": \"[Lat]\",\n          \"fields\": [\"name\"],\n          \"as\": [\"val\"],\n          \"values\": [\"val\"]\n        }\n      ]\n    }\n  ],\n  \"projections\": [\n    {\n      \"$if\": \"interactive.includes('true')\",\n      \"true\": {\n        \"name\": \"tzProj\",\n        \"type\": \"[projection]\",\n        \"scale\": {\"signal\": \"scale\"},\n        \"rotate\": [{\"signal\": \"rotateX\"}, 0, 0],\n        \"center\": [0, {\"signal\": \"centerY\"}],\n        \"translate\": [{\"signal\": \"tx\"}, {\"signal\": \"ty\"}]\n      },\n      \"false\": {\n        \"name\": \"tzProj\",\n        \"type\": \"[projection]\",\n        \"scale\": \"[scale]\",\n        \"rotate\": [\"[rotateX]\", \"[rotateY]\", \"[rotateZ]\"],\n        \"center\": [\"[centerX]\", \"[centerY]\"],\n        \"translate\": [{\"signal\": \"tx\"}, {\"signal\": \"ty\"}]\n      }\n    }\n  ],\n  \"scales\": [\n    {\n      \"$if\": \"Color\",\n      \"true\": {\n        \"name\": \"color\",\n        \"type\": \"ordinal\",\n        \"range\": {\"scheme\": \"[scheme]\"},\n        \"domain\": {\"data\": \"table\", \"field\": \"[Color]\"}\n      }\n    },\n    {\n      \"$if\": \"Size\",\n      \"true\": {\n        \"name\": \"size\",\n        \"type\": \"linear\",\n        \"range\": [\"[minSize]\", \"[maxSize]\"],\n        \"domain\": {\"data\": \"table\", \"field\": \"[Size]\"}\n      }\n    }\n  ],\n  \"legends\": [],\n  \"marks\": [\n    {\n      \"type\": \"shape\",\n      \"from\": {\"data\": \"land\"},\n      \"encode\": {\n        \"update\": {\n          \"fill\": {\"value\": \"#ddd\"},\n          \"fillOpacity\": {\"signal\": \"1\"},\n          \"stroke\": {\"value\": \"lightgray\"},\n          \"strokeWidth\": {\"value\": 1}\n        }\n      },\n      \"transform\": [{\"type\": \"geoshape\", \"projection\": \"tzProj\"}]\n    },\n    {\n      \"type\": \"symbol\",\n      \"from\": {\"data\": \"table\"},\n      \"encode\": {\n        \"enter\": {\n          \"size\": {\n            \"signal\": {\"$if\": \"Size\", \"true\": \"scale('size', datum['[Size]'])\", \"false\": \"[dotSize]\"}\n          },\n          \"tooltip\": {\"signal\": \"datum\"}\n        },\n        \"update\": {\n          \"x\": {\"signal\": \"datum.x\"},\n          \"y\": {\"signal\": \"datum.y\"},\n          \"fill\": {\n            \"signal\": {\"$if\": \"Color\", \"true\": \"scale('color', datum['[Color]'])\"},\n            \"value\": {\"$if\": \"Color\", \"false\": \"[dotColor]\"}\n          },\n          \"fillOpacity\": {\"signal\": \"1\"},\n          \"stroke\": {\"value\": \"white\"},\n          \"strokeOpacity\": {\"value\": 0.7}\n        },\n        \"hover\": {\"stroke\": {\"value\": \"black\"}}\n      }\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega",
+  "widgets": [
+    {
+      "name": "Lat",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Lng",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "Color",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "dotColor",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "#4E79A7",
+            "value": "\"#4E79A7\""
+          },
+          {
+            "display": "#F28E2C",
+            "value": "\"#F28E2C\""
+          },
+          {
+            "display": "#E15759",
+            "value": "\"#E15759\""
+          },
+          {
+            "display": "#76B7B2",
+            "value": "\"#76B7B2\""
+          },
+          {
+            "display": "#59A14F",
+            "value": "\"#59A14F\""
+          },
+          {
+            "display": "#EDC949",
+            "value": "\"#EDC949\""
+          },
+          {
+            "display": "#AF7AA1",
+            "value": "\"#AF7AA1\""
+          },
+          {
+            "display": "#FF9DA7",
+            "value": "\"#FF9DA7\""
+          },
+          {
+            "display": "#9C755F",
+            "value": "\"#9C755F\""
+          },
+          {
+            "display": "#BAB0AB",
+            "value": "\"#BAB0AB\""
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "query": "!parameters.Color",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "scheme",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          {
+            "display": "accent",
+            "value": "\"accent\""
+          },
+          {
+            "display": "category10",
+            "value": "\"category10\""
+          },
+          {
+            "display": "category20",
+            "value": "\"category20\""
+          },
+          {
+            "display": "category20b",
+            "value": "\"category20b\""
+          },
+          {
+            "display": "category20c",
+            "value": "\"category20c\""
+          },
+          {
+            "display": "dark2",
+            "value": "\"dark2\""
+          },
+          {
+            "display": "paired",
+            "value": "\"paired\""
+          },
+          {
+            "display": "pastel1",
+            "value": "\"pastel1\""
+          },
+          {
+            "display": "pastel2",
+            "value": "\"pastel2\""
+          },
+          {
+            "display": "set1",
+            "value": "\"set1\""
+          },
+          {
+            "display": "set2",
+            "value": "\"set2\""
+          },
+          {
+            "display": "set3",
+            "value": "\"set3\""
+          },
+          {
+            "display": "tableau10",
+            "value": "\"tableau10\""
+          },
+          {
+            "display": "tableau20",
+            "value": "\"tableau20\""
+          }
+        ],
+        "defaultValue": "\"tableau10\""
+      },
+      "conditions": [
+        {
+          "query": "parameters.Color",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "Size",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": false
+      }
+    },
+    {
+      "name": "minSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "1",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": 5
+      },
+      "conditions": [
+        {
+          "query": "parameters.Size",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "maxSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "1",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": 5
+      },
+      "conditions": [
+        {
+          "query": "parameters.Size",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "dotSize",
+      "type": "Slider",
+      "config": {
+        "minVal": "10",
+        "maxVal": "100",
+        "step": 1,
+        "defaultValue": 5
+      },
+      "conditions": [
+        {
+          "query": "!parameters.Size",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "Section14",
+      "type": "Section",
+      "config": null
+    },
+    {
+      "name": "projection",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "\"airy\"",
+          "\"albersUsa\"",
+          "\"albers\"",
+          "\"armadillo\"",
+          "\"azimuthalEqualArea\"",
+          "\"azimuthalEquidistant\"",
+          "\"baker\"",
+          "\"berghaus\"",
+          "\"bottomley\"",
+          "\"collignon\"",
+          "\"conicConformal\"",
+          "\"conicEqualArea\"",
+          "\"conicEquidistant\"",
+          "\"eckert1\"",
+          "\"equalEarth\"",
+          "\"equirectangular\"",
+          "\"gnomonic\"",
+          "\"guyou\"",
+          "\"hammer\"",
+          "\"identity\"",
+          "\"interruptedMollweideHemispheres\"",
+          "\"interruptedMollweide\"",
+          "\"interruptedSinusoidal\"",
+          "\"littrow\"",
+          "\"mercator\"",
+          "\"mollweide\"",
+          "\"mollweide\"",
+          "\"naturalEarth1\"",
+          "\"orthographic\"",
+          "\"peirceQuincuncial\"",
+          "\"polyhedralButterfly\"",
+          "\"stereographic\"",
+          "\"transverseMercator\"",
+          "\"wagner6\"",
+          "\"wiechel\"",
+          "\"winkel3\""
+        ],
+        "defaultValue": "\"equirectangular\""
+      }
+    },
+    {
+      "name": "height",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "10",
+        "defaultValue": "700"
+      },
+      "displayName": "Height"
+    },
+    {
+      "name": "width",
+      "type": "Slider",
+      "config": {
+        "minVal": "300",
+        "maxVal": "1000",
+        "step": "10",
+        "defaultValue": "700"
+      },
+      "displayName": "Width"
+    },
+    {
+      "name": "interactive",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      },
+      "displayName": "Map Should Be interactive"
+    },
+    {
+      "name": "scale",
+      "type": "Slider",
+      "config": {
+        "minVal": "50",
+        "maxVal": "1000",
+        "step": 1,
+        "defaultValue": "72"
+      },
+      "displayName": "Zoom",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "rotateX",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleX",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "rotateY",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleY",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "rotateZ",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "AngleZ",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "centerX",
+      "type": "Slider",
+      "config": {
+        "minVal": "-180",
+        "maxVal": "180",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "CenterX",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    },
+    {
+      "name": "centerY",
+      "type": "Slider",
+      "config": {
+        "minVal": "-90",
+        "maxVal": "90",
+        "step": 1,
+        "defaultValue": "0"
+      },
+      "displayName": "CenterY",
+      "conditions": [
+        {
+          "query": "!parameters.interactive.includes(true)",
+          "queryResult": "show"
+        }
+      ]
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": []
+}

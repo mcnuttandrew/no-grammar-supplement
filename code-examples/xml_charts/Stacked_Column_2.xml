@@ -1,0 +1,149 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='12' color='000022' alpha='75' skip='2' />
+	<axis_value shadow='low' size='10' color='ffffee' alpha='75' max='120' steps='4' show_min='false' />
+
+	<chart_border color='000000' top_thickness='1' bottom_thickness='1' left_thickness='1' right_thickness='1' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>1</string>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+			<string>5</string>
+			<string>6</string>
+			<string>7</string>
+			<string>8</string>
+			<string>9</string>
+			<string>10</string>
+			<string>11</string>
+			<string>12</string>
+			<string>13</string>
+			<string>14</string>
+			<string>15</string>
+			<string>16</string>
+			<string>17</string>
+			<string>18</string>
+			<string>19</string>
+			<string>20</string>
+			<string>21</string>
+			<string>22</string>
+			<string>23</string>
+			<string>24</string>
+			<string>25</string>
+			<string>26</string>
+			<string>27</string>
+			<string>28</string>
+			<string>29</string>
+			<string>30</string>
+			<string>31</string>
+		</row>
+		<row>
+			<string>Region A</string>
+			<number>10</number>
+			<number>12</number>
+			<number>11</number>
+			<number>15</number>
+			<number>20</number>
+			<number>22</number>
+			<number>21</number>
+			<number>30</number>
+			<number>31</number>
+			<number>32</number>
+			<number>28</number>
+			<number>29</number>
+			<number>40</number>
+			<number>41</number>
+			<number>45</number>
+			<number>50</number>
+			<number>65</number>
+			<number>45</number>
+			<number>50</number>
+			<number>51</number>
+			<number>65</number>
+			<number>60</number>
+			<number>62</number>
+			<number>65</number>
+			<number>45</number>
+			<number>55</number>
+			<number>59</number>
+			<number>52</number>
+			<number>53</number>
+			<number>40</number>
+			<number>45</number>
+		</row>
+		<row>
+			<string>Region B</string>
+			<number>30</number>
+			<number>32</number>
+			<number>35</number>
+			<number>40</number>
+			<number>42</number>
+			<number>35</number>
+			<number>36</number>
+			<number>31</number>
+			<number>35</number>
+			<number>36</number>
+			<number>40</number>
+			<number>42</number>
+			<number>40</number>
+			<number>41</number>
+			<number>45</number>
+			<number>40</number>
+			<number>38</number>
+			<number>36</number>
+			<number>30</number>
+			<number>29</number>
+			<number>28</number>
+			<number>25</number>
+			<number>28</number>
+			<number>29</number>
+			<number>30</number>
+			<number>40</number>
+			<number>32</number>
+			<number>33</number>
+			<number>34</number>
+			<number>30</number>
+			<number>20</number>
+		</row>
+	</chart_data>
+
+	<chart_guide horizontal='true' vertical='false' thickness='1' color='ffffff' alpha='50' type='dashed' radius='3' fill_color='FF4400' fill_alpha='75' line_alpha='0' background_color='FF4400' text_h_alpha='80' prefix_h='$' suffix_h=',000' />	
+	<chart_rect bevel='bg' x='100' y='50' width='300' height='200' positive_color='99dd44' positive_alpha='50' />
+	<chart_type>stacked column</chart_type>
+
+	<draw>
+		<text shadow='high' color='ffffee' alpha='75' size='42' x='100' y='7' width='400' height='50' h_align='left' v_align='bottom'>monthly report</text>
+		<text shadow='low' color='333333' alpha='75' size='14' x='100' y='50' width='296' height='300' h_align='right' v_align='top'>July 2009</text>
+		<text shadow='low' color='000000' alpha='5' size='30' x='0' y='150' width='480' height='150' h_align='center' v_align='bottom'>||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+	</draw>
+	<filter>
+		<shadow id='high' distance='5' angle='45' alpha='20' blurX='10' blurY='10' />
+		<shadow id='low' distance='3' angle='45' alpha='35' blurX='5' blurY='5' />
+		<bevel id='bg' angle='10' blurX='50' blurY='50' distance='10' highlightAlpha='60' highlightColor='ffffff' shadowAlpha='30' type='full' />
+	</filter>
+	
+	<legend layout='hide' />
+	<update url='xml/Gallery_Stacked_Column_2_Update.php?month=1&step=1' delay='7' /> 
+	<context_menu full_screen='true' />
+
+	<series_color>
+		<color>4e627c</color>
+		<color>cc7744</color>
+	</series_color>
+	<series set_gap='2' />
+
+</chart>
+
+
+
+
+
+
+
+

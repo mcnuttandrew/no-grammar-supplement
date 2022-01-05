@@ -1,0 +1,437 @@
+{
+	"experiment": {
+		"data": [
+			{
+				"type": "RANDOM_ATTRIBUTES",
+				"id": "dataPoints1",
+				"params": {
+					"amount": 30,
+					"nAttributes": 3,
+					"names": [
+						"x",
+						"y",
+						"z"
+					],
+					"min": 0,
+					"max": 4
+				},
+				"marks": [
+					{
+						"id": "cloudPoint1",
+						"encoding": {
+							"x": "x",
+							"y": "y",
+							"z": "z",
+							"diameter": 0.025
+						},
+						"type": "point",
+						
+						"center": {
+							"x": 0,
+							"y": 1,
+							"z": -2
+						},
+						"width": 1,
+						"height": 0.5,
+						"depth": 0.5
+					}
+				]
+			},
+			{
+				"type": "RANDOM_ATTRIBUTES",
+				"id": "dataPoints2",
+				"params": {
+					"amount": 40,
+					"nAttributes": 3,
+					"names": [
+						"x",
+						"y",
+						"z"
+					],
+					"min": 0,
+					"max": 4
+				},
+				"marks": [
+					{
+						"id": "cloudPoint1",
+						"mark": "cloudPoint",
+						"encoding": {
+							"x": "x",
+							"y": "y",
+							"z": "z"
+						},
+						"type": "point",
+						"diameter": 0.025,
+						"center": {
+							"x": 0,
+							"y": 1,
+							"z": -2
+						},
+						"width": 1,
+						"height": 0.5,
+						"depth": 0.5
+					}
+				]
+			}
+		],
+		"inputs": [
+			{
+				"type": "gaze",
+				"id": "gaze_input",
+				"signals": {
+					"ray": "forwardRay",
+					"cameraPosition": "position"
+				}
+			},
+			{
+				"type":"Hand_Controller",
+				"id": "hand_hololens",
+				"signals": {
+					"hand": "position",
+					"onPan": {
+						"value": "onPan",
+						"trigger": "onTrigger",
+						"position": "hand"
+					},
+					"onTrigger": "onTap"
+				}
+			},
+			{
+				"type": "Touch_Controller",
+				"id": "touch_mobile",
+				"signals": {
+					"onTrigger": "onTap",
+                    "onPinch":"onPinch",
+                    "onPan": "onPan"
+				}
+			}
+		],
+		"states": [
+			{
+				"id": "navigating",
+				"actions": [
+					{
+						"id": "markPosition",
+						"signals": [
+							"onPinch"
+						],
+						"apply": {
+							"value": "moveAlong",
+							"args": {
+								"distance": "onPinch.distance",
+								"object": "cloudPoint1",
+								"direction": "ray.ray.direction",
+								"minDistance": "0.5"
+							}
+						}
+					},
+					{
+						"id": "markPosition",
+						"signals": [
+							"onPan"
+						],
+						"apply": {
+							"value": "pan",
+							"args": {
+								"distance": "onPan.distance",
+								"direction": "onPan.direction",
+								"object": "cloudPoint1"
+							}
+						}
+					},
+					{
+						"id": "distanceToCamera",
+						"signals": [
+							"markPosition"
+						],
+						"apply": {
+							"value": "distance",
+							"args": {
+								"value1": "markPosition",
+								"value2": "cameraPosition"
+							}
+						}
+					},
+					{
+						"id": "hit",
+						"signals": [
+							"ray"
+						],
+						"apply": {
+							"value": "pick",
+							"args": {
+								"ray": "ray"
+							}
+						}
+					},
+					{
+						"id": "selected",
+						"signals": [
+							"onTrigger"
+						],
+						"apply": {
+							"value": "hit.mesh"
+						}
+					}
+				],
+				"marks": [
+					{
+						"id": "targetMesh",
+						"type": "target",
+						"color": "rgb(255,0,0)",
+						"encoding": {
+							"parent": "gaze_input",
+							"hit": "hit",
+							"ray": "ray"
+						}
+					}
+				]
+			}
+		],
+		"viewerPosition": {
+			"coordinates": {
+				"x": 0,
+				"y": 1,
+				"z": 0
+			}
+		},
+		"devices": [
+			{
+				"id": "MOBILE_AR",
+				"type": "mobile"
+			},
+			{
+				"id": "WMR_LENOVO",
+				"type": "HMD"
+			},
+			{
+				"id": "HOLOLENS",
+				"type": "HMD_AR"
+			}
+		],
+		"task": {
+			"repetitions": [
+				{
+					"id": "random_repetition",
+					"amount": 2,
+					"data": "dataPoints",
+					"order": {
+						"type": "random",
+						"repeat": "false"
+					}
+				}
+			],
+			"measures": [
+				{
+					"id": "time_selecting",
+					"value": "init",
+					"type": "ellapsedTime"
+				},
+				{
+					"id": "errorCount",
+					"state": "targetVisible",
+					"value": "targetVisible.error",
+					"type": "count"
+				}
+			],
+			"states": [
+				{
+					"id": "init",
+					"actions": [
+						{
+							"id": "nextRandom",
+							"signals": [
+								"enter"
+							],
+							"apply": {
+								"value": "getNext",
+								"args": {
+									"repetition": "random_repetition",
+									"objects": "cloudPoint1"
+								}
+							}
+						},
+						{
+							"id": "markPosition",
+							"signals": [
+								"enter"
+							],
+							"apply": {
+								"value": "setPosition",
+								"args": {
+									"object": "cloudPoint1",
+									"x": 0,
+									"y": 1,
+									"z": 2
+								}
+							}
+						}
+					],
+					"transitions": [
+						{
+							"state": "targetInvisible",
+							"condition": "markPosition"
+						}
+					],
+					"marks": [
+						{
+							"id": "cloudPoint1",
+							"encoding": {
+								"color": "rgb(200,255,0)"
+							}
+						}
+					]
+				},
+				{
+					"id": "targetInvisible",
+					"actions": [
+						{
+							"id": "isClose",
+							"signals": [
+								"navigating.distanceToCamera"
+							],
+							"apply": {
+								"value": "isSmaller",
+								"args": {
+									"value1": "navigating.distanceToCamera",
+									"value2": "1.5"
+								}
+							}
+						}
+					],
+					"transitions": [
+						{
+							"state": "targetVisible",
+							"condition": "isClose"
+						}
+					],
+					"marks": [
+						{
+							"id": "cloudPoint1",
+							"encoding": {
+								"color": "rgb(200,255,0)"
+							}
+						}
+					]
+				},
+				{
+					"id": "targetVisible",
+					"actions": [
+						{
+							"id": "nextTarget",
+							"signals": [
+								"enter"
+							],
+							"apply": {
+								"value": "setAttribute",
+								"args": {
+									"object": "init.nextRandom",
+									"attribute": "selected",
+									"value": "true"
+								}
+							}
+						},
+						{
+							"id": "isFar",
+							"signals": [
+								"navigating.distanceToCamera"
+							],
+							"apply": {
+								"value": "isSmaller",
+								"args": {
+									"value1": "1.5",
+									"value2": "navigating.distanceToCamera"
+								}
+							}
+						},
+						{
+							"id": "correct",
+							"signals": [
+								"navigating.selected"
+							],
+							"apply": {
+								"value": "isEqual",
+								"args": {
+									"target": "nextTarget.mesh",
+									"selected": "navigating.selected"
+								}
+							}
+						},
+						{
+							"id": "error",
+							"signals": [
+								"navigating.selected"
+							],
+							"apply": {
+								"value": "isDifferent",
+								"args": {
+									"target": "nextTarget.mesh",
+									"selected": "navigating.selected"
+								}
+							}
+						}
+					],
+					"marks": [
+						{
+							"id": "cloudPoint1",
+							"encoding": {
+								"color": {
+									"selected?": "rgb(255,0,0)",
+									"value": "rgb(100,255,0)"
+								}
+							}
+						}
+					],
+					"transitions": [
+						{
+							"state": "init",
+							"condition": "correct"
+						},
+						{
+							"state": "targetInvisible",
+							"condition": "isFar"
+						}
+					]
+				}
+			]
+		},
+		"conditions": [
+			{
+				"id": 0,
+				"devices": [
+					"MOBILE_AR"
+				],
+				"inputs": [
+					"gaze_input", "touch_mobile"
+				],
+				"marks": [
+					"targetMesh",
+					"cloudPoint1"
+				],
+				"data": [
+					{
+						"dataPoints": "dataPoints1"
+					}
+				]
+			},
+			{
+				"id": 1,
+				"devices": [
+					"HOLOLENS"
+				],
+				"inputs": [
+					"hand_hololens", "gaze_input"
+				],
+				"marks": [
+					"targetMesh",
+					"cloudPoint1"
+				],
+				"data": [
+					{
+						"dataPoints": "dataPoints1"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,159 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "width": 800,
+  "height": 500,
+  "padding": 5,
+
+  "config": {
+    "axis": {
+      "domain": false,
+      "grid": true,
+      "labelFontSize": 12,
+      "labelFontWeight": "bold",
+      "tickSize": 0
+    }
+  },
+
+  "data": [
+    {
+      "name": "drive",
+      "url": "http://vegaar.hkustvis.org/data/driving.json"
+    }
+  ],
+  "ar":{
+    "mode": "ON",
+    "data": [
+      {
+        "name": "drive",
+        "values":[
+          {"side": "top", "year": 2000, "miles": 9717, "gas": 1.89},
+          {"side": "left", "year": 2001, "miles": 9699, "gas": 1.77},
+          {"side": "bottom", "year": 2002, "miles": 9814, "gas": 1.64},
+          {"side": "right", "year": 2003, "miles": 9868, "gas": 1.86},
+          {"side": "left", "year": 2004, "miles": 9994, "gas": 2.14},
+          {"side": "left", "year": 2005, "miles": 10067, "gas": 2.53},
+          {"side": "right", "year": 2006, "miles": 10037, "gas": 2.79},
+          {"side": "right", "year": 2007, "miles": 10025, "gas": 2.95},
+          {"side": "left", "year": 2008, "miles": 9880, "gas": 3.31},
+          {"side": "bottom", "year": 2009, "miles": 9657, "gas": 2.38},
+          {"side": "left", "year": 2010, "miles": 9596, "gas": 2.61}
+        ]
+      }
+    ]
+  },
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": {"data": "drive", "field": "miles"},
+      "range": "width",
+      "nice": true,
+      "round": false,
+      "zero": false
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {"data": "drive", "field": "gas"},
+      "range": "height",
+      "nice": true,
+      "zero": false,
+      "round": true
+    },
+    {
+      "name": "align",
+      "type": "ordinal",
+      "domain": ["left", "right", "top", "bottom"],
+      "range": ["right", "left", "center", "center"]
+    },
+    {
+      "name": "base",
+      "type": "ordinal",
+      "domain": ["left", "right", "top", "bottom"],
+      "range": ["middle", "middle", "bottom", "top"]
+    },
+    {
+      "name": "dx",
+      "type": "ordinal",
+      "domain": ["left", "right", "top", "bottom"],
+      "range": [-7, 6, 0, 0]
+    },
+    {
+      "name": "dy",
+      "type": "ordinal",
+      "domain": ["left", "right", "top", "bottom"],
+      "range": [1, 1, -5, 6]
+    }
+  ],
+
+  "axes": [
+    {
+      "orient": "top",
+      "scale": "x",
+      "tickCount": 5
+    },
+    {
+      "orient": "left",
+      "scale": "y",
+      "tickCount": 5,
+      "format": "$0.2f"
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "drive"},
+      "encode": {
+        "enter": {
+          "interpolate": {"value": "cardinal"},
+
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 3}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "miles"},
+          "y": {"scale": "y", "field": "gas"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "drive"},
+      "encode": {
+        "enter": {
+
+          "fill": {"value": "#fff"},
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 1},
+          "size": {"value": 49}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "miles"},
+          "y": {"scale": "y", "field": "gas"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "drive"},
+      "encode": {
+        "enter": {
+
+          "dx": {"scale": "dx", "field": "side"},
+          "dy": {"scale": "dy", "field": "side"},
+          "fill": {"value": "#000"},
+          "text": {"field": "year"},
+          "align": {"scale": "align", "field": "side"},
+          "baseline": {"scale": "base", "field": "side"}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "miles"},
+          "y": {"scale": "y", "field": "gas"}
+        }
+      }
+    }
+
+
+  ]
+}

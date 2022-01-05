@@ -1,0 +1,20 @@
+{
+  "description": "US Census Synthetic people",
+  "data": {
+    "url": "census.snappy_data.json"
+  },
+  "rebin": {
+    "type": "topojson",
+    "url": "us.json",
+    "feature": "states",
+    "stroke": "rgba(0,0,0,0.25)"
+  },
+  "compose": {
+    "mix": "weaving",
+    "shape": "random",
+    "size": 4
+  },
+  "rescale": {
+    "type": "cbrt"
+  }
+}

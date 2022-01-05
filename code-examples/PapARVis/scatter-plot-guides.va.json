@@ -1,0 +1,173 @@
+{
+  "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+  "description": "Scatter plot with interactive legend and x-axis.",
+  "width": 200,
+  "height": 200,
+  "padding": {"left": 50, "top": 50, "right": 100, "bottom": 50},
+  "autosize": "none",
+
+  "data": [
+    {
+      "name": "source",
+      "url": "http://vegaar.hkustvis.org/data/cars.json",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum['lat'] != null && datum['lon'] != null && datum['Origin'] != null"
+        }
+      ]
+    }
+  ],
+
+  "ar": {
+    "mode": "ON",
+    "data": [
+      {
+        "name": "source",
+        "values": [
+          {
+            "Name":"new chevrolet chevelle malibu",
+            "lon":5,
+            "Cylinders":8,
+            "Displacement":307,
+            "lat":50,
+            "Weight_in_lbs":3504,
+            "Acceleration":12,
+            "Year":"1970-01-01",
+            "Origin":"USA"
+         },
+         {
+          "Name":"new 2 chevrolet chevelle malibu",
+          "lon":55,
+          "Cylinders":8,
+          "Displacement":307,
+          "lat":250,
+          "Weight_in_lbs":3504,
+          "Acceleration":12,
+          "Year":"1970-01-01",
+          "Origin":"New origin"
+          },
+          {
+            "Name":"new 3 chevrolet chevelle malibu",
+            "lon":0,
+            "Cylinders":8,
+            "Displacement":307,
+            "lat":0,
+            "Weight_in_lbs":3504,
+            "Acceleration":12,
+            "Year":"1970-01-01",
+            "Origin":"New origin"
+        }
+        ]
+      }
+    ]
+  },
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "round": false,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "source", "field": "lat"},
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "round": false,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "source", "field": "lon"},
+      "range": "height"
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": {"scheme": "category10"},
+      "domain": {"data": "source", "field": "Origin"}
+    }
+  ],
+
+  "axes": [
+    {
+      "scale": "x",
+      "grid": true,
+      "domain": false,
+      "orient": "bottom",
+      "tickCount": 5,
+      "title": "lat",
+      "titleAnchor": "start"
+    },
+    {
+      "scale": "y",
+      "grid": true,
+      "domain": false,
+      "orient": "left",
+      "titlePadding": 5,
+      "title": "lon",
+      "titleAnchor": "start"
+    }
+  ],
+
+  "legends": [
+    {
+      "stroke": "color",
+      "orient": "bottom-left",
+      "title": "Origin",
+      "direction": "horizontal",
+      "encode": {
+        "symbols": {
+          "name": "legendSymbol",
+          "interactive": false,
+          "update": {
+            "fill": {"value": "transparent"},
+            "strokeWidth": {"value": 2},
+            "size": {"value": 64}
+          }
+        },
+        "labels": {
+          "name": "legendLabel",
+          "interactive": false
+        }
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "name": "xaxis",
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {"value": 0},
+          "height": {"value": 35},
+          "fill": {"value": "transparent"},
+          "cursor": {"value": "ew-resize"}
+        },
+        "update": {
+          "y": {"signal": "height"},
+          "width": {"signal": "span(range('x'))"}
+        }
+      }
+    },
+    {
+      "name": "marks",
+      "type": "symbol",
+      "from": {"data": "source"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "lat"},
+          "y": {"scale": "y", "field": "lon"},
+          "shape": {"value": "circle"},
+          "strokeWidth": {"value": 2},
+          "stroke": {"scale": "color", "field": "Origin"},
+          "fill": {"value": "transparent"}
+        }
+      }
+    }
+  ]
+}

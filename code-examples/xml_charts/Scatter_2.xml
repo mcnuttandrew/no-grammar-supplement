@@ -1,0 +1,172 @@
+
+
+
+
+<chart>
+
+	<axis_category shadow='low' size='12' color='000000' alpha='85' orientation='horizontal' />
+	<axis_ticks value_ticks='false' category_ticks='true' major_thickness='1' minor_thickness='0' minor_count='1' major_color='000000' minor_color='222222' position='inside' />
+	<axis_value min='0' max='12' size='10' color='ffffff' alpha='60' prefix='' suffix='' decimals='0' separator='' show_min='false' />
+
+	<chart_border color='222222' top_thickness='0' bottom_thickness='3' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+			<string>x</string>
+			<string>y</string>
+		</row>
+		<row>
+			<string>player 1</string>
+			<number shadow='low' tooltip='11, 9'>11</number>
+			<number>9</number>
+			<number tooltip='12, 8'>12</number>
+			<number>8</number>
+			<number tooltip='13, 9'>13</number>
+			<number>9</number>
+			<number tooltip='14, 8'>14</number>
+			<number>8</number>
+			<number tooltip='15.5, 8'>15.5</number>
+			<number>8</number>
+			<number tooltip='19, 7.5'>19</number>
+			<number>7.5</number>
+			<number tooltip='17, 8'>17</number>
+			<number>8</number>
+			<number tooltip='18, 8'>18</number>
+			<number>8</number>
+			<number tooltip='20, 7'>20</number>
+			<number>7</number>
+			<number tooltip='11.5, 8.5'>11.5</number>
+			<number>8.5</number>
+			<number tooltip='12.5, 9'>12.5</number>
+			<number>9</number>
+			<number tooltip='13.5, 9.5'>13.5</number>
+			<number>9.5</number>
+			<number tooltip='14.5, 9'>14.5</number>
+			<number>9</number>
+			<number tooltip='15, 8.5'>15</number>
+			<number>8.5</number>
+			<number tooltip='15.5, 9'>15.5</number>
+			<number>9</number>
+			<number tooltip='15.5, 9'>15.5</number>
+			<number>9</number>
+			<number tooltip='16, 8.5'>16</number>
+			<number>8.5</number>
+			<number tooltip='21, 6.5'>21</number>
+			<number>6.5</number>
+		</row>
+		<row>
+			<string>player 2</string>
+			<number shadow='low' tooltip='11, 8'>11</number>
+			<number>8</number>
+			<number tooltip='12, 7.25'>12</number>
+			<number>7.25</number>
+			<number tooltip='13, 7'>13</number>
+			<number>7</number>
+			<number tooltip='14, 7'>14</number>
+			<number>7</number>
+			<number tooltip='15, 7'>15</number>
+			<number>7</number>
+			<number tooltip='16.5, 5'>16.5</number>
+			<number>5</number>
+			<number tooltip='17, 5'>17</number>
+			<number>5</number>
+			<number tooltip='18, 4'>18</number>
+			<number>4</number>
+			<number tooltip='20, 3'>20</number>
+			<number>3</number>
+			<number tooltip='11.5, 7'>11.5</number>
+			<number>7</number>
+			<number tooltip='12.5, 7.5'>12.5</number>
+			<number>7.5</number>
+			<number tooltip='13.5, 6.5'>13.5</number>
+			<number>6.5</number>
+			<number tooltip='14.5, 6.5'>14.5</number>
+			<number>6.5</number>
+			<number tooltip='15, 5.5'>15</number>
+			<number>5.5</number>
+			<number tooltip='15.5, 5.25'>15.5</number>
+			<number>5.25</number>
+			<number tooltip='15.5, 6.5'>15.5</number>
+			<number>6.5</number>
+			<number tooltip='16, 6.15'>16</number>
+			<number>6.15</number>
+			<number tooltip='16, 4.5'>16</number>
+			<number>4.5</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='10' color='000000' thickness='1' />
+	<chart_grid_v alpha='20' color='000000' thickness='2' type='dotted' />
+	<chart_guide radius='6' line_color='ff4400' line_alpha='90' line_thickness='2' />	
+	<chart_pref point_size='7' trend_alpha='20' trend_thickness='2' />
+	<chart_rect x='115' y='75' width='300' height='150' positive_color='000000' positive_alpha='25' corner_tl='0' corner_tr='75' corner_br='0' corner_bl='0' />
+	<chart_type>scatter</chart_type>
+
+	<draw>
+		<rect shadow='shadow1' layer='background' x='0' y='0' width='480' height='300' fill_color='4c5e6f' fill_alpha='100' line_alpha='0' line_thickness='0' />
+		<rect shadow='shadow2' layer='background' x='115' y='75' width='300' height='150' fill_color='000000' fill_alpha='100' line_alpha='0' line_thickness='0' corner_tr='75' />
+		<text shadow='high' color='ffffff' alpha='30' size='35' x='115' y='238' width='400' height='150' h_align='left' v_align='top'>Distance</text>
+		<text shadow='high' color='ffffff' alpha='30' rotation='-90' size='35' x='45' y='228' width='200' height='60' v_align='bottom'>Score</text>
+		<text shadow='low' color='ffffff' alpha='3' rotation='-10' size='100' x='300' y='180'>@</text>
+		<text shadow='low' color='ffffff' alpha='3' rotation='10' size='100' x='35' y='100'>@</text>
+		<text shadow='low' color='ffffff' alpha='3' rotation='45' size='100' x='265' y='-20'>@</text>
+		<text shadow='low' color='ffffff' alpha='3' rotation='-45' size='100' x='50' y='-10'>@</text>
+		<text shadow='low' color='ffffff' alpha='3' rotation='0' size='100' x='390' y='30'>@</text>
+	</draw>
+	<filter>
+		<shadow id='shadow1' inner='true' quality='1' distance='50' angle='135' color='000000' alpha='20' blurX='300' blurY='200' />
+		<shadow id='shadow2' distance='7' angle='70' alpha='35' blurX='12' blurY='8' knockout='true' />
+		<shadow id='low' distance='2' angle='45' alpha='50' blurX='5' blurY='5' />
+		<shadow id='high' distance='5' angle='45' alpha='75' blurX='10' blurY='10' />
+	</filter>
+
+	<legend  shadow='low' x='115' y='30' width='10' height='35' margin='3' fill_color='ffffff' fill_alpha='0' line_color='000000' line_alpha='0' line_thickness='0' layout='vertical' size='12' color='ffffff' alpha='75' />
+	<tooltip color='ff4400' alpha='80' size='12' background_alpha='0' shadow='low' />
+
+	<series_color>
+		<color>88ff00</color>
+		<color>ff8800</color>
+	</series_color>
+	
+</chart>
+
+
+
+
+
+
+
+

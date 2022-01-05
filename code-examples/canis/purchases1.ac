@@ -1,0 +1,59 @@
+{
+    "charts": [
+        {
+            "source": "./charts/purchases.dsvg"
+        }
+    ],
+    "animations": [
+        {
+            "selector": ".axis-domain",
+            "effects": [
+                {
+                    "type": "grow",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "selector": ".axis-tick, .axis-label",
+            "grouping": {
+                "groupBy": "id",
+                "delay": 100
+            },
+            "effects": [
+                {
+                    "type": "fade",
+                    "duration": 600
+                }
+            ]
+        },
+        {
+            "reference": "start after previous",
+            "selector": ".symbol, .text",
+            "grouping": {
+                "groupBy": "year",
+                "reference": "start after previous",
+                "delay": 400
+            },
+            "effects": [
+                {
+                    "type": "fade",
+                    "duration": 200
+                }
+            ]
+        },
+        {
+            "selector": ".link",
+            "grouping": {
+                "groupBy": "id",
+                "reference": "start after previous"
+            },
+            "effects": [
+                {
+                    "type": "grow",
+                    "duration": 600
+                }
+            ]
+        }
+    ]
+}

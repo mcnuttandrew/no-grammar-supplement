@@ -1,0 +1,142 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 100,
+    "height": 100,
+    "padding": 5,
+  
+    "data": [
+      {
+        "name": "data",
+        "values": [
+          {
+            "key": "name",
+            "title": "Name",
+            "value": "Peter"
+          },
+          {
+            "key": "position",
+            "title": "Position",
+            "value": "Software engineer"
+          },
+          {
+            "key": "phone",
+            "title": "Phone number",
+            "value": "123123123"
+          },
+          {
+            "key": "email",
+            "title": "Email",
+            "value": "peter@peter.com"
+          }
+        ]
+      },
+      {
+        "name": "hindex",
+        "values": [
+        ]
+      }
+    ],
+  
+    "ar": {
+      "mode": "ON",
+      "data": [
+        {
+          "name": "hindex",
+          "values": [
+            {
+              "year": 2015,
+              "value": 50
+            },
+            {
+              "year": 2016,
+              "value": 70
+            },{
+              "year": 2017,
+              "value": 100
+            },{
+              "year": 2018,
+              "value": 130
+            },{
+              "year": 2019,
+              "value": 140
+            }
+          ]
+        }
+      ]
+    },
+  
+    "scales": [
+      {
+        "name": "yscale",
+        "type": "point",
+        "domain": {"data": "data", "field": "key"},
+        "range": "height"
+      },{
+        "name": "x",
+        "type": "band",
+        "padding": 0.05,
+        "domain": {"data": "hindex", "field": "year"},
+        "range": [120, 320]
+      }, {
+        "name": "y",
+        "domain": {"data": "hindex", "field": "value"},
+        "range": "height"
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "text",
+        "from": {"data": "data"},
+        "encode": {
+          "enter": {
+            "baseline": {"value": "middle"},
+            "align": {"value": "right"}
+          },
+          "update": {
+            "y": {"scale": "yscale", "field": "key"},
+            "text": {"signal": "datum.title + ':'"}
+          }
+        }
+      }, {
+        "type": "text",
+        "from": {"data": "data"},
+        "encode": {
+          "enter": {
+            "baseline": {"value": "middle"}
+          },
+          "update": {
+            "x": {"value": 5},
+            "y": {"scale": "yscale", "field": "key"},
+            "text": {"field": "value"}
+          }
+        }
+      }, {
+        "type": "rect",
+        "from": {"data": "hindex"},
+        "encode":{
+          "enter": {
+            "x": {"scale": "x", "field": "year"},
+            "width": {"scale": "x", "band": 1},
+            "y": {"scale": "y", "field": "value"},
+            "y2": {"scale": "y", "value": 0}
+          }
+        }
+      }, {
+        "type": "text",
+        "from": {"data": "hindex"},
+        "encode": {
+          "enter": {
+            "baseline": {"value": "bottom"},
+            "align": {"value": "center"},
+            "fill": {"value": "white"}
+          },
+          "update": {
+            "x": {"scale": "x", "field": "year", "band": 0.5},
+            "y": {"value": 100},
+            "text": {"field": "year"}
+          }
+        }
+      }
+    ]
+  }

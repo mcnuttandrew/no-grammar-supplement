@@ -1,0 +1,134 @@
+{
+    "$schema": "http://vegaar.hkustvis.org/schema/vega-ar/v5.json",
+    "width": 500,
+    "height": 200,
+    "padding": 5,
+
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"month": 0, "total": 28, "year":0},
+          {"month": 1, "total": 43, "year":0},
+          {"month": 2, "total": 81, "year":0},
+          {"month": 3, "total": 19, "year":0},
+          {"month": 4, "total": 52, "year":0},
+          {"month": 5, "total": 24, "year":0},
+          {"month": 6, "total": 87, "year":0},
+          {"month": 7, "total": 17, "year":0},
+          {"month": 8, "total": 68, "year":0},
+          {"month": 9, "total": 49, "year":0}
+        ]
+      }
+    ],
+
+    "ar": {
+        "mode": "ON",
+        "data": [{
+          "name": "table",
+          "values": [
+            {"month": 0, "total": 20, "year":1},
+            {"month": 1, "total": 35, "year":1},
+            {"month": 2, "total": 10, "year":1},
+            {"month": 3, "total": 15, "year":1},
+            {"month": 4, "total": 48, "year":1},
+            {"month": 5, "total": 28, "year":1},
+            {"month": 6, "total": 66, "year":1},
+            {"month": 7, "total": 27, "year":1},
+            {"month": 8, "total": 16, "year":1},
+            {"month": 9, "total": 25, "year":1},
+            {"month": 10, "total": 80,  "year": 1},
+            {"month": 11, "total": 120, "year": 1},
+            {"month": 10, "total": 80,  "year": 0},
+            {"month": 11, "total": 43,  "year": 0}
+          ]
+
+        }]
+    },
+
+    "scales": [
+      {
+        "name": "x",
+        "type": "point",
+        "range": "width",
+        "domain": {"data": "table", "field": "month"}
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "range": "height",
+        "nice": true,
+        "zero": true,
+        "domain": {"data": "table", "field": "total"}
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "range": "category",
+        "domain": {"data": "table", "field": "year"}
+      }
+    ],
+
+    "legends": [
+      {
+        "stroke": "color",
+        "orient": "bottom-left",
+        "title": "Year",
+        "direction": "horizontal",
+        "encode": {
+          "symbols": {
+            "name": "legendSymbol",
+            "interactive": false,
+            "update": {
+              "fill": {"value": "transparent"},
+              "strokeWidth": {"value": 2},
+              "size": {"value": 100}
+            }
+          },
+          "labels": {
+            "name": "legendLabel",
+            "interactive": false
+          }
+        }
+      }
+    ],
+
+    "axes": [
+      {"orient": "bottom", "scale": "x"},
+      {"orient": "left", "scale": "y"}
+    ],
+
+    "marks": [
+      {
+        "type": "group",
+        "from": {
+          "facet": {
+            "name": "series",
+            "data": "table",
+            "groupby": "year"
+          }
+        },
+        "marks": [
+          {
+            "type": "line",
+            "from": {"data": "series"},
+            "encode": {
+              "enter": {
+                "stroke": {"scale": "color", "field": "year"},
+                "strokeWidth": {"value": 5}
+              },
+              "update": {
+                "x": {"scale": "x", "field": "month"},
+                "y": {"scale": "y", "field": "total"},
+                "interpolate": {"value": "linear"},
+                "fillOpacity": {"value": 1}
+              },
+              "hover": {
+                "fillOpacity": {"value": 0.5}
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }

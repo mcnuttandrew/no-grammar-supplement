@@ -1,0 +1,71 @@
+{
+  "templateName": "Aggregate Bar Chart",
+  "templateDescription": "An aggregating bar chart that can by sorted.",
+  "disallowFanOut": false,
+  "code": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v4.json\",\n  \"height\": {\"step\": 17},\n  \"data\": {\"name\": \"myData\"},\n  \"transform\": [{\"filter\": \"datum.year == [Year]\"}],\n  \"mark\": {\"type\": \"bar\", \"color\": \"[Color]\"},\n  \"encoding\": {\n    \"y\": {\n      \"field\": \"[yDim]\",\n      \"type\": \"ordinal\",\n      \"sort\": {\"$cond\": {\"query\": \"parameters.Sort  === true\", \"true\": \"-x\"}}\n    },\n    \"x\": {\"aggregate\": \"sum\", \"field\": \"[xDim]\", \"type\": \"quantitative\"}\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "templateLanguage": "vega-lite",
+  "widgets": [
+    {
+      "name": "yDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "DIMENSION"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Sort",
+      "type": "Switch",
+      "config": {
+        "active": "true",
+        "inactive": "false",
+        "defaultsToActive": true
+      }
+    },
+    {
+      "name": "Year",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "2000",
+          "1990",
+          "1980",
+          "1970",
+          "1960",
+          "1950",
+          "1940",
+          "1930",
+          "1920",
+          "1910",
+          "1900",
+          "1890"
+        ]
+      }
+    },
+    {
+      "name": "xDim",
+      "type": "DataTarget",
+      "config": {
+        "allowedTypes": [
+          "MEASURE"
+        ],
+        "required": true
+      }
+    },
+    {
+      "name": "Color",
+      "type": "List",
+      "config": {
+        "allowedValues": [
+          "\"purple\"",
+          "\"steelblue\"",
+          "\"coral\""
+        ]
+      }
+    }
+  ],
+  "templateAuthor": "Aquila-Volans-16",
+  "customCards": []
+}
