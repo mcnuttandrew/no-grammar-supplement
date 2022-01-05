@@ -13,34 +13,40 @@
   //       { name, register },
   //     ])
   //   ) as any as { [name: string]: LangSupport };
-
+  import { getRoute } from "./utils";
   import { Highlight, HighlightAuto } from "svelte-highlight";
 
-  let selectedTab: string | null = null;
-  let selectedFile: string | null = null;
+  let currentSection = getRoute();
+  window.onhashchange = () => {
+    console.log("load");
+    currentSection = getRoute();
+    if (currentSection.file && currentSection.language) {
+      getAndSetCode();
+    }
+  };
+  $: language = currentSection.language;
+  $: file = currentSection.file;
+
   let code: string | null = null;
   let directory: { name: string; files: string[] }[] = [];
   fetch("./directory.json")
     .then((x) => x.json())
     .then((x) => {
-      console.log("??", x);
       directory = x;
     })
     .catch((e) => {
       console.log(e);
     });
-  const getAndSetCode = (file) => {
-    selectedFile = file;
-    fetch(`/build/code-examples/${selectedTab}/${selectedFile}`)
+
+  const getAndSetCode = () =>
+    fetch(`/build/code-examples/${language}/${file}`)
       .then((x) => x.text())
       .then((x) => {
-        console.log("got file", x);
         code = x;
       })
       .catch((e) => {
         console.log(e);
       });
-  };
 </script>
 
 <main class="full-height">
@@ -53,39 +59,40 @@
       </div>
       <div scroll-container>
         {#each directory as { name, files }}
-          <div
+          <a
+            href={`/#/${name}`}
             class="row-item"
-            class:row-item-selected={selectedTab === name}
+            class:row-item-selected={language === name}
             on:click={() => {
-              selectedTab = name;
+              //   selectedTab = name;
             }}
           >
             {name}
-          </div>
+          </a>
         {/each}
       </div>
     </div>
     <div class="flex-down column">
-      {#if selectedTab}
+      {#if language && directory.length}
         <div>
-          <h3>{selectedTab}</h3>
+          <h3>{language}</h3>
           <h5>meta data meta data</h5>
         </div>
         <div class="scroll-container">
-          {#each directory.find((x) => x.name === selectedTab).files as file}
-            <div
+          {#each directory.find((x) => x.name === language).files as fileOption}
+            <a
+              href={`#/${language}/${fileOption}`}
               class="row-item"
-              class:row-item-selected={selectedFile === file}
-              on:click={() => getAndSetCode(file)}
+              class:row-item-selected={file === fileOption}
             >
-              {file}
-            </div>
+              {fileOption}
+            </a>
           {/each}
         </div>
       {/if}
     </div>
     <div class="scroll-container">
-      {#if code && selectedFile}
+      {#if code && file}
         <!-- <Highlight language={langSupport[selectedFile.split(".")[1]]} {code} /> -->
         <HighlightAuto {code} />
       {/if}
@@ -102,7 +109,9 @@
     flex-direction: column;
   }
   .row-item {
-    cursor: pointer;
+    color: black;
+    display: block;
+    /* cursor: pointer; */
   }
   .row-item-selected {
     font-weight: bold;
@@ -118,6 +127,6 @@
     border-right: thin solid black;
     padding-right: 10px;
     padding-left: 10px;
-    width: 340px;
+    width: 340px !important;
   }
 </style>
