@@ -1,24 +1,16 @@
 <script lang="ts">
-  //   import "svelte-highlight/src/styles/github.css";
-  //   import xml from "svelte-highlight/src/languages/xml";
-  //   import json from "svelte-highlight/src/languages/json";
-  //   import js from "svelte-highlight/src/languages/javascript";
-  //   type LangSupport = {
-  //     name?: string;
-  //     register: (hljs: any) => Record<string, any>;
-  //   };
-  //   const langSupport = Object.fromEntries(
-  //     Object.entries({ xml, json, js }).map(([name, register]) => [
-  //       name,
-  //       { name, register },
-  //     ])
-  //   ) as any as { [name: string]: LangSupport };
+  import "svelte-highlight/src/styles/github.css";
+  import xml from "svelte-highlight/src/languages/xml";
+  import json from "svelte-highlight/src/languages/json";
+  import js from "svelte-highlight/src/languages/javascript";
+  import ts from "svelte-highlight/src/languages/typescript";
+  const langSupport = { xml, js, json, ts };
   import { getRoute } from "./utils";
   import { Highlight, HighlightAuto } from "svelte-highlight";
+  import stringify from "json-stringify-pretty-compact";
 
   let currentSection = getRoute();
   window.onhashchange = () => {
-    console.log("load");
     currentSection = getRoute();
     if (currentSection.file && currentSection.language) {
       getAndSetCode();
@@ -28,6 +20,7 @@
   $: file = currentSection.file;
 
   let code: string | null = null;
+  let fileType: string | null = null;
   let directory: { name: string; files: string[] }[] = [];
   fetch("./directory.json")
     .then((x) => x.json())
@@ -42,7 +35,11 @@
     fetch(`/build/code-examples/${language}/${file}`)
       .then((x) => x.text())
       .then((x) => {
+        fileType = file.split(".")[1];
         code = x;
+        if (fileType === "json") {
+          code = stringify(JSON.parse(x));
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -56,6 +53,7 @@
       <div>
         <h3>Select a grammar to begin</h3>
         <h5>blah blah blah</h5>
+        TODO: add sorts
       </div>
       <div scroll-container>
         {#each directory as { name, files }}
@@ -91,10 +89,9 @@
         </div>
       {/if}
     </div>
-    <div class="scroll-container">
+    <div class="scroll-container" id="file-display">
       {#if code && file}
-        <!-- <Highlight language={langSupport[selectedFile.split(".")[1]]} {code} /> -->
-        <HighlightAuto {code} />
+        <Highlight language={langSupport[fileType]} {code} />
       {/if}
     </div>
   </div>
@@ -128,5 +125,8 @@
     padding-right: 10px;
     padding-left: 10px;
     width: 340px !important;
+  }
+  #file-display {
+    width: calc(100% - 340 * 2 px);
   }
 </style>
