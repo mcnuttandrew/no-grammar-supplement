@@ -1,0 +1,48 @@
+{
+    "dataTable": {
+        "columns": [
+            {
+                "name": "Year",
+                "displayName": "Year",
+                "dataType": "String"
+            },
+            {
+                "name": "Sales",
+                "displayName": "Sales",
+                "dataType": "Integer"
+            }
+        ],
+        "values": [
+            [
+                "2014",
+                500000
+            ],
+            [
+                "2013",
+                350000
+            ],
+            [
+                "2011",
+                300000
+            ],
+            [
+                "2012",
+                250000
+            ]
+        ]
+    },
+    "chartInfo": {
+        "chartType": "Column",
+        "roleMapping": {
+            "Category": [
+                "Year"
+            ],
+            "Value": [
+                "Sales"
+            ]
+        },
+        "isShownXAxis": true,
+        "isShownYAxis": true,
+        "isShownLegend": false
+    }
+}
