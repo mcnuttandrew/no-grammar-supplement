@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chartML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/ChartML.xsd">
+<viewArea  width="800" height="550" >
+  <text x="370" y="70" class="title">Sample Column Chart</text>
+  <chartArea>
+    <text x="370" y="580" class="label">X Axis Label</text>
+    <text x="50" y="380" rotate="-90" class="label">Y Axis Label</text>
+    <image src="image/legend2.png" x="650" y="150" width="140" height="100" class="legend"/>
+    <columnChart class="chart" x="130" y="120" width="500" height="400" >
+      <xAxis leftValue="0" rightValue="50">
+        <grid stepValue="5" length="-5" class="grid"   y="-20" numberFormat=".0"></grid>
+      </xAxis>
+      <yAxis topValue="50" bottomValue="-40">
+        <grid stepValue="10" length="500" class="grid" x="-20" y="-5" numberFormat="0"></grid>
+      </yAxis>
+      <dataSet class="col2">
+        <point xValue="0" yValue="20" size="10"/>
+        <point xValue="5" yValue="25" size="10"/>
+        <point xValue="10" yValue="35" size="10"/>
+        <point xValue="15" yValue  ="33" size="10"/>        
+        <point xValue="20" yValue="22" size="10"/>
+        <point xValue="25"  yValue="-10" size="10"/>
+        <point xValue="30" yValue="-15" size="10"/>
+        <point xValue="35" yValue="-13" size="10"/>
+        <point xValue="40" yValue  ="10" size="10"/>        
+        <point xValue="45" yValue="15" size="10"/>
+      </dataSet>
+      <dataSet class="col1" x="7">
+        <point xValue="0" yValue="30" size="10"/>
+        <point xValue="5" yValue="15" size="10"/>
+        <point xValue="10" yValue="49" size="10"/>
+        <point xValue="15" yValue  ="13" size="10"/>        
+        <point xValue="20" yValue="12" size="10"/>
+        <point xValue="25"  yValue="-22" size="10"/>
+        <point xValue="30" yValue="-35" size="10"/>
+        <point xValue="35" yValue="-23" size="10"/>
+        <point xValue="40" yValue  ="13" size="10"/>        
+        <point xValue="45" yValue="17" size="10"/>
+       </dataSet>
+    </columnChart>
+  </chartArea>
+</viewArea>
+</chartML>

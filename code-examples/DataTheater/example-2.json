@@ -1,0 +1,9 @@
+{
+    "type": "ellipse",
+    "x": "disk[0]",
+    "y": "disk[1]",
+    "rx": "r",
+    "ry": "r",
+    "text": "\"--------------\"",
+    "rotate": "-rotation"
+}

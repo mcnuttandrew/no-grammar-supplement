@@ -1,0 +1,11 @@
+{
+    "dice": {
+        "type": "collection",
+        "glyph": "rect",
+        "x": "avgs[i] * 100",
+        "y": "i * 50",
+        "width": 50,
+        "height": 50,
+        "text": "avgs[i]"
+    }
+}
