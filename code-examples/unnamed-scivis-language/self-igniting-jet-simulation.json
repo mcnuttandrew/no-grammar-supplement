@@ -1,0 +1,19 @@
+"blend": [
+    {
+        "id": "domain_boundary",
+        "field": "mixture_fraction",
+        "color": "white",
+        "isosurface": 0.045,
+        "lighting": {}
+    },
+    {
+        "id": "cool_flame",
+        "field": "ketohydroperoxide_mf",
+        "lighting": {}
+    },
+    {
+        "id": "hot_flame",
+        "field": "temperature_distance"
+    }
+]
+}

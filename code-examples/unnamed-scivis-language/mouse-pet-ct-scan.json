@@ -1,0 +1,31 @@
+{
+    "blend": [
+        {
+            "id": "ct",
+            "field": "mouse_ct",
+            "color": [
+                "white",
+                "black"
+            ],
+            "opacity": [
+                0,
+                0.003,
+                0.5,
+                1
+            ],
+            "clipping": {},
+            "lighting": {
+                "shadow": true
+            },
+            "filter": {
+                "sphere": {}
+            }
+        },
+        {
+            "id": "pet",
+            "field": "mouse_pet",
+            "color": "rainbow",
+            "transform": {}
+        }
+    ]
+}

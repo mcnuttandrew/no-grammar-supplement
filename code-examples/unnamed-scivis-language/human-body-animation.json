@@ -1,0 +1,96 @@
+{
+    "blend": [
+        {
+            "id": "left_half",
+            "field": "visible_male",
+            "lighting": {},
+            "clipping": [
+                {
+                    "animate": {
+                        "times": [
+                            8,
+                            12
+                        ],
+                        "values": [
+                            [
+                                78,
+                                0,
+                                1125
+                            ],
+                            [
+                                78,
+                                250,
+                                1125
+                            ]
+                        ]
+                    }
+                },
+                [
+                    256,
+                    391,
+                    1876
+                ]
+            ]
+        },
+        {
+            "id": "right_half",
+            "field": "visible_male",
+            "lighting": {},
+            "clipping": {},
+            "transform": {
+                "rotate": {
+                    "animate": {
+                        "times": [
+                            0,
+                            4,
+                            8
+                        ],
+                        "values": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                45
+                            ],
+                            [
+                                0,
+                                0,
+                                90
+                            ]
+                        ]
+                    }
+                },
+                "translate": {
+                    "animate": {
+                        "times": [
+                            0,
+                            4,
+                            8
+                        ],
+                        "values": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                94,
+                                40,
+                                0
+                            ],
+                            [
+                                134,
+                                135,
+                                0
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

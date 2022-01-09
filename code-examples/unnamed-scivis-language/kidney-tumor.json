@@ -1,0 +1,37 @@
+{
+    "field": "kidney",
+    "blend": [
+        {
+            "id": "outline",
+            "isosurface": -750
+        },
+        {
+            "id": "bone",
+            "style": "ToonGray",
+            "filter": {
+                "field": "seg_bone"
+            }
+        },
+        {
+            "id": "vessel",
+            "style": "ToonPink",
+            "filter": {
+                "field": "seg_vessel"
+            }
+        },
+        {
+            "id": "kidney",
+            "filter": {
+                "field": "seg_kidney"
+            },
+            "lighting": {}
+        },
+        {
+            "id": "tumor",
+            "filter": {
+                "field": "seg_tumor"
+            },
+            "lighting": {}
+        }
+    ]
+}

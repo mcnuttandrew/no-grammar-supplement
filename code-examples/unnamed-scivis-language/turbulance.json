@@ -1,0 +1,35 @@
+{
+    "defs": {
+        "qcr15": {
+            "boxFilter": {
+                "field": "qcriterion",
+                "size": 15
+            }
+        },
+        "qcr49": {
+            "boxFilter": {
+                "field": "qcriterion",
+                "size": 49
+            }
+        }
+    },
+    "blend": [
+        {
+            "id": "small",
+            "field": "qcriterion",
+            "lighting": {},
+            "filter": "(qcr49>20.0?1.0:0.0)"
+        },
+        {
+            "id": "medium",
+            "field": "qcr15",
+            "lighting": {},
+            "filter": "(qcr49>20.0?1.0:0.0)"
+        },
+        {
+            "id": "coarse",
+            "field": "qcr49",
+            "lighting": {}
+        }
+    ]
+}
