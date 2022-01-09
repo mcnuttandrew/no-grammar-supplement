@@ -1,0 +1,47 @@
+{
+    "volume": {
+        "loadPath": "../data/stagbeetle832x832x494.dat",
+        "colorRange": [
+            0,
+            1
+        ],
+        "renderStyle": "iso",
+        "threshold": 0.2,
+        "texture": "color"
+    },
+    "texturePaths": {
+        "color": "../data/cm_viridis.png",
+        "gray": "../data/cm_gray.png"
+    },
+    "camera": {
+        "position": [
+            14,
+            54,
+            -20
+        ],
+        "rotation": [
+            -110,
+            13,
+            147
+        ],
+        "zoom": 4
+    },
+    "scene": {
+        "grid": true,
+        "backgroundColor": [
+            0.1,
+            0.1,
+            0.1
+        ]
+    },
+    "pipeline": [
+        "scene",
+        "volume-loader",
+        "texture",
+        "orthographic-camera",
+        "volume",
+        "render",
+        "orbit-controls",
+        "source"
+    ]
+}

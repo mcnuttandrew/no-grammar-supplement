@@ -1,0 +1,58 @@
+{
+    "elementID": "#chart-composite-1",
+    "options": {
+        "title": "Fireball/Bolide Events - Yearly (reported)",
+        "data": {
+            "labels": [
+                "2007",
+                "2008",
+                "2009",
+                "2010",
+                "2011",
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+                "2017",
+            ],
+            "yMarkers": [
+                {
+                    "label": "Average 100 reports/month",
+                    "value": 1200,
+                    "options": {
+                        "labelPos": "left"
+                    }
+                }
+            ],
+            "datasets": [
+                {
+                    "name": "Events",
+                    "values": [
+                        152,
+                        222,
+                        199,
+                        287,
+                        534,
+                        709,
+                        1179,
+                        1256,
+                        1632,
+                        1856,
+                        1850,
+                    ],
+                }
+            ]
+        },
+        "type": "line",
+        "height": 190,
+        "colors": [
+            "green"
+        ],
+        "isNavigable": 1,
+        "valuesOverPoints": 1,
+        "lineOptions": {
+            "dotSize": 8
+        }
+    }
+}

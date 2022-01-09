@@ -1,200 +1,200 @@
 {
     "classes": [
-     {
-      "class": "countries",
-      "elements": [
-       ".france",
-       ".germany",
-       ".uk"
-      ]
-     },
-     {
-      "class": "hand",
-      "elements": [
-       ".handRight"
-      ]
-     },
-     {
-      "class": "countries-alliance-1",
-      "elements": [
-       ".france",
-       ".germany"
-      ]
-     },
-     {
-      "class": "countries-alliance-2",
-      "elements": [
-       ".uk",
-       ".russia"
-      ]
-     }
+        {
+            "class": "countries",
+            "elements": [
+                ".france",
+                ".germany",
+                ".uk"
+            ]
+        },
+        {
+            "class": "hand",
+            "elements": [
+                ".handRight"
+            ]
+        },
+        {
+            "class": "countries-alliance-1",
+            "elements": [
+                ".france",
+                ".germany"
+            ]
+        },
+        {
+            "class": "countries-alliance-2",
+            "elements": [
+                ".uk",
+                ".russia"
+            ]
+        }
     ],
     "layouts": {
-     "arrangment": [
-      [
-       0,
-       1,
-       2
-      ],
-      [
-       3,
-       4,
-       [
-        5,
-        6
-       ]
-      ]
-     ]
+        "arrangment": [
+            [
+                0,
+                1,
+                2
+            ],
+            [
+                3,
+                4,
+                [
+                    5,
+                    6
+                ]
+            ]
+        ]
     },
     "variables": [
-     {
-      "name": "movementSpeed",
-      "value": 0
-     },
-     {
-      "name": "movementVelocity",
-      "value": 0
-     },
-     {
-      "name": "totalMovement",
-      "value": 0,
-      "what": [
-       "(",
-       "movementSpeed",
-       "+",
-       "movementVelocity",
-       ")",
-       "*10"
-      ]
-     }
+        {
+            "name": "movementSpeed",
+            "value": 0
+        },
+        {
+            "name": "movementVelocity",
+            "value": 0
+        },
+        {
+            "name": "totalMovement",
+            "value": 0,
+            "what": [
+                "(",
+                "movementSpeed",
+                "+",
+                "movementVelocity",
+                ")",
+                "*10"
+            ]
+        }
     ],
     "panels": [
-     {
-      "id": 0,
-      "url": "/CO2Footprint/inputPanel.svg"
-     },
-     {
-      "id": 1,
-      "url": "Slider.svg",
-      "sliders": [
-       {
-        "id": "slider_movementSpeed",
-        "variable": "movementSpeed"
-       },
-       {
-        "id": "slider_movementVelocity",
-        "variable": "movementVelocity"
-       }
-      ]
-     },
-     {
-      "id": 2,
-      "url": "handR.svg"
-     },
-     {
-      "id": 3,
-      "url": "handL.svg"
-     },
-     {
-      "id": 4,
-      "url": "handL.svg"
-     },
-     {
-      "id": 5,
-      "url": "handL.svg"
-     },
-     {
-      "id": 6,
-      "url": "handL.svg"
-     },
-     {
-      "id": 7,
-      "url": "small.svg"
-     },
-     {
-      "id": 8,
-      "url": "small.svg"
-     },
-     {
-      "id": 9,
-      "url": "handL.svg"
-     },
-     {
-      "id": 10,
-      "url": "handL.svg"
-     },
-     {
-      "id": 11,
-      "url": "small.svg"
-     },
-     {
-      "id": 12,
-      "url": "small.svg"
-     },
-     {
-      "id": 13,
-      "url": "small.svg"
-     },
-     {
-      "id": 14,
-      "url": "small.svg"
-     },
-     {
-      "id": 15,
-      "url": "small.svg"
-     }
+        {
+            "id": 0,
+            "url": "/CO2Footprint/inputPanel.svg"
+        },
+        {
+            "id": 1,
+            "url": "Slider.svg",
+            "sliders": [
+                {
+                    "id": "slider_movementSpeed",
+                    "variable": "movementSpeed"
+                },
+                {
+                    "id": "slider_movementVelocity",
+                    "variable": "movementVelocity"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "url": "handR.svg"
+        },
+        {
+            "id": 3,
+            "url": "handL.svg"
+        },
+        {
+            "id": 4,
+            "url": "handL.svg"
+        },
+        {
+            "id": 5,
+            "url": "handL.svg"
+        },
+        {
+            "id": 6,
+            "url": "handL.svg"
+        },
+        {
+            "id": 7,
+            "url": "small.svg"
+        },
+        {
+            "id": 8,
+            "url": "small.svg"
+        },
+        {
+            "id": 9,
+            "url": "handL.svg"
+        },
+        {
+            "id": 10,
+            "url": "handL.svg"
+        },
+        {
+            "id": 11,
+            "url": "small.svg"
+        },
+        {
+            "id": 12,
+            "url": "small.svg"
+        },
+        {
+            "id": 13,
+            "url": "small.svg"
+        },
+        {
+            "id": 14,
+            "url": "small.svg"
+        },
+        {
+            "id": 15,
+            "url": "small.svg"
+        }
     ],
     "operations": [
-     {
-      "trigger": "click",
-      "element": "panel_0",
-      "operation": "append",
-      "after": "panel_3",
-      "newpanels": [
-       [
-        "panel_11",
-        "panel_12"
-       ],
-       [
-        "panel_13",
-        "panel_14"
-       ]
-      ],
-      "flexwrap": true
-     },
-     {
-      "trigger": "click",
-      "element": "panel_4",
-      "operation": "replace",
-      "after": "panel_4",
-      "newpanels": [
-       "panel_12",
-       "panel_15"
-      ],
-      "flexwrap": false
-     },
-     {
-      "trigger": "mouseover",
-      "element": "hand",
-      "operation": "highlight",
-      "after": {
-       "style": {
-        "fill": "red",
-        "transform": "scale(1.5)"
-       },
-       "attr": []
-      },
-      "what": "handNew"
-     },
-     {
-      "type": "isotype",
-      "variable": "totalMovement",
-      "to": "isotypePlaceHolder",
-      "icon": "images/fog.png",
-      "attr": {
-       "widthIcon": 30,
-       "widthContainer": 200
-      }
-     }
+        {
+            "trigger": "click",
+            "element": "panel_0",
+            "operation": "append",
+            "after": "panel_3",
+            "newpanels": [
+                [
+                    "panel_11",
+                    "panel_12"
+                ],
+                [
+                    "panel_13",
+                    "panel_14"
+                ]
+            ],
+            "flexwrap": true
+        },
+        {
+            "trigger": "click",
+            "element": "panel_4",
+            "operation": "replace",
+            "after": "panel_4",
+            "newpanels": [
+                "panel_12",
+                "panel_15"
+            ],
+            "flexwrap": false
+        },
+        {
+            "trigger": "mouseover",
+            "element": "hand",
+            "operation": "highlight",
+            "after": {
+                "style": {
+                    "fill": "red",
+                    "transform": "scale(1.5)"
+                },
+                "attr": []
+            },
+            "what": "handNew"
+        },
+        {
+            "type": "isotype",
+            "variable": "totalMovement",
+            "to": "isotypePlaceHolder",
+            "icon": "images/fog.png",
+            "attr": {
+                "widthIcon": 30,
+                "widthContainer": 200
+            }
+        }
     ]
-   }
+}

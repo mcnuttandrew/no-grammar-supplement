@@ -1,0 +1,21 @@
+titanic:
+  - data:
+    type: file
+    path: /data/titantic.csv
+  - add_column_by_example:
+    from_colum: Name
+    name: Title
+    examples:
+      - N?Q?LA Y?RID, Miss.Jamilah -> Miss
+      - HEWLETT, Mrs Mary Dunbar -> Mrs
+  - plot: Title
+  - sample:
+    strategy: random
+    fraction: 0.85
+  - model:
+    type: decision_tree
+    target: Survived
+    features:
+      - Age
+      - Gender
+      - Title

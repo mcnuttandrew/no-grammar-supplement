@@ -9,10 +9,10 @@
     "Layout": {
         "X": {
             "Root": {
-                "Relation": "include",
+                "Relation": "include"
             },
             "Subtree": {
-                "Relation": "flatten",
+                "Relation": "flatten"
             }
         },
         "Y": {

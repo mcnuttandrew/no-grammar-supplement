@@ -1,4 +1,4 @@
-import { getFileNamesFromDir } from "hoopoe";
+import { getFileNamesFromDir, executeCommandLineCmd } from "hoopoe";
 import { writeFile } from "fs";
 
 async function main() {

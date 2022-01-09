@@ -1,0 +1,97 @@
+{
+    "vega": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        "data": {
+            "url": "../data/movies.json"
+        },
+        "width": 400,
+        "height": 100,
+        "encoding": {
+            "x": {
+                "field": "value",
+                "title": "IMDB Rating",
+                "type": "quantitative"
+            },
+            "y": {
+                "field": "density",
+                "type": "quantitative"
+            }
+        },
+        "transform": [
+            {
+                "density": "IMDB Rating",
+                "bandwidth": 0.1
+            }
+        ],
+        "layer": [
+            {
+                "selection": {
+                    "brush": {
+                        "type": "interval",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
+                },
+                "mark": "area"
+            },
+            {
+                "transform": [
+                    {
+                        "filter": {
+                            "selection": "brush"
+                        }
+                    }
+                ],
+                "mark": {
+                    "type": "area",
+                    "color": "goldenrod"
+                }
+            }
+        ]
+    },
+    "pointcloud": {
+        "data": "m.vega.data.url",
+        "position": {
+            "x": "normalize('US Gross')",
+            "y": "normalize('IMDB Rating')",
+            "z": "normalize('Production Budget')"
+        },
+        "color": {
+            "r": "brushed('IMDB Rating') ?1:0",
+            "g": "brushed('IMDB Rating') ?1:0.5",
+            "b": "normalize('IMDB Rating')"
+        },
+        "size": 2,
+        "highlight": {
+            "color": {
+                "r": 1,
+                "g": 0,
+                "b": 0
+            },
+            "size": 4
+        }
+    },
+    "camera": {
+        "position": [
+            -126,
+            154,
+            -44
+        ],
+        "rotation": [
+            -111,
+            -43,
+            -119
+        ]
+    },
+    "pipeline": [
+        "scene",
+        "perspective-camera",
+        "pointcloud",
+        "render",
+        "vega",
+        "raycaster",
+        "orbit-controls",
+        "source"
+    ]
+}

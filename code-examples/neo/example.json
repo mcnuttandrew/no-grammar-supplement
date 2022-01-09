@@ -1,0 +1,23 @@
+{
+    "normalization": "total",
+    "encoding": "color",
+    "collapsed": [
+        "fruit:apple"
+    ],
+    "measures": [
+        "accuracy",
+        "precision",
+        "recall"
+    ],
+    "classes": [
+        "fruit"
+    ],
+    "filter": [
+        "fruit:tropical"
+    ],
+    "where": {
+        "qualifier": "actual",
+        "label": "citrus",
+        "is": "citrus:orange"
+    }
+}

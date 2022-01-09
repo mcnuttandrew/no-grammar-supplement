@@ -1,0 +1,35 @@
+{
+    "camera": {"rotation": [-20, 0, 0], "position": [0, 10, 20]},
+    "sphere": {
+        "radius": 2.5,
+        "color": [0, 1, 0],
+        "position": [0, 2.5, 0],
+        "onHover": {"color": [1, 0, 0]}
+    },
+    "events": {
+        "CLICK[m.sphere.radius < 10]": "{ sphere: { radius: m.sphere.radius + 1 }}",
+        "CLICK[p.shiftKey]": {
+            "sphere": {
+                "radius": 2.5,
+                "color": {"r": 0, "g": 1, "b": 0}
+            }
+        },
+        "KEY_DOWN[p.key == '1']": "{ sphere: { color: { r: 1, g: 1, b: 0 }}}",
+        "KEY_DOWN[p.key == '2']": "{ sphere: { color: { r: 0, g: 1, b: 1 }}}",
+        "KEY_DOWN[p.key == '3']": "{ sphere: { color: { r: 1, g: 0, b: 1 }}}",
+        "KEY_DOWN[p.key == 'q']": "{ sphere: { color: { r: 1 - m.sphere.color.r }}}",
+        "KEY_DOWN[p.key == 'w']": "{ sphere: { color: { g: 1 - m.sphere.color.g }}}",
+        "KEY_DOWN[p.key == 'e']": "{ sphere: { color: { b: 1 - m.sphere.color.b }}}"
+    },
+    "pipeline": [
+        "scene",
+        "perspective-camera",
+        "sphere",
+        "render",
+        "raycaster",
+        "orbit-controls",
+        "key-listener",
+        "argumented-events",
+        "source"
+    ]
+}

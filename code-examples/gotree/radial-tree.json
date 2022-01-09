@@ -12,7 +12,7 @@
                 "Alignment": "middle"
             },
             "Subtree": {
-                "Relation": "flatten",
+                "Relation": "flatten"
             }
         },
         "Y": {

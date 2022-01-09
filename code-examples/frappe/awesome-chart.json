@@ -1,0 +1,92 @@
+{
+    "title": "My Awesome Chart",
+    "data": {
+        "labels": [
+            "12am-3am",
+            "3am-6am",
+            "6am-9am",
+            "9am-12pm",
+            "12pm-3pm",
+            "3pm-6pm",
+            "6pm-9pm",
+            "9pm-12am",
+        ],
+        "yMarkers": [
+            {
+                "label": "Marker",
+                "value": 43,
+                "options": {
+                    "labelPos": "left"
+                }
+            }
+        ],
+        "yRegions": [
+            {
+                "label": "Region",
+                "start": -10,
+                "end": 50,
+                "options": {
+                    "labelPos": "right"
+                }
+            }
+        ],
+        "datasets": [
+            {
+                "name": "Some Data",
+                "values": [
+                    18,
+                    40,
+                    30,
+                    35,
+                    8,
+                    52,
+                    17,
+                    -4
+                ],
+                "axisPosition": "right",
+                "chartType": "bar"
+            },
+            {
+                "name": "Another Set",
+                "values": [
+                    30,
+                    50,
+                    -10,
+                    15,
+                    18,
+                    32,
+                    27,
+                    14
+                ],
+                "axisPosition": "right",
+                "chartType": "bar"
+            },
+            {
+                "name": "Yet Another",
+                "values": [
+                    15,
+                    20,
+                    -3,
+                    -15,
+                    58,
+                    12,
+                    -17,
+                    37
+                ],
+                "chartType": "line"
+            }
+        ]
+    },
+    "type": "axis-mixed",
+    "height": 300,
+    "colors": [
+        "purple",
+        "magenta",
+        "light-blue"
+    ],
+    "maxSlices": 10,
+    "tooltipOptions": {
+        "formatTooltipX": "d => (d + '').toUpperCase()",
+        "formatTooltipY": "d => d + ' pts'"
+    }
+}

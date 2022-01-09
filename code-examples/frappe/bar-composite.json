@@ -1,0 +1,89 @@
+{
+    "elementID": "#chart-composite-2",
+    "options": {
+        "data": {
+            "labels": [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec"
+            ],
+            "datasets": [
+                {
+                    "name": "Over 25 reports",
+                    "values": [
+                        5,
+                        13,
+                        11,
+                        6,
+                        1,
+                        7,
+                        9,
+                        8,
+                        14,
+                        17,
+                        16,
+                        3
+                    ]
+                },
+                {
+                    "name": "5 to 25 reports",
+                    "values": [
+                        32,
+                        24,
+                        21,
+                        27,
+                        11,
+                        27,
+                        43,
+                        37,
+                        44,
+                        40,
+                        48,
+                        32
+                    ]
+                },
+                {
+                    "name": "2 to 5 reports",
+                    "values": [
+                        106,
+                        95,
+                        94,
+                        71,
+                        77,
+                        75,
+                        99,
+                        136,
+                        129,
+                        154,
+                        168,
+                        156
+                    ]
+                }
+            ]
+        },
+        "type": "bar",
+        "height": 210,
+        "colors": [
+            "violet",
+            "light-blue",
+            "#46a9f9"
+        ],
+        "valuesOverPoints": 1,
+        "axisOptions": {
+            "xAxisMode": "tick",
+            "shortenYAxisNumbers": true
+        },
+        "barOptions": {
+            "stacked": 1
+        }
+    }
+}

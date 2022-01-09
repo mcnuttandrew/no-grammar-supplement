@@ -1,0 +1,12 @@
+spotify:
+  - data:
+    type: file
+    path: /data/spotify.csv
+  - sample:
+    strategy: random
+    size: 1000
+  - plot:
+    type: scatter_plot
+    x: energy
+    y: tempo
+    color: playlist_genre

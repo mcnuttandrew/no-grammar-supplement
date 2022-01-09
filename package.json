@@ -7,7 +7,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "build-dir": "ts-node scripts/generate-directory.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
