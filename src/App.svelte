@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "svelte-highlight/src/styles/github.css";
   import xml from "svelte-highlight/src/languages/xml";
   import json from "svelte-highlight/src/languages/json";
@@ -10,12 +11,14 @@
   import stringify from "json-stringify-pretty-compact";
 
   let currentSection = getRoute();
-  window.onhashchange = () => {
+  const updatePage = () => {
     currentSection = getRoute();
     if (currentSection.file && currentSection.language) {
       getAndSetCode();
     }
   };
+  window.onhashchange = updatePage;
+
   $: language = currentSection.language;
   $: file = currentSection.file;
 
@@ -31,7 +34,7 @@
       console.log(e);
     });
 
-  const getAndSetCode = () =>
+  const getAndSetCode = () => {
     fetch(`/code-examples/${language}/${file}`)
       .then((x) => x.text())
       .then((x) => {
@@ -44,10 +47,12 @@
       .catch((e) => {
         console.log(e);
       });
+  };
+  onMount(() => updatePage());
 </script>
 
 <main class="full-height">
-  <div>Header info wow its great</div>
+  <div id="header">Header info wow its great</div>
   <div class="flex full-height">
     <div class="flex-down column">
       <div>
@@ -98,6 +103,14 @@
 </main>
 
 <style>
+  #header {
+    background: black;
+    color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+  }
   .flex {
     display: flex;
   }
