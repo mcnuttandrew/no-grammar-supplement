@@ -32,7 +32,7 @@
     });
 
   const getAndSetCode = () =>
-    fetch(`/build/code-examples/${language}/${file}`)
+    fetch(`/code-examples/${language}/${file}`)
       .then((x) => x.text())
       .then((x) => {
         fileType = file.split(".")[1];
