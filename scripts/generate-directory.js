@@ -21,7 +21,7 @@ async function main() {
       console.log("written");
     }
   });
-  executeCommandLineCmd("cp -rf ../code-examples/ public/build/code-examples");
+  // executeCommandLineCmd("cp -rf ../code-examples/ public/build/code-examples");
 }
 
 main();
