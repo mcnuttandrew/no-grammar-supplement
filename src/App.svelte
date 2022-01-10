@@ -16,8 +16,8 @@
       getAndSetCode();
     }
   };
-  $: language = currentSection.language;
-  $: file = currentSection.file;
+  let language = currentSection.language;
+  let file = currentSection.file;
 
   let code: string | null = null;
   let fileType: string | null = null;
