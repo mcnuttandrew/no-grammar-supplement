@@ -1,0 +1,28 @@
+{
+    "params": {
+        "background": "#bde1f0",
+        "margin": 10
+    },
+    "layers": [
+        {
+            "type": "layer",
+            "geojson": "AUS_ports",
+            "fill": "#1f0754",
+            "stroke": "#1f0754",
+            "strokewidth": 2
+        },
+        {
+            "type": "layer",
+            "geojson": "AUS_ports",
+            "stroke": "#bf4783",
+            "strokewidth": 1.2
+        },
+        {
+            "type": "layer",
+            "geojson": "AUS",
+            "fill": "#f7da48",
+            "stroke": "#6eb5e0",
+            "strokewidth": 1.5
+        }
+    ]
+}

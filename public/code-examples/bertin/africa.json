@@ -1,0 +1,59 @@
+{
+    "params": {
+        "extent": "africa",
+        "margin": 30,
+        "background": "#bde1f0"
+    },
+    "layers": [
+        {
+            "type": "header",
+            "text": "A Map of the African Continent",
+            "background": "#de4960",
+            "fill": "white",
+            "fontsize": 40,
+            "anchor": "start"
+        },
+        {
+            "type": "footer",
+            "text": "Nicolas Lambert,\n            2022Made with Bertin.js"
+        },
+        {
+            "type": "layer",
+            "geojson": "africa",
+            "fill": "#de4960",
+            "leg_x": 180,
+            "leg_y": 550,
+            "leg_w": 45,
+            "leg_h": 30,
+            "leg_title": "Location\nof the countries",
+            "leg_fontsize": 20,
+            "leg_fontsize2": 14,
+            "leg_text": "African countries",
+            "tooltip": [
+                "ISO3",
+                "NAMEen",
+                ""
+            ]
+        },
+        {
+            "type": "shadow",
+            "geojson": "africa",
+            "dx": 5,
+            "dy": 5
+        },
+        {
+            "type": "layer",
+            "geojson": "world",
+            "fill": "#e0d0b6",
+            "leg_x": 180,
+            "leg_y": 650,
+            "leg_w": 45,
+            "leg_h": 30,
+            "leg_fontsize2": 14,
+            "leg_text": "Other"
+        },
+        {
+            "type": "scalebar"
+        }
+    ]
+}

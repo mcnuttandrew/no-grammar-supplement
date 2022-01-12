@@ -1,0 +1,18 @@
+const chart = Highcharts.chart('container', {
+    chart: {
+        type: 'pie'
+    },
+    series: [{
+        data: [29.9, 71.5, 106.4],
+        dataLabels: {
+            format: '{point.y}'
+        }
+    }]
+});
+
+// button handler
+let y = 30;
+document.getElementById('button').addEventListener('click', () => {
+    y += 10;
+    chart.series[0].data[0].update(y);
+});

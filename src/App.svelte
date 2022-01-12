@@ -35,6 +35,10 @@
     });
 
   const getAndSetCode = () => {
+    if (!(language && file)) {
+      // dont try to
+      return;
+    }
     fetch(`/code-examples/${language}/${file}`)
       .then((x) => x.text())
       .then((x) => {
@@ -140,6 +144,6 @@
     width: 340px !important;
   }
   #file-display {
-    width: calc(100% - 340 * 2 px);
+    width: calc(100% - 340px);
   }
 </style>

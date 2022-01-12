@@ -1,0 +1,29 @@
+{
+    "params": {
+        "background": "#bde1f0",
+        "margin": "margin"
+    },
+    "layers": [
+        {
+            "type": "layer",
+            "geojson": "country1",
+            "fill": "#3B556D",
+            "stroke": "#bde1f0",
+            "strokewidth": 3
+        },
+        {
+            "type": "layer",
+            "geojson": "country2",
+            "fill": "#3B556D",
+            "stroke": "#bde1f0",
+            "strokewidth": 3
+        },
+        {
+            "type": "layer",
+            "geojson": "country3",
+            "fill": "#3B556D",
+            "stroke": "#bde1f0",
+            "strokewidth": 3
+        }
+    ]
+}

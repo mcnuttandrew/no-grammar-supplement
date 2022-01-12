@@ -2,13 +2,13 @@ import { getFileNamesFromDir, executeCommandLineCmd } from "hoopoe";
 import { writeFile } from "fs";
 
 async function main() {
-  const dirNames = await getFileNamesFromDir("code-examples").then((x) =>
+  const dirNames = await getFileNamesFromDir("public/code-examples").then((x) =>
     x.filter((el) => !el.includes("."))
   );
   const fileDirMap = {};
   for (let idx = 0; idx < dirNames.length; idx++) {
     const dirName = dirNames[idx];
-    const files = await getFileNamesFromDir(`code-examples/${dirName}`);
+    const files = await getFileNamesFromDir(`public/code-examples/${dirName}`);
     fileDirMap[dirName] = files;
   }
   const directory = Object.entries(fileDirMap).map(([name, files]) => {

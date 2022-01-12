@@ -1,0 +1,1668 @@
+[
+    {
+        "type": "usa",
+        "renderAt": "chart-container-map",
+        "dataFormat": "json",
+        "dataSource": {
+            "chart": {
+                "showCanvasBorder": "0",
+                "showBorder": "1",
+                "borderColor": "#FFFFFF",
+                "showtooltip": "1",
+                "showentityhovereffect": "0",
+                "entityFillHoverColor": "#7e83c2",
+                "fillColor": "#7e83c2",
+                "baseFontColor": "#FFFFFF",
+                "toolTipBgColor": "#FFFFFF",
+                "toolTipColor": "#5A6169",
+                "showToolTipShadow": "0",
+                "showShadow": "0",
+                "tooltipPadding": "10",
+                "baseFontsize": "12",
+                "showLabels": "0",
+                "showHoverEffect": "1"
+            },
+            "data": [
+                {
+                    "id": "WA",
+                    "name": "Washington",
+                    "tooltext": "<span class='tooltip-value'>Washington</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "showLabel": "1",
+                    "link": "javascript:void(0)",
+                    "color": "#5e64b3",
+                    "showtooltip": "1",
+                    "useHoverColor": "1"
+                },
+                {
+                    "id": "OR",
+                    "name": "Oregon",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>Oregon</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "CO",
+                    "name": "Colorado",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>Colorado</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "NM",
+                    "name": "New Mexico",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>New Mexico</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "OH",
+                    "name": "Ohio",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>Ohio</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "PA",
+                    "name": "Pennsylvania",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>Pennsylvania</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "VA",
+                    "name": "Virginia",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>Virginia</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                },
+                {
+                    "id": "SC",
+                    "name": "South Carolina",
+                    "showLabel": "1",
+                    "showtooltip": "1",
+                    "useHoverColor": "1",
+                    "link": "javascript:void(0)",
+                    "tooltext": "<span class='tooltip-value'>South Carolina</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                    "color": "#5e64b3"
+                }
+            ],
+            "markers": {
+                "items": [
+                    {
+                        "id": "Washington",
+                        "x": "78.23",
+                        "y": "43.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Washington</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "Oregon",
+                        "x": "83.23",
+                        "y": "100.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Oregon</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "Colorado",
+                        "x": "267.23",
+                        "y": "185.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Colorado</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "New Mexico",
+                        "x": "263.23",
+                        "y": "260.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>New Mexico</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "Ohio",
+                        "x": "550.23",
+                        "y": "166.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Ohio</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "Pennsylvania",
+                        "x": "612.23",
+                        "y": "155.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Pennsylvania</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "Virginia",
+                        "x": "600.23",
+                        "y": "207.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>Virginia</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    },
+                    {
+                        "id": "South Carolina",
+                        "x": "571.23",
+                        "y": "270.9",
+                        "shapeid": "loss",
+                        "showToolTip": "1",
+                        "tooltext": "<span class='tooltip-value'>South Carolina</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.63M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.59M</span>",
+                        "link": "JavaScript:void(0)"
+                    }
+                ],
+                "shapes": [
+                    {
+                        "id": "profit",
+                        "type": "image",
+                        "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/green_arrow_up.svg"
+                    },
+                    {
+                        "id": "loss",
+                        "type": "image",
+                        "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg"
+                    },
+                    {
+                        "id": "nochange",
+                        "type": "image",
+                        "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/yellow_arrow_right.png"
+                    }
+                ]
+            }
+        },
+        "events": {},
+        "asyncRender": 1
+    },
+    {
+        "type": "scrollcombidy2d",
+        "renderAt": "chart-container-top-adv",
+        "dataFormat": "json",
+        "dataSource": {
+            "chart": {
+                "caption": "",
+                "subCaption": "",
+                "xAxisName": "",
+                "yAxisName": "",
+                "outCnvBaseFont": "Verdana",
+                "animation": "1",
+                "showValues": "0",
+                "numberPrefix": "$",
+                "numberSuffix": "",
+                "formatnumberscale": "1",
+                "flatScrollBars": "1",
+                "showToolTipShadow": "0",
+                "showShadow": "0",
+                "anchorHoverEffect": "0",
+                "anchorHoverAnimation": "0",
+                "showDivLineSecondaryValue": "0",
+                "showSecondaryLimits": "0",
+                "showcanvasborder": "0",
+                "showBorder": "0",
+                "bgAlpha": "0",
+                "alternateHGridAlpha": "0",
+                "alternateVGridAlpha": "0",
+                "baseFontSize": "12",
+                "rotateLabels": "1",
+                "xAxisNameFontColor": "#999999",
+                "xAxisNameFontBold": "0",
+                "xAxisNameFontSize": "13",
+                "yAxisNameFontColor": "#999999",
+                "yAxisNameFontBold": "0",
+                "yAxisNameFontSize": "13",
+                "usePlotGradientColor": "0",
+                "flatscrollbars": "0",
+                "scrollColor": "#FFFFFF",
+                "divlineAlpha": "15",
+                "xAxisNamePadding": "10",
+                "canvasPadding": "10",
+                "labelPadding": "10",
+                "tooltipPadding": "10",
+                "useRoundEdges": "0",
+                "showPlotBorder": "0",
+                "showHoverEffect": "1",
+                "barHoverAlpha": "100",
+                "legendShadow": "0",
+                "legendBorderAlpha": "0",
+                "legendIconScale": "0",
+                "legendCaptionFontSize": "16 ",
+                "paletteColors": "#5F66B1",
+                "legendPosition": "RIGHT",
+                "reverseLegend": "1",
+                "legendIconBorderColor": "transparent",
+                "legendIconBgColor": "transparent",
+                "legendIconStartAngle": "90",
+                "alignLegendWithCanvas": "0"
+            },
+            "categories": [
+                {
+                    "category": [
+                        {
+                            "label": "Duff Clarke"
+                        },
+                        {
+                            "label": "Anne Wood"
+                        },
+                        {
+                            "label": "Comfort White"
+                        },
+                        {
+                            "label": "Ethelda Davies"
+                        },
+                        {
+                            "label": "Penelope Jackson"
+                        },
+                        {
+                            "label": "Farrah Baker"
+                        },
+                        {
+                            "label": "Caiden Albert"
+                        },
+                        {
+                            "label": "Lynn Harris"
+                        },
+                        {
+                            "label": "Sebastian Arellanot"
+                        },
+                        {
+                            "label": "Ruth Harris"
+                        },
+                        {
+                            "label": "Jason Shaffer"
+                        },
+                        {
+                            "label": "Phyllis Allen"
+                        },
+                        {
+                            "label": "Landon Schaffer"
+                        },
+                        {
+                            "label": "Loyal Roberts"
+                        },
+                        {
+                            "label": "Diego Barbee"
+                        },
+                        {
+                            "label": "Callista Jones"
+                        },
+                        {
+                            "label": "Ivi White"
+                        },
+                        {
+                            "label": "Amanda Scott"
+                        },
+                        {
+                            "label": "Damien Estes"
+                        },
+                        {
+                            "label": "Waverly Turner"
+                        },
+                        {
+                            "label": "Phillida Robinson"
+                        },
+                        {
+                            "label": "Louvain Scott"
+                        },
+                        {
+                            "label": "Harriet Turner"
+                        },
+                        {
+                            "label": "Hazelle Evans"
+                        },
+                        {
+                            "label": "Chris Wright"
+                        },
+                        {
+                            "label": "Vaughn Davies"
+                        },
+                        {
+                            "label": "Brayan Galvan"
+                        },
+                        {
+                            "label": "Emily Thompson"
+                        },
+                        {
+                            "label": "Liam Schroeder"
+                        },
+                        {
+                            "label": "Amy Cooper"
+                        },
+                        {
+                            "label": "Shelby Walker"
+                        },
+                        {
+                            "label": "Katherine Williams"
+                        },
+                        {
+                            "label": "Ivi Watson"
+                        },
+                        {
+                            "label": "Hermoine James"
+                        },
+                        {
+                            "label": "Stacy Cooper"
+                        },
+                        {
+                            "label": "Haile Robinson"
+                        },
+                        {
+                            "label": "Eduardo Connors"
+                        },
+                        {
+                            "label": "Shirlyn Cooper"
+                        },
+                        {
+                            "label": "Margaret Harris"
+                        },
+                        {
+                            "label": "John Li"
+                        },
+                        {
+                            "label": "Haile Cooper"
+                        },
+                        {
+                            "label": "Frances McCoorn"
+                        },
+                        {
+                            "label": "Jocelyn Huges"
+                        },
+                        {
+                            "label": "Jameson Newsom"
+                        },
+                        {
+                            "label": "Duff Lee"
+                        },
+                        {
+                            "label": "Aster Baker"
+                        },
+                        {
+                            "label": "Topper Young"
+                        },
+                        {
+                            "label": "Judith Taylor"
+                        },
+                        {
+                            "label": "Hazelle Bell"
+                        },
+                        {
+                            "label": "Tilly Johnson"
+                        },
+                        {
+                            "label": "Hannah Jackson"
+                        },
+                        {
+                            "label": "Irene Allen"
+                        },
+                        {
+                            "label": "Cody Ventura"
+                        },
+                        {
+                            "label": "Ruth Wright"
+                        },
+                        {
+                            "label": "Mary Allen"
+                        },
+                        {
+                            "label": "Stacy Young"
+                        },
+                        {
+                            "label": "Hollye Robinson"
+                        },
+                        {
+                            "label": "Ivie Roberts"
+                        },
+                        {
+                            "label": "Aden Mclean"
+                        },
+                        {
+                            "label": "David Flowers"
+                        }
+                    ]
+                }
+            ],
+            "dataset": [
+                {
+                    "id": "set1",
+                    "color": "#5F66B1",
+                    "seriesname": "Current Period",
+                    "data": [
+                        {
+                            "value": "1037850.76",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Duff Clarke</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.04M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.54M</span>"
+                        },
+                        {
+                            "value": "867508.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Anne Wood</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.87M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.37M</span>"
+                        },
+                        {
+                            "value": "847019.7",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Comfort White</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.85M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.7M</span>"
+                        },
+                        {
+                            "value": "738404.15",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ethelda Davies</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.74M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.61M</span>"
+                        },
+                        {
+                            "value": "701780.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Penelope Jackson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.7M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.3M</span>"
+                        },
+                        {
+                            "value": "690731.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Farrah Baker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.69M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.21M</span>"
+                        },
+                        {
+                            "value": "670755.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Caiden Albert</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.67M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "659067",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Lynn Harris</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.66M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "621512.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Sebastian Arellanot</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.62M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "575337.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ruth Harris</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.58M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "545087.14",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jason Shaffer</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.55M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.93M</span>"
+                        },
+                        {
+                            "value": "529171.09",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Phyllis Allen</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.53M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.25M</span>"
+                        },
+                        {
+                            "value": "492198.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Landon Schaffer</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.49M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.73M</span>"
+                        },
+                        {
+                            "value": "476869.04",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Loyal Roberts</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.48M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "474387.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Diego Barbee</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.47M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "439695",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Callista Jones</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.44M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.38M</span>"
+                        },
+                        {
+                            "value": "427320.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivi White</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.43M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.36M</span>"
+                        },
+                        {
+                            "value": "348597.09",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Amanda Scott</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.35M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "347104.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Damien Estes</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.35M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.25M</span>"
+                        },
+                        {
+                            "value": "334821",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Waverly Turner</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.33M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.39M</span>"
+                        },
+                        {
+                            "value": "330813",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Phillida Robinson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.33M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.22M</span>"
+                        },
+                        {
+                            "value": "320406.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Louvain Scott</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.32M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.39M</span>"
+                        },
+                        {
+                            "value": "312207.7",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Harriet Turner</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.31M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.47M</span>"
+                        },
+                        {
+                            "value": "290802.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hazelle Evans</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.29M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "274556.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Chris Wright</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.27M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.97M</span>"
+                        },
+                        {
+                            "value": "261556.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Vaughn Davies</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.26M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "223768.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Brayan Galvan</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.45M</span>"
+                        },
+                        {
+                            "value": "222124.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Emily Thompson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.54M</span>"
+                        },
+                        {
+                            "value": "219775.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Liam Schroeder</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.4M</span>"
+                        },
+                        {
+                            "value": "193590.9",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Amy Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.19M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.82M</span>"
+                        },
+                        {
+                            "value": "157122.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Shelby Walker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.16M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.08M</span>"
+                        },
+                        {
+                            "value": "126473.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Katherine Williams</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.13M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.33M</span>"
+                        },
+                        {
+                            "value": "111816",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivi Watson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.11M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.66M</span>"
+                        },
+                        {
+                            "value": "111478.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hermoine James</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.11M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.32M</span>"
+                        },
+                        {
+                            "value": "101619.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Stacy Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.22M</span>"
+                        },
+                        {
+                            "value": "100182",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Haile Robinson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.07M</span>"
+                        },
+                        {
+                            "value": "100133.82",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Eduardo Connors</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.09M</span>"
+                        },
+                        {
+                            "value": "99581.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Shirlyn Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "95536.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Margaret Harris</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.55M</span>"
+                        },
+                        {
+                            "value": "89998.85",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>John Li</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.09M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.61M</span>"
+                        },
+                        {
+                            "value": "85329.69",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Haile Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.09M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.11M</span>"
+                        },
+                        {
+                            "value": "75320.15",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Frances McCoorn</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.08M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.47M</span>"
+                        },
+                        {
+                            "value": "73556.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jocelyn Huges</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.07M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "58461.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jameson Newsom</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "57778.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Duff Lee</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "56233.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Aster Baker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.02M</span>"
+                        },
+                        {
+                            "value": "56150.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Topper Young</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "55591.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Judith Taylor</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "55177.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hazelle Bell</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.49M</span>"
+                        },
+                        {
+                            "value": "53715",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Tilly Johnson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "50997.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hannah Jackson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.2M</span>"
+                        },
+                        {
+                            "value": "50292",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Irene Allen</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "47562.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Cody Ventura</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.07M</span>"
+                        },
+                        {
+                            "value": "45111.86",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ruth Wright</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.06M</span>"
+                        },
+                        {
+                            "value": "26251.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Mary Allen</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.03M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.24M</span>"
+                        },
+                        {
+                            "value": "21899.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Stacy Young</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.02M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "21272.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hollye Robinson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.02M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.03M</span>"
+                        },
+                        {
+                            "value": "13552.09",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivie Roberts</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.09M</span>"
+                        },
+                        {
+                            "value": "11227.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Aden Mclean</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.02M</span>"
+                        },
+                        {
+                            "value": "10309.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>David Flowers</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.03M</span>"
+                        }
+                    ]
+                },
+                {
+                    "id": "set2",
+                    "seriesname": "Previous Period",
+                    "renderAs": "line",
+                    "alpha": "1",
+                    "anchorRadius": "20",
+                    "anchorBgColor": "transparent",
+                    "anchorBorderColor": "#000000",
+                    "anchorBorderThickness": "0",
+                    "anchorImageUrl": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/black_line.png",
+                    "anchorImageScale": "100",
+                    "color": "#000000",
+                    "hoverAlpha": "0",
+                    "data": [
+                        {
+                            "value": "541404.47",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Duff Clarke</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.04M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.54M</span>"
+                        },
+                        {
+                            "value": "370228.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Anne Wood</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.87M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.37M</span>"
+                        },
+                        {
+                            "value": "703690.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Comfort White</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.85M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.7M</span>"
+                        },
+                        {
+                            "value": "613432.93",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ethelda Davies</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.74M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.61M</span>"
+                        },
+                        {
+                            "value": "299931.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Penelope Jackson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.7M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.3M</span>"
+                        },
+                        {
+                            "value": "213885",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Farrah Baker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.69M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.21M</span>"
+                        },
+                        {
+                            "value": "138953.7",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Caiden Albert</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.67M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "135420",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Lynn Harris</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.66M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "736801.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Sebastian Arellanot</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.62M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "416850",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ruth Harris</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.58M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "934841.09",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jason Shaffer</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.55M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.93M</span>"
+                        },
+                        {
+                            "value": "249796.67",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Phyllis Allen</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.53M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.25M</span>"
+                        },
+                        {
+                            "value": "728439.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Landon Schaffer</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.49M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.73M</span>"
+                        },
+                        {
+                            "value": "738632.41",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Loyal Roberts</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.48M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "417115.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Diego Barbee</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.47M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "377069.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Callista Jones</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.44M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.38M</span>"
+                        },
+                        {
+                            "value": "362334.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivi White</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.43M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.36M</span>"
+                        },
+                        {
+                            "value": "137962.83",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Amanda Scott</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.35M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "252370.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Damien Estes</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.35M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.25M</span>"
+                        },
+                        {
+                            "value": "387321.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Waverly Turner</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.33M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.39M</span>"
+                        },
+                        {
+                            "value": "223501.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Phillida Robinson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.33M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.22M</span>"
+                        },
+                        {
+                            "value": "393945.3",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Louvain Scott</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.32M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.39M</span>"
+                        },
+                        {
+                            "value": "468285.56",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Harriet Turner</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.31M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.47M</span>"
+                        },
+                        {
+                            "value": "421669.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hazelle Evans</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.29M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.42M</span>"
+                        },
+                        {
+                            "value": "970295.97",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Chris Wright</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.27M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.97M</span>"
+                        },
+                        {
+                            "value": "135546.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Vaughn Davies</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.26M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "449545.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Brayan Galvan</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.45M</span>"
+                        },
+                        {
+                            "value": "535101.33",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Emily Thompson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.54M</span>"
+                        },
+                        {
+                            "value": "402889.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Liam Schroeder</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.22M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.4M</span>"
+                        },
+                        {
+                            "value": "824547.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Amy Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.19M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.82M</span>"
+                        },
+                        {
+                            "value": "83618.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Shelby Walker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.16M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.08M</span>"
+                        },
+                        {
+                            "value": "325940.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Katherine Williams</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.13M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.33M</span>"
+                        },
+                        {
+                            "value": "659221.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivi Watson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.11M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.66M</span>"
+                        },
+                        {
+                            "value": "319311.9",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hermoine James</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.11M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.32M</span>"
+                        },
+                        {
+                            "value": "215276.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Stacy Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.22M</span>"
+                        },
+                        {
+                            "value": "67909.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Haile Robinson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.07M</span>"
+                        },
+                        {
+                            "value": "88196.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Eduardo Connors</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.09M</span>"
+                        },
+                        {
+                            "value": "739831.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Shirlyn Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.74M</span>"
+                        },
+                        {
+                            "value": "550466.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Margaret Harris</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.1M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.55M</span>"
+                        },
+                        {
+                            "value": "612483.73",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>John Li</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.09M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.61M</span>"
+                        },
+                        {
+                            "value": "112533.31",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Haile Cooper</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.09M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.11M</span>"
+                        },
+                        {
+                            "value": "470327.47",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Frances McCoorn</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.08M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.47M</span>"
+                        },
+                        {
+                            "value": "54383.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jocelyn Huges</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.07M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "42881.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Jameson Newsom</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "137706",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Duff Lee</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.14M</span>"
+                        },
+                        {
+                            "value": "16517.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Aster Baker</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.02M</span>"
+                        },
+                        {
+                            "value": "50607",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Topper Young</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "40615.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Judith Taylor</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "494148",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hazelle Bell</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.06M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.49M</span>"
+                        },
+                        {
+                            "value": "40647",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Tilly Johnson</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "197498.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hannah Jackson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.2M</span>"
+                        },
+                        {
+                            "value": "51556.5",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Irene Allen</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.05M</span>"
+                        },
+                        {
+                            "value": "66078",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Cody Ventura</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.07M</span>"
+                        },
+                        {
+                            "value": "57765.6",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ruth Wright</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.05M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.06M</span>"
+                        },
+                        {
+                            "value": "235309.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Mary Allen</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.03M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.24M</span>"
+                        },
+                        {
+                            "value": "44010",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Stacy Young</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.02M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.04M</span>"
+                        },
+                        {
+                            "value": "28032.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Hollye Robinson</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.02M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.03M</span>"
+                        },
+                        {
+                            "value": "89157",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Ivie Roberts</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.09M</span>"
+                        },
+                        {
+                            "value": "15102",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Aden Mclean</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.02M</span>"
+                        },
+                        {
+                            "value": "29546.1",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>David Flowers</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$0.01M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$0.03M</span>"
+                        }
+                    ]
+                }
+            ]
+        },
+        "events": {},
+        "asyncRender": 1
+    },
+    {
+        "type": "overlappedBar2d",
+        "renderAt": "chart-container-reg",
+        "dataFormat": "json",
+        "dataSource": {
+            "chart": {
+                "xAxisName": "",
+                "yAxisName": "",
+                "theme": "fusion",
+                "paletteColors": "#5F66B1",
+                "outCnvBaseFont": "Verdana",
+                "animation": "1",
+                "showValues": "0",
+                "numberPrefix": "$",
+                "numberSuffix": "",
+                "formatnumberscale": "1",
+                "flatScrollBars": "1",
+                "showToolTipShadow": "0",
+                "showShadow": "0",
+                "anchorHoverEffect": "0",
+                "anchorHoverAnimation": "0",
+                "showDivLineSecondaryValue": "0",
+                "showSecondaryLimits": "0",
+                "showcanvasborder": "0",
+                "showBorder": "0",
+                "bgAlpha": "0",
+                "alternateHGridAlpha": "0",
+                "alternateVGridAlpha": "0",
+                "baseFontSize": "12",
+                "rotateLabels": "1",
+                "xAxisNameFontColor": "#999999",
+                "xAxisNameFontBold": "0",
+                "xAxisNameFontSize": "13",
+                "yAxisNameFontColor": "#999999",
+                "yAxisNameFontBold": "0",
+                "yAxisNameFontSize": "13",
+                "usePlotGradientColor": "0",
+                "flatscrollbars": "0",
+                "scrollColor": "#FFFFFF",
+                "divlineAlpha": "15",
+                "xAxisNamePadding": "10",
+                "canvasPadding": "10",
+                "labelPadding": "10",
+                "tooltipPadding": "10",
+                "useRoundEdges": "0",
+                "showPlotBorder": "0",
+                "showHoverEffect": "1",
+                "barHoverAlpha": "100",
+                "legendShadow": "0",
+                "legendBorderAlpha": "0",
+                "legendIconScale": "0",
+                "legendCaptionFontSize": "16 ",
+                "numDivLines": "3",
+                "divLineAlpha": "4"
+            },
+            "categories": [
+                {
+                    "category": [
+                        {
+                            "label": "West"
+                        },
+                        {
+                            "label": "Northeast"
+                        },
+                        {
+                            "label": "Southeast"
+                        },
+                        {
+                            "label": "Midwest"
+                        }
+                    ]
+                }
+            ],
+            "dataset": [
+                {
+                    "id": "set1",
+                    "data": [
+                        {
+                            "value": "5778308.699999998",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>West</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$5.78M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$5.44M</span>"
+                        },
+                        {
+                            "value": "4894313.63",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Northeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.89M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$6.62M</span>"
+                        },
+                        {
+                            "value": "4563372.75",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Southeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.56M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$5.3M</span>"
+                        },
+                        {
+                            "value": "1258556.4",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Midwest</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.26M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.17M</span>"
+                        }
+                    ]
+                },
+                {
+                    "id": "set2",
+                    "alpha": "0",
+                    "hoverAlpha": "0",
+                    "color": "#000000",
+                    "data": [
+                        {
+                            "value": "5436014.399999999",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>West</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$5.78M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$5.44M</span>"
+                        },
+                        {
+                            "value": "6620216.869999999",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Northeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.89M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$6.62M</span>"
+                        },
+                        {
+                            "value": "5297153.25",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Southeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.56M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$5.3M</span>"
+                        },
+                        {
+                            "value": "2165104.2",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Midwest</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.26M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$2.17M</span>"
+                        }
+                    ]
+                }
+            ],
+            "annotations": {
+                "showbelow": "0",
+                "groups": [
+                    {
+                        "items": [
+                            {
+                                "tooltext": "<span class='tooltip-value'>West</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$5.78M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$5.44M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/green_arrow_up.svg",
+                                "x": "$dataset.0.set.0.endx + 2",
+                                "y": "$dataset.0.set.0.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>Northeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.89M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$6.62M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.1.endx + 2",
+                                "y": "$dataset.0.set.1.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>Southeast</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.56M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$5.3M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.2.endx + 2",
+                                "y": "$dataset.0.set.2.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>Midwest</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$1.26M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$2.17M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.3.endx + 2",
+                                "y": "$dataset.0.set.3.centery-7.5"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.0.endx",
+                                "y": "$dataset.0.set.0.starty+8",
+                                "toX": "$dataset.1.set.0.endx",
+                                "toY": "$dataset.0.set.0.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.1.endx",
+                                "y": "$dataset.0.set.1.starty+8",
+                                "toX": "$dataset.1.set.1.endx",
+                                "toY": "$dataset.0.set.1.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.2.endx",
+                                "y": "$dataset.0.set.2.starty+8",
+                                "toX": "$dataset.1.set.2.endx",
+                                "toY": "$dataset.0.set.2.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.3.endx",
+                                "y": "$dataset.0.set.3.starty+8",
+                                "toX": "$dataset.1.set.3.endx",
+                                "toY": "$dataset.0.set.3.endy-8"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "events": {},
+        "asyncRender": 1
+    },
+    {
+        "type": "msline",
+        "renderAt": "chart-container-reg-monthly",
+        "dataFormat": "json",
+        "dataSource": {
+            "chart": {
+                "xAxisName": "",
+                "yAxisName": "",
+                "outCnvBaseFont": "Verdana",
+                "animation": "1",
+                "showValues": "1",
+                "numberPrefix": "$",
+                "numberSuffix": "",
+                "formatnumberscale": "1",
+                "flatScrollBars": "1",
+                "showToolTipShadow": "0",
+                "showShadow": "0",
+                "anchorHoverEffect": "1",
+                "anchorHoverAnimation": "1",
+                "showDivLineSecondaryValue": "0",
+                "showSecondaryLimits": "0",
+                "showcanvasborder": "0",
+                "showBorder": "0",
+                "bgAlpha": "0",
+                "alternateHGridAlpha": "0",
+                "alternateVGridAlpha": "0",
+                "baseFontSize": "12",
+                "rotateLabels": "0",
+                "xAxisNameFontColor": "#999999",
+                "xAxisNameFontBold": "0",
+                "xAxisNameFontSize": "13",
+                "yAxisNameFontColor": "#999999",
+                "yAxisNameFontBold": "0",
+                "yAxisNameFontSize": "13",
+                "usePlotGradientColor": "0",
+                "flatscrollbars": "0",
+                "scrollColor": "#FFFFFF",
+                "divlineAlpha": "15",
+                "xAxisNamePadding": "10",
+                "canvasPadding": "10",
+                "labelPadding": "10",
+                "tooltipPadding": "10",
+                "useRoundEdges": "0",
+                "showPlotBorder": "0",
+                "showHoverEffect": "1",
+                "barHoverAlpha": "100",
+                "legendShadow": "0",
+                "legendBorderAlpha": "0",
+                "legendIconScale": "0",
+                "legendCaptionFontSize": "16 ",
+                "anchorAlpha": "0",
+                "anchorHoverAlpha": "100",
+                "drawCrossLine": "1",
+                "crossLineAnimation": "1",
+                "showLegend": "1",
+                "numDivLines": "3",
+                "divLineAlpha": "4",
+                "crossLineAlpha": "100"
+            },
+            "categories": [
+                {
+                    "vLine": "true",
+                    "category": [
+                        {
+                            "label": "Jan'11"
+                        },
+                        {
+                            "label": "Feb'11"
+                        }
+                    ]
+                }
+            ],
+            "dataset": [
+                {
+                    "seriesname": "West",
+                    "color": "#8BBA01",
+                    "data": [
+                        {
+                            "value": "5436014.399999999",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        },
+                        {
+                            "value": "5778308.699999998",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        }
+                    ]
+                },
+                {
+                    "seriesname": "Northeast",
+                    "color": "#F6BD10",
+                    "data": [
+                        {
+                            "value": "6620216.869999999",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        },
+                        {
+                            "value": "4894313.63",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        }
+                    ]
+                },
+                {
+                    "seriesname": "Southeast",
+                    "color": "#AFD7F8",
+                    "data": [
+                        {
+                            "value": "5297153.25",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        },
+                        {
+                            "value": "4563372.75",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        }
+                    ]
+                },
+                {
+                    "seriesname": "Midwest",
+                    "color": "#FFA166",
+                    "data": [
+                        {
+                            "value": "2165104.2",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        },
+                        {
+                            "value": "1258556.4",
+                            "showValue": "0",
+                            "valuePosition": "AUTO",
+                            "link": "javascript:void(0)"
+                        }
+                    ]
+                }
+            ]
+        },
+        "events": {},
+        "asyncRender": 1
+    },
+    {
+        "type": "overlappedBar2d",
+        "renderAt": "chart-container-product",
+        "dataFormat": "json",
+        "dataSource": {
+            "chart": {
+                "xAxisName": "",
+                "yAxisName": "",
+                "theme": "fusion",
+                "paletteColors": "#5F66B1",
+                "outCnvBaseFont": "Verdana",
+                "animation": "1",
+                "showValues": "0",
+                "numberPrefix": "$",
+                "numberSuffix": "",
+                "formatnumberscale": "1",
+                "flatScrollBars": "1",
+                "showToolTipShadow": "0",
+                "showShadow": "0",
+                "anchorHoverEffect": "0",
+                "anchorHoverAnimation": "0",
+                "showDivLineSecondaryValue": "0",
+                "showSecondaryLimits": "0",
+                "showcanvasborder": "0",
+                "showBorder": "0",
+                "bgAlpha": "0",
+                "alternateHGridAlpha": "0",
+                "alternateVGridAlpha": "0",
+                "baseFontSize": "12",
+                "rotateLabels": "1",
+                "xAxisNameFontColor": "#999999",
+                "xAxisNameFontBold": "0",
+                "xAxisNameFontSize": "13",
+                "yAxisNameFontColor": "#999999",
+                "yAxisNameFontBold": "0",
+                "yAxisNameFontSize": "13",
+                "usePlotGradientColor": "0",
+                "flatscrollbars": "0",
+                "scrollColor": "#FFFFFF",
+                "divlineAlpha": "15",
+                "xAxisNamePadding": "10",
+                "canvasPadding": "10",
+                "labelPadding": "10",
+                "tooltipPadding": "10",
+                "useRoundEdges": "0",
+                "showPlotBorder": "0",
+                "showHoverEffect": "1",
+                "barHoverAlpha": "100",
+                "legendShadow": "0",
+                "legendBorderAlpha": "0",
+                "legendIconScale": "0",
+                "legendCaptionFontSize": "16 ",
+                "numDivLines": "3",
+                "divLineAlpha": "4"
+            },
+            "categories": [
+                {
+                    "category": [
+                        {
+                            "label": "MFAP"
+                        },
+                        {
+                            "label": "BankManaged"
+                        },
+                        {
+                            "label": "Fixed"
+                        },
+                        {
+                            "label": "Equity"
+                        },
+                        {
+                            "label": "CSP"
+                        }
+                    ]
+                }
+            ],
+            "dataset": [
+                {
+                    "id": "set1",
+                    "data": [
+                        {
+                            "value": "4583552.8",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>MFAP</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.58M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.63M</span>"
+                        },
+                        {
+                            "value": "3398101.4799999995",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>BankManaged</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.4M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.86M</span>"
+                        },
+                        {
+                            "value": "3180531.43",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Fixed</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.18M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$4.25M</span>"
+                        },
+                        {
+                            "value": "2848599.2900000005",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Equity</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.85M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$4.22M</span>"
+                        },
+                        {
+                            "value": "2483766.48",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>CSP</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.48M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.56M</span>"
+                        }
+                    ]
+                },
+                {
+                    "id": "set2",
+                    "alpha": "0",
+                    "hoverAlpha": "0",
+                    "color": "#000000",
+                    "data": [
+                        {
+                            "value": "3627683.86",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>MFAP</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.58M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.63M</span>"
+                        },
+                        {
+                            "value": "3860612.19",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>BankManaged</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.4M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.86M</span>"
+                        },
+                        {
+                            "value": "4248115.94",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Fixed</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.18M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$4.25M</span>"
+                        },
+                        {
+                            "value": "4224934.39",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>Equity</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.85M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$4.22M</span>"
+                        },
+                        {
+                            "value": "3557142.34",
+                            "link": "JavaScript:void(0)",
+                            "tooltext": "<span class='tooltip-value'>CSP</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.48M</span><br>Previous Period(Jan'11):  <span class='tooltip-value'>$3.56M</span>"
+                        }
+                    ]
+                }
+            ],
+            "annotations": {
+                "showbelow": "0",
+                "groups": [
+                    {
+                        "items": [
+                            {
+                                "tooltext": "<span class='tooltip-value'>MFAP</span><br><span class='improve-green'>AUM Improved</span><br>Current Period(Feb'11): <span class='tooltip-value'>$4.58M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$3.63M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/green_arrow_up.svg",
+                                "x": "$dataset.0.set.0.endx + 2",
+                                "y": "$dataset.0.set.0.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>BankManaged</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.4M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$3.86M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.1.endx + 2",
+                                "y": "$dataset.0.set.1.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>Fixed</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$3.18M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$4.25M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.2.endx + 2",
+                                "y": "$dataset.0.set.2.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>Equity</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.85M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$4.22M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.3.endx + 2",
+                                "y": "$dataset.0.set.3.centery-7.5"
+                            },
+                            {
+                                "tooltext": "<span class='tooltip-value'>CSP</span><br><span class='decrease-red'>AUM Worsened</span><br>Current Period(Feb'11): <span class='tooltip-value'>$2.48M</span><br>Previous Period(Jan'11): <span class='tooltip-value'>$3.56M</span>",
+                                "type": "image",
+                                "url": "https://www.fusioncharts.com/dashboards/wealth-management-dashboard-with-export/images/red_arrow_down.svg",
+                                "x": "$dataset.0.set.4.endx + 2",
+                                "y": "$dataset.0.set.4.centery-7.5"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.0.endx",
+                                "y": "$dataset.0.set.0.starty+8",
+                                "toX": "$dataset.1.set.0.endx",
+                                "toY": "$dataset.0.set.0.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.1.endx",
+                                "y": "$dataset.0.set.1.starty+8",
+                                "toX": "$dataset.1.set.1.endx",
+                                "toY": "$dataset.0.set.1.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.2.endx",
+                                "y": "$dataset.0.set.2.starty+8",
+                                "toX": "$dataset.1.set.2.endx",
+                                "toY": "$dataset.0.set.2.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.3.endx",
+                                "y": "$dataset.0.set.3.starty+8",
+                                "toX": "$dataset.1.set.3.endx",
+                                "toY": "$dataset.0.set.3.endy-8"
+                            },
+                            {
+                                "type": "line",
+                                "text": "|",
+                                "color": "#000000",
+                                "x": "$dataset.1.set.4.endx",
+                                "y": "$dataset.0.set.4.starty+8",
+                                "toX": "$dataset.1.set.4.endx",
+                                "toY": "$dataset.0.set.4.endy-8"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "events": {},
+        "asyncRender": 1
+    }
+]
