@@ -1,0 +1,75 @@
+{
+  "basis": {
+    "type": "graph"
+  },
+  "data": {
+    "type": "json",
+    "values": {
+      "persons": [
+        {
+          "id": "node1",
+          "label": "node1",
+          "cost": 60,
+          "type": "A"
+        },
+        {
+          "id": "node2",
+          "label": "node2",
+          "cost": 25,
+          "type": "B"
+        },
+        {
+          "id": "node3",
+          "label": "node3",
+          "cost": 25,
+          "type": "B"
+        }
+      ],
+      "relation": [
+        {
+          "source": "node1",
+          "target": "node2",
+          "weight": 5,
+          "type": "X"
+        },
+        {
+          "source": "node2",
+          "target": "node3",
+          "weight": 10,
+          "type": "Y"
+        }
+      ]
+    }
+  },
+  "layout": {
+    "type": "force",
+    "nodes": "persons",
+    "links": "relation"
+  },
+  "layer": [
+    {
+      "nodes": {
+        "mark": "point",
+        "encoding": {
+          "size": {
+            "field": "cost",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "type",
+            "type": "nominal"
+          }
+        }
+      },
+      "links": {
+        "mark": "line",
+        "encoding": {
+          "size": {
+            "field": "weight",
+            "type": "quantitative"
+          }
+        }
+      }
+    }
+  ]
+}
