@@ -1,14 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "svelte-highlight/src/styles/github.css";
-  import xml from "svelte-highlight/src/languages/xml";
-  import json from "svelte-highlight/src/languages/json";
-  import js from "svelte-highlight/src/languages/javascript";
-  import ts from "svelte-highlight/src/languages/typescript";
-  const langSupport = { xml, js, json, ts, ac: json };
+
+  import Viewer from "./Viewer.svelte";
   import { getRoute } from "./utils";
-  import { Highlight, HighlightAuto } from "svelte-highlight";
-  import stringify from "json-stringify-pretty-compact";
 
   let directory: { [lang: string]: { [fileName: string]: string } } = {};
   let language: string | null = null;
@@ -79,11 +73,7 @@
         </div>
       {/if}
     </div>
-    <div class="scroll-container" id="file-display">
-      {#if code && file}
-        <Highlight language={langSupport[fileType]} {code} />
-      {/if}
-    </div>
+    <Viewer {fileType} {code} />
   </div>
 </main>
 
