@@ -27,6 +27,11 @@ async function main() {
     .catch((e) => {
       console.log(e);
     });
+
+  writeFile(
+    "./public/bundle-number.json",
+    JSON.stringify(Math.round(Math.random() * 1000000))
+  );
 }
 
 main();

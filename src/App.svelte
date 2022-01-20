@@ -2,7 +2,13 @@
   import { onMount } from "svelte";
 
   import Viewer from "./Viewer.svelte";
-  import { getRoute, createSort, LangSort, Directory } from "./utils";
+  import {
+    getRoute,
+    createSort,
+    LangSort,
+    Directory,
+    getBundle,
+  } from "./utils";
 
   let directory: Directory = {};
   let language: string | null = null;
@@ -21,8 +27,7 @@
   };
   window.onhashchange = updatePage;
 
-  fetch("./example-bundle.json")
-    .then((x) => x.json())
+  getBundle()
     .then((x) => {
       directory = x;
     })
@@ -84,6 +89,12 @@
               {fileOption}
             </a>
           {/each}
+        </div>
+      {/if}
+      {#if !directoryLoaded}
+        <div>
+          <h1>Loading</h1>
+          <h5>This may take a moment</h5>
         </div>
       {/if}
     </div>
