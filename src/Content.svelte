@@ -129,7 +129,7 @@
 
 <style>
   #header {
-    background: black;
+    background: #0070c1;
     color: white;
     height: 100px;
     display: flex;
