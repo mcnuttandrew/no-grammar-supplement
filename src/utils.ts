@@ -1,4 +1,5 @@
 import stringify from "json-stringify-pretty-compact";
+import { get, set } from "idb-keyval";
 
 export function getRoute() {
   const href = location.href;
@@ -68,4 +69,23 @@ export function modifyPresentation(code: string | null, mod: Modifier): string {
     default:
       return "";
   }
+}
+
+export async function getBundle() {
+  const version = await get("bundle-version-number");
+  const deployedVersionNumber = await fetch("./bundle-number.json").then((x) =>
+    x.json()
+  );
+  if (deployedVersionNumber === version) {
+    const directoryBundle = await get("bundle");
+    if (directoryBundle) {
+      return directoryBundle;
+    }
+  }
+  const fetchedBundle = await fetch("./example-bundle.json").then((x) =>
+    x.json()
+  );
+  set("bundle", fetchedBundle);
+  set("bundle-version-number", deployedVersionNumber);
+  return fetchedBundle;
 }
