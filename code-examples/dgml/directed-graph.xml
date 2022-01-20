@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Title="DrivingTest"
+   xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+   <Nodes>
+      <Node Id="Driver" Label="Student" Category="Person" />
+      <Node Id="Passenger" Label="Instructor" Category="Person" />
+      <Node Id="Car" Label="Car" Category="Automobile" />
+      <Node Id="Truck" Label="Truck" Category="Automobile" />
+   </Nodes>
+   <Links>
+      <Category Id="Person" Background="Orange" />
+      <Category Id="Automobile" Background="Yellow"/>
+      <Link Source="Driver" Target="Car" Label="Passed" Stroke="Black" Background="Green" Category="PassedTest" />
+      <Link Source="Driver" Target="Truck" Label="Failed" Stroke="Black" Background="Red" Category="PassedTest" />
+   </Links>
+</DirectedGraph>

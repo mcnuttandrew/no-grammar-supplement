@@ -1,0 +1,39 @@
+<graph ranksep="0.3" file-name="graphs/example_xabsl_decision_tree2">
+
+    <cluster id="option" label="option go-to-kickoff-position" fontname="Arial" fontcolor="#005A9C" fontsize="11" fillcolor="#F4F4F4" style="filled">
+
+        <cluster id="states" style="filled" fillcolor="#F4F4F4" color="#F4F4F4">
+
+            <node label="localize" fontname="Arial" fontcolor="#005A9C" fontsize="11" style="dashed" fillcolor="#FFFFFF" id="state_localize" shape="Mcircle"/>
+            <node label="dont\nmove" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_dont_move" shape="circle"/>
+            <node label="turn" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_turn" shape="circle"/>
+            <node label="go" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_go" shape="circle"/>
+        </cluster>
+        <cluster id="decision_tree" label="state localize" fillcolor="#FFFFFF" fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled">
+
+            <node id="start" shape="point"/>
+            <record color="#FFFFFF" fontsize="11" height="0.15" fontname="Arial">
+
+                <node id="start_0" label="if"/>
+                <node id="start_1" label="else if"/>
+                <node id="start_2" label="else if"/>
+                <node id="start_3" label="else if"/>
+                <node id="start_4" label="else"/>
+            </record>
+            <edge from="start" to="start_0" dir="none" style="solid"/>
+            <node id="start_0_" shape="box" fontsize="11" style="solid" fontname="Arial" label="state\nrunning\nless than\n3 seconds"/>
+            <edge from="start_0" to="start_0_" dir="none" style="solid"/>
+            <edge from="start_0_" minlen="2" style="solid" to="state_localize"/>
+            <node id="start_1_" shape="box" fontsize="11" style="solid" fontname="Arial" label="head switch\npressed\n(>100ms)"/>
+            <edge from="start_1" to="start_1_" dir="none" style="solid"/>
+            <edge from="start_1_" minlen="2" style="solid" to="state_dont_move"/>
+            <node id="start_2_" shape="box" fontsize="11" style="solid" fontname="Arial" label="waited\ntoo long"/>
+            <edge from="start_2" to="start_2_" dir="none" style="solid"/>
+            <edge from="start_2_" minlen="2" style="solid" to="state_turn"/>
+            <node id="start_3_" shape="box" fontsize="11" style="solid" fontname="Arial" label="not localized"/>
+            <edge from="start_3" to="start_3_" dir="none" style="solid"/>
+            <edge from="start_3_" minlen="2" style="solid" to="state_localize"/>
+            <edge from="start_4" minlen="2" style="solid" to="state_go"/>
+        </cluster>
+    </cluster>
+</graph>

@@ -1,0 +1,13 @@
+<graph file-name="graphs/example_nhg">
+
+    <node id="label" label="Machine: a" shape="plaintext" fontname="Helvetica"/>
+    <node id="0" style="filled" color="#CCCCCC" shape="circle" fontname="Helvetica"/>
+    <node id="1" shape="circle" fontname="Helvetica"/>
+    <node id="2" shape="doublecircle" fontname="Helvetica"/>
+    <edge from="0" to="2" label="a" fontname="Helvetica"/>
+    <edge from="0" to="1" label="other" fontname="Helvetica"/>
+    <edge from="1" to="2" label="a" fontname="Helvetica"/>
+    <edge from="1" to="1" label="other" fontname="Helvetica"/>
+    <edge from="2" to="2" label="a" fontname="Helvetica"/>
+    <edge from="2" to="1" label="other" fontname="Helvetica"/>
+</graph>

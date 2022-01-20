@@ -31,10 +31,12 @@
     </div>
   {/if}
   {#if code && fileType}
-    <Highlight
-      language={langSupport[fileType]}
-      code={modifyPresentation(code, modifier)}
-    />
+    <div id="display-container">
+      <Highlight
+        language={langSupport[fileType]}
+        code={modifyPresentation(code, modifier)}
+      />
+    </div>
   {/if}
 </div>
 
@@ -43,6 +45,14 @@
     font-weight: bold;
   }
   #file-display {
+    padding-left: 20px;
+    padding-top: 20px;
     width: calc(100% - 340px);
+    max-width: calc(100% - 340px);
+    overflow-x: scroll;
+  }
+  #display-container {
+    height: calc(100% - 100px);
+    overflow-y: scroll;
   }
 </style>

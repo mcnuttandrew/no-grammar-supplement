@@ -12,7 +12,7 @@ body {
 }
 
 a {
-	color: rgb(0,100,200);
+	color: rgb(0, 100, 200);
 	text-decoration: none;
 }
 
@@ -21,7 +21,7 @@ a:hover {
 }
 
 a:visited {
-	color: rgb(0,80,160);
+	color: rgb(0, 80, 160);
 }
 
 label {
@@ -59,4 +59,9 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
 }

@@ -1,5 +1,6 @@
 import stringify from "json-stringify-pretty-compact";
 import { get, set } from "idb-keyval";
+import { tsvParse } from "d3-dsv";
 
 export function getRoute() {
   const href = location.href;
@@ -72,8 +73,8 @@ export function modifyPresentation(code: string | null, mod: Modifier): string {
 }
 
 export async function getBundle() {
-  const version = await get("bundle-version-number");
-  const deployedVersionNumber = await fetch("./bundle-number.json").then((x) =>
+  const version = await get("bundle-hash");
+  const deployedVersionNumber = await fetch("./bundle-hash.json").then((x) =>
     x.json()
   );
   if (deployedVersionNumber === version) {
@@ -86,6 +87,29 @@ export async function getBundle() {
     x.json()
   );
   set("bundle", fetchedBundle);
-  set("bundle-version-number", deployedVersionNumber);
+  set("bundle-hash", deployedVersionNumber);
   return fetchedBundle;
+}
+
+export type LangMetaRow = {
+  System: string;
+  sysKey: string;
+  "harvest URL": string;
+  License: string;
+  Paper: string;
+  Link: string;
+  Domain: string;
+};
+export type LangMeta = {
+  [lang: string]: LangMetaRow;
+};
+export async function getLangMeta(): Promise<LangMeta> {
+  const parsedMeta = await fetch("./lang-meta.tsv")
+    .then((x) => x.text())
+    .then((x) => tsvParse(x) as LangMetaRow[]);
+
+  return parsedMeta.reduce((acc, row) => {
+    acc[row.sysKey] = row;
+    return acc;
+  }, {});
 }

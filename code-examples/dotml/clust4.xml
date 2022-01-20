@@ -1,0 +1,33 @@
+<graph file-name="graphs/example_clust4">
+
+    <cluster id="0" style="filled" color="#CCCCCC" label="process #1">
+
+        <node id="a0" style="filled" color="#FFFFFF"/>
+        <node id="a1" style="filled" color="#FFFFFF"/>
+        <node id="a2" style="filled" color="#FFFFFF"/>
+        <node id="a3" style="filled" color="#FFFFFF"/>
+        <edge from="a0" to="a1"/>
+        <edge from="a1" to="a2"/>
+        <edge from="a2" to="a3"/>
+        <edge from="a3" to="a0"/>
+    </cluster>
+    <cluster id="1" color="#3030CC" label="process #2">
+
+        <node id="b0" style="filled"/>
+        <node id="b1" style="filled"/>
+        <node id="b2" style="filled"/>
+        <node id="b3" style="filled"/>
+        <edge from="b0" to="b1"/>
+        <edge from="b1" to="b2"/>
+        <edge from="b2" to="b3"/>
+        <edge from="b3" to="b0"/>
+    </cluster>
+    <node id="start" shape="Mdiamond"/>
+    <node id="end" shape="Msquare"/>
+    <edge from="start" to="a0"/>
+    <edge from="start" to="b0"/>
+    <edge from="a1" to="b3"/>
+    <edge from="b2" to="a3"/>
+    <edge from="a3" to="end"/>
+    <edge from="b3" to="end"/>
+</graph>

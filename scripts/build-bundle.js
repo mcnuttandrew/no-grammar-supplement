@@ -1,6 +1,8 @@
 import { getFileNamesFromDir, executeCommandLineCmd } from "hoopoe";
 import { writeFile, readFile } from "fs/promises";
 
+import crypto from "crypto";
+
 async function main() {
   const dirNames = await getFileNamesFromDir("./code-examples").then((x) =>
     x.filter((el) => !el.includes("."))
@@ -20,7 +22,9 @@ async function main() {
     }
     fileDirMap[dirName] = files;
   }
-  writeFile("./public/example-bundle.json", JSON.stringify(fileDirMap))
+  const bundle = JSON.stringify(fileDirMap);
+  let hash = crypto.createHash("md5").update(bundle).digest("hex");
+  writeFile("./public/example-bundle.json", bundle)
     .then(() => {
       console.log("written");
     })
@@ -28,10 +32,7 @@ async function main() {
       console.log(e);
     });
 
-  writeFile(
-    "./public/bundle-number.json",
-    JSON.stringify(Math.round(Math.random() * 1000000))
-  );
+  writeFile("./public/bundle-hash.json", `"${hash}"`);
 }
 
 main();

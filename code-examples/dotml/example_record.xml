@@ -1,0 +1,33 @@
+<graph file-name="graphs/example_record">
+
+    <record	>
+
+        <node id="10" label="left"/>
+        <node id="11" label="middle"/>
+        <node id="12" label="right"/>
+    </record>
+    <record	>
+
+        <node id="20" label="one"/>
+        <node id="21" label="two"/>
+    </record>
+    <record	>
+
+        <node id="30" label="hello\nworld"/>
+        <record	>
+
+            <node id="311" label="b"/>
+            <record	>
+
+                <node id="3120" label="c"/>
+                <node id="3121" label="d"/>
+                <node id="3122" label="e"/>
+            </record>
+            <node id="313" label="f"/>
+        </record>
+        <node id="32" label="g"/>
+        <node id="33" label="h"/>
+    </record>
+    <edge from="11" to="20"/>
+    <edge from="12" to="3121"/>
+</graph>

@@ -1,0 +1,45 @@
+<graph file-name="graphs/example_xabsl_option2" ranksep="0.3" nodesep="0.2">
+
+    <cluster id="option" label="option go-to-kickoff-position" fontname="Arial" fontcolor="#005A9C" fontsize="11" fillcolor="#F4F4F4" style="filled">
+
+        <sub-graph rank="same">
+
+            <node label="localize" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_localize" shape="Mcircle"/>
+        </sub-graph>
+        <sub-graph rank="same">
+
+            <node label="turn" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_turn" shape="circle"/>
+            <node label="go" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_go" shape="circle"/>
+            <node label="dont\nmove" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_dont_move" shape="circle"/>
+        </sub-graph>
+        <edge from="state_localize" to="state_localize"/>
+        <edge from="state_localize" to="state_dont_move"/>
+        <edge from="state_localize" to="state_turn"/>
+        <edge from="state_localize" to="state_go"/>
+        <edge from="state_turn" to="state_localize"/>
+        <edge from="state_turn" to="state_dont_move"/>
+        <edge from="state_turn" to="state_turn"/>
+        <edge from="state_go" to="state_dont_move"/>
+        <edge from="state_go" to="state_go"/>
+        <edge from="state_dont_move" to="state_localize"/>
+        <edge from="state_dont_move" to="state_dont_move"/>
+    </cluster>
+    <cluster id="option_tree" color="#FFFFFF">
+
+        <node fontname="Arial" fontcolor="#005A9C" fontsize="11" shape="box" style="filled" fillcolor="#FFFFFF" id="option_get_to_position_and_avoid_obstacles" label="get\nto\nposition\nand\navoid\nobstacles"/>
+        <sub-graph rank="sink">
+
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_go_to_point" label="go\nto\npoint"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_cont_go_forward_to_point" label="cont\ngo\nforward\nto\npoint"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_stand" label="stand"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_walk" label="walk"/>
+        </sub-graph>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_get_to_position_and_avoid_obstacles" to="basic_behavior_go_to_point"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_get_to_position_and_avoid_obstacles" to="basic_behavior_cont_go_forward_to_point"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_get_to_position_and_avoid_obstacles" to="basic_behavior_stand"/>
+        <edge arrowsize="0.8" color="#808080" style="dashed" minlen="3" from="state_localize" to="basic_behavior_stand"/>
+        <edge arrowsize="0.8" color="#808080" style="dashed" minlen="3" from="state_turn" to="basic_behavior_walk"/>
+        <edge arrowsize="0.8" color="#808080" style="dashed" minlen="3" from="state_dont_move" to="basic_behavior_stand"/>
+        <edge minlen="2" arrowsize="0.8" color="#808080" style="dashed" from="state_go" to="option_get_to_position_and_avoid_obstacles"/>
+    </cluster>
+</graph>

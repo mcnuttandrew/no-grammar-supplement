@@ -1,0 +1,58 @@
+<graph ranksep="0.3" file-name="graphs/example_xabsl_decision_tree1">
+
+    <cluster id="option" label="option handle-ball-at-left-and-right-border" fontname="Arial" fontcolor="#005A9C" fontsize="11" fillcolor="#F4F4F4" style="filled">
+
+        <cluster id="states" style="filled" fillcolor="#F4F4F4" color="#F4F4F4">
+
+            <node label="do\nsideward\nkick" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_do_sideward_kick" shape="circle"/>
+            <node label="turn\naround\nball" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_turn_around_ball" shape="circle"/>
+            <node label="do\narm\nkick" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_do_arm_kick" shape="circle"/>
+            <node label="go\nto\nball" fontname="Arial" fontcolor="#005A9C" fontsize="11" style="dashed" fillcolor="#FFFFFF" id="state_go_to_ball" shape="Mcircle"/>
+        </cluster>
+        <cluster id="decision_tree" label="state go-to-ball" fillcolor="#FFFFFF" fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled">
+
+            <node id="start" shape="point"/>
+            <record color="#FFFFFF" fontsize="11" height="0.15" fontname="Arial">
+
+                <node id="start_0" label="if"/>
+                <node id="start_1" label="else"/>
+            </record>
+            <edge from="start" to="start_0" dir="none" style="solid"/>
+            <node id="start_0_" shape="box" fontsize="11" style="solid" fontname="Arial" label="just seen\nball"/>
+            <edge from="start_0" to="start_0_" dir="none" style="solid"/>
+            <record color="#FFFFFF" fontsize="11" height="0.15" fontname="Arial">
+
+                <node id="start_0__0" label="if"/>
+                <node id="start_0__2" label="else if"/>
+                <node id="start_0__3" label="else"/>
+            </record>
+            <edge from="start_0_" to="start_0__0" dir="none" style="solid"/>
+            <node id="start_0__0_" shape="box" fontsize="11" style="solid" fontname="Arial" label="close\nto ball\n(sideward-kick)"/>
+            <edge from="start_0__0" to="start_0__0_" dir="none" style="solid"/>
+            <record color="#FFFFFF" fontsize="11" height="0.15" fontname="Arial">
+
+                <node id="start_0__0__0" label="if"/>
+                <node id="start_0__0__2" label="else"/>
+            </record>
+            <edge from="start_0__0_" to="start_0__0__0" dir="none" style="solid"/>
+            <node id="start_0__0__0_" shape="box" fontsize="11" style="solid" fontname="Arial" label="arrived\nat kick\nangle"/>
+            <edge from="start_0__0__0" to="start_0__0__0_" dir="none" style="solid"/>
+            <edge from="start_0__0__0_" minlen="2" style="solid" to="state_do_sideward_kick"/>
+            <edge from="start_0__0__2" minlen="2" style="solid" to="state_turn_around_ball"/>
+            <node id="start_0__2_" shape="box" fontsize="11" style="solid" fontname="Arial" label="close\nto ball\n(arm-kick)"/>
+            <edge from="start_0__2" to="start_0__2_" dir="none" style="solid"/>
+            <record color="#FFFFFF" fontsize="11" height="0.15" fontname="Arial">
+
+                <node id="start_0__2__0" label="if"/>
+                <node id="start_0__2__2" label="else"/>
+            </record>
+            <edge from="start_0__2_" to="start_0__2__0" dir="none" style="solid"/>
+            <node id="start_0__2__0_" shape="box" fontsize="11" style="solid" fontname="Arial" label="arrived\nat kick\nangle"/>
+            <edge from="start_0__2__0" to="start_0__2__0_" dir="none" style="solid"/>
+            <edge from="start_0__2__0_" minlen="2" style="solid" to="state_do_arm_kick"/>
+            <edge from="start_0__2__2" minlen="2" style="solid" to="state_turn_around_ball"/>
+            <edge from="start_0__3" minlen="2" style="solid" to="state_go_to_ball"/>
+            <edge from="start_1" minlen="2" style="solid" to="state_go_to_ball"/>
+        </cluster>
+    </cluster>
+</graph>

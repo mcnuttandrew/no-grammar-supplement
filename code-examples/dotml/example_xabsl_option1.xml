@@ -1,0 +1,61 @@
+<graph file-name="graphs/example_xabsl_option1" ranksep="0.3" nodesep="0.2">
+
+    <cluster id="option" label="option handle-ball-at-left-and-right-border" fontname="Arial" fontcolor="#005A9C" fontsize="11" fillcolor="#F4F4F4" style="filled">
+
+        <sub-graph rank="same">
+
+            <node label="go\nto\nball" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_go_to_ball" shape="Mcircle"/>
+        </sub-graph>
+        <sub-graph rank="same">
+
+            <node label="turn\naround\nball" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_turn_around_ball" shape="circle"/>
+            <node label="do\narm\nkick" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_do_arm_kick" shape="circle"/>
+            <node label="do\nsideward\nkick" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" fontname="Arial" id="state_do_sideward_kick" shape="circle"/>
+        </sub-graph>
+        <edge from="state_go_to_ball" to="state_do_sideward_kick"/>
+        <edge from="state_go_to_ball" to="state_turn_around_ball"/>
+        <edge from="state_go_to_ball" to="state_do_arm_kick"/>
+        <edge from="state_go_to_ball" to="state_go_to_ball"/>
+        <edge from="state_turn_around_ball" to="state_do_sideward_kick"/>
+        <edge from="state_turn_around_ball" to="state_do_arm_kick"/>
+        <edge from="state_turn_around_ball" to="state_turn_around_ball"/>
+        <edge from="state_do_arm_kick" to="state_go_to_ball"/>
+        <edge from="state_do_arm_kick" to="state_do_arm_kick"/>
+        <edge from="state_do_sideward_kick" to="state_go_to_ball"/>
+        <edge from="state_do_sideward_kick" to="state_do_sideward_kick"/>
+    </cluster>
+    <cluster id="option_tree" color="#FFFFFF">
+
+        <node fontname="Arial" fontcolor="#005A9C" fontsize="11" shape="box" style="filled" fillcolor="#FFFFFF" id="option_approach_close_ball" label="approach\nclose\nball"/>
+        <node fontname="Arial" fontcolor="#005A9C" fontsize="11" shape="box" style="filled" fillcolor="#FFFFFF" id="option_turn_for_ball" label="turn\nfor\nball"/>
+        <node fontname="Arial" fontcolor="#005A9C" fontsize="11" shape="box" style="filled" fillcolor="#FFFFFF" id="option_do_arm_kick" label="do\narm\nkick"/>
+        <node fontname="Arial" fontcolor="#005A9C" fontsize="11" shape="box" style="filled" fillcolor="#FFFFFF" id="option_do_sideward_kick" label="do\nsideward\nkick"/>
+        <sub-graph rank="sink">
+
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_cont_turn_to_ball" label="cont\nturn\nto\nball"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_stand" label="stand"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_walk" label="walk"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_cont_turn" label="cont\nturn"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_go_to_ball" label="go\nto\nball"/>
+            <node fontname="Arial" fontcolor="#005A9C" fontsize="11" style="filled" fillcolor="#FFFFFF" id="basic_behavior_special_action" label="special\naction"/>
+        </sub-graph>
+        <edge arrowsize="0.8" color="#808080" from="option_approach_close_ball" to="option_turn_for_ball"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_approach_close_ball" to="basic_behavior_go_to_ball"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_turn_for_ball" to="basic_behavior_cont_turn_to_ball"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_turn_for_ball" to="basic_behavior_stand"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_turn_for_ball" to="basic_behavior_walk"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_turn_for_ball" to="basic_behavior_cont_turn"/>
+        <edge arrowsize="0.8" color="#808080" from="option_do_arm_kick" to="option_approach_close_ball"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_arm_kick" to="basic_behavior_walk"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_arm_kick" to="basic_behavior_special_action"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_arm_kick" to="basic_behavior_stand"/>
+        <edge arrowsize="0.8" color="#808080" from="option_do_sideward_kick" to="option_approach_close_ball"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_sideward_kick" to="basic_behavior_walk"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_sideward_kick" to="basic_behavior_special_action"/>
+        <edge arrowsize="0.8" color="#808080" minlen="3" from="option_do_sideward_kick" to="basic_behavior_stand"/>
+        <edge arrowsize="0.8" color="#808080" style="dashed" minlen="3" from="state_turn_around_ball" to="basic_behavior_walk"/>
+        <edge minlen="2" arrowsize="0.8" color="#808080" style="dashed" from="state_go_to_ball" to="option_approach_close_ball"/>
+        <edge minlen="2" arrowsize="0.8" color="#808080" style="dashed" from="state_do_arm_kick" to="option_do_arm_kick"/>
+        <edge minlen="2" arrowsize="0.8" color="#808080" style="dashed" from="state_do_sideward_kick" to="option_do_sideward_kick"/>
+    </cluster>
+</graph>
