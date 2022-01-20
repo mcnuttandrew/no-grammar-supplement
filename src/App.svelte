@@ -32,35 +32,7 @@
     .catch((e) => {
       console.log(e);
     });
-  // fetch("./directory.json")
-  //   .then((x) => x.json())
-  //   .then((x) => {
-  //     directory = x;
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
 
-  // const getAndSetCode = () => {
-  // if (!(language && file)) {
-  //   // dont try to
-  //   return;
-  // }
-  // fileType = currentSection.file.split(".")[1];
-  // code = directory[currentSection.language][file];
-  // fetch(`/code-examples/${language}/${file}`)
-  //   .then((x) => x.text())
-  //   .then((x) => {
-  //     fileType = file.split(".")[1];
-  //     code = x;
-  //     if (fileType === "json") {
-  //       code = stringify(JSON.parse(x));
-  //     }
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
-  // };
   onMount(() => updatePage());
 </script>
 
