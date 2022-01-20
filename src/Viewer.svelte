@@ -63,4 +63,7 @@
   .button-selected {
     font-weight: bold;
   }
+  #file-display {
+    width: calc(100% - 340px);
+  }
 </style>

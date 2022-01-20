@@ -2,11 +2,14 @@
   import { onMount } from "svelte";
 
   import Viewer from "./Viewer.svelte";
-  import { getRoute } from "./utils";
+  import { getRoute, createSort, LangSort } from "./utils";
 
   let directory: { [lang: string]: { [fileName: string]: string } } = {};
   let language: string | null = null;
   let file: string | null = null;
+
+  let langSort: LangSort = "carrier-language";
+
   $: directoryLoaded = Object.keys(directory).length;
   $: fileType = (file && file.split(".")[1]) || null;
   $: code =
@@ -37,20 +40,31 @@
       <div>
         <h3>Select a grammar to begin</h3>
         <h5>blah blah blah</h5>
-        TODO: add sorts
+        <div class="flex-down">
+          <span>Sort by</span>
+          <select bind:value={langSort}>
+            {#each ["none", "alphebetical", "carrier-language"] as sortType}
+              <option>{sortType}</option>
+            {/each}
+          </select>
+        </div>
       </div>
-      <div scroll-container>
-        {#each Object.keys(directory) as name}
-          <a
-            href={`/#/${name}`}
-            class="row-item"
-            class:row-item-selected={language === name}
-            on:click={() => {
-              //   selectedTab = name;
-            }}
-          >
-            {name}
-          </a>
+      <div class="scroll-container">
+        {#each createSort(Object.keys(directory), langSort) as { sectionTitle, languages }}
+          <div class="lang-section">
+            {#if sectionTitle}
+              <div class="lang-section-header">{sectionTitle}</div>
+            {/if}
+            {#each languages as name}
+              <a
+                href={`/#/${name}`}
+                class="row-item"
+                class:row-item-selected={language === name}
+              >
+                {name}
+              </a>
+            {/each}
+          </div>
         {/each}
       </div>
     </div>
@@ -114,7 +128,13 @@
     padding-left: 10px;
     width: 340px !important;
   }
-  #file-display {
-    width: calc(100% - 340px);
+
+  .lang-section-header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .lang-section {
+    margin-top: 10px;
   }
 </style>
