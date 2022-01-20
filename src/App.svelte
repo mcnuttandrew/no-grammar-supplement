@@ -2,9 +2,9 @@
   import { onMount } from "svelte";
 
   import Viewer from "./Viewer.svelte";
-  import { getRoute, createSort, LangSort } from "./utils";
+  import { getRoute, createSort, LangSort, Directory } from "./utils";
 
-  let directory: { [lang: string]: { [fileName: string]: string } } = {};
+  let directory: Directory = {};
   let language: string | null = null;
   let file: string | null = null;
 
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="scroll-container">
-        {#each createSort(Object.keys(directory), langSort) as { sectionTitle, languages }}
+        {#each createSort(Object.keys(directory), langSort, directory) as { sectionTitle, languages }}
           <div class="lang-section">
             {#if sectionTitle}
               <div class="lang-section-header">{sectionTitle}</div>

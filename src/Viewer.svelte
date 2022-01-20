@@ -6,40 +6,19 @@
   import ts from "svelte-highlight/src/languages/typescript";
   const langSupport = { xml, js, json, ts, ac: json };
   import { Highlight } from "svelte-highlight";
-  import stringify from "json-stringify-pretty-compact";
+  import { Modifier, modifyPresentation } from "./utils";
+  const jsonModOptions: Modifier[] = ["none", "json-small", "json-dense"];
 
   export let code: string | null;
   export let fileType: string | null;
-  type Modifier = "none" | "json-small" | "json-dense";
-  let modifier: Modifier = "none";
-  function modifyPresentation(code: string | null, mod: Modifier): string {
-    console.log(mod);
-    switch (mod) {
-      case "json-small":
-        try {
-          return stringify(JSON.parse(code));
-        } catch (e) {
-          return code || "";
-        }
-      case "json-dense":
-        try {
-          return stringify(JSON.parse(code), { maxLength: 200 });
-        } catch (e) {
-          return code || "";
-        }
-      case "none":
-        return code || "";
 
-      default:
-        return "";
-    }
-  }
+  let modifier: Modifier = "none";
 </script>
 
 <div class="scroll-container" id="file-display">
   {#if `${fileType}`.toLowerCase() === "json"}
     <div>
-      {#each ["none", "json-small", "json-dense"] as mod}
+      {#each jsonModOptions as mod}
         <button
           class={mod === modifier ? "button-selected" : ""}
           on:click={() => {

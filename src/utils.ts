@@ -1,3 +1,5 @@
+import stringify from "json-stringify-pretty-compact";
+
 export function getRoute() {
   const href = location.href;
   if (!href.includes("#")) {
@@ -9,13 +11,16 @@ export function getRoute() {
 
 const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
 const last = (arr: any[]) => arr[arr.length - 1];
-export type LangSort = "none" | "alphebetical" | "carrier-language";
+export type LangSort = "none" | "alphabetical" | "carrier-language";
+
+export type Directory = { [lang: string]: { [fileName: string]: string } };
 
 export function createSort(
   listOfLangs: string[],
-  langSort: LangSort
+  langSort: LangSort,
+  directory: Directory
 ): { sectionTitle: string; languages: string[] }[] {
-  if (langSort === "alphebetical") {
+  if (langSort === "alphabetical") {
     const languages = listOfLangs.sort(alphaCompare);
     return [{ sectionTitle: "", languages }];
   }
@@ -40,4 +45,27 @@ export function createSort(
 
   // none
   return [{ sectionTitle: "", languages: listOfLangs }];
+}
+
+export type Modifier = "none" | "json-small" | "json-dense";
+export function modifyPresentation(code: string | null, mod: Modifier): string {
+  switch (mod) {
+    case "json-small":
+      try {
+        return stringify(JSON.parse(code));
+      } catch (e) {
+        return code || "";
+      }
+    case "json-dense":
+      try {
+        return stringify(JSON.parse(code), { maxLength: 200 });
+      } catch (e) {
+        return code || "";
+      }
+    case "none":
+      return code || "";
+
+    default:
+      return "";
+  }
 }
