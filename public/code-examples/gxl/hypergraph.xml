@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<!--hypergraphs 05.02.2002 -->
+<gxl xmlns:xlink=" http://www.w3.org/1999/xlink">
+  <graph id="hypergraph-instance" edgeids=" false" edgemode=" directed" hypergraph=" true">
+    <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph/hypergraphSchema.gxl#hypergraphSchema" xlink:type=" simple"/>
+    <node id="u">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph/hypergraphSchema.gxl#U" xlink:type=" simple"/>
+    </node>
+    <node id="v">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph/hypergraphSchema.gxl#V" xlink:type=" simple"/>
+    </node>
+    <node id="w">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph/hypergraphSchema.gxl#W" xlink:type=" simple"/>
+    </node>
+    <rel id="r">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph/hypergraphSchema.gxl#R" xlink:type=" simple"/>
+      <relend role=" theV" target="v" direction=" in"/>
+      <relend role=" theW" target="w" direction=" out"/>
+      <relend role=" theFirstU" target="u" direction=" out"/>
+      <relend role=" theSecondU" target="u" direction=" out"/>
+    </rel>
+  </graph>
+</gxl>

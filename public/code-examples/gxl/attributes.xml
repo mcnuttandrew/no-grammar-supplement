@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<!-- attributes 05.02.2002 -->
+<gxl xmlns:xlink=" http://www.w3.org/1999/xlink">
+  <graph id="attributes-instance" edgeids=" false" edgemode=" directed" hypergraph=" false">
+    <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/attributes/attributesSchema.gxl#attributesSchema" xlink:type=" simple"/>
+    <node id="p">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/attributes/attributesSchema.gxl#Prog" xlink:type=" simple"/>
+      <attr name=" file">
+        <seq>
+          <string> Ric</string>
+          <string> Andy</string>
+          <string> Susan</string>
+          <string> Andreas</string>
+        </seq>
+      </attr>
+    </node>
+  </graph>
+</gxl>

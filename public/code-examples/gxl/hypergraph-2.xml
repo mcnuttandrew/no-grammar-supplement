@@ -1,0 +1,44 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<!--hypergraph II 05.02.2002 -->
+<gxl xmlns:xlink=" http://www.w3.org/1999/xlink">
+  <graph id="hypergraph2-instance" edgeids=" false" edgemode=" defaultdirected" hypergraph=" true">
+    <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#hypergraph2Schema" xlink:type=" simple"/>
+    <node id="v1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#Function" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> main</string>
+      </attr>
+    </node>
+    <node id="v4">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#Function" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> max</string>
+      </attr>
+    </node>
+    <node id="v6">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#Variable" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> a</string>
+      </attr>
+    </node>
+    <node id="v7">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#Variable" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> b</string>
+      </attr>
+    </node>
+    <rel id="r1" isdirected=" false">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/hypergraph2/hypergraph2Schema.gxl#FunctionCall" xlink:type=" simple"/>
+      <attr name=" line">
+        <int> 8</int>
+      </attr>
+      <relend role=" callee" target="v1"/>
+      <relend role=" caller" target="v4"/>
+      <relend role=" output" target="v6"/>
+      <relend role=" input" target="v6" startorder=" 1"/>
+      <relend role=" input" target="v7" startorder=" 2"/>
+    </rel>
+  </graph>
+</gxl>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<!--complex example 05.02.2002 -->
+<gxl xmlns:xlink=" http://www.w3.org/1999/xlink">
+  <graph id="complexExample-instance" edgeids=" true" edgemode=" directed" hypergraph=" false">
+    <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#complexExampleSchema" xlink:type=" simple"/>
+    <node id="v1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#Function" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> main</string>
+      </attr>
+    </node>
+    <node id="v2">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#FunctionCall" xlink:type=" simple"/>
+    </node>
+    <node id="v3">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#FunctionCall" xlink:type=" simple"/>
+    </node>
+    <node id="v4">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#Function" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> max</string>
+      </attr>
+    </node>
+    <node id="v5">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#Function" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> min</string>
+      </attr>
+    </node>
+    <node id="v6">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#Variable" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> a</string>
+      </attr>
+    </node>
+    <node id="v7">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#Variable" xlink:type=" simple"/>
+      <attr name=" name">
+        <string> b</string>
+      </attr>
+    </node>
+    <edge id="e1" to="v2" from="v1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isCaller" xlink:type=" simple"/>
+      <attr name=" line">
+        <int> 8</int>
+      </attr>
+    </edge>
+    <edge id="e2" to="v3" from="v1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isCaller" xlink:type=" simple"/>
+      <attr name=" line">
+        <int> 19</int>
+      </attr>
+    </edge>
+    <edge id="e3" to="v2" from="v4">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isCallee" xlink:type=" simple"/>
+    </edge>
+    <edge id="e4" to="v3" from="v5">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isCallee" xlink:type=" simple"/>
+    </edge>
+    <edge id="e5" to="v2" from="v6" toorder=" 1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isInput" xlink:type=" simple"/>
+    </edge>
+    <edge id="e6" to="v2" from="v7" toorder=" 2">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isInput" xlink:type=" simple"/>
+    </edge>
+    <edge id="e7" to="v3" from="v6" toorder=" 2">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isInput" xlink:type=" simple"/>
+    </edge>
+    <edge id="e8" to="v3" from="v7" toorder=" 1">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isInput" xlink:type=" simple"/>
+    </edge>
+    <edge id="e9" to="v2" from="v6">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isOutput" xlink:type=" simple"/>
+    </edge>
+    <edge id="e10" to="v3" from="v7">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/complexExample/complexExampleSchema.gxl#isOutput" xlink:type=" simple"/>
+    </edge>
+  </graph>
+</gxl>

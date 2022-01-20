@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<!-- undirected graphs 05.02.2002 -->
+<gxl xmlns:xlink=" http://www.w3.org/1999/xlink">
+  <graph id="undirected-instance" edgeids=" true" edgemode=" defaultdirected" hypergraph=" false">
+    <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/undirected/undirectedSchema.gxl#undirectedSchema" xlink:type=" simple"/>
+    <node id="p">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/undirected/undirectedSchema.gxl#Proc" xlink:type=" simple"/>
+      <attr name=" file">
+        <string> main.c</string>
+      </attr>
+    </node>
+    <node id="v">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/undirected/undirectedSchema.gxl#Var" xlink:type=" simple"/>
+      <attr name=" line">
+        <int> 27</int>
+      </attr>
+    </node>
+    <edge id="e" to="v" from="p" isdirected=" false">
+      <type xlink:href="http://www.gupro.de/GXL/examples/schema/gxl/undirected/undirectedSchema.gxl#Ref" xlink:type=" simple"/>
+    </edge>
+  </graph>
+</gxl>
