@@ -5,27 +5,26 @@
   import json from "svelte-highlight/src/languages/json";
   import js from "svelte-highlight/src/languages/javascript";
   import ts from "svelte-highlight/src/languages/typescript";
-  const langSupport = { xml, js, json, ts };
+  const langSupport = { xml, js, json, ts, ac: json };
   import { getRoute } from "./utils";
   import { Highlight, HighlightAuto } from "svelte-highlight";
   import stringify from "json-stringify-pretty-compact";
 
-  let currentSection = getRoute();
+  let directory: { [lang: string]: { [fileName: string]: string } } = {};
+  let language: string | null = null;
+  let file: string | null = null;
+  $: directoryLoaded = Object.keys(directory).length;
+  $: fileType = (file && file.split(".")[1]) || null;
+  $: code =
+    (directoryLoaded && language && file && directory[language][file]) || null;
   const updatePage = () => {
-    currentSection = getRoute();
-    if (currentSection.file && currentSection.language) {
-      getAndSetCode();
-    }
+    const selection = getRoute();
+    language = selection.language;
+    file = selection.file;
   };
   window.onhashchange = updatePage;
 
-  $: language = currentSection.language;
-  $: file = currentSection.file;
-
-  let code: string | null = null;
-  let fileType: string | null = null;
-  let directory: { name: string; files: string[] }[] = [];
-  fetch("./directory.json")
+  fetch("./example-bundle.json")
     .then((x) => x.json())
     .then((x) => {
       directory = x;
@@ -33,25 +32,35 @@
     .catch((e) => {
       console.log(e);
     });
+  // fetch("./directory.json")
+  //   .then((x) => x.json())
+  //   .then((x) => {
+  //     directory = x;
+  //   })
+  //   .catch((e) => {
+  //     console.log(e);
+  //   });
 
-  const getAndSetCode = () => {
-    if (!(language && file)) {
-      // dont try to
-      return;
-    }
-    fetch(`/code-examples/${language}/${file}`)
-      .then((x) => x.text())
-      .then((x) => {
-        fileType = file.split(".")[1];
-        code = x;
-        if (fileType === "json") {
-          code = stringify(JSON.parse(x));
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  // const getAndSetCode = () => {
+  // if (!(language && file)) {
+  //   // dont try to
+  //   return;
+  // }
+  // fileType = currentSection.file.split(".")[1];
+  // code = directory[currentSection.language][file];
+  // fetch(`/code-examples/${language}/${file}`)
+  //   .then((x) => x.text())
+  //   .then((x) => {
+  //     fileType = file.split(".")[1];
+  //     code = x;
+  //     if (fileType === "json") {
+  //       code = stringify(JSON.parse(x));
+  //     }
+  //   })
+  //   .catch((e) => {
+  //     console.log(e);
+  //   });
+  // };
   onMount(() => updatePage());
 </script>
 
@@ -65,7 +74,7 @@
         TODO: add sorts
       </div>
       <div scroll-container>
-        {#each directory as { name, files }}
+        {#each Object.keys(directory) as name}
           <a
             href={`/#/${name}`}
             class="row-item"
@@ -80,13 +89,13 @@
       </div>
     </div>
     <div class="flex-down column">
-      {#if language && directory.length}
+      {#if language && directoryLoaded}
         <div>
           <h3>{language}</h3>
           <h5>meta data meta data</h5>
         </div>
         <div class="scroll-container">
-          {#each directory.find((x) => x.name === language).files as fileOption}
+          {#each Object.keys(directory[language]) as fileOption}
             <a
               href={`#/${language}/${fileOption}`}
               class="row-item"
