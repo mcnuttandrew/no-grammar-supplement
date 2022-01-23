@@ -4,19 +4,32 @@
   import json from "svelte-highlight/src/languages/json";
   import js from "svelte-highlight/src/languages/javascript";
   import ts from "svelte-highlight/src/languages/typescript";
+  import TreeViewer from "./TreeViewer.svelte";
   const langSupport = { xml, js, json, ts, ac: json };
   import { Highlight } from "svelte-highlight";
   import { Modifier, modifyPresentation } from "./utils";
-  const jsonModOptions: Modifier[] = ["none", "json-small", "json-dense"];
+  const jsonModOptions: Modifier[] = [
+    "none",
+    "json-small",
+    "json-dense",
+    "collapsed",
+    "viewer",
+  ];
 
   export let code: string | null;
   export let fileType: string | null;
-
-  let modifier: Modifier = "none";
+  let modifier: Modifier = "viewer";
+  $: isJson = `${fileType}`.toLowerCase() === "json";
+  console.log("???");
 </script>
 
-<div class="scroll-container" id="file-display">
-  {#if `${fileType}`.toLowerCase() === "json"}
+<div
+  class={`scroll-container ${
+    isJson && modifier === "collapsed" ? "collapsed" : ""
+  }`}
+  id="file-display"
+>
+  {#if isJson}
     <div>
       {#each jsonModOptions as mod}
         <button
@@ -30,13 +43,16 @@
       {/each}
     </div>
   {/if}
-  {#if code && fileType}
+  {#if code && fileType && (!isJson || (isJson && modifier !== "viewer"))}
     <div id="display-container">
       <Highlight
         language={langSupport[fileType]}
         code={modifyPresentation(code, modifier)}
       />
     </div>
+  {/if}
+  {#if isJson && modifier === "viewer"}
+    <TreeViewer json={JSON.parse(code)} depth={1} />
   {/if}
 </div>
 

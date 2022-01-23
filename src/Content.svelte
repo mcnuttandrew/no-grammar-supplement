@@ -12,6 +12,7 @@
     getBundle,
     LangMeta,
     getLangMeta,
+    last,
   } from "./utils";
 
   const { open } = getContext("simple-modal");
@@ -25,7 +26,7 @@
 
   $: directoryLoaded = Object.keys(directory).length;
   $: langMetaLoaded = Object.keys(langMetaCollection).length;
-  $: fileType = (file && file.split(".")[1]) || null;
+  $: fileType = (file && last(file.split("."))) || null;
   $: code =
     (directoryLoaded && language && file && directory[language][file]) || null;
   const updatePage = () => {

@@ -12,7 +12,7 @@ export function getRoute() {
 }
 
 const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
-const last = (arr: any[]) => arr[arr.length - 1];
+export const last = (arr: any[]) => arr[arr.length - 1];
 export type LangSort = "none" | "alphabetical" | "carrier-language";
 
 export type Directory = { [lang: string]: { [fileName: string]: string } };
@@ -49,26 +49,29 @@ export function createSort(
   return [{ sectionTitle: "", languages: listOfLangs }];
 }
 
-export type Modifier = "none" | "json-small" | "json-dense";
+export type Modifier =
+  | "none"
+  | "json-small"
+  | "json-dense"
+  | "viewer"
+  | "collapsed";
 export function modifyPresentation(code: string | null, mod: Modifier): string {
+  let parsedCode = {};
+  try {
+    parsedCode = JSON.parse(code);
+  } catch (e) {
+    return code || "";
+  }
   switch (mod) {
     case "json-small":
-      try {
-        return stringify(JSON.parse(code));
-      } catch (e) {
-        return code || "";
-      }
+      return stringify(parsedCode);
     case "json-dense":
-      try {
-        return stringify(JSON.parse(code), { maxLength: 200 });
-      } catch (e) {
-        return code || "";
-      }
+      return stringify(parsedCode, { maxLength: 200 });
+    case "collapsed":
+      return JSON.stringify(parsedCode);
     case "none":
-      return code || "";
-
     default:
-      return "";
+      return code || "";
   }
 }
 
