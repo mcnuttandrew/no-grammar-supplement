@@ -97,7 +97,7 @@
     color: var(--nodeColor, #374151);
   }
   .contained-item {
-    marign-left: 5px;
+    margin-left: 5px;
   }
   .hidden {
     display: none;

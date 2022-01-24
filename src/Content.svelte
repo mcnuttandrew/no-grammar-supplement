@@ -88,7 +88,9 @@
                 class="row-item"
                 class:row-item-selected={language === name}
               >
-                {name}
+                {(langMetaCollection[name] &&
+                  langMetaCollection[name].System) ||
+                  name}
               </a>
             {/each}
           </div>

@@ -20,7 +20,6 @@
   export let fileType: string | null;
   let modifier: Modifier = "viewer";
   $: isJson = `${fileType}`.toLowerCase() === "json";
-  console.log("???");
 </script>
 
 <div
@@ -52,7 +51,9 @@
     </div>
   {/if}
   {#if isJson && modifier === "viewer"}
-    <TreeViewer json={JSON.parse(code)} depth={1} />
+    <div class="flex-down">
+      <TreeViewer json={JSON.parse(code)} depth={Infinity} />
+    </div>
   {/if}
 </div>
 
