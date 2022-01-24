@@ -29,6 +29,12 @@
   $: fileType = (file && last(file.split("."))) || null;
   $: code =
     (directoryLoaded && language && file && directory[language][file]) || null;
+  $: langCount = Object.entries(directory)
+    .map(([key, files]) => ({
+      key,
+      files: Object.values(files).length,
+    }))
+    .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});
   const updatePage = () => {
     const selection = getRoute();
     language = selection.language;
@@ -46,6 +52,7 @@
 
   getBundle()
     .then((x) => {
+      console.log();
       directory = x;
     })
     .catch((e) => {
@@ -70,14 +77,14 @@
         <div class="flex-down">
           <span>Sort by</span>
           <select bind:value={langSort}>
-            {#each ["none", "alphebetical", "carrier-language"] as sortType}
+            {#each ["none", "alphebetical", "carrier-language", "number-of-examples"] as sortType}
               <option>{sortType}</option>
             {/each}
           </select>
         </div>
       </div>
       <div class="scroll-container">
-        {#each createSort(Object.keys(directory), langSort, directory) as { sectionTitle, languages }}
+        {#each createSort(Object.keys(directory), langSort, directory, langCount) as { sectionTitle, languages }}
           <div class="lang-section">
             {#if sectionTitle}
               <div class="lang-section-header">{sectionTitle}</div>
@@ -91,6 +98,7 @@
                 {(langMetaCollection[name] &&
                   langMetaCollection[name].System) ||
                   name}
+                ({langCount[name]})
               </a>
             {/each}
           </div>

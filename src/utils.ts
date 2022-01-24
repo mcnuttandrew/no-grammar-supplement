@@ -13,15 +13,24 @@ export function getRoute() {
 
 const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
 export const last = (arr: any[]) => arr[arr.length - 1];
-export type LangSort = "none" | "alphabetical" | "carrier-language";
+export type LangSort =
+  | "none"
+  | "alphabetical"
+  | "carrier-language"
+  | "number-of-examples";
 
 export type Directory = { [lang: string]: { [fileName: string]: string } };
 
 export function createSort(
   listOfLangs: string[],
   langSort: LangSort,
-  directory: Directory
+  directory: Directory,
+  langCounts: { [lang: string]: number }
 ): { sectionTitle: string; languages: string[] }[] {
+  if (langSort === "number-of-examples") {
+    const languages = listOfLangs.sort((a, b) => langCounts[b] - langCounts[a]);
+    return [{ sectionTitle: "", languages }];
+  }
   if (langSort === "alphabetical") {
     const languages = listOfLangs.sort(alphaCompare);
     return [{ sectionTitle: "", languages }];
@@ -75,7 +84,7 @@ export function modifyPresentation(code: string | null, mod: Modifier): string {
   }
 }
 
-export async function getBundle() {
+export async function getBundle(): Promise<Directory> {
   const version = await get("bundle-hash");
   const deployedVersionNumber = await fetch("./bundle-hash.json").then((x) =>
     x.json()
