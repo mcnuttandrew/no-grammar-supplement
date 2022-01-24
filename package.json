@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^2.0.0",
@@ -37,6 +38,9 @@
     "idb-keyval": "^6.1.0",
     "json-stringify-pretty-compact": "^3.0.0",
     "sirv-cli": "^1.0.0",
-    "svelte-highlight": "^5.1.4"
+    "svelte-highlight": "^5.1.4",
+    "vega": "^5.21.0",
+    "vega-embed": "^6.20.5",
+    "vega-lite": "^5.2.0"
   }
 }

@@ -125,3 +125,14 @@ export async function getLangMeta(): Promise<LangMeta> {
     return acc;
   }, {});
 }
+
+export const groupByKey = (
+  data: LangMetaRow[],
+  key: string
+): { key: string; count: number }[] =>
+  Object.entries(
+    data.reduce((acc, row) => {
+      acc[row[key]] = (acc[row[key]] || 0) + 1;
+      return acc;
+    }, {} as { [x: string]: number })
+  ).map(([key, count]) => ({ key, count }));

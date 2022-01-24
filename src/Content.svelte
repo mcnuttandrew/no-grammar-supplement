@@ -4,6 +4,7 @@
   import Viewer from "./Viewer.svelte";
   import Popup from "./Popup.svelte";
   import MetaDisplay from "./MetaDisplay.svelte";
+  import SummaryView from "./SummaryView.svelte";
   import {
     getRoute,
     createSort,
@@ -60,6 +61,7 @@
     });
 
   onMount(() => updatePage());
+  $: onSummaryPage = language === "summaries";
 </script>
 
 <main class="full-height">
@@ -74,6 +76,7 @@
     <div class="flex-down column">
       <div>
         <h3>Select a grammar to begin</h3>
+        <a href={`/#/summaries`}>Summaries</a>
         <div class="flex-down">
           <span>Sort by</span>
           <select bind:value={langSort}>
@@ -105,36 +108,43 @@
         {/each}
       </div>
     </div>
-    <div class="flex-down column">
-      {#if language && directoryLoaded}
-        <div>
-          <h3>{language}</h3>
-          {#if langMetaLoaded && langMetaCollection[language]}
-            <MetaDisplay meta={langMetaCollection[language]} />
-          {:else}
-            <div>Loading Meta</div>
-          {/if}
-        </div>
-        <div class="scroll-container">
-          {#each Object.keys(directory[language]) as fileOption}
-            <a
-              href={`#/${language}/${fileOption}`}
-              class="row-item"
-              class:row-item-selected={file === fileOption}
-            >
-              {fileOption}
-            </a>
-          {/each}
-        </div>
-      {/if}
-      {#if !directoryLoaded}
-        <div>
-          <h1>Loading</h1>
-          <h5>This may take a moment</h5>
-        </div>
-      {/if}
-    </div>
-    <Viewer {fileType} {code} />
+    {#if !onSummaryPage}
+      <div class="flex-down column">
+        {#if language && directoryLoaded}
+          <div>
+            <h3>{language}</h3>
+            {#if langMetaLoaded && langMetaCollection[language]}
+              <MetaDisplay meta={langMetaCollection[language]} />
+            {:else}
+              <div>Loading Meta</div>
+            {/if}
+          </div>
+          <div class="scroll-container">
+            {#each Object.keys(directory[language]) as fileOption}
+              <a
+                href={`#/${language}/${fileOption}`}
+                class="row-item"
+                class:row-item-selected={file === fileOption}
+              >
+                {fileOption}
+              </a>
+            {/each}
+          </div>
+        {/if}
+        {#if !directoryLoaded && !onSummaryPage}
+          <div>
+            <h1>Loading</h1>
+            <h5>This may take a moment</h5>
+          </div>
+        {/if}
+      </div>
+    {/if}
+    {#if !onSummaryPage}
+      <Viewer {fileType} {code} />
+    {/if}
+    {#if onSummaryPage && langMetaLoaded}
+      <SummaryView meta={Object.values(langMetaCollection)} />
+    {/if}
   </div>
 </main>
 
