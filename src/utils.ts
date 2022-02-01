@@ -135,4 +135,6 @@ export const groupByKey = (
       acc[row[key]] = (acc[row[key]] || 0) + 1;
       return acc;
     }, {} as { [x: string]: number })
-  ).map(([key, count]) => ({ key, count }));
+  )
+    .map(([key, count]) => ({ key, count }))
+    .sort((a, b) => a.count - b.count);

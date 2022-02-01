@@ -36,6 +36,10 @@
       files: Object.values(files).length,
     }))
     .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});
+
+  // $: console.log(
+  //   Object.values(langCount).reduce((acc: number, row: number) => acc + row, 0)
+  // );
   const updatePage = () => {
     const selection = getRoute();
     language = selection.language;

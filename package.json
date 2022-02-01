@@ -31,7 +31,8 @@
     "svelte-preprocess": "^4.0.0",
     "ts-node": "^10.4.0",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "vega-typings": "^0.22.2"
   },
   "dependencies": {
     "hoopoe": "^1.0.3",
@@ -39,8 +40,8 @@
     "json-stringify-pretty-compact": "^3.0.0",
     "sirv-cli": "^1.0.0",
     "svelte-highlight": "^5.1.4",
+    "svelte-vega": "^1.1.0",
     "vega": "^5.21.0",
-    "vega-embed": "^6.20.5",
     "vega-lite": "^5.2.0"
   }
 }

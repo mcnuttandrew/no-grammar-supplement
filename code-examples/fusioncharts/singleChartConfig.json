@@ -8,7 +8,7 @@
             "xaxisname": "Country",
             "yaxisname": "Reserves (MMbbl)",
             "numbersuffix": "K",
-            "theme": "fusion",
+            "theme": "fusion"
         },
         "data": [
             {
