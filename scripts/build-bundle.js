@@ -1,15 +1,23 @@
 import { getFileNamesFromDir, executeCommandLineCmd } from "hoopoe";
+import { tsvParse } from "d3-dsv";
 import { writeFile, readFile } from "fs/promises";
 
 import crypto from "crypto";
 
 async function main() {
+  const langMeta = await readFile("./public/lang-meta.tsv", "utf-8").then((x) =>
+    tsvParse(x)
+  );
+  const includedLangs = new Set(langMeta.map((x) => x.sysKey));
   const dirNames = await getFileNamesFromDir("./code-examples").then((x) =>
     x.filter((el) => !el.includes("."))
   );
   const fileDirMap = {};
   for (let idx = 0; idx < dirNames.length; idx++) {
     const dirName = dirNames[idx];
+    if (!includedLangs.has(dirName)) {
+      continue;
+    }
     const fileNames = await getFileNamesFromDir(`./code-examples/${dirName}`);
     const files = {};
     for (let jdx = 0; jdx < fileNames.length; jdx++) {

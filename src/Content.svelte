@@ -66,6 +66,13 @@
 
   onMount(() => updatePage());
   $: onSummaryPage = language === "summaries";
+
+  $: sortedLangs = createSort(
+    Object.keys(directory).filter((lang) => langMetaCollection[lang]),
+    langSort,
+    directory,
+    langCount
+  );
 </script>
 
 <main class="full-height">
@@ -91,7 +98,7 @@
         </div>
       </div>
       <div class="scroll-container">
-        {#each createSort(Object.keys(directory), langSort, directory, langCount) as { sectionTitle, languages }}
+        {#each sortedLangs as { sectionTitle, languages }}
           <div class="lang-section">
             {#if sectionTitle}
               <div class="lang-section-header">{sectionTitle}</div>
@@ -102,9 +109,7 @@
                 class="row-item"
                 class:row-item-selected={language === name}
               >
-                {(langMetaCollection[name] &&
-                  langMetaCollection[name].System) ||
-                  name}
+                {langMetaCollection[name] && langMetaCollection[name].System}
                 ({langCount[name]})
               </a>
             {/each}
@@ -116,7 +121,10 @@
       <div class="flex-down column">
         {#if language && directoryLoaded}
           <div>
-            <h3>{language}</h3>
+            <h3>
+              {langMetaCollection[language] &&
+                langMetaCollection[language].System}
+            </h3>
             {#if langMetaLoaded && langMetaCollection[language]}
               <MetaDisplay meta={langMetaCollection[language]} />
             {:else}

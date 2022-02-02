@@ -3,8 +3,6 @@
   import { outputTypePi, barChart, heatmap, theme } from "./charts";
   export let meta: LangMetaRow[];
   import { VegaLite, VegaLiteSpec } from "svelte-vega";
-  // import Vega from "./Vega.svelte";
-  console.log(meta);
   const specs = [
     outputTypePi(groupByKey(meta, "Academic Project"), {
       title: "Academic Project",
