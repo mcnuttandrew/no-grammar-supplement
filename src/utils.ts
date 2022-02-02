@@ -7,8 +7,8 @@ export function getRoute() {
   if (!href.includes("#")) {
     return { language: null, file: null };
   }
-  const [_, language, file] = href.split("#")[1].split("/");
-  return { language, file };
+  const [_, section, language, file] = href.split("#")[1].split("/");
+  return { section, language, file };
 }
 
 const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
