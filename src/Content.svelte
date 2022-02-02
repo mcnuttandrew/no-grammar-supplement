@@ -4,6 +4,7 @@
   import Header from "./Header.svelte";
   import Browse from "./Browse.svelte";
   import SummaryView from "./SummaryView.svelte";
+  import Search from "./Search.svelte";
   import {
     getRoute,
     Directory,
@@ -26,6 +27,7 @@
   let file: string | null = null;
 
   const updatePage = () => {
+    console.log("update");
     const selection = getRoute();
     section = selection.section;
     language = selection.language;
@@ -52,7 +54,7 @@
   onMount(() => updatePage());
 </script>
 
-<main class="full-height">
+<main class="h-full">
   <Header />
   {#if section === "browse" && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
@@ -60,24 +62,27 @@
   {#if section === "summaries" && allLoaded}
     <SummaryView meta={Object.values(langMetaCollection)} />
   {/if}
+  {#if section === "search" && allLoaded}
+    <Search
+      {directory}
+      {langMetaCollection}
+      searchKey={language}
+      triggerUpdate={updatePage}
+    />
+  {/if}
   {#if !allLoaded}
     <div class="flex-center flex">
       <h1>Loading</h1>
       <h5>This may take a moment</h5>
     </div>
   {/if}
+  {#if allLoaded && !section}
+    <div class="flex items-center justify-center h-full">
+      <div class="flex flex-col">
+        <a href={"/#/browse"}>Browse</a>
+        <a href={"/#/search"}>Search</a>
+        <a href={"/#/summaries"}>Summary Charts</a>
+      </div>
+    </div>
+  {/if}
 </main>
-
-<style>
-  .flex {
-    display: flex;
-  }
-  .flex-down {
-    display: flex;
-    flex-direction: column;
-  }
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-  }
-</style>

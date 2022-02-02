@@ -27,52 +27,62 @@
   $: code = (language && file && directory[language][file]) || null;
 </script>
 
-<div class="flex full-height" id="main-content">
-  <div class="flex-down column">
-    <div>
-      <h3>Select a grammar to begin</h3>
-      <a href={`/#/summaries`}>Summaries</a>
-      <div class="flex-down">
+<div class="flex pl-8 max-h-full">
+  <!-- left column -->
+  <div
+    class="flex flex-col w-1/5 border-r border-r-slate-300 pr-8 pt-8 max-h-full"
+  >
+    <!-- header -->
+    <div class="flex flex-col pb-8">
+      <div class="">
         <span>Sort by</span>
         <select bind:value={langSort}>
-          {#each ["none", "alphebetical", "carrier-language", "number-of-examples"] as sortType}
+          {#each ["none", "alphabetical", "carrier-language", "number-of-examples"] as sortType}
             <option>{sortType}</option>
           {/each}
         </select>
       </div>
     </div>
-    <div class="scroll-container">
+    <!-- main content -->
+    <div class="flex flex-col max-h-full overflow-y-auto pb-96">
       {#each sortedLangs as { sectionTitle, languages }}
-        <div class="lang-section">
+        <div class="flex flex-col">
           {#if sectionTitle}
-            <div class="lang-section-header">{sectionTitle}</div>
+            <div class="font-bold">{sectionTitle.toUpperCase()}</div>
           {/if}
           {#each languages as name}
             <a
-              href={`/#/${name}`}
-              class="row-item"
+              href={`/#/browse/${name}`}
+              class="flex flex-col mb-3"
               class:row-item-selected={language === name}
             >
-              {langMetaCollection[name] && langMetaCollection[name].System}
-              ({langCount[name]})
+              <span class="text-base leading-3">
+                {langMetaCollection[name] && langMetaCollection[name].System}
+              </span>
+              <span class="opacity-50 text-sm">
+                {langCount[name]} example{langCount[name] > 1 ? "s" : ""}
+              </span>
             </a>
           {/each}
         </div>
       {/each}
     </div>
   </div>
-  <div class="flex-down column">
+  <!-- center column -->
+  <div
+    class="flex flex-col w-1/5 border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48"
+  >
     {#if language}
-      <div>
+      <div class="flex flex-col">
         <h3>
           {langMetaCollection[language] && langMetaCollection[language].System}
         </h3>
         <MetaDisplay meta={langMetaCollection[language]} />
       </div>
-      <div class="scroll-container">
+      <div class="flex flex-col overflow-y-auto">
         {#each Object.keys(directory[language]) as fileOption}
           <a
-            href={`#/${language}/${fileOption}`}
+            href={`#/browse/${language}/${fileOption}`}
             class="row-item"
             class:row-item-selected={file === fileOption}
           >
@@ -82,5 +92,6 @@
       </div>
     {/if}
   </div>
+  <!-- viewer -->
   <Viewer {fileType} {code} />
 </div>
