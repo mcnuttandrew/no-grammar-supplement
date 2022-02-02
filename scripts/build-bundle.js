@@ -1,8 +1,8 @@
-import { getFileNamesFromDir, executeCommandLineCmd } from "hoopoe";
-import { tsvParse } from "d3-dsv";
-import { writeFile, readFile } from "fs/promises";
+const { getFileNamesFromDir, executeCommandLineCmd } = require("hoopoe");
+const { tsvParse } = require("d3-dsv");
+const { writeFile, readFile } = require("fs/promises");
 
-import crypto from "crypto";
+const crypto = require("crypto");
 
 async function main() {
   const langMeta = await readFile("./public/lang-meta.tsv", "utf-8").then((x) =>

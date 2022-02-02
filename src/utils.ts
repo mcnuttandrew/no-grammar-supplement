@@ -7,8 +7,8 @@ export function getRoute() {
   if (!href.includes("#")) {
     return { language: null, file: null };
   }
-  const [_, language, file] = href.split("#")[1].split("/");
-  return { language, file };
+  const [_, section, language, file] = href.split("#")[1].split("/");
+  return { section, language, file };
 }
 
 const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
@@ -32,8 +32,7 @@ export function createSort(
     return [{ sectionTitle: "", languages }];
   }
   if (langSort === "alphabetical") {
-    const languages = listOfLangs.sort(alphaCompare);
-    return [{ sectionTitle: "", languages }];
+    return [{ sectionTitle: "", languages: listOfLangs.sort(alphaCompare) }];
   }
 
   if (langSort === "carrier-language") {
@@ -46,12 +45,15 @@ export function createSort(
       return acc;
     }, {});
 
+    const secOrder = ["json", "xml", "yaml", "js", "py"];
+    const toVal = (title) =>
+      secOrder.findIndex((x) => x === title.toLowerCase());
     return Object.entries(langGroups)
       .map(([type, langs]: [string, string[]]) => ({
         sectionTitle: type,
         languages: langs.sort(alphaCompare),
       }))
-      .sort((a, b) => a.sectionTitle.localeCompare(b.sectionTitle));
+      .sort((a, b) => toVal(a.sectionTitle) - toVal(b.sectionTitle));
   }
 
   // none
@@ -138,3 +140,25 @@ export const groupByKey = (
   )
     .map(([key, count]) => ({ key, count }))
     .sort((a, b) => a.count - b.count);
+
+const removeImages = (fileContent) =>
+  fileContent
+    .split("\n")
+    .map((x) => (x.includes("data:image") ? "PNG" : x))
+    .join("\n");
+export function parseResults(directory: Directory, key: string) {
+  return Object.entries(directory).reduce((acc, [lang, files]) => {
+    const filteredFiles = Object.entries(files)
+      .filter(([fileName, fileContent]) => {
+        return (
+          lang.toLowerCase().includes(key.toLowerCase()) ||
+          fileName.toLowerCase().includes(key.toLowerCase()) ||
+          removeImages(fileContent).toLowerCase().includes(key.toLowerCase())
+        );
+      })
+      .map(([fileName, fileContent]) => {
+        return { lang, fileName, fileContent: removeImages(fileContent) };
+      });
+    return acc.concat(filteredFiles);
+  }, []);
+}

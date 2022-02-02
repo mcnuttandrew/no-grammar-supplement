@@ -1,16 +1,17 @@
-<script lang="ts">
-  import embed from "vega-embed";
+<script>
+  // import embed from "vega-embed";
   export let spec;
+  export let options;
   let container;
-  console.log(spec);
+  const handler = new vegaTooltip.Handler(options);
   $: spec &&
-    embed(container, spec, { actions: false })
-      .then((x) => {
-        console.log("chart written", x);
-      })
-      .catch((e) => {
-        console.log("chart error", e);
-      });
+    vegaEmbed(container, JSON.parse(JSON.stringify(spec)), {
+      actions: false,
+      tooltip: handler,
+      ...options,
+    }).catch((e) => {
+      // console.log("chart error", e);
+    });
 </script>
 
 <div bind:this={container} />

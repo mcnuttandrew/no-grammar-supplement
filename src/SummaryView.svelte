@@ -2,7 +2,7 @@
   import { LangMetaRow, groupByKey } from "./utils";
   import { outputTypePi, barChart, heatmap, theme } from "./charts";
   export let meta: LangMetaRow[];
-  import { VegaLite, VegaLiteSpec } from "svelte-vega";
+  import Vega from "./Vega.svelte";
   const specs = [
     outputTypePi(groupByKey(meta, "Academic Project"), {
       title: "Academic Project",
@@ -15,11 +15,11 @@
     }),
     barChart(groupByKey(meta, "Domain")),
     heatmap(meta, "Language Form", "Academic Project"),
-  ] as VegaLiteSpec[];
+  ] as any[];
 </script>
 
 <div>
   {#each specs as spec}
-    <VegaLite {spec} options={{ actions: false, config: theme }} />
+    <Vega {spec} options={{ actions: false, config: theme }} />
   {/each}
 </div>

@@ -1,47 +1,34 @@
 <script lang="ts">
-  import { onMount, getContext } from "svelte";
+  import { onMount } from "svelte";
 
-  import Viewer from "./Viewer.svelte";
-  import Popup from "./Popup.svelte";
-  import MetaDisplay from "./MetaDisplay.svelte";
+  import Header from "./Header.svelte";
+  import Browse from "./Browse.svelte";
   import SummaryView from "./SummaryView.svelte";
+  import Search from "./Search.svelte";
   import {
     getRoute,
-    createSort,
-    LangSort,
     Directory,
     getBundle,
     LangMeta,
     getLangMeta,
-    last,
   } from "./utils";
 
-  const { open } = getContext("simple-modal");
-
+  // data
   let directory: Directory = {};
-  let language: string | null = null;
-  let file: string | null = null;
   let langMetaCollection: LangMeta = {};
-
-  let langSort: LangSort = "carrier-language";
-
+  // data loading state
   $: directoryLoaded = Object.keys(directory).length;
   $: langMetaLoaded = Object.keys(langMetaCollection).length;
-  $: fileType = (file && last(file.split("."))) || null;
-  $: code =
-    (directoryLoaded && language && file && directory[language][file]) || null;
-  $: langCount = Object.entries(directory)
-    .map(([key, files]) => ({
-      key,
-      files: Object.values(files).length,
-    }))
-    .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});
+  $: allLoaded = directoryLoaded && langMetaLoaded;
 
-  // $: console.log(
-  //   Object.values(langCount).reduce((acc: number, row: number) => acc + row, 0)
-  // );
+  // routing
+  let section: string | null = null;
+  let language: string | null = null;
+  let file: string | null = null;
+
   const updatePage = () => {
     const selection = getRoute();
+    section = selection.section;
     language = selection.language;
     file = selection.file;
   };
@@ -57,7 +44,6 @@
 
   getBundle()
     .then((x) => {
-      console.log();
       directory = x;
     })
     .catch((e) => {
@@ -65,150 +51,37 @@
     });
 
   onMount(() => updatePage());
-  $: onSummaryPage = language === "summaries";
-
-  $: sortedLangs = createSort(
-    Object.keys(directory).filter((lang) => langMetaCollection[lang]),
-    langSort,
-    directory,
-    langCount
-  );
 </script>
 
-<main class="full-height">
-  <div id="header" class="flex">
-    <div class="flex-down">
-      <h1>A Survey of JSON-Based Visualization DSLS</h1>
-      <h3>Supplementary Material</h3>
+<main class="h-full">
+  <Header />
+  {#if section === "browse" && allLoaded}
+    <Browse {directory} {langMetaCollection} {language} {file} />
+  {/if}
+  {#if section === "summaries" && allLoaded}
+    <SummaryView meta={Object.values(langMetaCollection)} />
+  {/if}
+  {#if section === "search" && allLoaded}
+    <Search
+      {directory}
+      {langMetaCollection}
+      searchKey={language}
+      triggerUpdate={updatePage}
+    />
+  {/if}
+  {#if !allLoaded}
+    <div class="flex-center flex">
+      <h1>Loading</h1>
+      <h5>This may take a moment</h5>
     </div>
-    <div on:click={() => open(Popup)}>About</div>
-  </div>
-  <div class="flex full-height" id="main-content">
-    <div class="flex-down column">
-      <div>
-        <h3>Select a grammar to begin</h3>
-        <a href={`/#/summaries`}>Summaries</a>
-        <div class="flex-down">
-          <span>Sort by</span>
-          <select bind:value={langSort}>
-            {#each ["none", "alphebetical", "carrier-language", "number-of-examples"] as sortType}
-              <option>{sortType}</option>
-            {/each}
-          </select>
-        </div>
-      </div>
-      <div class="scroll-container">
-        {#each sortedLangs as { sectionTitle, languages }}
-          <div class="lang-section">
-            {#if sectionTitle}
-              <div class="lang-section-header">{sectionTitle}</div>
-            {/if}
-            {#each languages as name}
-              <a
-                href={`/#/${name}`}
-                class="row-item"
-                class:row-item-selected={language === name}
-              >
-                {langMetaCollection[name] && langMetaCollection[name].System}
-                ({langCount[name]})
-              </a>
-            {/each}
-          </div>
-        {/each}
+  {/if}
+  {#if allLoaded && !section}
+    <div class="flex items-center justify-center h-full">
+      <div class="flex flex-col">
+        <a href={"/#/browse"}>Browse</a>
+        <a href={"/#/search"}>Search</a>
+        <a href={"/#/summaries"}>Summary Charts</a>
       </div>
     </div>
-    {#if !onSummaryPage}
-      <div class="flex-down column">
-        {#if language && directoryLoaded}
-          <div>
-            <h3>
-              {langMetaCollection[language] &&
-                langMetaCollection[language].System}
-            </h3>
-            {#if langMetaLoaded && langMetaCollection[language]}
-              <MetaDisplay meta={langMetaCollection[language]} />
-            {:else}
-              <div>Loading Meta</div>
-            {/if}
-          </div>
-          <div class="scroll-container">
-            {#each Object.keys(directory[language]) as fileOption}
-              <a
-                href={`#/${language}/${fileOption}`}
-                class="row-item"
-                class:row-item-selected={file === fileOption}
-              >
-                {fileOption}
-              </a>
-            {/each}
-          </div>
-        {/if}
-        {#if !directoryLoaded && !onSummaryPage}
-          <div>
-            <h1>Loading</h1>
-            <h5>This may take a moment</h5>
-          </div>
-        {/if}
-      </div>
-    {/if}
-    {#if !onSummaryPage}
-      <Viewer {fileType} {code} />
-    {/if}
-    {#if onSummaryPage && langMetaLoaded}
-      <SummaryView meta={Object.values(langMetaCollection)} />
-    {/if}
-  </div>
+  {/if}
 </main>
-
-<style>
-  #header {
-    background: #0070c1;
-    color: white;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 20px;
-  }
-  #main-content {
-    padding: 0px 10px;
-  }
-  .flex {
-    display: flex;
-  }
-  .flex-down {
-    display: flex;
-    flex-direction: column;
-  }
-  .row-item {
-    color: black;
-    display: block;
-    /* cursor: pointer; */
-  }
-  .row-item-selected {
-    font-weight: bold;
-  }
-  .scroll-container {
-    height: 100%;
-    overflow-y: scroll;
-  }
-  .full-height {
-    height: 100%;
-  }
-  .column {
-    border-right: thin solid black;
-    padding-right: 10px;
-    padding-left: 10px;
-    width: 340px !important;
-    padding-top: 20px;
-  }
-
-  .lang-section-header {
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .lang-section {
-    margin-top: 10px;
-  }
-</style>
