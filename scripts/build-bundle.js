@@ -27,6 +27,13 @@ async function main() {
         "utf-8"
       );
       files[fileName] = file;
+      if (fileName.endsWith("json")) {
+        try {
+          JSON.parse(file);
+        } catch (e) {
+          console.log(`problem parsing ${dirName}/${fileName}`);
+        }
+      }
     }
     fileDirMap[dirName] = files;
   }

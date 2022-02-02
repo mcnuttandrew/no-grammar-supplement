@@ -11,23 +11,32 @@
       "field": "XCoord",
       "type": "quantitative",
       "scale": {
-        "domain": [ 981000, 984000 ]
+        "domain": [
+          981000,
+          984000
+        ]
       },
-      "axis": none
+      "axis": "none"
     },
     "z": {
       "field": "YCoord",
       "type": "quantitative",
       "scale": {
-        "domain": [ 200000, 203000 ]
+        "domain": [
+          200000,
+          203000
+        ]
       },
-      "axis": none
+      "axis": "none"
     },
     "size": {
       "field": "BldgArea",
       "type": "quantitative",
       "scale": {
-        "range": [ 100, 500 ]
+        "range": [
+          100,
+          500
+        ]
       }
     },
     "y": {
@@ -45,8 +54,14 @@
       "field": "YearBuilt",
       "type": "quantitative",
       "scale": {
-        "domain": [ 1805, 2014 ],
-        "range": [ "#010101", "#ffffff" ]
+        "domain": [
+          1805,
+          2014
+        ],
+        "range": [
+          "#010101",
+          "#ffffff"
+        ]
       }
     }
   }

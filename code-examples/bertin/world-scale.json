@@ -28,7 +28,7 @@
             "strokewidth": 1.5,
             "strokedasharray": 2,
             "stroke": "#74c4ac",
-            "step": step
+            "step": "step"
         },
         {
             "type": "graticule",
