@@ -4,12 +4,8 @@
   export let depth = Infinity;
   export let _lvl = 0;
   export let _last = true;
-
   const collapsedSymbol = "...";
-  const getType = (i) => {
-    if (i === null) return "null";
-    return typeof i;
-  };
+  const getType = (i) => (i === null ? "null" : typeof i);
 
   let items;
   let isArray;
@@ -40,10 +36,16 @@
   const clicked = () => {
     collapsed = !collapsed;
   };
+  const typeToClass = {
+    string: "text-green-600",
+    number: "text-amber-500",
+    boolean: "text-cyan-500",
+    comma: "text-slate-900",
+  };
 </script>
 
 {#if items.length}
-  <span class:hidden={collapsed} class="node">
+  <span class:hidden={collapsed} class={"node"}>
     <span class="bracket" on:click={clicked} tabindex="0">{openBracket}</span>
     <div class="container">
       {#each items as i, idx}
@@ -59,8 +61,10 @@
               _last={idx === items.length - 1}
             />
           {:else}
-            <span class="val {getType(json[i])}">
-              {format(json[i])}{#if idx < items.length - 1}<span class="comma">
+            <span class="val {typeToClass[getType(json[i])]}">
+              {format(json[i])}{#if idx < items.length - 1}<span
+                  class={typeToClass.comma}
+                >
                   ,
                 </span>{/if}
             </span>
@@ -69,7 +73,7 @@
       {/each}
     </div>
     <span class="bracket" on:click={clicked} tabindex="0">{closeBracket}</span>
-    {#if !_last}<span class="comma">,</span>{/if}
+    {#if !_last}<span class={typeToClass.comma}>,</span>{/if}
   </span>
   <span
     class="bracket"
@@ -79,7 +83,7 @@
   >
     {openBracket}{collapsedSymbol}{closeBracket}
   </span>
-  {#if !_last && collapsed}<span class="comma">,</span>{/if}
+  {#if !_last && collapsed}<span class={typeToClass.comma}>,</span>{/if}
 {/if}
 
 <style>
@@ -107,20 +111,5 @@
   }
   .bracket:hover {
     background: var(--bracketHoverBackground, #d1d5db);
-  }
-  .comma {
-    color: var(--nodeColor, #374151);
-  }
-  .val {
-    color: var(--leafDefaultColor, #9ca3af);
-  }
-  .val.string {
-    color: var(--leafStringColor, #059669);
-  }
-  .val.number {
-    color: var(--leafNumberColor, #d97706);
-  }
-  .val.boolean {
-    color: var(--leafBooleanColor, #2563eb);
   }
 </style>
