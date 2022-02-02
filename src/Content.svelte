@@ -27,7 +27,6 @@
   let file: string | null = null;
 
   const updatePage = () => {
-    console.log("update");
     const selection = getRoute();
     section = selection.section;
     language = selection.language;

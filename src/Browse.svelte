@@ -30,7 +30,7 @@
 <div class="flex pl-8 max-h-full">
   <!-- left column -->
   <div
-    class="flex flex-col w-1/5 border-r border-r-slate-300 pr-8 pt-8 max-h-full"
+    class="flex flex-col my-column-1 border-r border-r-slate-300 pr-8 pt-8 max-h-full"
   >
     <!-- header -->
     <div class="flex flex-col pb-8">
@@ -70,7 +70,7 @@
   </div>
   <!-- center column -->
   <div
-    class="flex flex-col w-1/5 border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48"
+    class="flex flex-col my-column-2  border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48"
   >
     {#if language}
       <div class="flex flex-col">
@@ -93,5 +93,20 @@
     {/if}
   </div>
   <!-- viewer -->
-  <Viewer {fileType} {code} />
+  {#if language && code}
+    <Viewer {fileType} {code} />
+  {:else}
+    <div class="flex items-center justify-center w-full text-2xl">
+      Select a {!language ? "language" : "example"}
+    </div>
+  {/if}
 </div>
+
+<style>
+  .my-column-1 {
+    width: 220px !important;
+  }
+  .my-column-2 {
+    width: 400px !important;
+  }
+</style>

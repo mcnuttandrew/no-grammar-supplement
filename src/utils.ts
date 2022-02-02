@@ -27,7 +27,6 @@ export function createSort(
   directory: Directory,
   langCounts: { [lang: string]: number }
 ): { sectionTitle: string; languages: string[] }[] {
-  console.log(langSort);
   if (langSort === "number-of-examples") {
     const languages = listOfLangs.sort((a, b) => langCounts[b] - langCounts[a]);
     return [{ sectionTitle: "", languages }];
