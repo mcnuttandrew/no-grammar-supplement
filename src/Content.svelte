@@ -70,14 +70,22 @@
     />
   {/if}
   {#if !allLoaded}
-    <div class="flex-center flex">
-      <h1>Loading</h1>
-      <h5>This may take a moment</h5>
+    <div class="flex items-center justify-center h-full flex-col">
+      <h1 class="text-2xl">Loading</h1>
+      <h5 class="text-xl">This may take a moment</h5>
+      <div
+        style="border-top-color:transparent"
+        class="w-32 h-32 border-4 border-blue-400 border-double rounded-full animate-spin mt-32"
+      />
     </div>
   {/if}
   {#if allLoaded && !section}
-    <div class="flex items-center justify-center h-full">
-      <div class="flex flex-col">
+    <div class="flex flex-col items-center justify-center h-full text-center">
+      <div class="mb-24">
+        <h1 class="text-4xl">A Survey of Static Visualization DSLS</h1>
+        <h3 class="text-2xl">Supplementary Materials</h3>
+      </div>
+      <div class="flex flex-col text-2xl pb-64">
         <a href={"/#/browse"}>Browse</a>
         <a href={"/#/search"}>Search</a>
         <a href={"/#/summaries"}>Summary Charts</a>

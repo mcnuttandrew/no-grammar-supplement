@@ -8,9 +8,7 @@
   class="bg-blue-600 text-white p-8 flex flex-row justify-between items-center"
 >
   <div class="flex flex-col">
-    <h1 class="text-2xl font-bold">
-      A Survey of JSON-Based Visualization DSLS
-    </h1>
+    <h1 class="text-2xl font-bold">A Survey of Static Visualization DSLS</h1>
     <div class="flex">
       <span class="font-bold">Supplementary Material</span>
       <span class="text-white mx-2">⋅</span>
