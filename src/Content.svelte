@@ -73,6 +73,7 @@
     <div class="flex items-center justify-center h-full flex-col">
       <h1 class="text-2xl">Loading</h1>
       <h5 class="text-xl">This may take a moment</h5>
+      <!-- https://larainfo.com/blogs/tailwind-css-loading-spinner-example -->
       <div
         style="border-top-color:transparent"
         class="w-32 h-32 border-4 border-blue-400 border-double rounded-full animate-spin mt-32"

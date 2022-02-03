@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "full-build": "yarn build && ts-node scripts/build-bundle.js",
+    "full-build": "yarn build && ts-node scripts/build-bundle.js && sh scripts/prep-distro.sh",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json"
@@ -33,6 +33,10 @@
     "ts-node": "^10.4.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0",
+    "vega": "^5.21.0",
+    "vega-embed": "^6.20.5",
+    "vega-lite": "^5.2.0",
+    "vega-tooltip": "^0.28.0",
     "vega-typings": "^0.22.2"
   },
   "dependencies": {

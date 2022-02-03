@@ -1,14 +1,11 @@
 <script lang="ts">
   import { Directory, LangMeta, parseResults, last } from "./utils";
   import SyntaxHighlight from "./SyntaxHighlight.svelte";
-  //   let searchKey: string = "";
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let triggerUpdate;
-  //   export let
   export let searchKey: string = "";
   $: results = searchKey ? parseResults(directory, searchKey) : [];
-  $: console.log(searchKey);
 
   function getSubsection(fileContent: string, key: string) {
     const lines = fileContent.split("\n");
@@ -26,26 +23,32 @@
 <div class="flex flex-col h-full items-center p-8">
   <div class="flex flex-col">
     <div class="flex">
-      <span>Search</span>
-      <!-- <span>{results.length ? `${results.length} results` : ""}</span> -->
+      <span>Search example programs</span>
+      <span>
+        {results.length ? `: ${results.length} results` : ""}
+      </span>
     </div>
-    <input
-      class="w-"
-      on:change={(e) => {
-        // searchKey = e.target.value;
-        history.pushState({}, null, `#/search/${e.target.value}`);
-        triggerUpdate();
-      }}
-    />
+    <div class="flex">
+      <input
+        class="w-"
+        value={searchKey}
+        on:change={(e) => {
+          // searchKey = e.target.value;
+          history.pushState({}, null, `#/search/${e.target.value}`);
+          triggerUpdate();
+        }}
+      />
+      <button>Search</button>
+    </div>
   </div>
   <div class="h-full overflow-y-auto break-normal mb-20">
     {#each results.slice(0, 20) as { lang, fileName, fileContent }}
-      <div class="flex flex-col w-full overflow-x-auto wrap-">
+      <div class="flex flex-col w-full overflow-x-auto  mb-2">
         <div class="flex opacity-80 font-bold">
-          <a class="mr-10" href={`/#/browse/${lang}`}>
+          <a class="mr-10 underline" href={`/#/browse/${lang}`}>
             <SyntaxHighlight {searchKey} inputString={lang} />
           </a>
-          <a href={`#/browse/${lang}/${fileName}`}>
+          <a href={`#/browse/${lang}/${fileName}`} class="underline">
             <SyntaxHighlight {searchKey} inputString={fileName} />
           </a>
         </div>
