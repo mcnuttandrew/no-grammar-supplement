@@ -42,6 +42,7 @@
     boolean: "text-cyan-500",
     comma: "text-slate-900",
   };
+  $: console.log(json, Array.isArray(json) && json.length === 0);
 </script>
 
 {#if items.length}
@@ -84,6 +85,10 @@
     {openBracket}{collapsedSymbol}{closeBracket}
   </span>
   {#if !_last && collapsed}<span class={typeToClass.comma}>,</span>{/if}
+{:else if Array.isArray(json)}
+  <span class="bracket">[]</span>
+{:else if typeof json === "object"}
+  <span class="bracket">{"{}"}</span>
 {/if}
 
 <style>
