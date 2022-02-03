@@ -18,7 +18,7 @@
   ] as any[];
 </script>
 
-<div>
+<div class="h-full overflow-auto">
   {#each specs as spec}
     <Vega {spec} options={{ actions: false, config: theme }} />
   {/each}

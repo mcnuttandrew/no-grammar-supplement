@@ -51,9 +51,10 @@
     });
 
   onMount(() => updatePage());
+  let mobileOverride = false;
 </script>
 
-<main class="h-full">
+<main class={`h-full ${mobileOverride ? "mobile-warning-override" : ""}`}>
   <Header />
   {#if section === "browse" && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
@@ -94,3 +95,42 @@
     </div>
   {/if}
 </main>
+<div
+  id="mobile-msg"
+  class={`h-full flex items-center justify-center p-8 text-2xl text-center ${
+    mobileOverride ? "mobile-warning-override" : ""
+  }`}
+>
+  <div class="mb-32">
+    This page is not designed for mobile. Please view it on a full size browser.
+  </div>
+  <button
+    class="p-1"
+    on:click={() => {
+      mobileOverride = true;
+    }}
+  >
+    show it to me anyway
+  </button>
+</div>
+
+<style>
+  #mobile-msg {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    main {
+      display: none;
+    }
+    #mobile-msg {
+      display: block;
+    }
+    main.mobile-warning-override {
+      display: block;
+    }
+
+    #mobile-msg.mobile-warning-override {
+      display: none;
+    }
+  }
+</style>
