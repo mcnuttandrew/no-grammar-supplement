@@ -4,7 +4,7 @@
   export let cb: (x: Badge) => void;
   // state
   let addingFilter = false;
-  let badgeTypeSelect = false;
+  let badgeTypeSelect: any = false;
   let optionSelected = false;
 
   // prep layout

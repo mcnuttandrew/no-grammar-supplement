@@ -10,6 +10,7 @@
     LangSort,
     last,
     filterLanguagesBasedOnBadges,
+    filterFilterForNewBadge,
   } from "./utils";
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
@@ -17,7 +18,6 @@
   export let file: string | null;
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
-  $: console.log(allowedLangs);
 
   let langSort: LangSort = "carrier-language";
 
@@ -41,11 +41,6 @@
 
   $: fileType = (file && last(file.split("."))) || null;
   $: code = (language && file && directory[language][file]) || null;
-
-  const filterFilterForNewBadge = (filter, badge) =>
-    filter.filter(
-      (x) => x.bageType !== badge.badgeType && x.badgeValue !== badge.badgeValue
-    );
 </script>
 
 <div class="flex pl-8 max-h-full">

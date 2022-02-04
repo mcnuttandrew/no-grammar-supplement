@@ -172,6 +172,7 @@ export const badges = [
   "Alt API Available",
   "Abstraction Mechanism",
   "Source",
+  "Language",
 ];
 export type Badge = { badgeType: string; badgeValue: string };
 
@@ -203,3 +204,8 @@ export function filterLanguagesBasedOnBadges(
       .map(([key]) => key)
   );
 }
+
+export const filterFilterForNewBadge = (filter, badge) =>
+  filter.filter(
+    (x) => x.bageType !== badge.badgeType && x.badgeValue !== badge.badgeValue
+  );

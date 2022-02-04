@@ -1,11 +1,24 @@
 <script lang="ts">
-  import { Directory, LangMeta, parseResults, last } from "./utils";
+  import {
+    Directory,
+    LangMeta,
+    parseResults,
+    filterLanguagesBasedOnBadges,
+    filterFilterForNewBadge,
+  } from "./utils";
+  import FilterBuilder from "./FilterBuilder.svelte";
   import SyntaxHighlight from "./SyntaxHighlight.svelte";
+  import Badge from "./Badge.svelte";
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let triggerUpdate;
   export let searchKey: string = "";
-  $: results = searchKey ? parseResults(directory, searchKey) : [];
+  let filter = [];
+  $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
+  $: filteredDirectory = Object.fromEntries(
+    Object.entries(directory).filter(([lang]) => allowedLangs.has(lang))
+  );
+  $: results = searchKey ? parseResults(filteredDirectory, searchKey) : [];
 
   function getSubsection(fileContent: string, key: string) {
     const lines = fileContent.split("\n");
@@ -39,6 +52,24 @@
         }}
       />
       <button>Search</button>
+    </div>
+    <div class="flex">
+      {#each filter as badge}
+        <Badge
+          showNegativeBooleans={true}
+          badgeType={badge.badgeType}
+          badgeValue={badge.badgeValue}
+          cancelCallbak={() => {
+            filter = filterFilterForNewBadge(filter, badge);
+          }}
+        />
+      {/each}
+      <FilterBuilder
+        langMeta={langMetaCollection}
+        cb={(x) => {
+          filter = filterFilterForNewBadge(filter, x).concat(x);
+        }}
+      />
     </div>
   </div>
   <div class="h-full overflow-y-auto break-normal mb-20">
