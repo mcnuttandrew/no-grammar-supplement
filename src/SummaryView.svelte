@@ -4,8 +4,8 @@
   export let meta: LangMetaRow[];
   import Vega from "./Vega.svelte";
   const specs = [
-    outputTypePi(groupByKey(meta, "Academic Project"), {
-      title: "Academic Project",
+    outputTypePi(groupByKey(meta, "Source"), {
+      title: "Source",
       scheme: "dark2",
     }),
     outputTypePi(groupByKey(meta, "Output Type"), { title: "Output type" }),
@@ -14,7 +14,7 @@
       scheme: "set1",
     }),
     barChart(groupByKey(meta, "Domain")),
-    heatmap(meta, "Language Form", "Academic Project"),
+    heatmap(meta, "Language Form", "Source"),
   ] as any[];
 </script>
 

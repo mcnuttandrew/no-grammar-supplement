@@ -1,4 +1,3 @@
-import stringify from "json-stringify-pretty-compact";
 import { get, set } from "idb-keyval";
 import { tsvParse } from "d3-dsv";
 
@@ -113,6 +112,7 @@ export type LangMetaRow = {
   Paper: string;
   Link: string;
   Domain: string;
+  Description: string;
 };
 export type LangMeta = {
   [lang: string]: LangMetaRow;
@@ -161,4 +161,45 @@ export function parseResults(directory: Directory, key: string) {
       });
     return acc.concat(filteredFiles);
   }, []);
+}
+
+export const badges = [
+  "Language Form",
+  "Coded Domain",
+  "Execution Model",
+  "Formal Definition Available",
+  "Extensible",
+  "Alt API Available",
+  "Abstraction Mechanism",
+  "Source",
+];
+export type Badge = { badgeType: string; badgeValue: string };
+
+export function filterLanguagesBasedOnBadges(
+  langMeta: LangMeta,
+  filter: Badge[]
+): Set<string> {
+  const filterMap = filter.reduce((acc, { badgeType, badgeValue }) => {
+    if (!acc[badgeType]) {
+      acc[badgeType] = new Set();
+    }
+    acc[badgeType].add(badgeValue);
+    return acc;
+  }, {});
+  return new Set(
+    Object.entries(langMeta)
+      .filter(([lang, props]) => {
+        let valid = true;
+        Object.entries(props).forEach(([key, val]) => {
+          if (!filterMap[key] || !valid) {
+            // console.log(row, key, !filterMap[key], !valid);
+            return;
+          }
+          valid = filterMap[key].has(val);
+        });
+        // console.log(lang, props, valid);
+        return valid;
+      }, {})
+      .map(([key]) => key)
+  );
 }

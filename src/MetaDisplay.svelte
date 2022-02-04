@@ -1,16 +1,11 @@
 <script type="ts">
   import type { LangMetaRow } from "./utils";
   export let meta: LangMetaRow;
+  import Badge from "./Badge.svelte";
+  import { badges } from "./utils";
 </script>
 
 <div class="lang-meta-data">
-  <!-- Domain -->
-  {#if meta.Domain}
-    <div class="pair">
-      <span class="pair-key">Domain:</span>
-      <span class="pair-value">{meta.Domain}</span>
-    </div>
-  {/if}
   <!-- Paper -->
   {#if meta.Paper && meta.Paper !== "N/A"}
     <div class="pair">
@@ -18,39 +13,53 @@
       <span class="pair-value">"{meta.Paper}"</span>
     </div>
   {/if}
-  <!-- Paper -->
-  {#if meta.Link && meta.Link !== "N/A"}
-    <div class="pair">
-      {#if meta.Link.startsWith("http")}
-        <span class="pair-value">
-          Find out more <a href={meta["harvest URL"]}>here</a>
-        </span>
+  <!-- Domain -->
+  <div class="pair">
+    {#if meta.Description}
+      <span class="pair-key">Description:</span>
+    {/if}
+    <div class="pair-value">
+      {#if meta.Description}
+        {meta.Description}
+      {/if}
+      {#if meta.Link && meta.Link !== "N/A" && meta.Link.startsWith("http")}
+        Find out more <a href={meta["harvest URL"]}>here.</a>
+      {/if}
+      {#if meta["harvest URL"]}
+        Examples gathered from {#if meta["harvest URL"].startsWith("https")}
+          <a href={meta["harvest URL"]}>here.</a>
+        {:else}
+          {meta["harvest URL"]}.
+        {/if}
+        {#if meta.License && meta.License !== "None"}
+          License:
+          {#if meta.License.startsWith("https")}
+            <a href={meta.License}>See license here</a>
+          {:else}
+            {meta.License}
+          {/if}
+        {/if}
       {/if}
     </div>
-  {/if}
-  <!-- Examples -->
-  {#if meta["harvest URL"]}
+  </div>
+
+  <!-- License 
+  {#if meta.License && meta.License !== "None"}
     <div class="pair">
-      <span class="pair-key">Examples gathered from:</span>
+      <span class="pair-key">License:</span>
       <span class="pair-value">
-        {#if meta["harvest URL"].startsWith("https")}
-          <a href={meta["harvest URL"]}>this link</a>
+        {#if meta.License.startsWith("https")}
+          <a href={meta.License}>See license here</a>
         {:else}
-          {meta["harvest URL"]}
+          {meta.License}
         {/if}
       </span>
     </div>
-  {/if}
-  <!-- License  -->
-  <div class="pair">
-    <span class="pair-key">License:</span>
-    <span class="pair-value">
-      {#if meta.License.startsWith("https")}
-        <a href={meta.License}>See license here</a>
-      {:else}
-        {meta.License}
-      {/if}
-    </span>
+  {/if} -->
+  <div class="flex flex-wrap">
+    {#each badges as badge}
+      <Badge badgeType={badge} badgeValue={meta[badge]} />
+    {/each}
   </div>
 </div>
 

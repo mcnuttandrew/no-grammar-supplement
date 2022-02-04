@@ -42,7 +42,6 @@
     boolean: "text-cyan-500",
     comma: "text-slate-900",
   };
-  $: console.log(json, Array.isArray(json) && json.length === 0);
 </script>
 
 {#if items.length}

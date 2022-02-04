@@ -1,11 +1,23 @@
 <script lang="ts">
   import MetaDisplay from "./MetaDisplay.svelte";
   import Viewer from "./Viewer.svelte";
-  import { createSort, Directory, LangMeta, LangSort, last } from "./utils";
+  import FilterBuilder from "./FilterBuilder.svelte";
+  import Badge from "./Badge.svelte";
+  import {
+    createSort,
+    Directory,
+    LangMeta,
+    LangSort,
+    last,
+    filterLanguagesBasedOnBadges,
+  } from "./utils";
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let language: string;
   export let file: string | null;
+  let filter = [];
+  $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
+  $: console.log(allowedLangs);
 
   let langSort: LangSort = "carrier-language";
 
@@ -17,7 +29,11 @@
     .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});
 
   $: sortedLangs = createSort(
-    Object.keys(directory).filter((lang) => langMetaCollection[lang]),
+    Object.keys(directory).filter(
+      (lang) =>
+        langMetaCollection[lang] &&
+        allowedLangs.has(langMetaCollection[lang].sysKey)
+    ),
     langSort,
     directory,
     langCount
@@ -25,6 +41,11 @@
 
   $: fileType = (file && last(file.split("."))) || null;
   $: code = (language && file && directory[language][file]) || null;
+
+  const filterFilterForNewBadge = (filter, badge) =>
+    filter.filter(
+      (x) => x.bageType !== badge.badgeType && x.badgeValue !== badge.badgeValue
+    );
 </script>
 
 <div class="flex pl-8 max-h-full">
@@ -41,6 +62,25 @@
             <option>{sortType}</option>
           {/each}
         </select>
+      </div>
+      <FilterBuilder
+        cb={(x) => {
+          filter = filterFilterForNewBadge(filter, x).concat(x);
+        }}
+        langMeta={langMetaCollection}
+      />
+
+      <div>
+        {#each filter as badge}
+          <Badge
+            showNegativeBooleans={true}
+            badgeType={badge.badgeType}
+            badgeValue={badge.badgeValue}
+            cancelCallbak={() => {
+              filter = filterFilterForNewBadge(filter, badge);
+            }}
+          />
+        {/each}
       </div>
     </div>
     <!-- main content -->
@@ -105,8 +145,10 @@
 <style>
   .my-column-1 {
     width: 220px !important;
+    min-width: 220px;
   }
   .my-column-2 {
     width: 400px !important;
+    min-width: 400px;
   }
 </style>
