@@ -4,13 +4,14 @@
   import FilterBuilder from "./FilterBuilder.svelte";
   import Badge from "./Badge.svelte";
   import {
-    createSort,
     Directory,
     LangMeta,
     LangSort,
-    last,
-    filterLanguagesBasedOnBadges,
+    createSort,
     filterFilterForNewBadge,
+    filterLanguagesBasedOnBadges,
+    getLangCounts,
+    last,
   } from "./utils";
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
@@ -20,13 +21,7 @@
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
 
   let langSort: LangSort = "carrier-language";
-
-  $: langCount = Object.entries(directory)
-    .map(([key, files]) => ({
-      key,
-      files: Object.values(files).length,
-    }))
-    .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});
+  $: langCount = getLangCounts(directory);
 
   $: sortedLangs = createSort(
     Object.keys(directory).filter(
@@ -64,6 +59,7 @@
         </select>
       </div>
       <FilterBuilder
+        verticalAlignment={true}
         cb={(x) => {
           filter = filterFilterForNewBadge(filter, x).concat(x);
         }}

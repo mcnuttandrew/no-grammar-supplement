@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { badgeExplanation } from "./utils";
-  import Tooltip from "./Tooltip.svelte";
+  import { badgeExplanation } from './utils';
+  import Tooltip from './Tooltip.svelte';
   export let badgeType: string;
   export let badgeValue: string;
-  export let showNegativeBooleans: boolean = false;
+  export let showNegativeBooleans = false;
   export let cancelCallbak: any = false;
 
   // Blue
@@ -15,33 +15,33 @@
   // Stone
   // Zinc
   const badgeColor = {
-    "Abstraction Mechanism": "bg-slate-500",
-    "Alt API Available": "bg-lime-500",
-    "Coded Domain": "bg-teal-500",
-    "Execution Model": "bg-purple-500",
-    Extensible: "bg-fuchsia-500",
-    "Formal Definition Available": "bg-rose-500",
-    "Language Form": "bg-amber-500",
-    Language: "bg-sky-400",
-    Source: "bg-green-500",
-    "Conceptual Model": "bg-pink-900",
-    "Data manipulation": "bg-red-700",
-    Domain: "bg-yellow-800",
-    "Output Type": "bg-violet-800",
-    "Provides Accessibility": "bg-cyan-600",
+    'Abstraction Mechanism': 'bg-slate-500',
+    'Alt API Available': 'bg-lime-500',
+    'Coded Domain': 'bg-teal-500',
+    'Execution Model': 'bg-purple-500',
+    Extensible: 'bg-fuchsia-500',
+    'Formal Definition Available': 'bg-rose-500',
+    'Language Form': 'bg-amber-500',
+    Language: 'bg-sky-400',
+    Source: 'bg-green-500',
+    'Conceptual Model': 'bg-pink-900',
+    'Data manipulation': 'bg-red-700',
+    Domain: 'bg-yellow-800',
+    'Output Type': 'bg-violet-800',
+    'Provides Accessibility': 'bg-cyan-600'
   };
 
   const shortNames = {
-    "Formal Definition Available": "Formal",
-    "Alt API Available": "Alt API",
-    "Abstraction Mechanism": "Has Abstraction",
+    'Formal Definition Available': 'Formal',
+    'Alt API Available': 'Alt API',
+    'Abstraction Mechanism': 'Has Abstraction'
   };
   const binaryCases = new Set([
-    "Formal Definition Available",
-    "Extensible",
-    "Alt API Available",
-    "Abstraction Mechanism",
-    "Provides Accessibility",
+    'Formal Definition Available',
+    'Extensible',
+    'Alt API Available',
+    'Abstraction Mechanism',
+    'Provides Accessibility'
   ]);
 
   $: msg = prepMsg(badgeValue, badgeType, showNegativeBooleans);
@@ -53,14 +53,14 @@
     if (showNegativeBooleans) {
       return `${badgeType} - ${badgeValue}`;
     }
-    return badgeValue === "Yes" ? shortNames[badgeType] || badgeType : "";
+    return badgeValue === 'Yes' ? shortNames[badgeType] || badgeType : '';
   }
 </script>
 
-{#if msg.length && msg !== "Unknown"}
+{#if msg.length && msg !== 'Unknown'}
   <div
     class={`text-xs px-2 py-1 rounded font-bold ${
-      badgeColor[badgeType] || "bg-neutral-600"
+      badgeColor[badgeType] || 'bg-neutral-600'
     } text-white mr-1 mt-1 has-tooltip relative`}
   >
     <Tooltip>
@@ -68,7 +68,7 @@
 
       <span slot="target">
         {#if !binaryCases.has(badgeType)}
-          <div class={`text-2xs`}>
+          <div class={'text-2xs'}>
             {shortNames[badgeType] || badgeType}
           </div>
         {/if}
@@ -87,26 +87,5 @@
   .text-2xs {
     font-size: 0.5rem;
     line-height: 0.2rem;
-  }
-  .tooltip {
-    @apply invisible absolute;
-    top: 4rem;
-  }
-
-  .tooltip span:before {
-    border-bottom: 10px solid rgb(241 245 249 / var(--tw-bg-opacity));
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    content: "";
-    display: block;
-    height: 0;
-    left: 2px;
-    position: absolute;
-    top: -10px;
-    width: 0;
-  }
-
-  .has-tooltip:hover .tooltip {
-    @apply visible z-50;
   }
 </style>

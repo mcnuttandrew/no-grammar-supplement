@@ -6,17 +6,17 @@
         ...options,
         props: {
           ...props,
-          ...options.props,
-        },
+          ...options.props
+        }
       });
     };
   }
 </script>
 
 <script>
-  import * as svelte from "svelte";
-  import { fade } from "svelte/transition";
-  import { createEventDispatcher } from "svelte";
+  import * as svelte from 'svelte';
+  import { fade } from 'svelte/transition';
+  import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -24,7 +24,7 @@
 
   export let show = null;
 
-  export let key = "simple-modal";
+  export let key = 'simple-modal';
   export let closeButton = true;
   export let closeOnEsc = true;
   export let closeOnOuterClick = true;
@@ -53,7 +53,7 @@
     transitionBgProps,
     transitionWindow,
     transitionWindowProps,
-    disableFocusTrap,
+    disableFocusTrap
   };
   let state = { ...defaultState };
 
@@ -76,15 +76,15 @@
   let outerClickTarget;
 
   const camelCaseToDash = (str) =>
-    str.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
+    str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
 
   const toCssString = (props) =>
     props
       ? Object.keys(props).reduce(
           (str, key) => `${str}; ${camelCaseToDash(key)}: ${props[key]}`,
-          ""
+          ''
         )
-      : "";
+      : '';
 
   const isFunction = (f) => !!(f && f.constructor && f.call && f.apply);
 
@@ -94,7 +94,7 @@
         {},
         {
           width: window.innerWidth,
-          height: window.innerHeight,
+          height: window.innerHeight
         },
         state.styleBg
       )
@@ -120,21 +120,21 @@
     disableScroll();
     onOpen = (event) => {
       if (callback.onOpen) callback.onOpen(event);
-      dispatch("open");
-      dispatch("opening"); // Deprecated. Do not use!
+      dispatch('open');
+      dispatch('opening'); // Deprecated. Do not use!
     };
     onClose = (event) => {
       if (callback.onClose) callback.onClose(event);
-      dispatch("close");
-      dispatch("closing"); // Deprecated. Do not use!
+      dispatch('close');
+      dispatch('closing'); // Deprecated. Do not use!
     };
     onOpened = (event) => {
       if (callback.onOpened) callback.onOpened(event);
-      dispatch("opened");
+      dispatch('opened');
     };
     onClosed = (event) => {
       if (callback.onClosed) callback.onClosed(event);
-      dispatch("closed");
+      dispatch('closed');
     };
   };
 
@@ -147,14 +147,14 @@
   };
 
   const handleKeydown = (event) => {
-    if (state.closeOnEsc && Component && event.key === "Escape") {
+    if (state.closeOnEsc && Component && event.key === 'Escape') {
       event.preventDefault();
       close();
     }
 
-    if (Component && event.key === "Tab" && !state.disableFocusTrap) {
+    if (Component && event.key === 'Tab' && !state.disableFocusTrap) {
       // trap focus
-      const nodes = modalWindow.querySelectorAll("*");
+      const nodes = modalWindow.querySelectorAll('*');
       const tabbable = Array.from(nodes).filter((node) => node.tabIndex >= 0);
 
       let index = tabbable.indexOf(document.activeElement);
@@ -172,8 +172,9 @@
     if (
       state.closeOnOuterClick &&
       (event.target === background || event.target === wrap)
-    )
-      outerClickTarget = event.target;
+    ) {
+  outerClickTarget = event.target;
+  }
   };
 
   const handleOuterMouseup = (event) => {
@@ -188,17 +189,17 @@
     prevBodyPosition = document.body.style.position;
     prevBodyOverflow = document.body.style.overflow;
     prevBodyWidth = document.body.style.width;
-    document.body.style.position = "fixed";
+    document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
-    document.body.style.overflow = "hidden";
-    document.body.style.width = "100%";
+    document.body.style.overflow = 'hidden';
+    document.body.style.width = '100%';
   };
 
   const enableScroll = () => {
-    document.body.style.position = prevBodyPosition || "";
-    document.body.style.top = "";
-    document.body.style.overflow = prevBodyOverflow || "";
-    document.body.style.width = prevBodyWidth || "";
+    document.body.style.position = prevBodyPosition || '';
+    document.body.style.top = '';
+    document.body.style.overflow = prevBodyOverflow || '';
+    document.body.style.width = prevBodyWidth || '';
     window.scrollTo(0, scrollY);
   };
 

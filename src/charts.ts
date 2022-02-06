@@ -122,8 +122,10 @@ export const theme = {
 
 export const outputTypePi = (
   values: GroupedData,
-  { scheme, title }: any
+  { scheme, title }: any,
+  chartTitle: string
 ): any => ({
+  title: chartTitle,
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   data: { values },
   mark: { type: "arc", tooltip: { content: "data" } },
@@ -147,17 +149,24 @@ export const outputTypePi = (
   ],
 });
 
-export const barChart = (values: GroupedData): any => ({
+export const barChart = (values: GroupedData, chartTitle: string): any => ({
+  title: chartTitle,
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   data: { values },
   encoding: {
     y: { field: "key", type: "nominal", sort: "-x" },
     x: { field: "count", type: "quantitative" },
   },
-  mark: "bar",
+  mark: { type: "bar", tooltip: { content: "data" } },
 });
 
-export const heatmap = (values: any[], xField, yField) => ({
+export const heatmap = (
+  values: any[],
+  xField: string,
+  yField: string,
+  chartTitle: string
+) => ({
+  title: chartTitle,
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   data: { values },
   encoding: {

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getContext } from "svelte";
-  import Popup from "./Popup.svelte";
-  const { open } = getContext("simple-modal");
+  import { getContext } from 'svelte';
+  import Popup from './Popup.svelte';
+  const { open } = getContext('simple-modal');
 </script>
 
 <div
@@ -12,13 +12,13 @@
     <div class="flex">
       <span class="font-bold">Supplementary Material</span>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/browse"}>Browse</a>
+      <a class="text-white visited:text-white" href={'/#/browse'}>Browse</a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/search"}>Search</a>
+      <a class="text-white visited:text-white" href={'/#/search'}>Search</a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/table"}>Table</a>
+      <a class="text-white visited:text-white" href={'/#/table'}>Table</a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/summaries"}>
+      <a class="text-white visited:text-white" href={'/#/summaries'}>
         Summary Charts
       </a>
     </div>

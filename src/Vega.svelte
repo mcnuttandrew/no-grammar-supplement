@@ -1,5 +1,5 @@
 <script>
-  // import embed from "vega-embed";
+  /*global vegaEmbed, vegaTooltip */
   export let spec;
   export let options;
   let container;
@@ -8,9 +8,9 @@
     vegaEmbed(container, JSON.parse(JSON.stringify(spec)), {
       actions: false,
       tooltip: handler,
-      ...options,
+      ...options
     }).catch((e) => {
-      // console.log("chart error", e);
+      console.log('chart error', e);
     });
 </script>
 

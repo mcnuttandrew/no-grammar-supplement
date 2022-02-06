@@ -12,7 +12,7 @@
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let triggerUpdate;
-  export let searchKey: string = "";
+  export let searchKey = "";
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
   $: filteredDirectory = Object.fromEntries(
@@ -71,6 +71,7 @@
       {/each}
       <FilterBuilder
         langMeta={langMetaCollection}
+        verticalAlignment={false}
         cb={(x) => {
           filter = filterFilterForNewBadge(filter, x).concat(x);
         }}

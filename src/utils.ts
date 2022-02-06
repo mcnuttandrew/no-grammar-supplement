@@ -257,3 +257,13 @@ export function classnames(classObject: { [val: string]: boolean }): string {
     .filter((name) => classObject[name] && name)
     .join(" ");
 }
+
+export const getLangCounts = (
+  directory: Directory
+): { [lang: string]: number } =>
+  Object.entries(directory)
+    .map(([key, files]) => ({
+      key,
+      files: Object.values(files).length,
+    }))
+    .reduce((acc, row) => ({ ...acc, [row.key]: row.files }), {});

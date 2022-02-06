@@ -4,18 +4,18 @@
   export let depth = Infinity;
   export let _lvl = 0;
   export let _last = true;
-  const collapsedSymbol = "...";
-  const getType = (i) => (i === null ? "null" : typeof i);
+  const collapsedSymbol = '...';
+  const getType = (i) => (i === null ? 'null' : typeof i);
 
   let items;
   let isArray;
   let openBracket;
   let closeBracket;
   $: {
-    items = getType(json) === "object" ? Object.keys(json) : [];
+    items = getType(json) === 'object' ? Object.keys(json) : [];
     isArray = Array.isArray(json);
-    openBracket = isArray ? "[" : "{";
-    closeBracket = isArray ? "]" : "}";
+    openBracket = isArray ? '[' : '{';
+    closeBracket = isArray ? ']' : '}';
   }
 
   let collapsed;
@@ -23,11 +23,11 @@
 
   const format = (i) => {
     switch (getType(i)) {
-      case "string":
+      case 'string':
         return `"${i}"`;
-      case "function":
-        return "f () {...}";
-      case "symbol":
+      case 'function':
+        return 'f () {...}';
+      case 'symbol':
         return i.toString();
       default:
         return i;
@@ -37,15 +37,15 @@
     collapsed = !collapsed;
   };
   const typeToClass = {
-    string: "text-green-600",
-    number: "text-amber-500",
-    boolean: "text-cyan-500",
-    comma: "text-slate-900",
+    string: 'text-green-600',
+    number: 'text-amber-500',
+    boolean: 'text-cyan-500',
+    comma: 'text-slate-900'
   };
 </script>
 
 {#if items.length}
-  <span class:hidden={collapsed} class={"node"}>
+  <span class:hidden={collapsed} class={'node'}>
     <span class="bracket" on:click={clicked} tabindex="0">{openBracket}</span>
     <div class="container">
       {#each items as i, idx}
@@ -53,7 +53,7 @@
           {#if !isArray}
             <span class="key">"{i}":</span>
           {/if}
-          {#if getType(json[i]) === "object"}
+          {#if getType(json[i]) === 'object'}
             <svelte:self
               json={json[i]}
               {depth}
@@ -86,8 +86,8 @@
   {#if !_last && collapsed}<span class={typeToClass.comma}>,</span>{/if}
 {:else if Array.isArray(json)}
   <span class="bracket">[]</span>
-{:else if typeof json === "object"}
-  <span class="bracket">{"{}"}</span>
+{:else if typeof json === 'object'}
+  <span class="bracket">{'{}'}</span>
 {/if}
 
 <style>

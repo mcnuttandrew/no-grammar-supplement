@@ -64,7 +64,7 @@
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
   {#if section === "summaries" && allLoaded}
-    <SummaryView meta={Object.values(langMetaCollection)} />
+    <SummaryView {directory} meta={Object.values(langMetaCollection)} />
   {/if}
   {#if section === "search" && allLoaded}
     <Search

@@ -9,7 +9,7 @@
   export let langMeta: LangMeta;
   export let cb: (x: Badge) => void;
   export let colOptions: string[] = [];
-  export let verticalAlignment: boolean = false;
+  export let verticalAlignment: boolean;
   // state
   let addingFilter = false;
   let badgeTypeSelect: any = false;
@@ -22,8 +22,8 @@
 
 <div
   class={classnames({
-    "flex items-start": verticalAlignment,
-    "flex flex-col justify-start": !verticalAlignment,
+    "flex items-start": !verticalAlignment,
+    "flex flex-col justify-start": verticalAlignment,
   })}
 >
   <button

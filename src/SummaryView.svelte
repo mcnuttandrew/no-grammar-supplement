@@ -1,20 +1,36 @@
 <script lang="ts">
-  import { LangMetaRow, groupByKey } from "./utils";
+  import { LangMetaRow, groupByKey, Directory, getLangCounts } from "./utils";
   import { outputTypePi, barChart, heatmap, theme } from "./charts";
+  export let directory: Directory;
   export let meta: LangMetaRow[];
   import Vega from "./Vega.svelte";
+
+  let langCounts = Object.entries(getLangCounts(directory)).map(
+    ([key, count]) => ({ key, count })
+  );
   const specs = [
-    outputTypePi(groupByKey(meta, "Source"), {
-      title: "Source",
-      scheme: "dark2",
-    }),
-    outputTypePi(groupByKey(meta, "Output Type"), { title: "Output type" }),
-    outputTypePi(groupByKey(meta, "Conceptual Model"), {
-      title: "Conceptual Model",
-      scheme: "set1",
-    }),
-    barChart(groupByKey(meta, "Domain")),
-    heatmap(meta, "Language Form", "Source"),
+    outputTypePi(
+      groupByKey(meta, "Source"),
+      { title: "", scheme: "dark2" },
+      "Language Source"
+    ),
+    outputTypePi(groupByKey(meta, "Output Type"), { title: "" }, "Output Type"),
+    outputTypePi(
+      groupByKey(meta, "Conceptual Model"),
+      {
+        title: "",
+        scheme: "set1",
+      },
+      "Conceptual Model"
+    ),
+    barChart(groupByKey(meta, "Domain"), "Frequency by uncoded domain"),
+    barChart(langCounts, "Example volume by language"),
+    heatmap(
+      meta,
+      "Language Form",
+      "Source",
+      "Frequency of language type vs language origin"
+    ),
   ] as any[];
 </script>
 

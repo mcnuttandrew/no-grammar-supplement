@@ -102,6 +102,7 @@
       {/each}
     </div>
     <FilterBuilder
+      verticalAlignment={false}
       colOptions={columns}
       langMeta={langMetaCollection}
       cb={(x) => {
