@@ -171,12 +171,10 @@ export function filterLanguagesBasedOnBadges(
         let valid = true;
         Object.entries(props).forEach(([key, val]) => {
           if (!filterMap[key] || !valid) {
-            // console.log(row, key, !filterMap[key], !valid);
             return;
           }
           valid = filterMap[key].has(val);
         });
-        // console.log(lang, props, valid);
         return valid;
       }, {})
       .map(([key]) => key)
@@ -206,30 +204,6 @@ export const buildKeyOptions = (
     acc[key] = Array.from(new Set(vals as any));
     return acc;
   }, {});
-
-export function applyFilters(
-  langMeta: LangMetaRow[],
-  filterMap
-): LangMetaRow[] {
-  const filterSets = Object.fromEntries(
-    Object.entries(filterMap).map(([col, options]: [string, string[]]) => [
-      col,
-      new Set(options),
-    ])
-  );
-  return langMeta.filter((props) => {
-    let valid = true;
-    Object.entries(props).forEach(([key, val]) => {
-      if (!filterSets[key] || !valid) {
-        // console.log(row, key, !filterMap[key], !valid);
-        return;
-      }
-      valid = filterSets[key].has(val);
-    });
-    // console.log(lang, props, valid);
-    return valid;
-  });
-}
 
 export const badges = [
   "Abstraction Mechanism",

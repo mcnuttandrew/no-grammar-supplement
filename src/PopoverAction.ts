@@ -28,7 +28,6 @@ export function popover(node, { component, ...props }) {
   };
 
   const show = () => {
-    console.log("show?", props);
     componentInstance = new component({
       target: document.body,
       props,
