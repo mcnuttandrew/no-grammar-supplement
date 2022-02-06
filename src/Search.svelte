@@ -35,11 +35,16 @@
 
 <div class="flex flex-col h-full items-center p-8">
   <div class="flex flex-col">
-    <div class="flex">
-      <span>Search example programs</span>
-      <span>
-        {results.length ? `: ${results.length} results` : ""}
-      </span>
+    <div class="flex flex-col">
+      <h3 class="text-xl">Search example programs</h3>
+      {#if results.length}
+        <h5 class="text-lg">Showing {results.length} results</h5>
+      {/if}
+      <p class="mb-2">
+        This interfaces allows you to search the text of example programs. This
+        can be useful if you are trying to identify the prescence of a certain
+        feature.
+      </p>
     </div>
     <div class="flex">
       <input
@@ -72,8 +77,8 @@
       />
     </div>
   </div>
-  <div class="h-full overflow-y-auto break-normal mb-20">
-    {#each results.slice(0, 20) as { lang, fileName, fileContent }}
+  <div class="h-full overflow-y-auto break-normal mb-20 p-12 w-3/4">
+    {#each results as { lang, fileName, fileContent }}
       <div class="flex flex-col w-full overflow-x-auto  mb-2">
         <div class="flex opacity-80 font-bold">
           <a class="mr-10 underline" href={`/#/browse/${lang}`}>

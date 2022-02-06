@@ -50,9 +50,14 @@
   >
     <!-- header -->
     <div class="flex flex-col pb-8">
+      <h3 class="text-xl">Example Browser</h3>
+      <p class="text-xs mb-2">
+        This view allows you to explore the curate collection of example
+        programs for each of the languages.
+      </p>
       <div class="">
-        <span>Sort by</span>
-        <select bind:value={langSort}>
+        <label for="lang-sort" class="text-xs font-bold">Sort by</label>
+        <select bind:value={langSort} name="lang-sort">
           {#each ["none", "alphabetical", "carrier-language", "number-of-examples"] as sortType}
             <option>{sortType}</option>
           {/each}

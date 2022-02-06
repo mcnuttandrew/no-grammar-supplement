@@ -154,19 +154,6 @@ export function parseResults(directory: Directory, key: string) {
   }, []);
 }
 
-export const badges = [
-  "Language Form",
-  "Coded Domain",
-  "Execution Model",
-  "Formal Definition Available",
-  "Extensible",
-  "Alt API Available",
-  "Abstraction Mechanism",
-  "Source",
-  "Language",
-];
-export type Badge = { badgeType: string; badgeValue: string };
-
 export function filterLanguagesBasedOnBadges(
   langMeta: LangMeta,
   filter: Badge[]
@@ -242,4 +229,57 @@ export function applyFilters(
     // console.log(lang, props, valid);
     return valid;
   });
+}
+
+export const badges = [
+  "Abstraction Mechanism",
+  "Alt API Available",
+  "Coded Domain",
+  "Conceptual Model",
+  "Data manipulation",
+  "Execution Model",
+  "Extensible",
+  "Formal Definition Available",
+  "Language Form",
+  "Language",
+  "Output Type",
+  "Provides Accessibility",
+  "Source",
+  // "Domain",
+];
+export type Badge = { badgeType: string; badgeValue: string };
+
+export const badgeExplanation = {
+  "Abstraction Mechanism":
+    "Whether or not the language has means for expressing abstraction. This includes control flow statements, conditionals, and variables.",
+  "Alt API Available":
+    "Whether or not there is an alternative way to control the functionality of the language (such as the DSL expressed in another language or through an API).",
+  "Coded Domain":
+    "What general purpose the language is meant to serve. These are coded into Charting, enhancing an specific Interaction, working in a particular Domain, and enabling a particular Chart Type.",
+  "Conceptual Model":
+    "The model underpinning the way in which the language operates.  ",
+  "Data manipulation":
+    "The mechanisms that language provides for interacting with data. Coded into no ops, just filters, and richer language than filters.",
+  Domain: "An un-coded description of the language's purpose.",
+  "Execution Model":
+    "The mechanism by which the language is executed. Includes Compiled, Interpreted, and Embedded.",
+  Extensible:
+    "Whether or not the language can be customized to taste and task.",
+  "Formal Definition Available":
+    "Whether or not there is a format definition available for that language. This is somewhat loose notion of formality and includes JSON and XML schema as formal definitions.",
+  "Language Form":
+    "Whether the language is internal (defined and executed within a host language) or external (requires an interpreter or compiler to execute).",
+  Language: "The carrier language of the DSL.",
+  "Output Type": "What the output of the system is.",
+  "Provides Accessibility":
+    "Whether or not the language provides it's own accessibility features.",
+  Source:
+    "The type of organization that spawned this language. This includes industry, open source, and academia.",
+  System: "The name of the language.",
+};
+
+export function classnames(classObject: { [val: string]: boolean }): string {
+  return Object.keys(classObject)
+    .filter((name) => classObject[name] && name)
+    .join(" ");
 }

@@ -1,27 +1,62 @@
 <script lang="ts">
-  import { LangMeta, buildKeyOptions, applyFilters } from "./utils";
+  import {
+    LangMeta,
+    filterLanguagesBasedOnBadges,
+    filterFilterForNewBadge,
+    badgeExplanation,
+    classnames,
+  } from "./utils";
   import { popover } from "./PopoverAction";
-  //   import TableFilter from "./TableFilter.svelte";
   import TableExplain from "./TableExplain.svelte";
-  let filterMap = {};
+  import FilterBuilder from "./FilterBuilder.svelte";
+  import Badge from "./Badge.svelte";
+
   export let langMetaCollection: LangMeta;
-  $: localMeta = applyFilters(Object.values(langMetaCollection), filterMap);
+  let sortBy = "System";
+  let sortReverse = false;
+
+  let filter = [];
+  $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
+  $: localMeta = Object.entries(langMetaCollection)
+    .filter(([lang]) => allowedLangs.has(lang))
+    .map(([_, meta]) => meta)
+    .sort(
+      (a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy])
+    );
   const columns = [
     "System",
     "Language",
     "Domain",
     "Coded Domain",
+    "Conceptual Model",
     "Abstraction Mechanism",
     "Alt API Available",
-    "Conceptual Model",
     "Execution Model",
     "Extensible",
     "Formal Definition Available",
     "Language Form",
     "Output Type",
     "Source",
+    "Data manipulation",
+    "Provides Accessibility",
   ];
-  //   const options = buildKeyOptions(langMetaCollection, new Set(columns));
+  const shortNames = {
+    System: "System",
+    Language: "Language",
+    Domain: "Domain",
+    "Coded Domain": "Coded Domain",
+    "Conceptual Model": "Model",
+    "Abstraction Mechanism": "Abs. Mech",
+    "Alt API Available": "Alt. API",
+    "Execution Model": "Ex. Model",
+    Extensible: "Extensible",
+    "Formal Definition Available": "Formal",
+    "Language Form": "Lang. Form",
+    "Output Type": "Output",
+    Source: "Source",
+    "Data manipulation": "Data Manip",
+    "Provides Accessibility": "A11y",
+  };
 
   const groupedByTopic = Object.values(langMetaCollection).reduce(
     (acc, langMeta) => {
@@ -42,54 +77,73 @@
       lang,
     ])
   );
-  //   function updateFilter(col) {
-  //     return (addToFilter, option) => {
-  //       if (!filterMap[col]) {
-  //         filterMap[col] = [];
-  //       }
-  //       filterMap = {
-  //         ...filterMap,
-  //         [col]: addToFilter
-  //           ? filterMap[col].concat(option)
-  //           : filterMap[col].filter((x) => x !== option),
-  //       };
-  //       console.log();
-  //     };
-  //   }
 </script>
 
 <div class="overflow-auto h-full pb-32 px-8 ">
-  <table class="text-left relative border-collapse">
+  <h3 class="text-xl mt-2">Coding Table</h3>
+  <p>
+    This table provides the codings for each of the languages in our survey. It
+    can be filters (by adding and remove filters) and sorted (by clicking on
+    header names). The cells of the table can be clicked to reveal which
+    languages share the property described in that cell.
+  </p>
+  <div class="flex flex-wrap w-full py-2">
+    <div class="flex">
+      <span class="mr-1">Filters:</span>
+      {#each filter as badge}
+        <Badge
+          showNegativeBooleans={true}
+          badgeType={badge.badgeType}
+          badgeValue={badge.badgeValue}
+          cancelCallbak={() => {
+            filter = filterFilterForNewBadge(filter, badge);
+          }}
+        />
+      {/each}
+    </div>
+    <FilterBuilder
+      colOptions={columns}
+      langMeta={langMetaCollection}
+      cb={(x) => {
+        filter = filterFilterForNewBadge(filter, x).concat(x);
+      }}
+    />
+  </div>
+  <table class="text-left relative border-collapse table-fixed">
     <thead>
       <tr>
         {#each columns as col}
-          <th class="p-1 sticky top-0 bg-orange-200">
+          <th class="p-1 sticky top-0 text-white bg-slate-900">
             <div class="flex items-center">
-              <span>{col}</span>
-              <!-- <button
-                class="border-0 text-xl"
-                use:popover={{
-                  id: `${col}-filter`.split(" ").join("-"),
-                  component: TableFilter,
-                  topic: col,
-                  options: options[col],
-                  checkedOptions:
-                    JSON.stringify(filterMap[col]) && filterMap[col],
-                  updateFilter: updateFilter(col),
+              <button
+                class={classnames({
+                  "border-0 uppercase font-bold  text-xs": true,
+                  "whitespace-nowrap": sortBy === col,
+                })}
+                on:click={() => {
+                  if (sortBy === col) {
+                    sortReverse = !sortReverse;
+                    return;
+                  }
+                  sortBy = col;
+                  sortReverse = false;
                 }}
+                title={badgeExplanation[col]}
               >
-                ⚙
-              </button> -->
+                {`${sortBy === col ? col : shortNames[col]} ${
+                  sortBy === col ? (sortReverse ? "▲" : "▼") : ""
+                }`}
+              </button>
             </div>
           </th>
         {/each}
       </tr>
     </thead>
     <tbody class="">
-      {#each localMeta as lang}
-        <tr class="">
+      {#each localMeta as lang, idx}
+        <tr class={idx % 2 ? "" : "bg-slate-100"}>
           {#each columns as col}
-            <td class="p-1">
+            <td class="p-1 ">
               <button
                 class="border-0 text-left"
                 use:popover={{
@@ -106,7 +160,6 @@
             </td>
           {/each}
         </tr>
-        <!-- <div class="">{Object.values(la)}</div> -->
       {/each}
     </tbody>
   </table>

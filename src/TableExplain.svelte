@@ -9,7 +9,8 @@
 <!-- note: id modal is required for this component to work right -->
 <div
   {id}
-  class="flex flex-col justify-center bg-slate-100 rounded-l drop-shadow-lg p-4 max-w-sm"
+  class="flex flex-col justify-center  border-1 border-black bg-white rounded-l p-4 max-w-sm shadow-md
+    hover:shadow-lg"
 >
   <div class="flex flex-col">
     <h3 class="text-xs">Category</h3>
