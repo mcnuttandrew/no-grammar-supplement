@@ -72,17 +72,8 @@ export function modifyPresentation(code: string | null, mod: Modifier): string {
   } catch (e) {
     return code || "";
   }
-  switch (mod) {
-    case "json-small":
-      return stringify(parsedCode);
-    case "json-dense":
-      return stringify(parsedCode, { maxLength: 200 });
-    case "collapsed":
-      return JSON.stringify(parsedCode);
-    case "none":
-    default:
-      return code || "";
-  }
+
+  return code || "";
 }
 
 export async function getBundle(): Promise<Directory> {
@@ -209,3 +200,46 @@ export const filterFilterForNewBadge = (filter, badge) =>
   filter.filter(
     (x) => x.bageType !== badge.badgeType && x.badgeValue !== badge.badgeValue
   );
+
+export const buildKeyOptions = (
+  langMeta: LangMeta,
+  allowedCols: Set<string>
+): { [lang: string]: string[] } =>
+  Object.entries(
+    Object.values(langMeta).reduce((acc, row) => {
+      Object.entries(row).forEach(([key, val]) => {
+        if (!allowedCols.has(key)) {
+          return;
+        }
+        acc[key] = (acc[key] || []).concat(val);
+      });
+      return acc;
+    }, {})
+  ).reduce((acc, [key, vals]) => {
+    acc[key] = Array.from(new Set(vals as any));
+    return acc;
+  }, {});
+
+export function applyFilters(
+  langMeta: LangMetaRow[],
+  filterMap
+): LangMetaRow[] {
+  const filterSets = Object.fromEntries(
+    Object.entries(filterMap).map(([col, options]: [string, string[]]) => [
+      col,
+      new Set(options),
+    ])
+  );
+  return langMeta.filter((props) => {
+    let valid = true;
+    Object.entries(props).forEach(([key, val]) => {
+      if (!filterSets[key] || !valid) {
+        // console.log(row, key, !filterMap[key], !valid);
+        return;
+      }
+      valid = filterSets[key].has(val);
+    });
+    // console.log(lang, props, valid);
+    return valid;
+  });
+}

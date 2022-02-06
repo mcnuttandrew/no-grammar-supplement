@@ -1,28 +1,15 @@
 <script lang="ts">
-  import { badges, LangMeta, Badge } from "./utils";
+  import { badges, LangMeta, Badge, buildKeyOptions } from "./utils";
   export let langMeta: LangMeta;
   export let cb: (x: Badge) => void;
   // state
   let addingFilter = false;
   let badgeTypeSelect: any = false;
-  let optionSelected = false;
+  let optionSelected: any = false;
 
   // prep layout
   const badgeTypes = new Set(badges);
-  const options = Object.entries(
-    Object.values(langMeta).reduce((acc, row) => {
-      Object.entries(row).forEach(([key, val]) => {
-        if (!badgeTypes.has(key)) {
-          return;
-        }
-        acc[key] = (acc[key] || []).concat(val);
-      });
-      return acc;
-    }, {})
-  ).reduce((acc, [key, vals]) => {
-    acc[key] = Array.from(new Set(vals as any));
-    return acc;
-  }, {});
+  const options = buildKeyOptions(langMeta, badgeTypes);
 </script>
 
 <div
