@@ -143,7 +143,9 @@
       {#each localMeta as lang, idx}
         <tr class={idx % 2 ? "" : "bg-slate-100"}>
           {#each columns as col}
-            <td class="p-1 ">
+            <td
+              class="p-1 whitespace-nowrap overflow-hidden td-customization hover:border-2"
+            >
               <button
                 class="border-0 text-left"
                 use:popover={{
@@ -164,3 +166,9 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  .td-customization {
+    max-width: 120px;
+  }
+</style>
