@@ -4,6 +4,7 @@
   import Header from "./Header.svelte";
   import Browse from "./Browse.svelte";
   import SummaryView from "./SummaryView.svelte";
+  import Table from "./Table.svelte";
   import Search from "./Search.svelte";
   import {
     getRoute,
@@ -56,6 +57,9 @@
 
 <main class={`h-full ${mobileOverride ? "mobile-warning-override" : ""}`}>
   <Header />
+  {#if section === "table" && allLoaded}
+    <Table {langMetaCollection} />
+  {/if}
   {#if section === "browse" && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
@@ -89,6 +93,7 @@
       </div>
       <div class="flex flex-col text-2xl pb-64">
         <a href={"/#/browse"}>Browse</a>
+        <a href={"/#/table"}>Table</a>
         <a href={"/#/search"}>Search</a>
         <a href={"/#/summaries"}>Summary Charts</a>
       </div>

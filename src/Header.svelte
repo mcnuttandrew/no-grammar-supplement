@@ -16,6 +16,8 @@
       <span class="text-white mx-2">⋅</span>
       <a class="text-white visited:text-white" href={"/#/search"}>Search</a>
       <span class="text-white mx-2">⋅</span>
+      <a class="text-white visited:text-white" href={"/#/table"}>Table</a>
+      <span class="text-white mx-2">⋅</span>
       <a class="text-white visited:text-white" href={"/#/summaries"}>
         Summary Charts
       </a>

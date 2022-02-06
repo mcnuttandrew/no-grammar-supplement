@@ -1,38 +1,34 @@
 <script lang="ts">
+  import { badgeExplanation } from "./utils";
+  import Tooltip from "./Tooltip.svelte";
   export let badgeType: string;
   export let badgeValue: string;
   export let showNegativeBooleans: boolean = false;
   export let cancelCallbak: any = false;
 
+  // Blue
+  // Emerald
+  // Gray
+  // Indigo
+  // Neutral
+  // Orange
+  // Stone
+  // Zinc
   const badgeColor = {
-    "Language Form": "bg-amber-500",
+    "Abstraction Mechanism": "bg-slate-500",
+    "Alt API Available": "bg-lime-500",
     "Coded Domain": "bg-teal-500",
     "Execution Model": "bg-purple-500",
-    "Formal Definition Available": "bg-rose-500",
     Extensible: "bg-fuchsia-500",
-    "Alt API Available": "bg-lime-500",
-    "Abstraction Mechanism": "bg-slate-500",
+    "Formal Definition Available": "bg-rose-500",
+    "Language Form": "bg-amber-500",
+    Language: "bg-sky-400",
     Source: "bg-green-500",
-    Language: "bg-sky-200",
-  };
-  const badgeExplanation = {
-    "Language Form":
-      "Whether the language is internal (defined and executed within a host language) or external (requires an interpreter or compiler to execute).",
-    "Coded Domain":
-      "What general purpose the language is meant to serve. These include Charting, enhancing an specific Interaction, working in a particular Domain,  or enabling a particular Chart Type.",
-    "Execution Model":
-      "The mechanism by which the language is executed. Includes Compiled, Interpreted, and Embedded.",
-    "Formal Definition Available":
-      "Whether or not there is a format definition available for that language. This is somewhat loose notion of formality and includes JSON and XML schema as formal definitions.",
-    Extensible:
-      "Whether or not the language can be customized to taste and task.",
-    "Alt API Available":
-      "Whether or not there is an alternative way to control the functionality of the language (such as the DSL expressed in another language or through an API).",
-    "Abstraction Mechanism":
-      "Whether or not the language has means for expressing abstraction. This includes control flow statements, conditionals, and variables.",
-    Source:
-      "The type of organization that spawned this language. This includes industry, open source, and academia.",
-    Language: "The carrier language of the DSL.",
+    "Conceptual Model": "bg-pink-900",
+    "Data manipulation": "bg-red-700",
+    Domain: "bg-yellow-800",
+    "Output Type": "bg-violet-800",
+    "Provides Accessibility": "bg-cyan-600",
   };
 
   const shortNames = {
@@ -45,6 +41,7 @@
     "Extensible",
     "Alt API Available",
     "Abstraction Mechanism",
+    "Provides Accessibility",
   ]);
 
   $: msg = prepMsg(badgeValue, badgeType, showNegativeBooleans);
@@ -62,24 +59,27 @@
 
 {#if msg.length && msg !== "Unknown"}
   <div
-    class={`text-xs px-2 py-1 rounded font-bold ${badgeColor[badgeType]} text-white mr-1 mt-1 has-tooltip relative`}
+    class={`text-xs px-2 py-1 rounded font-bold ${
+      badgeColor[badgeType] || "bg-neutral-600"
+    } text-white mr-1 mt-1 has-tooltip relative`}
   >
-    {#if !binaryCases.has(badgeType)}
-      <div class={`text-2xs`}>
-        {shortNames[badgeType] || badgeType}
-      </div>
-    {/if}
-    {msg}
-    {#if cancelCallbak}
-      <div class="float-right cursor-pointer" on:click={cancelCallbak}>X</div>
-    {/if}
-    <span
-      class="tooltip rounded shadow-lg p-4 bg-slate-100 text-black -mt-8 max-w-lg flex-wrap flex w-96"
-    >
-      <span>
-        {badgeExplanation[badgeType]}
+    <Tooltip>
+      <span slot="content">{badgeExplanation[badgeType]}</span>
+
+      <span slot="target">
+        {#if !binaryCases.has(badgeType)}
+          <div class={`text-2xs`}>
+            {shortNames[badgeType] || badgeType}
+          </div>
+        {/if}
+        {msg}
+        {#if cancelCallbak}
+          <div class="float-right cursor-pointer" on:click={cancelCallbak}>
+            X
+          </div>
+        {/if}
       </span>
-    </span>
+    </Tooltip>
   </div>
 {/if}
 

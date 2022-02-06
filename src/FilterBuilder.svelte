@@ -1,60 +1,70 @@
 <script lang="ts">
-  import { badges, LangMeta, Badge } from "./utils";
+  import {
+    badges,
+    LangMeta,
+    Badge,
+    buildKeyOptions,
+    classnames,
+  } from "./utils";
   export let langMeta: LangMeta;
   export let cb: (x: Badge) => void;
+  export let colOptions: string[] = [];
+  export let verticalAlignment: boolean = false;
   // state
   let addingFilter = false;
   let badgeTypeSelect: any = false;
-  let optionSelected = false;
+  let optionSelected: any = false;
 
   // prep layout
-  const badgeTypes = new Set(badges);
-  const options = Object.entries(
-    Object.values(langMeta).reduce((acc, row) => {
-      Object.entries(row).forEach(([key, val]) => {
-        if (!badgeTypes.has(key)) {
-          return;
-        }
-        acc[key] = (acc[key] || []).concat(val);
-      });
-      return acc;
-    }, {})
-  ).reduce((acc, [key, vals]) => {
-    acc[key] = Array.from(new Set(vals as any));
-    return acc;
-  }, {});
+  $: badgeTypes = new Set(colOptions.length ? colOptions : badges);
+  $: options = buildKeyOptions(langMeta, badgeTypes);
 </script>
 
 <div
-  on:click={() => {
-    addingFilter = true;
-  }}
+  class={classnames({
+    "flex items-start": verticalAlignment,
+    "flex flex-col justify-start": !verticalAlignment,
+  })}
 >
-  Add Filter
-</div>
-{#if addingFilter}
-  <select bind:value={badgeTypeSelect}>
-    {#each badges as badge}
-      <option value={badge}>{badge}</option>
-    {/each}
-  </select>
-{/if}
-{#if badgeTypeSelect && addingFilter}
-  <select bind:value={optionSelected}>
-    {#each options[badgeTypeSelect] as option}
-      <option value={option}>{option}</option>
-    {/each}
-  </select>
-{/if}
-{#if optionSelected && badgeTypeSelect && addingFilter}
   <button
     on:click={() => {
-      cb({ badgeType: badgeTypeSelect, badgeValue: optionSelected });
-      badgeTypeSelect = false;
-      addingFilter = false;
-      optionSelected = false;
+      addingFilter = true;
     }}
+    title="click this button to add a a filter"
+    class="underline border-0"
   >
-    Add
+    Add a Filter
   </button>
-{/if}
+  {#if addingFilter}
+    <div class="flex flex-col">
+      <label for="column-selection" class="text-xs font-bold">Column</label>
+      <select bind:value={badgeTypeSelect} name="column-selection">
+        {#each ["", ...Array.from(badgeTypes)].sort() as badge}
+          <option value={badge}>{badge}</option>
+        {/each}
+      </select>
+    </div>
+  {/if}
+  {#if badgeTypeSelect && addingFilter}
+    <div class="flex flex-col">
+      <label for="value-selection" class="text-xs font-bold">Value</label>
+      <select bind:value={optionSelected} name="value-selection">
+        {#each ["", ...options[badgeTypeSelect]].sort() as option}
+          <option value={option}>{option}</option>
+        {/each}
+      </select>
+    </div>
+  {/if}
+  {#if optionSelected && badgeTypeSelect && addingFilter}
+    <button
+      on:click={() => {
+        cb({ badgeType: badgeTypeSelect, badgeValue: optionSelected });
+        badgeTypeSelect = false;
+        addingFilter = false;
+        optionSelected = false;
+      }}
+    >
+      Add
+    </button>
+  {/if}
+</div>
