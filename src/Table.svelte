@@ -77,6 +77,11 @@
       lang,
     ])
   );
+  const shortValNames = {
+    yes: "✅",
+    no: "❌",
+    unknown: "❓",
+  };
 </script>
 
 <div class="overflow-auto h-full pb-32 px-8 ">
@@ -114,7 +119,7 @@
     <thead>
       <tr>
         {#each columns as col}
-          <th class="p-1 sticky top-0 text-white bg-slate-900">
+          <th class="p-1 sticky top-0 text-white bg-slate-900 z-10">
             <div class="flex items-center">
               <button
                 class={classnames({
@@ -150,7 +155,7 @@
                   slot="tooltip-target"
                   class="border-0 text-left whitespace-nowrap overflow-hidden w-full"
                 >
-                  {lang[col]}
+                  {shortValNames[lang[col].toLowerCase()] || lang[col]}
                 </button>
                 <TableExplain
                   slot="tooltip-content"
