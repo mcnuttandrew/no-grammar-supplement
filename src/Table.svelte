@@ -6,7 +6,7 @@
     badgeExplanation,
     classnames,
   } from "./utils";
-  import { popover } from "./PopoverAction";
+  import Popover from "./Popover.svelte";
   import TableExplain from "./TableExplain.svelte";
   import FilterBuilder from "./FilterBuilder.svelte";
   import Badge from "./Badge.svelte";
@@ -144,22 +144,22 @@
       {#each localMeta as lang, idx}
         <tr class={idx % 2 ? "" : "bg-slate-100"}>
           {#each columns as col}
-            <td
-              class="p-1 whitespace-nowrap overflow-hidden td-customization hover:border-2"
-            >
-              <button
-                class="border-0 text-left"
-                use:popover={{
-                  id: `${col}-${lang[col]}`.split(" ").join("-"),
-                  component: TableExplain,
-                  topic: col,
-                  value: lang[col],
-                  options: groupedByTopic[col][lang[col]] || [],
-                  langSysMap,
-                }}
-              >
-                {lang[col]}
-              </button>
+            <td class="p-1  td-customization hover:bg-slate-300">
+              <Popover>
+                <button
+                  slot="tooltip-target"
+                  class="border-0 text-left whitespace-nowrap overflow-hidden w-full"
+                >
+                  {lang[col]}
+                </button>
+                <TableExplain
+                  slot="tooltip-content"
+                  options={groupedByTopic[col][lang[col]] || []}
+                  {langSysMap}
+                  value={lang[col]}
+                  topic={col}
+                />
+              </Popover>
             </td>
           {/each}
         </tr>
