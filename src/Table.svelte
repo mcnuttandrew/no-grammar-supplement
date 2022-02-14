@@ -8,8 +8,7 @@
   } from "./utils";
   import Popover from "./Popover.svelte";
   import TableExplain from "./TableExplain.svelte";
-  import FilterBuilder from "./FilterBuilder.svelte";
-  import Badge from "./Badge.svelte";
+  import TableFilter from "./TableFilter.svelte";
 
   export let langMetaCollection: LangMeta;
   let sortBy = "System";
@@ -86,41 +85,40 @@
 
 <div class="overflow-auto h-full pb-32 px-8 ">
   <h3 class="text-xl mt-2">Coding Table</h3>
-  <p>
-    This table provides the codings for each of the languages in our survey. It
-    can be filters (by adding and remove filters) and sorted (by clicking on
-    header names). The cells of the table can be clicked to reveal which
-    languages share the property described in that cell.
+  <p class="mb-2">
+    This table provides the codings for each of the languages in our survey.
+    Click the ⚙ to add or remove filters, and the header name to sort. The cells
+    of the table can be clicked to reveal which languages share the property
+    described in that cell.
   </p>
-  <div class="flex flex-wrap w-full py-2">
-    <div class="flex">
-      <span class="mr-1">Filters:</span>
-      {#each filter as badge}
-        <Badge
-          showNegativeBooleans={true}
-          badgeType={badge.badgeType}
-          badgeValue={badge.badgeValue}
-          cancelCallbak={() => {
-            filter = filterFilterForNewBadge(filter, badge);
-          }}
-        />
-      {/each}
-    </div>
-    <FilterBuilder
-      verticalAlignment={false}
-      colOptions={columns}
-      langMeta={langMetaCollection}
-      cb={(x) => {
-        filter = filterFilterForNewBadge(filter, x).concat(x);
-      }}
-    />
-  </div>
+
   <table class="text-left relative border-collapse table-fixed">
     <thead>
       <tr>
         {#each columns as col}
           <th class="p-1 sticky top-0 text-white bg-slate-900 z-10">
-            <div class="flex items-center">
+            <div class="flex items-center justify-evenly">
+              <Popover>
+                <button
+                  slot="tooltip-target"
+                  class="border-0 text-left whitespace-nowrap overflow-hidden w-fullm mr-2"
+                >
+                  ⚙
+                </button>
+
+                <TableFilter
+                  slot="tooltip-content"
+                  {col}
+                  bind:filters={filter}
+                  langMeta={langMetaCollection}
+                  addCallback={(x) => {
+                    filter = filterFilterForNewBadge(filter, x).concat(x);
+                  }}
+                  cancelCallback={(x) => {
+                    filter = filterFilterForNewBadge(filter, x);
+                  }}
+                />
+              </Popover>
               <button
                 class={classnames({
                   "border-0 uppercase font-bold  text-xs": true,
@@ -136,10 +134,21 @@
                 }}
                 title={badgeExplanation[col]}
               >
-                {`${sortBy === col ? col : shortNames[col]} ${
-                  sortBy === col ? (sortReverse ? "▲" : "▼") : ""
-                }`}
+                {sortBy === col ? col : shortNames[col]}
               </button>
+              <div
+                class="text-xs cursor-pointer"
+                on:click={() => {
+                  if (sortBy === col) {
+                    sortReverse = !sortReverse;
+                    return;
+                  }
+                  sortBy = col;
+                  sortReverse = false;
+                }}
+              >
+                {sortBy === col ? (sortReverse ? "▲" : "▼") : ""}
+              </div>
             </div>
           </th>
         {/each}

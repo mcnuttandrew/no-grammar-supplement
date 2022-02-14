@@ -5,7 +5,6 @@
   export let langSysMap: { [system: string]: string };
 </script>
 
-<!-- note: id modal is required for this component to work right -->
 <div
   class="flex flex-col justify-center  border-1 border-black bg-white rounded-l p-4 w-96 shadow-md
     hover:shadow-lg"

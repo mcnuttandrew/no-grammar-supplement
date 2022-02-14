@@ -4,18 +4,32 @@
   function togglePopover() {
     popoverShow = !popoverShow;
   }
+
+  let container;
+  let onLHS = true;
+  let onTHS = true;
+  $: popoverShow && setToggles();
+  function setToggles() {
+    const bounds = container.getBoundingClientRect();
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    onLHS = bounds.x < width / 2;
+    onTHS = bounds.y < height / 2;
+  }
 </script>
 
-<div class="relative">
-  <!-- screen -->
+<div class="relative" bind:this={container}>
   {#if popoverShow}
+    <!-- screen -->
     <div id="click-screen" on:click={togglePopover} />
     <!-- popover -->
     <div
       class={classnames({
         hidden: !popoverShow,
-        "block absolute mt-8": popoverShow,
+        "block absolute": popoverShow,
         "z-50": true,
+        [onLHS ? "left-0" : "right-0"]: true,
+        [onTHS ? "top-0 mt-8" : "bottom-0 mb-8"]: true,
       })}
     >
       <slot name="tooltip-content" />
