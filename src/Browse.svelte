@@ -3,6 +3,9 @@
   import Viewer from "./Viewer.svelte";
   import FilterBuilder from "./FilterBuilder.svelte";
   import Badge from "./Badge.svelte";
+  import Popover from "./Popover.svelte";
+  import Vega from "./Vega.svelte";
+  import { barChart, theme } from "./charts";
   import {
     Directory,
     LangMeta,
@@ -19,6 +22,10 @@
   export let file: string | null;
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
+
+  let langCounts = Object.entries(getLangCounts(directory)).map(
+    ([key, count]) => ({ key, count })
+  );
 
   let langSort: LangSort = "carrier-language";
   $: langCount = getLangCounts(directory);
@@ -49,6 +56,29 @@
       <p class="text-xs mb-2">
         This view allows you to explore the curate collection of example
         programs for each of the languages.
+        <Popover>
+          <button
+            slot="tooltip-target"
+            class="border-0 underline text-blue-600"
+          >
+            What's the distribution of examples by language?
+          </button>
+          <div
+            slot="tooltip-content"
+            class="
+    flex flex-col 
+    justify-center  
+    text-black
+    border-1 border-black 
+    bg-white rounded-l p-4 w-96 shadow-md
+    hover:shadow-lg"
+          >
+            <Vega
+              spec={barChart(langCounts, "Example volume by language")}
+              options={{ actions: false, config: theme }}
+            />
+          </div>
+        </Popover>
       </p>
       <div class="">
         <label for="lang-sort" class="text-xs font-bold">Sort by</label>

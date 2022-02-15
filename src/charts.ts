@@ -154,8 +154,8 @@ export const barChart = (values: GroupedData, chartTitle: string): any => ({
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   data: { values },
   encoding: {
-    y: { field: "key", type: "nominal", sort: "-x" },
-    x: { field: "count", type: "quantitative" },
+    x: { field: "key", type: "nominal", sort: "-y" },
+    y: { field: "count", type: "quantitative" },
   },
   mark: { type: "bar", tooltip: { content: "data" } },
 });

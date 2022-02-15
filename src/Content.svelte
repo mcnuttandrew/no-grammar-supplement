@@ -63,9 +63,9 @@
   {#if section === "browse" && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
-  {#if section === "summaries" && allLoaded}
+  <!-- {#if section === "summaries" && allLoaded}
     <SummaryView {directory} meta={Object.values(langMetaCollection)} />
-  {/if}
+  {/if} -->
   {#if section === "search" && allLoaded}
     <Search
       {directory}
@@ -95,7 +95,7 @@
         <a href={"/#/browse"}>Browse</a>
         <a href={"/#/table"}>Table</a>
         <a href={"/#/search"}>Search</a>
-        <a href={"/#/summaries"}>Summary Charts</a>
+        <!-- <a href={"/#/summaries"}>Summary Charts</a> -->
       </div>
     </div>
   {/if}

@@ -1,5 +1,13 @@
 <script lang="ts">
-  import { LangMeta, Badge, buildKeyOptions, badgeExplanation } from "./utils";
+  import {
+    LangMeta,
+    Badge,
+    buildKeyOptions,
+    badgeExplanation,
+    groupByKey,
+  } from "./utils";
+  import Vega from "./Vega.svelte";
+  import { outputTypePi, theme } from "./charts";
   export let col: string;
   export let langMeta: LangMeta;
   export let addCallback: (x: Badge) => void;
@@ -26,6 +34,16 @@
   <div class="flex flex-col">
     <h3 class="text-xs">Description</h3>
     <h1 class="font-bold">{badgeExplanation[col]}</h1>
+  </div>
+  <div>
+    <Vega
+      spec={outputTypePi(
+        groupByKey(Object.values(langMeta), col),
+        { title: "", scheme: "dark2" },
+        col
+      )}
+      options={{ actions: false, config: theme }}
+    />
   </div>
   <div class="flex flex-col">
     <h3 class="text-xs">Filters</h3>
