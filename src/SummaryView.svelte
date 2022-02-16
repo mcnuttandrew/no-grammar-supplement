@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import { LangMetaRow, groupByKey, Directory, getLangCounts } from "./utils";
   import { outputTypePi, barChart, heatmap, theme } from "./charts";
   export let directory: Directory;
@@ -26,4 +26,4 @@
       options={{ actions: false, config: theme }}
     />
   </div>
-</div>
+</div> -->

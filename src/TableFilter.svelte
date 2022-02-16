@@ -5,6 +5,7 @@
     buildKeyOptions,
     badgeExplanation,
     groupByKey,
+    filterLanguagesBasedOnBadges,
   } from "./utils";
   import Vega from "./Vega.svelte";
   import { outputTypePi, theme } from "./charts";
@@ -13,9 +14,16 @@
   export let addCallback: (x: Badge) => void;
   export let cancelCallback: (x: Badge) => void;
   export let filters: Badge[] = [];
+  let showFilteredData = true;
   $: relFilters = filters.filter((x) => x.badgeType === col);
   $: currentFilters = new Set(relFilters.map((x) => x.badgeValue));
   $: options = buildKeyOptions(langMeta, new Set([col]))[col];
+
+  $: allowedLangs = filterLanguagesBasedOnBadges(langMeta, filters);
+  $: localMeta = Object.entries(langMeta)
+    .filter(([lang]) => allowedLangs.has(lang))
+    .map(([_, meta]) => meta);
+  $: data = showFilteredData ? localMeta : Object.values(langMeta);
 </script>
 
 <div
@@ -35,15 +43,25 @@
     <h3 class="text-xs">Description</h3>
     <h1 class="font-bold">{badgeExplanation[col]}</h1>
   </div>
-  <div>
+  <div class="flex flex-col">
     <Vega
       spec={outputTypePi(
-        groupByKey(Object.values(langMeta), col),
+        groupByKey(data, col),
         { title: "", scheme: "dark2" },
         col
       )}
       options={{ actions: false, config: theme }}
     />
+    <div>
+      <button
+        class="text-blue-600 text-xs underline border-0"
+        on:click={() => {
+          showFilteredData = !showFilteredData;
+        }}
+      >
+        show {showFilteredData ? "all" : "filtered"}
+      </button>
+    </div>
   </div>
   <div class="flex flex-col">
     <h3 class="text-xs">Filters</h3>
