@@ -8,7 +8,7 @@
     filterLanguagesBasedOnBadges
   } from './utils';
   import Vega from './Vega.svelte';
-  import { outputTypePi, theme } from './charts';
+  import {outputTypePi, theme} from './charts';
   export let col: string;
   export let langMeta: LangMeta;
   export let addCallback: (x: Badge) => void;
@@ -45,12 +45,8 @@
   </div>
   <div class="flex flex-col">
     <Vega
-      spec={outputTypePi(
-        groupByKey(data, col),
-        { title: '', scheme: 'dark2' },
-        col
-      )}
-      options={{ actions: false, config: theme }}
+      spec={outputTypePi(groupByKey(data, col), {title: '', scheme: 'dark2'}, col)}
+      options={{actions: false, config: theme}}
     />
     <div>
       <button
@@ -85,9 +81,7 @@
       <button
         class="border-0 text-blue-600 underline"
         on:click={() => {
-          options.forEach((option) =>
-            addCallback({ badgeType: col, badgeValue: option })
-          );
+          options.forEach((option) => addCallback({badgeType: col, badgeValue: option}));
         }}
       >
         Select all
@@ -95,9 +89,7 @@
       <button
         class="border-0 text-blue-600 underline"
         on:click={() => {
-          options.forEach((option) =>
-            cancelCallback({ badgeType: col, badgeValue: option })
-          );
+          options.forEach((option) => cancelCallback({badgeType: col, badgeValue: option}));
         }}
       >
         Unselect all

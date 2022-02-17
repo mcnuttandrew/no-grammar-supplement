@@ -15,8 +15,8 @@
 
 <script>
   import * as svelte from 'svelte';
-  import { fade } from 'svelte/transition';
-  import { createEventDispatcher } from 'svelte';
+  import {fade} from 'svelte/transition';
+  import {createEventDispatcher} from 'svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -35,7 +35,7 @@
   export let styleCloseButton = {};
   export let setContext = baseSetContext;
   export let transitionBg = fade;
-  export let transitionBgProps = { duration: 250 };
+  export let transitionBgProps = {duration: 250};
   export let transitionWindow = transitionBg;
   export let transitionWindowProps = transitionBgProps;
   export let disableFocusTrap = false;
@@ -55,7 +55,7 @@
     transitionWindowProps,
     disableFocusTrap
   };
-  let state = { ...defaultState };
+  let state = {...defaultState};
 
   let Component = null;
 
@@ -75,15 +75,11 @@
   let prevBodyWidth;
   let outerClickTarget;
 
-  const camelCaseToDash = (str) =>
-    str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+  const camelCaseToDash = (str) => str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
 
   const toCssString = (props) =>
     props
-      ? Object.keys(props).reduce(
-          (str, key) => `${str}; ${camelCaseToDash(key)}: ${props[key]}`,
-          ''
-        )
+      ? Object.keys(props).reduce((str, key) => `${str}; ${camelCaseToDash(key)}: ${props[key]}`, '')
       : '';
 
   const isFunction = (f) => !!(f && f.constructor && f.call && f.apply);
@@ -115,7 +111,7 @@
 
   const open = (NewComponent, newProps = {}, options = {}, callback = {}) => {
     Component = bind(NewComponent, newProps);
-    state = { ...defaultState, ...options };
+    state = {...defaultState, ...options};
     updateStyleTransition();
     disableScroll();
     onOpen = (event) => {
@@ -169,12 +165,9 @@
   };
 
   const handleOuterMousedown = (event) => {
-    if (
-      state.closeOnOuterClick &&
-      (event.target === background || event.target === wrap)
-    ) {
-  outerClickTarget = event.target;
-  }
+    if (state.closeOnOuterClick && (event.target === background || event.target === wrap)) {
+      outerClickTarget = event.target;
+    }
   };
 
   const handleOuterMouseup = (event) => {
@@ -203,7 +196,7 @@
     window.scrollTo(0, scrollY);
   };
 
-  setContext(key, { open, close });
+  setContext(key, {open, close});
 
   let isMounted = false;
 
@@ -331,7 +324,7 @@
 
   .close:before,
   .close:after {
-    content: "";
+    content: '';
     display: block;
     box-sizing: border-box;
     position: absolute;
@@ -340,8 +333,7 @@
     height: 1px;
     background: black;
     transform-origin: center;
-    transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-      background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   .close:before {

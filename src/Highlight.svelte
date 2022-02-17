@@ -7,8 +7,8 @@
   import py from 'svelte-highlight/src/languages/python';
   import yaml from 'svelte-highlight/src/languages/yaml';
   import 'svelte-highlight/src/styles/github.css';
-  const langSupport = { xml, js, json, ts, ac: json, py, yaml, xsl: xml };
-  import { Highlight } from 'svelte-highlight';
+  const langSupport = {xml, js, json, ts, ac: json, py, yaml, xsl: xml};
+  import {Highlight} from 'svelte-highlight';
 
   export let code: string | null;
   export let fileType: string | null;

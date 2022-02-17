@@ -2,7 +2,7 @@
   export let options: string[];
   export let topic: string;
   export let value: string;
-  export let langSysMap: { [system: string]: string };
+  export let langSysMap: {[system: string]: string};
 </script>
 
 <div

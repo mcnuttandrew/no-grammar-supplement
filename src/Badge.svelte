@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { badgeExplanation } from './utils';
+  import {badgeExplanation} from './utils';
   import Tooltip from './Tooltip.svelte';
   export let badgeType: string;
   export let badgeValue: string;
@@ -74,9 +74,7 @@
         {/if}
         {msg}
         {#if cancelCallbak}
-          <div class="float-right cursor-pointer" on:click={cancelCallbak}>
-            X
-          </div>
+          <div class="float-right cursor-pointer" on:click={cancelCallbak}>X</div>
         {/if}
       </span>
     </Tooltip>

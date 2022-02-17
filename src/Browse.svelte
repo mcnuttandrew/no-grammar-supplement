@@ -5,7 +5,7 @@
   import Badge from './Badge.svelte';
   import Popover from './Popover.svelte';
   import Vega from './Vega.svelte';
-  import { barChart, theme } from './charts';
+  import {barChart, theme} from './charts';
   import {
     Directory,
     LangMeta,
@@ -23,18 +23,14 @@
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
 
-  const langCounts = Object.entries(getLangCounts(directory)).map(
-    ([key, count]) => ({ key, count })
-  );
+  const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({key, count}));
 
   let langSort: LangSort = 'carrier-language';
   $: langCount = getLangCounts(directory);
 
   $: sortedLangs = createSort(
     Object.keys(directory).filter(
-      (lang) =>
-        langMetaCollection[lang] &&
-        allowedLangs.has(langMetaCollection[lang].sysKey)
+      (lang) => langMetaCollection[lang] && allowedLangs.has(langMetaCollection[lang].sysKey)
     ),
     langSort,
     directory,
@@ -47,20 +43,14 @@
 
 <div class="flex pl-8 max-h-full">
   <!-- left column -->
-  <div
-    class="flex flex-col my-column-1 border-r border-r-slate-300 pr-8 pt-8 max-h-full"
-  >
+  <div class="flex flex-col my-column-1 border-r border-r-slate-300 pr-8 pt-8 max-h-full">
     <!-- header -->
     <div class="flex flex-col pb-8">
       <h3 class="text-xl">Example Browser</h3>
       <p class="text-xs mb-2">
-        This view allows you to explore the curate collection of example
-        programs for each of the languages.
+        This view allows you to explore the curate collection of example programs for each of the languages.
         <Popover>
-          <button
-            slot="tooltip-target"
-            class="border-0 underline text-blue-600"
-          >
+          <button slot="tooltip-target" class="border-0 underline text-blue-600">
             What's the distribution of examples by language?
           </button>
           <div
@@ -75,7 +65,7 @@
           >
             <Vega
               spec={barChart(langCounts, 'Example volume by language')}
-              options={{ actions: false, config: theme }}
+              options={{actions: false, config: theme}}
             />
           </div>
         </Popover>
@@ -135,9 +125,7 @@
     </div>
   </div>
   <!-- center column -->
-  <div
-    class="flex flex-col my-column-2  border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48"
-  >
+  <div class="flex flex-col my-column-2  border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48">
     {#if language}
       <div class="flex flex-col">
         <h3>

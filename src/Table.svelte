@@ -19,9 +19,7 @@
   $: localMeta = Object.entries(langMetaCollection)
     .filter(([lang]) => allowedLangs.has(lang))
     .map(([_, meta]) => meta)
-    .sort(
-      (a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy])
-    );
+    .sort((a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy]));
   const columns = [
     'System',
     'Language',
@@ -57,24 +55,18 @@
     'Provides Accessibility': 'A11y'
   };
 
-  const groupedByTopic = Object.values(langMetaCollection).reduce(
-    (acc, langMeta) => {
-      columns.forEach((col) => {
-        const val = langMeta[col];
-        if (!acc[col]) {
-          acc[col] = {};
-        }
-        acc[col][val] = (acc[col][val] || []).concat(langMeta.System);
-      });
-      return acc;
-    },
-    {}
-  );
+  const groupedByTopic = Object.values(langMetaCollection).reduce((acc, langMeta) => {
+    columns.forEach((col) => {
+      const val = langMeta[col];
+      if (!acc[col]) {
+        acc[col] = {};
+      }
+      acc[col][val] = (acc[col][val] || []).concat(langMeta.System);
+    });
+    return acc;
+  }, {});
   const langSysMap = Object.fromEntries(
-    Object.entries(langMetaCollection).map(([lang, langMeta]) => [
-      langMeta.System,
-      lang
-    ])
+    Object.entries(langMetaCollection).map(([lang, langMeta]) => [langMeta.System, lang])
   );
   const shortValNames = {
     yes: '✅',
@@ -86,10 +78,9 @@
 <div class="overflow-auto h-full pb-32 px-8 ">
   <h3 class="text-xl mt-2">Coding Table</h3>
   <p class="mb-2">
-    This table provides the codings for each of the languages in our survey.
-    Click the ⚙ to add or remove filters, and the header name to sort. The cells
-    of the table can be clicked to reveal which languages share the property
-    described in that cell.
+    This table provides the codings for each of the languages in our survey. Click the ⚙ to add or remove
+    filters, and the header name to sort. The cells of the table can be clicked to reveal which languages
+    share the property described in that cell.
   </p>
 
   <table class="text-left relative border-collapse table-fixed">

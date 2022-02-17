@@ -1,11 +1,5 @@
 <script lang="ts">
-  import {
-    badges,
-    LangMeta,
-    Badge,
-    buildKeyOptions,
-    classnames
-  } from './utils';
+  import {badges, LangMeta, Badge, buildKeyOptions, classnames} from './utils';
   export let langMeta: LangMeta;
   export let cb: (x: Badge) => void;
   export let colOptions: string[] = [];
@@ -58,7 +52,7 @@
   {#if optionSelected && badgeTypeSelect && addingFilter}
     <button
       on:click={() => {
-        cb({ badgeType: badgeTypeSelect, badgeValue: optionSelected });
+        cb({badgeType: badgeTypeSelect, badgeValue: optionSelected});
         badgeTypeSelect = false;
         addingFilter = false;
         optionSelected = false;

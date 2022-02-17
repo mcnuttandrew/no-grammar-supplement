@@ -1,8 +1,8 @@
 <script type="ts">
-  import type { LangMetaRow } from './utils';
+  import type {LangMetaRow} from './utils';
   export let meta: LangMetaRow;
   import Badge from './Badge.svelte';
-  import { badges } from './utils';
+  import {badges} from './utils';
 </script>
 
 <div class="lang-meta-data">

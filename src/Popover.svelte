@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { classnames } from './utils';
+  import {classnames} from './utils';
   let popoverShow = false;
   function togglePopover() {
     popoverShow = !popoverShow;

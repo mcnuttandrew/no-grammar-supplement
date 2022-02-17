@@ -54,19 +54,10 @@
             <span class="key">"{i}":</span>
           {/if}
           {#if getType(json[i]) === 'object'}
-            <svelte:self
-              json={json[i]}
-              {depth}
-              _lvl={_lvl + 1}
-              _last={idx === items.length - 1}
-            />
+            <svelte:self json={json[i]} {depth} _lvl={_lvl + 1} _last={idx === items.length - 1} />
           {:else}
             <span class="val {typeToClass[getType(json[i])]}">
-              {format(json[i])}{#if idx < items.length - 1}<span
-                  class={typeToClass.comma}
-                >
-                  ,
-                </span>{/if}
+              {format(json[i])}{#if idx < items.length - 1}<span class={typeToClass.comma}> , </span>{/if}
             </span>
           {/if}
         </div>
@@ -75,12 +66,7 @@
     <span class="bracket" on:click={clicked} tabindex="0">{closeBracket}</span>
     {#if !_last}<span class={typeToClass.comma}>,</span>{/if}
   </span>
-  <span
-    class="bracket"
-    class:hidden={!collapsed}
-    on:click={clicked}
-    tabindex="0"
-  >
+  <span class="bracket" class:hidden={!collapsed} on:click={clicked} tabindex="0">
     {openBracket}{collapsedSymbol}{closeBracket}
   </span>
   {#if !_last && collapsed}<span class={typeToClass.comma}>,</span>{/if}

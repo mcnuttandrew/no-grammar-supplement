@@ -1,18 +1,14 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
+  import {getContext} from 'svelte';
   import Popup from './Popup.svelte';
-  const { open } = getContext('simple-modal');
+  const {open} = getContext('simple-modal');
 </script>
 
-<div
-  class="bg-blue-600 text-white p-8 flex flex-row justify-between items-center"
->
+<div class="bg-blue-600 text-white p-8 flex flex-row justify-between items-center">
   <div class="flex flex-col">
     <h1 class="text-2xl font-bold">A Survey of Static Visualization DSLS</h1>
     <div class="flex">
-      <a class="font-bold text-white visited:text-white" href={'/#/'}>
-        Supplementary Material
-      </a>
+      <a class="font-bold text-white visited:text-white" href={'/#/'}> Supplementary Material </a>
       <span class="text-white mx-2">⋅</span>
       <a class="text-white visited:text-white" href={'/#/browse'}>Browse</a>
       <span class="text-white mx-2">⋅</span>
