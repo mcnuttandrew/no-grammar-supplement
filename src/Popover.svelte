@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { classnames } from "./utils";
+  import { classnames } from './utils';
   let popoverShow = false;
   function togglePopover() {
     popoverShow = !popoverShow;
@@ -26,10 +26,10 @@
     <div
       class={classnames({
         hidden: !popoverShow,
-        "block absolute": popoverShow,
-        "z-50": true,
-        [onLHS ? "left-0" : "right-0"]: true,
-        [onTHS ? "top-0 mt-8" : "bottom-0 mb-8"]: true,
+        'block absolute': popoverShow,
+        'z-50': true,
+        [onLHS ? 'left-0' : 'right-0']: true,
+        [onTHS ? 'top-0 mt-8' : 'bottom-0 mb-8']: true
       })}
     >
       <slot name="tooltip-content" />

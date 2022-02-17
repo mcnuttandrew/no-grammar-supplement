@@ -1,18 +1,11 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import {onMount} from 'svelte';
 
-  import Header from "./Header.svelte";
-  import Browse from "./Browse.svelte";
-  import SummaryView from "./SummaryView.svelte";
-  import Table from "./Table.svelte";
-  import Search from "./Search.svelte";
-  import {
-    getRoute,
-    Directory,
-    getBundle,
-    LangMeta,
-    getLangMeta,
-  } from "./utils";
+  import Header from './Header.svelte';
+  import Browse from './Browse.svelte';
+  import Table from './Table.svelte';
+  import Search from './Search.svelte';
+  import {getRoute, Directory, getBundle, LangMeta, getLangMeta} from './utils';
 
   // data
   let directory: Directory = {};
@@ -55,24 +48,19 @@
   let mobileOverride = false;
 </script>
 
-<main class={`h-full ${mobileOverride ? "mobile-warning-override" : ""}`}>
+<main class={`h-full ${mobileOverride ? 'mobile-warning-override' : ''}`}>
   <Header />
-  {#if section === "table" && allLoaded}
+  {#if section === 'table' && allLoaded}
     <Table {langMetaCollection} />
   {/if}
-  {#if section === "browse" && allLoaded}
+  {#if section === 'browse' && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
   <!-- {#if section === "summaries" && allLoaded}
     <SummaryView {directory} meta={Object.values(langMetaCollection)} />
   {/if} -->
-  {#if section === "search" && allLoaded}
-    <Search
-      {directory}
-      {langMetaCollection}
-      searchKey={language}
-      triggerUpdate={updatePage}
-    />
+  {#if section === 'search' && allLoaded}
+    <Search {directory} {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
   {/if}
   {#if !allLoaded}
     <div class="flex items-center justify-center h-full flex-col">
@@ -92,9 +80,9 @@
         <h3 class="text-2xl">Supplementary Materials</h3>
       </div>
       <div class="flex flex-col text-2xl pb-64">
-        <a href={"/#/browse"}>Browse</a>
-        <a href={"/#/table"}>Table</a>
-        <a href={"/#/search"}>Search</a>
+        <a href={'/#/browse'}>Browse</a>
+        <a href={'/#/table'}>Table</a>
+        <a href={'/#/search'}>Search</a>
         <!-- <a href={"/#/summaries"}>Summary Charts</a> -->
       </div>
     </div>
@@ -103,12 +91,10 @@
 <div
   id="mobile-msg"
   class={`h-full flex items-center justify-center p-8 text-2xl text-center ${
-    mobileOverride ? "mobile-warning-override" : ""
+    mobileOverride ? 'mobile-warning-override' : ''
   }`}
 >
-  <div class="mb-32">
-    This page is not designed for mobile. Please view it on a full size browser.
-  </div>
+  <div class="mb-32">This page is not designed for mobile. Please view it on a full size browser.</div>
   <button
     class="p-1"
     on:click={() => {

@@ -4,15 +4,15 @@
     LangMeta,
     parseResults,
     filterLanguagesBasedOnBadges,
-    filterFilterForNewBadge,
-  } from "./utils";
-  import FilterBuilder from "./FilterBuilder.svelte";
-  import SyntaxHighlight from "./SyntaxHighlight.svelte";
-  import Badge from "./Badge.svelte";
+    filterFilterForNewBadge
+  } from './utils';
+  import FilterBuilder from './FilterBuilder.svelte';
+  import SyntaxHighlight from './SyntaxHighlight.svelte';
+  import Badge from './Badge.svelte';
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let triggerUpdate;
-  export let searchKey = "";
+  export let searchKey = '';
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
   $: filteredDirectory = Object.fromEntries(
@@ -21,7 +21,7 @@
   $: results = searchKey ? parseResults(filteredDirectory, searchKey) : [];
 
   function getSubsection(fileContent: string, key: string) {
-    const lines = fileContent.split("\n");
+    const lines = fileContent.split('\n');
     const startIndex = lines.findIndex((x) =>
       x.toLowerCase().includes(key.toLowerCase())
     );
@@ -29,7 +29,7 @@
       startIndex === 0 || startIndex === -1
         ? lines.slice(0, 10)
         : lines.slice(Math.max(startIndex - 2, 0), startIndex + 6);
-    return outLines.join("\n");
+    return outLines.join('\n');
   }
 </script>
 

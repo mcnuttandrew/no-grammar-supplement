@@ -22,7 +22,7 @@
     <div class="flex flex-wrap">
       {#each options as lang, idx}
         <a class="mr-1" href={`/#/browse/${langSysMap[lang]}`}>
-          {lang}{idx === options.length - 1 ? "" : ","}
+          {lang}{idx === options.length - 1 ? '' : ','}
         </a>
       {/each}
     </div>

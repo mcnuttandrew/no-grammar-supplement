@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getContext } from "svelte";
-  import Popup from "./Popup.svelte";
-  const { open } = getContext("simple-modal");
+  import { getContext } from 'svelte';
+  import Popup from './Popup.svelte';
+  const { open } = getContext('simple-modal');
 </script>
 
 <div
@@ -10,15 +10,15 @@
   <div class="flex flex-col">
     <h1 class="text-2xl font-bold">A Survey of Static Visualization DSLS</h1>
     <div class="flex">
-      <a class="font-bold text-white visited:text-white" href={"/#/"}>
+      <a class="font-bold text-white visited:text-white" href={'/#/'}>
         Supplementary Material
       </a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/browse"}>Browse</a>
+      <a class="text-white visited:text-white" href={'/#/browse'}>Browse</a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/table"}>Table</a>
+      <a class="text-white visited:text-white" href={'/#/table'}>Table</a>
       <span class="text-white mx-2">⋅</span>
-      <a class="text-white visited:text-white" href={"/#/search"}>Search</a>
+      <a class="text-white visited:text-white" href={'/#/search'}>Search</a>
       <!-- <span class="text-white mx-2">⋅</span> -->
       <!-- <a class="text-white visited:text-white" href={"/#/summaries"}>
         Summary Charts

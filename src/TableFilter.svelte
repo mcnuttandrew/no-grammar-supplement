@@ -5,10 +5,10 @@
     buildKeyOptions,
     badgeExplanation,
     groupByKey,
-    filterLanguagesBasedOnBadges,
-  } from "./utils";
-  import Vega from "./Vega.svelte";
-  import { outputTypePi, theme } from "./charts";
+    filterLanguagesBasedOnBadges
+  } from './utils';
+  import Vega from './Vega.svelte';
+  import { outputTypePi, theme } from './charts';
   export let col: string;
   export let langMeta: LangMeta;
   export let addCallback: (x: Badge) => void;
@@ -47,7 +47,7 @@
     <Vega
       spec={outputTypePi(
         groupByKey(data, col),
-        { title: "", scheme: "dark2" },
+        { title: '', scheme: 'dark2' },
         col
       )}
       options={{ actions: false, config: theme }}
@@ -59,7 +59,7 @@
           showFilteredData = !showFilteredData;
         }}
       >
-        show {showFilteredData ? "all" : "filtered"}
+        show {showFilteredData ? 'all' : 'filtered'}
       </button>
     </div>
   </div>
@@ -72,7 +72,7 @@
           on:click={() => {
             (currentFilters.has(option) ? cancelCallback : addCallback)({
               badgeType: col,
-              badgeValue: option,
+              badgeValue: option
             });
           }}
         >

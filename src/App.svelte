@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { modal } from './stores.js';
+  import {modal} from './stores.js';
   import Modal from './Modal.svelte';
   import Content from './Content.svelte';
 </script>

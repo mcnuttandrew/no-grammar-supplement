@@ -4,8 +4,8 @@
     LangMeta,
     Badge,
     buildKeyOptions,
-    classnames,
-  } from "./utils";
+    classnames
+  } from './utils';
   export let langMeta: LangMeta;
   export let cb: (x: Badge) => void;
   export let colOptions: string[] = [];
@@ -22,8 +22,8 @@
 
 <div
   class={classnames({
-    "flex items-start": !verticalAlignment,
-    "flex flex-col justify-start": verticalAlignment,
+    'flex items-start': !verticalAlignment,
+    'flex flex-col justify-start': verticalAlignment
   })}
 >
   <button
@@ -39,7 +39,7 @@
     <div class="flex flex-col">
       <label for="column-selection" class="text-xs font-bold">Column</label>
       <select bind:value={badgeTypeSelect} name="column-selection">
-        {#each ["", ...Array.from(badgeTypes)].sort() as badge}
+        {#each ['', ...Array.from(badgeTypes)].sort() as badge}
           <option value={badge}>{badge}</option>
         {/each}
       </select>
@@ -49,7 +49,7 @@
     <div class="flex flex-col">
       <label for="value-selection" class="text-xs font-bold">Value</label>
       <select bind:value={optionSelected} name="value-selection">
-        {#each ["", ...options[badgeTypeSelect]].sort() as option}
+        {#each ['', ...options[badgeTypeSelect]].sort() as option}
           <option value={option}>{option}</option>
         {/each}
       </select>

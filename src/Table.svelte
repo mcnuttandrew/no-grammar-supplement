@@ -4,14 +4,14 @@
     filterLanguagesBasedOnBadges,
     filterFilterForNewBadge,
     badgeExplanation,
-    classnames,
-  } from "./utils";
-  import Popover from "./Popover.svelte";
-  import TableExplain from "./TableExplain.svelte";
-  import TableFilter from "./TableFilter.svelte";
+    classnames
+  } from './utils';
+  import Popover from './Popover.svelte';
+  import TableExplain from './TableExplain.svelte';
+  import TableFilter from './TableFilter.svelte';
 
   export let langMetaCollection: LangMeta;
-  let sortBy = "System";
+  let sortBy = 'System';
   let sortReverse = false;
 
   let filter = [];
@@ -23,38 +23,38 @@
       (a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy])
     );
   const columns = [
-    "System",
-    "Language",
-    "Domain",
-    "Coded Domain",
-    "Conceptual Model",
-    "Abstraction Mechanism",
-    "Alt API Available",
-    "Execution Model",
-    "Extensible",
-    "Formal Definition Available",
-    "Language Form",
-    "Output Type",
-    "Source",
-    "Data manipulation",
-    "Provides Accessibility",
+    'System',
+    'Language',
+    'Domain',
+    'Coded Domain',
+    'Conceptual Model',
+    'Abstraction Mechanism',
+    'Alt API Available',
+    'Execution Model',
+    'Extensible',
+    'Formal Definition Available',
+    'Language Form',
+    'Output Type',
+    'Source',
+    'Data manipulation',
+    'Provides Accessibility'
   ];
   const shortNames = {
-    System: "System",
-    Language: "Language",
-    Domain: "Domain",
-    "Coded Domain": "Coded Domain",
-    "Conceptual Model": "Model",
-    "Abstraction Mechanism": "Abs. Mech",
-    "Alt API Available": "Alt. API",
-    "Execution Model": "Ex. Model",
-    Extensible: "Extensible",
-    "Formal Definition Available": "Formal",
-    "Language Form": "Lang. Form",
-    "Output Type": "Output",
-    Source: "Source",
-    "Data manipulation": "Data Manip",
-    "Provides Accessibility": "A11y",
+    System: 'System',
+    Language: 'Language',
+    Domain: 'Domain',
+    'Coded Domain': 'Coded Domain',
+    'Conceptual Model': 'Model',
+    'Abstraction Mechanism': 'Abs. Mech',
+    'Alt API Available': 'Alt. API',
+    'Execution Model': 'Ex. Model',
+    Extensible: 'Extensible',
+    'Formal Definition Available': 'Formal',
+    'Language Form': 'Lang. Form',
+    'Output Type': 'Output',
+    Source: 'Source',
+    'Data manipulation': 'Data Manip',
+    'Provides Accessibility': 'A11y'
   };
 
   const groupedByTopic = Object.values(langMetaCollection).reduce(
@@ -73,13 +73,13 @@
   const langSysMap = Object.fromEntries(
     Object.entries(langMetaCollection).map(([lang, langMeta]) => [
       langMeta.System,
-      lang,
+      lang
     ])
   );
   const shortValNames = {
-    yes: "✅",
-    no: "❌",
-    unknown: "❓",
+    yes: '✅',
+    no: '❌',
+    unknown: '❓'
   };
 </script>
 
@@ -121,8 +121,8 @@
               </Popover>
               <button
                 class={classnames({
-                  "border-0 uppercase font-bold  text-xs": true,
-                  "whitespace-nowrap": sortBy === col,
+                  'border-0 uppercase font-bold  text-xs': true,
+                  'whitespace-nowrap': sortBy === col
                 })}
                 on:click={() => {
                   if (sortBy === col) {
@@ -147,7 +147,7 @@
                   sortReverse = false;
                 }}
               >
-                {sortBy === col ? (sortReverse ? "▲" : "▼") : ""}
+                {sortBy === col ? (sortReverse ? '▲' : '▼') : ''}
               </div>
             </div>
           </th>
@@ -156,7 +156,7 @@
     </thead>
     <tbody class="">
       {#each localMeta as lang, idx}
-        <tr class={idx % 2 ? "" : "bg-slate-100"}>
+        <tr class={idx % 2 ? '' : 'bg-slate-100'}>
           {#each columns as col}
             <td class="p-1  td-customization hover:bg-slate-300">
               <Popover>

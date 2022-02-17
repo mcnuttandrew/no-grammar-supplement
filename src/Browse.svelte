@@ -1,11 +1,11 @@
 <script lang="ts">
-  import MetaDisplay from "./MetaDisplay.svelte";
-  import Viewer from "./Viewer.svelte";
-  import FilterBuilder from "./FilterBuilder.svelte";
-  import Badge from "./Badge.svelte";
-  import Popover from "./Popover.svelte";
-  import Vega from "./Vega.svelte";
-  import { barChart, theme } from "./charts";
+  import MetaDisplay from './MetaDisplay.svelte';
+  import Viewer from './Viewer.svelte';
+  import FilterBuilder from './FilterBuilder.svelte';
+  import Badge from './Badge.svelte';
+  import Popover from './Popover.svelte';
+  import Vega from './Vega.svelte';
+  import { barChart, theme } from './charts';
   import {
     Directory,
     LangMeta,
@@ -14,8 +14,8 @@
     filterFilterForNewBadge,
     filterLanguagesBasedOnBadges,
     getLangCounts,
-    last,
-  } from "./utils";
+    last
+  } from './utils';
   export let directory: Directory;
   export let langMetaCollection: LangMeta;
   export let language: string;
@@ -23,11 +23,11 @@
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
 
-  let langCounts = Object.entries(getLangCounts(directory)).map(
+  const langCounts = Object.entries(getLangCounts(directory)).map(
     ([key, count]) => ({ key, count })
   );
 
-  let langSort: LangSort = "carrier-language";
+  let langSort: LangSort = 'carrier-language';
   $: langCount = getLangCounts(directory);
 
   $: sortedLangs = createSort(
@@ -41,7 +41,7 @@
     langCount
   );
 
-  $: fileType = (file && last(file.split("."))) || null;
+  $: fileType = (file && last(file.split('.'))) || null;
   $: code = (language && file && directory[language][file]) || null;
 </script>
 
@@ -74,7 +74,7 @@
     hover:shadow-lg"
           >
             <Vega
-              spec={barChart(langCounts, "Example volume by language")}
+              spec={barChart(langCounts, 'Example volume by language')}
               options={{ actions: false, config: theme }}
             />
           </div>
@@ -83,7 +83,7 @@
       <div class="">
         <label for="lang-sort" class="text-xs font-bold">Sort by</label>
         <select bind:value={langSort} name="lang-sort">
-          {#each ["none", "alphabetical", "carrier-language", "number-of-examples"] as sortType}
+          {#each ['none', 'alphabetical', 'carrier-language', 'number-of-examples'] as sortType}
             <option>{sortType}</option>
           {/each}
         </select>
@@ -126,7 +126,7 @@
                 {langMetaCollection[name] && langMetaCollection[name].System}
               </span>
               <span class="opacity-50 text-sm">
-                {langCount[name]} example{langCount[name] > 1 ? "s" : ""}
+                {langCount[name]} example{langCount[name] > 1 ? 's' : ''}
               </span>
             </a>
           {/each}
@@ -163,7 +163,7 @@
     <Viewer {fileType} {code} />
   {:else}
     <div class="flex items-center justify-center w-full text-2xl">
-      Select a {!language ? "language" : "example"}
+      Select a {!language ? 'language' : 'example'}
     </div>
   {/if}
 </div>
