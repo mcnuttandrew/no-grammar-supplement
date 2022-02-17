@@ -1,0 +1,43 @@
+{
+  "layers": [
+    {
+      "geom": "rect",
+      "aes": {
+        "opacity": 0.8
+      },
+      "pos": {
+        "type": "text",
+        "fast": true,
+        "innerLoop": 15
+      }
+    },
+    {
+      "geom": "text",
+      "aes": {
+        "color": "black"
+      },
+      "scales": {
+        "color": "identity"
+      }
+    }
+  ],
+  "aes": {
+    "x": "x0",
+    "y": "y0",
+    "text": "id",
+    "color": "id",
+    "stroke-width": 0
+  },
+  "scales": {
+    "color": "color",
+    "stroke-width": "identity",
+    "opacity": "identity"
+  },
+  "debug": {
+    "gg.wf.stdout": 0
+  },
+  "options": {
+    "w": 900,
+    "h": 800
+  }
+}

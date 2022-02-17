@@ -1,0 +1,13 @@
+{
+  "layers": [
+    {
+      "geometry": "interval",
+      "mapping": {
+        "x": "d",
+        "y": "r"
+      },
+      "color": "blue",
+      "width": 2
+    }
+  ]
+}

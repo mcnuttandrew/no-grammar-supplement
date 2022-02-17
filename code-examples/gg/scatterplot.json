@@ -1,0 +1,31 @@
+{
+  "layers": [
+    {
+      "geometry": "line",
+      "mapping": {
+        "x": "d",
+        "y": "r - 10",
+        "size": "r",
+        "group": "g",
+        "color": "g"
+      }
+    },
+    {
+      "geometry": "point",
+      "mapping": {
+        "x": "d * 0.8",
+        "y": "r - d / 500.",
+        "size": "r"
+      }
+    }
+  ],
+  "scales": [
+    {
+      "aesthetic": "size",
+      "range": [
+        0.5,
+        2
+      ]
+    }
+  ]
+}

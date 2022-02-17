@@ -1,0 +1,73 @@
+{
+  "layers": [
+    {
+      "geom": {
+        "type": "rect",
+        "aes": {
+          "y": "{total/10}"
+        }
+      },
+      "stat": "bin"
+    },
+    {
+      "geom": "boxplot",
+      "aes": {
+        "x": "floor500",
+        "group": {
+          "color": "floor500",
+          "opacity": 0.5
+        }
+      },
+      "stat": "boxplot"
+    },
+    {
+      "geom": "line",
+      "aes": {
+        "group": {
+          "color": "g",
+          "stroke-width": 2
+        }
+      },
+      "stat": {
+        "type": "loess",
+        "bandwidth": 0.3
+      },
+      "scales": {
+        "stroke": {
+          "type": "color",
+          "range": [
+            "black",
+            "red",
+            "green"
+          ]
+        }
+      }
+    },
+    {
+      "geom": "line",
+      "aes": {
+        "group": {
+          "color": "g",
+          "stroke-opacity": 0.2
+        }
+      },
+      "pos": "stack"
+    }
+  ],
+  "aes": {
+    "x": "d",
+    "y": "e"
+  },
+  "scales": {
+    "stroke-opacity": "identity",
+    "fill-opacity": "identity"
+  },
+  "opts": {
+    "width": 900,
+    "height": 500,
+    "title": "Multi-layer faceted example"
+  },
+  "facets": {
+    "x": "f"
+  }
+}

@@ -70,7 +70,7 @@
     justify-center  
     text-black
     border-1 border-black 
-    bg-white rounded-l p-4 w-96 shadow-md
+    bg-white rounded-l p-4 shadow-md
     hover:shadow-lg"
           >
             <Vega

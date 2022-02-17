@@ -1,0 +1,34 @@
+{
+  "layers": [
+    {
+      "geometry": "line",
+      "mapping": {
+        "x": "d",
+        "y": "r",
+        "group": "subject",
+        "color": "subject"
+      }
+    },
+    {
+      "geometry": "text",
+      "mapping": {
+        "x": "d",
+        "y": "r",
+        "text": "{d},{r}"
+      },
+      "show": "hover"
+    }
+  ],
+  "scales": [
+    {
+      "aesthetic": "color",
+      "type": "color",
+      "range": [
+        "#CFF09E",
+        "#A8DBA8",
+        "#79BD9A",
+        "#3B8686"
+      ]
+    }
+  ]
+}

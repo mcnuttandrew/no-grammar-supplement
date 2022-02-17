@@ -1,0 +1,23 @@
+{
+  "layers": [
+    {
+      "geometry": "box",
+      "mapping": {
+        "x": "group",
+        "y": false
+      },
+      "statistic": {
+        "kind": "box",
+        "group": "grade",
+        "variable": "value"
+      },
+      "width": 10
+    }
+  ],
+  "scales": [
+    {
+      "type": "categorical",
+      "aesthetic": "x"
+    }
+  ]
+}

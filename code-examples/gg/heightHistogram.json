@@ -1,0 +1,28 @@
+{
+  "layers": [
+    {
+      "geometry": "interval",
+      "mapping": {
+        "x": "bin",
+        "y": "count",
+        "width": "((count % 5) + 1) * 20"
+      },
+      "statistic": {
+        "kind": "bin",
+        "variable": "height",
+        "bins": 30
+      }
+    }
+  ],
+  "scales": [
+    {
+      "type": "categorical",
+      "aesthetic": "x"
+    },
+    {
+      "type": "linear",
+      "aesthetic": "y",
+      "min": 0
+    }
+  ]
+}
