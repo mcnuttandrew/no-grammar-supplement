@@ -8,7 +8,7 @@
   };
   export let code: string | null;
   export let fileType: string | null;
-  $: isJson = `${fileType}`.toLowerCase() === 'json';
+  $: isJson = new Set(['ac', 'json']).has(`${fileType}`.toLowerCase());
 </script>
 
 <div class="pt-8 pl-8 w-3/5">

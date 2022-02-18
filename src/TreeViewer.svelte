@@ -42,10 +42,53 @@
     boolean: 'text-cyan-500',
     comma: 'text-slate-900'
   };
+  $: isAutoCollapsibleArray = !!(
+    Array.isArray(json) &&
+    json.length <= 10 &&
+    json.every((x) => new Set(['string', 'number']).has(typeof x))
+  );
+  $: isAutoCollapsibleObject = !!(
+    typeof json === 'object' &&
+    !Array.isArray(json) &&
+    Object.values(json).reduce((acc, row, idx, arr) => {
+      if (!acc) {
+        return acc;
+      }
+      if (arr.length > 2) {
+        return false;
+      }
+      if (!new Set(['string', 'number', 'boolean']).has(typeof row)) {
+        console.log(json, row);
+        return false;
+      }
+      return acc;
+    }, true)
+  );
 </script>
 
-{#if items.length}
-  <span class:hidden={collapsed} class={'node'}>
+{#if isAutoCollapsibleArray}
+  <span class="node">
+    <span class="bracket" on:click={clicked} tabindex="0">[</span>
+    {#each json as item, idx}
+      <span class="val {typeToClass[getType(item)]}">
+        {format(item)}{#if idx < json.length - 1}<span class={typeToClass.comma}> , </span>{/if}
+      </span>
+    {/each}
+    <span class="bracket" on:click={clicked} tabindex="0">]</span>
+  </span>
+{:else if isAutoCollapsibleObject}
+  <span class="node">
+    <span class="bracket" on:click={clicked} tabindex="0">{'{'}</span>
+    {#each Object.entries(json) as item, idx}
+      <span class="key">"{item[0]}":</span>
+      <span class="val {typeToClass[getType(item[1])]}">
+        {format(item[1])}
+      </span>
+    {/each}
+    <span class="bracket" on:click={clicked} tabindex="0">{'}'}</span>
+  </span>
+{:else if items.length}
+  <span class:hidden={collapsed} class="node">
     <span class="bracket" on:click={clicked} tabindex="0">{openBracket}</span>
     <div class="container">
       {#each items as i, idx}

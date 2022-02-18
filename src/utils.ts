@@ -193,7 +193,8 @@ export const badges = [
   'Language',
   'Output Type',
   'Provides Accessibility',
-  'Source'
+  'Source',
+  'System'
   // "Domain",
 ];
 export type Badge = {badgeType: string; badgeValue: string};
