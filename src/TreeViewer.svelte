@@ -58,7 +58,6 @@
         return false;
       }
       if (!new Set(['string', 'number', 'boolean']).has(typeof row)) {
-        console.log(json, row);
         return false;
       }
       return acc;

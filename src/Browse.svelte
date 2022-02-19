@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {writable} from 'svelte/store';
   import MetaDisplay from './MetaDisplay.svelte';
   import Viewer from './Viewer.svelte';
   import FilterBuilder from './FilterBuilder.svelte';
@@ -25,20 +26,21 @@
 
   const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({key, count}));
 
-  let langSort: LangSort = 'carrier-language';
+  const langSort = writable(localStorage.getItem('langSort') || 'carrier-language');
+  langSort.subscribe((val) => localStorage.setItem('langSort', val));
   $: langCount = getLangCounts(directory);
 
   $: sortedLangs = createSort(
     Object.keys(directory).filter(
       (lang) => langMetaCollection[lang] && allowedLangs.has(langMetaCollection[lang].sysKey)
     ),
-    langSort,
+    $langSort as any,
     directory,
     langCount
   );
 
   $: fileType = (file && last(file.split('.'))) || null;
-  $: code = (language && file && directory[language][file]) || null;
+  $: code = (language && file && directory[language] && directory[language][file]) || null;
 </script>
 
 <div class="flex pl-8 max-h-full">
@@ -72,7 +74,7 @@
       </p>
       <div class="">
         <label for="lang-sort" class="text-xs font-bold">Sort by</label>
-        <select bind:value={langSort} name="lang-sort">
+        <select bind:value={$langSort} name="lang-sort">
           {#each ['none', 'alphabetical', 'carrier-language', 'number-of-examples'] as sortType}
             <option>{sortType}</option>
           {/each}
@@ -126,7 +128,7 @@
   </div>
   <!-- center column -->
   <div class="flex flex-col my-column-2  border-r border-r-slate-300  pl-8 pr-8 pt-8 pb-48">
-    {#if language}
+    {#if language && langMetaCollection[language]}
       <div class="flex flex-col">
         <h3>
           {langMetaCollection[language] && langMetaCollection[language].System}
