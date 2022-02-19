@@ -50,7 +50,7 @@
     />
     <div>
       <button
-        class="text-blue-600 text-xs underline border-0"
+        class="text-sky-600 text-xs underline border-0"
         on:click={() => {
           showFilteredData = !showFilteredData;
         }}
@@ -79,7 +79,7 @@
     </div>
     <div class="text-xs">
       <button
-        class="border-0 text-blue-600 underline"
+        class="border-0 text-sky-600 underline"
         on:click={() => {
           options.forEach((option) => addCallback({badgeType: col, badgeValue: option}));
         }}
@@ -87,7 +87,7 @@
         Select all
       </button>
       <button
-        class="border-0 text-blue-600 underline"
+        class="border-0 text-sky-600 underline"
         on:click={() => {
           options.forEach((option) => cancelCallback({badgeType: col, badgeValue: option}));
         }}

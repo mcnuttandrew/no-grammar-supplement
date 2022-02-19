@@ -69,7 +69,7 @@
       <!-- https://larainfo.com/blogs/tailwind-css-loading-spinner-example -->
       <div
         style="border-top-color:transparent"
-        class="w-32 h-32 border-4 border-blue-400 border-double rounded-full animate-spin mt-32"
+        class="w-32 h-32 border-4 border-sky-400 border-double rounded-full animate-spin mt-32"
       />
     </div>
   {/if}

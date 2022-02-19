@@ -52,7 +52,7 @@
       <p class="text-xs mb-2">
         This view allows you to explore the curate collection of example programs for each of the languages.
         <Popover>
-          <button slot="tooltip-target" class="border-0 underline text-blue-600">
+          <button slot="tooltip-target" class="border-0 underline text-sky-600">
             What's the distribution of examples by language?
           </button>
           <div
@@ -111,7 +111,7 @@
           {#each languages as name}
             <a
               href={`/#/browse/${name}`}
-              class="flex flex-col mb-3"
+              class="flex flex-col mb-3 text-sky-600 visited:text-sky-600 "
               class:row-item-selected={language === name}
             >
               <span class="text-base leading-3">
@@ -139,7 +139,7 @@
         {#each Object.keys(directory[language]) as fileOption}
           <a
             href={`#/browse/${language}/${fileOption}`}
-            class="row-item"
+            class="row-item text-sky-600 visited:text-sky-600"
             class:row-item-selected={file === fileOption}
           >
             {fileOption}
