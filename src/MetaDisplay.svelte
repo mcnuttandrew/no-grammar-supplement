@@ -9,8 +9,12 @@
   <!-- Paper -->
   {#if meta.Paper && meta.Paper !== 'N/A'}
     <div class="pair">
-      <span class="pair-key">Originally Described in:</span>
-      <span class="pair-value">"{meta.Paper}"</span>
+      <span class="pair-key">Described in:</span>
+      {#if meta['Paper Link']}
+        <a href={meta['Paper Link']}>"{meta.Paper}"</a>
+      {:else}
+        <span class="pair-value">"{meta.Paper}"</span>
+      {/if}
     </div>
   {/if}
   <!-- Domain -->

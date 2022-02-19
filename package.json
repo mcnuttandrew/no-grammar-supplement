@@ -47,6 +47,7 @@
     "vega-tooltip": "^0.28.0"
   },
   "dependencies": {
+    "genson-js": "^0.0.8",
     "idb-keyval": "^6.1.0",
     "prettier": "^2.5.1",
     "sirv-cli": "^1.0.0",

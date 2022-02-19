@@ -1,16 +1,14 @@
-const { getFileNamesFromDir, executeCommandLineCmd } = require("hoopoe");
-const { tsvParse } = require("d3-dsv");
-const { writeFile, readFile } = require("fs/promises");
+const {getFileNamesFromDir, executeCommandLineCmd} = require('hoopoe');
+const {tsvParse} = require('d3-dsv');
+const {writeFile, readFile} = require('fs/promises');
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 async function main() {
-  const langMeta = await readFile("./public/lang-meta.tsv", "utf-8").then((x) =>
-    tsvParse(x)
-  );
+  const langMeta = await readFile('./public/lang-meta.tsv', 'utf-8').then((x) => tsvParse(x));
   const includedLangs = new Set(langMeta.map((x) => x.sysKey));
-  const dirNames = await getFileNamesFromDir("./code-examples").then((x) =>
-    x.filter((el) => !el.includes("."))
+  const dirNames = await getFileNamesFromDir('./code-examples').then((x) =>
+    x.filter((el) => !el.includes('.'))
   );
   const fileDirMap = {};
   for (let idx = 0; idx < dirNames.length; idx++) {
@@ -22,12 +20,9 @@ async function main() {
     const files = {};
     for (let jdx = 0; jdx < fileNames.length; jdx++) {
       const fileName = fileNames[jdx];
-      const file = await readFile(
-        `./code-examples/${dirName}/${fileName}`,
-        "utf-8"
-      );
+      const file = await readFile(`./code-examples/${dirName}/${fileName}`, 'utf-8');
       files[fileName] = file;
-      if (fileName.endsWith("json")) {
+      if (fileName.endsWith('json')) {
         try {
           JSON.parse(file);
         } catch (e) {
@@ -38,16 +33,16 @@ async function main() {
     fileDirMap[dirName] = files;
   }
   const bundle = JSON.stringify(fileDirMap);
-  let hash = crypto.createHash("md5").update(bundle).digest("hex");
-  writeFile("./public/example-bundle.json", bundle)
+  let hash = crypto.createHash('md5').update(bundle).digest('hex');
+  writeFile('./public/example-bundle.json', bundle)
     .then(() => {
-      console.log("written");
+      console.log('written');
     })
     .catch((e) => {
       console.log(e);
     });
 
-  writeFile("./public/bundle-hash.json", `"${hash}"`);
+  writeFile('./public/bundle-hash.json', `"${hash}"`);
 }
 
 main();

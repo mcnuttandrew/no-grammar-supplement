@@ -1522,6 +1522,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+genson-js@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/genson-js/-/genson-js-0.0.8.tgz#b5a2c9dad7b821b0c08f103ccbe2de88e88b1f34"
+  integrity sha512-4NUusDTwF+lzYh72uKV+Uvpky9iPO+YDIMpGImA5pbHfLV9HwgRCA4hYjGu78V4J4Cx2IZRTFfRERn9aUs74mw==
+
 get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
