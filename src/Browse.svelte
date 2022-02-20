@@ -23,8 +23,10 @@
   export let file: string | null;
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
-
-  const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({key, count}));
+  const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({
+    key: (langMetaCollection[key] && langMetaCollection[key].System) || key,
+    count
+  }));
 
   const langSort = writable(localStorage.getItem('langSort') || 'carrier-language');
   langSort.subscribe((val) => localStorage.setItem('langSort', val));
@@ -111,7 +113,7 @@
           {#each languages as name}
             <a
               href={`/#/browse/${name}`}
-              class="flex flex-col mb-3 text-sky-600 visited:text-sky-600 "
+              class="flex flex-col mb-3 text-black visited:text-black "
               class:row-item-selected={language === name}
             >
               <span class="text-base leading-3">
@@ -139,7 +141,7 @@
         {#each Object.keys(directory[language]) as fileOption}
           <a
             href={`#/browse/${language}/${fileOption}`}
-            class="row-item text-sky-600 visited:text-sky-600"
+            class="row-item text-black visited:text-black"
             class:row-item-selected={file === fileOption}
           >
             {fileOption}

@@ -81,6 +81,14 @@
     This table provides the codings for each of the languages in our survey. Click the ⚙ to add or remove
     filters, and the header name to sort. The cells of the table can be clicked to reveal which languages
     share the property described in that cell.
+    {#if filter.length}
+      <button
+        class="underline text-sky-600 cursor-pointer border-0"
+        on:click={() => {
+          filter = [];
+        }}>Clear filters</button
+      >
+    {/if}
   </p>
 
   <table class="text-left relative border-collapse table-fixed">
@@ -92,7 +100,8 @@
               <Popover>
                 <button
                   slot="tooltip-target"
-                  class="border-0 text-left whitespace-nowrap overflow-hidden w-fullm mr-2"
+                  class="border-0 text-left whitespace-nowrap overflow-hidden mr-2"
+                  class:text-sky-600={filter.find((x) => x.badgeType === col)}
                 >
                   ⚙
                 </button>

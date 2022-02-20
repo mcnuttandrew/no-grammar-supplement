@@ -21,7 +21,7 @@
     <h3 class="text-xs">Languages</h3>
     <div class="flex flex-wrap">
       {#each options as lang, idx}
-        <a class="mr-1" href={`/#/browse/${langSysMap[lang]}`}>
+        <a href={`/#/browse/${langSysMap[lang]}`} class="mr-1 underline text-sky-600 visited:text-sky-600">
           {lang}{idx === options.length - 1 ? '' : ','}
         </a>
       {/each}

@@ -11,7 +11,7 @@
     <div class="pair">
       <span class="pair-key">Described in:</span>
       {#if meta['Paper Link']}
-        <a href={meta['Paper Link']}>"{meta.Paper}"</a>
+        <a class="text-sky-600 visited:text-sky-600 underline" href={meta['Paper Link']}>"{meta.Paper}"</a>
       {:else}
         <span class="pair-value">"{meta.Paper}"</span>
       {/if}
@@ -27,18 +27,20 @@
         {meta.Description}
       {/if}
       {#if meta.Link && meta.Link !== 'N/A' && meta.Link.startsWith('http')}
-        Find out more <a href={meta['harvest URL']}>here.</a>
+        Find out more <a class="text-sky-600 visited:text-sky-600 underline" href={meta['harvest URL']}
+          >here.</a
+        >
       {/if}
       {#if meta['harvest URL']}
         Examples gathered from {#if meta['harvest URL'].startsWith('https')}
-          <a href={meta['harvest URL']}>here.</a>
+          <a class="text-sky-600 visited:text-sky-600 underline" href={meta['harvest URL']}>here.</a>
         {:else}
           {meta['harvest URL']}.
         {/if}
         {#if meta.License && meta.License !== 'None'}
           License:
           {#if meta.License.startsWith('https')}
-            <a href={meta.License}>See license here</a>
+            <a class="text-sky-600 visited:text-sky-600 underline" href={meta.License}>See license here</a>
           {:else}
             {meta.License}
           {/if}
