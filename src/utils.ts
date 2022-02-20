@@ -180,22 +180,52 @@ export const buildKeyOptions = (langMeta: LangMeta, allowedCols: Set<string>): {
     return acc;
   }, {});
 
+// export const badges = [
+//   'Abstraction Mechanism',
+//   'Alt API Available',
+//   'Coded Domain',
+//   'Conceptual Model',
+//   'Data manipulation',
+//   'Execution Model',
+//   'Extensible',
+//   'Formal Definition Available',
+//   'Language Form',
+//   'Language',
+//   'Output Type',
+//   'Provides Accessibility',
+//   'Source',
+//   'System'
+//   // "Domain",
+// ];
+
 export const badges = [
-  'Abstraction Mechanism',
-  'Alt API Available',
+  'System',
+  // "LatexKey",
+  // "sysKey",
+  // "harvest URL",
+  // "License",
+  // "Paper",
+  // "Paper Link",
+  // "Link",
+  // "Domain",
   'Coded Domain',
+  // "Description",
+  'Output Type',
   'Conceptual Model',
-  'Data manipulation',
+  'Abstraction Mechanism',
+  'Source',
+  'Language Form',
+  'Coded Domain',
   'Execution Model',
+  'Alt API Available',
   'Extensible',
   'Formal Definition Available',
-  'Language Form',
   'Language',
-  'Output Type',
+  'Data manipulation',
   'Provides Accessibility',
-  'Source',
-  'System'
-  // "Domain",
+  'Juxtaposition strategy',
+  'Allowed Data Type',
+  'Data model'
 ];
 export type Badge = {badgeType: string; badgeValue: string};
 
@@ -222,8 +252,16 @@ export const badgeExplanation = {
   'Provides Accessibility': "Whether or not the language provides it's own accessibility features.",
   Source:
     'The type of organization that spawned this language. This includes industry, open source, and academia.',
-  System: 'The name of the language.'
+  System: 'The name of the language.',
+  'Juxtaposition strategy': 'The way in which the system facilitates combining graphics.',
+  'Allowed Data Type': 'The generic type of data that is expected by the system',
+  'Data model': 'The conceptual model under which data is treated, closely related to the conceptual model'
 };
+badges.forEach((x) => {
+  if (!badgeExplanation[x]) {
+    console.log(`missing explanation for ${x}`);
+  }
+});
 
 export function classnames(classObject: {[val: string]: boolean}): string {
   return Object.keys(classObject)

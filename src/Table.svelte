@@ -4,7 +4,8 @@
     filterLanguagesBasedOnBadges,
     filterFilterForNewBadge,
     badgeExplanation,
-    classnames
+    classnames,
+    badges
   } from './utils';
   import Popover from './Popover.svelte';
   import TableExplain from './TableExplain.svelte';
@@ -35,8 +36,19 @@
     'Output Type',
     'Source',
     'Data manipulation',
-    'Provides Accessibility'
+    'Provides Accessibility',
+    'Juxtaposition strategy',
+    'Allowed Data Type',
+    'Data model'
   ];
+  // column checker
+  // const badgeTypes = new Set(badges);
+  // const colTypes = new Set(columns);
+  // [...columns, ...badges].forEach((col) => {
+  //   if (!badgeTypes.has(col) || !colTypes.has(col)) {
+  //     console.log('missing ', col);
+  //   }
+  // });
   const shortNames = {
     System: 'System',
     Language: 'Language',
@@ -52,7 +64,10 @@
     'Output Type': 'Output',
     Source: 'Source',
     'Data manipulation': 'Data Manip',
-    'Provides Accessibility': 'A11y'
+    'Provides Accessibility': 'A11y',
+    'Juxtaposition strategy': 'Juxt',
+    'Allowed Data Type': 'Data Types',
+    'Data model': 'Data model'
   };
 
   const groupedByTopic = Object.values(langMetaCollection).reduce((acc, langMeta) => {
