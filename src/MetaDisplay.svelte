@@ -32,14 +32,14 @@
         >
       {/if}
       {#if meta['harvest URL']}
-        Examples gathered from {#if meta['harvest URL'].startsWith('https')}
+        Examples gathered from {#if meta['harvest URL'].startsWith('http')}
           <a class="text-sky-600 visited:text-sky-600 underline" href={meta['harvest URL']}>here.</a>
         {:else}
           {meta['harvest URL']}.
         {/if}
         {#if meta.License && meta.License !== 'None'}
           License:
-          {#if meta.License.startsWith('https')}
+          {#if meta.License.startsWith('http')}
             <a class="text-sky-600 visited:text-sky-600 underline" href={meta.License}>See license here</a>
           {:else}
             {meta.License}

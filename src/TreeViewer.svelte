@@ -81,7 +81,9 @@
     {#each Object.entries(json) as item, idx}
       <span class="key">"{item[0]}":</span>
       <span class="val {typeToClass[getType(item[1])]}">
-        {format(item[1])}
+        {format(item[1])}{#if idx < Object.entries(json).length - 1}<span class={typeToClass.comma}>
+            ,
+          </span>{/if}
       </span>
     {/each}
     <span class="bracket" on:click={clicked} tabindex="0">{'}'}</span>

@@ -30,17 +30,12 @@
 
   const langSort = writable(localStorage.getItem('langSort') || 'carrier-language');
   langSort.subscribe((val) => localStorage.setItem('langSort', val));
+
   $: langCount = getLangCounts(directory);
-
-  $: sortedLangs = createSort(
-    Object.keys(directory).filter(
-      (lang) => langMetaCollection[lang] && allowedLangs.has(langMetaCollection[lang].sysKey)
-    ),
-    $langSort as any,
-    directory,
-    langCount
-  );
-
+  $: allowLangMeta = Object.values(langMetaCollection)
+    .filter((x) => allowedLangs.has(x.sysKey))
+    .filter((x) => directory[x.sysKey]);
+  $: sortedLangs = createSort(allowLangMeta, $langSort as any, directory || {}, langCount);
   $: fileType = (file && last(file.split('.'))) || null;
   $: code = (language && file && directory[language] && directory[language][file]) || null;
 </script>
@@ -60,12 +55,12 @@
           <div
             slot="tooltip-content"
             class="
-    flex flex-col 
-    justify-center  
-    text-black
-    border-1 border-black 
-    bg-white rounded-l p-4 shadow-md
-    hover:shadow-lg"
+                  flex flex-col 
+                  justify-center  
+                  text-black
+                  border-1 border-black 
+                  bg-white rounded-l p-4 shadow-md
+                  hover:shadow-lg"
           >
             <Vega
               spec={barChart(langCounts, 'Example volume by language')}
@@ -106,21 +101,21 @@
     <!-- main content -->
     <div class="flex flex-col max-h-full overflow-y-auto pb-96">
       {#each sortedLangs as { sectionTitle, languages }}
-        <div class="flex flex-col">
+        <div class="flex flex-col mb-2">
           {#if sectionTitle}
-            <div class="font-bold">{sectionTitle.toUpperCase()}</div>
+            <div class="font-bold underline">{sectionTitle.toUpperCase()}</div>
           {/if}
-          {#each languages as name}
+          {#each languages as { viewName, linkName }}
             <a
-              href={`/#/browse/${name}`}
+              href={`/#/browse/${linkName}`}
               class="flex flex-col mb-3 text-black visited:text-black "
-              class:row-item-selected={language === name}
+              class:row-item-selected={language === linkName}
             >
               <span class="text-base leading-3">
-                {langMetaCollection[name] && langMetaCollection[name].System}
+                {viewName}
               </span>
               <span class="opacity-50 text-sm">
-                {langCount[name]} example{langCount[name] > 1 ? 's' : ''}
+                {langCount[linkName]} example{langCount[linkName] > 1 ? 's' : ''}
               </span>
             </a>
           {/each}

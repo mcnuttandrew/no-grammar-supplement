@@ -10,60 +10,48 @@ export function getRoute() {
   return {section, language, file};
 }
 
-const alphaCompare = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
 export const last = (arr: any[]) => arr[arr.length - 1];
 export type LangSort = 'none' | 'alphabetical' | 'carrier-language' | 'number-of-examples';
 
 export type Directory = {[lang: string]: {[fileName: string]: string}};
 
 export function createSort(
-  listOfLangs: string[],
+  langRows: LangMetaRow[],
   langSort: LangSort,
-  directory: Directory,
+  // directory: Directory,
   langCounts: {[lang: string]: number}
-): {sectionTitle: string; languages: string[]}[] {
+): {sectionTitle: string; languages: {viewName: string; linkName: string}[]}[] {
+  const toRep = (rows: LangMetaRow[]) => rows.map((x) => ({viewName: x.System, linkName: x.sysKey}));
   if (langSort === 'number-of-examples') {
-    const languages = listOfLangs.sort((a, b) => langCounts[b] - langCounts[a]);
+    const languages = toRep(langRows.sort((a, b) => langCounts[b.sysKey] - langCounts[a.sysKey]));
     return [{sectionTitle: '', languages}];
   }
   if (langSort === 'alphabetical') {
-    return [{sectionTitle: '', languages: listOfLangs.sort(alphaCompare)}];
+    const languages = toRep(langRows.sort((a, b) => a.System.localeCompare(b.System)));
+    return [{sectionTitle: '', languages}];
   }
 
   if (langSort === 'carrier-language') {
-    const overwrites = {ac: 'json', ts: 'js', xsl: 'xml'};
-    const langGroups = listOfLangs.reduce((acc, lang) => {
-      const exampleFileName = Object.keys(directory[lang])[0];
-      const type = last(exampleFileName.split('.'));
-      const langType = overwrites[type] || type;
-      acc[langType] = (acc[langType] || []).concat(lang);
+    const langGroups = langRows.reduce((acc, lang) => {
+      // const exampleFileName = Object.keys(directory[lang.sysKey])[0];
+      // const type = last(exampleFileName.split('.'));
+      // const langType = overwrites[type] || type;
+      acc[lang.Carrier] = (acc[lang.Carrier] || []).concat(lang);
       return acc;
     }, {});
 
-    const secOrder = ['json', 'xml', 'yaml', 'js', 'py'];
+    const secOrder = ['json', 'xml', 'yaml', 'js', 'python'];
     const toVal = (title) => secOrder.findIndex((x) => x === title.toLowerCase());
     return Object.entries(langGroups)
-      .map(([type, langs]: [string, string[]]) => ({
+      .map(([type, langs]: [string, LangMetaRow[]]) => ({
         sectionTitle: type,
-        languages: langs.sort(alphaCompare)
+        languages: toRep(langs.sort((a, b) => a.System.localeCompare(b.System)))
       }))
       .sort((a, b) => toVal(a.sectionTitle) - toVal(b.sectionTitle));
   }
 
   // none
-  return [{sectionTitle: '', languages: listOfLangs}];
-}
-
-export type Modifier = 'none' | 'json-small' | 'json-dense' | 'viewer' | 'collapsed';
-export function modifyPresentation(code: string | null, mod: Modifier): string {
-  let parsedCode = {};
-  try {
-    parsedCode = JSON.parse(code);
-  } catch (e) {
-    return code || '';
-  }
-
-  return code || '';
+  return [{sectionTitle: '', languages: toRep(langRows)}];
 }
 
 export async function getBundle(): Promise<Directory> {
@@ -90,6 +78,7 @@ export type LangMetaRow = {
   Link: string;
   Domain: string;
   Description: string;
+  Carrier: string;
 };
 export type LangMeta = {
   [lang: string]: LangMetaRow;
@@ -208,6 +197,7 @@ export const badges = [
   // "Paper Link",
   // "Link",
   // "Domain",
+  'Carrier',
   'Coded Domain',
   // "Description",
   'Output Type',
@@ -234,6 +224,7 @@ export const badgeExplanation = {
     'Whether or not the language has means for expressing abstraction. This includes control flow statements, conditionals, and variables.',
   'Alt API Available':
     'Whether or not there is an alternative way to control the functionality of the language (such as the DSL expressed in another language or through an API).',
+  Carrier: 'The host language for the DSL.',
   'Coded Domain':
     'What general purpose the language is meant to serve. These are coded into Charting, enhancing an specific Interaction, working in a particular Domain, and enabling a particular Chart Type.',
   'Conceptual Model': 'The model underpinning the way in which the language operates.  ',

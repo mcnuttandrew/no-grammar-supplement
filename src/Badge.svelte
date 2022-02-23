@@ -28,7 +28,8 @@
     'Data manipulation': 'bg-red-700',
     Domain: 'bg-yellow-800',
     'Output Type': 'bg-violet-800',
-    'Provides Accessibility': 'bg-cyan-600'
+    'Provides Accessibility': 'bg-cyan-600',
+    Carrier: 'bg-fuchsia-900'
   };
 
   const shortNames = {

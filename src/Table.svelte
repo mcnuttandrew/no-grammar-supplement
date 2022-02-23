@@ -23,7 +23,7 @@
     .sort((a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy]));
   const columns = [
     'System',
-    'Language',
+    'Carrier',
     'Domain',
     'Coded Domain',
     'Conceptual Model',
@@ -50,6 +50,7 @@
   //   }
   // });
   const shortNames = {
+    Carrier: 'Carrier',
     System: 'System',
     Language: 'Language',
     Domain: 'Domain',
