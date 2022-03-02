@@ -5,6 +5,7 @@
   import Browse from './Browse.svelte';
   import Table from './Table.svelte';
   import Search from './Search.svelte';
+  import SummaryView from './SummaryView.svelte';
   import {getRoute, Directory, getBundle, LangMeta, getLangMeta} from './utils';
 
   // data
@@ -56,11 +57,11 @@
   {#if section === 'browse' && allLoaded}
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
-  <!-- {#if section === "summaries" && allLoaded}
+  {#if section === 'summaries' && allLoaded}
     <SummaryView {directory} meta={Object.values(langMetaCollection)} />
-  {/if} -->
+  {/if}
   {#if section === 'search' && allLoaded}
-    <Search {directory} {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
+    <Search {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
   {/if}
   {#if !allLoaded}
     <div class="flex items-center justify-center h-full flex-col">
@@ -75,15 +76,28 @@
   {/if}
   {#if allLoaded && !section}
     <div class="flex flex-col items-center justify-center h-full text-center">
-      <div class="mb-24">
+      <div>
         <h1 class="text-4xl">A Survey of Static Visualization DSLS</h1>
         <h3 class="text-2xl">Supplementary Materials</h3>
+      </div>
+      <div class="w-1/2 mt-12 mb-12">
+        <p>
+          This website contains the supplementary for our currently under-review paper "No Grammar to Rule the
+          All: A Survey of JSON-Based Visualization DSLs". To view the content of the repository see
+          <a
+            href="https://osf.io/e9v8y/?view_only=05b240bd829c40438f0a51c6f601cc75"
+            target="_blank"
+            class="text-sky-600 visited:text-sky-600 underline"
+          >
+            this link
+          </a>
+        </p>
       </div>
       <div class="flex flex-col text-2xl pb-64">
         <a href={'/#/browse'}>Browse</a>
         <a href={'/#/table'}>Table</a>
         <a href={'/#/search'}>Search</a>
-        <!-- <a href={"/#/summaries"}>Summary Charts</a> -->
+        <a href={'/#/summaries'}>Summary Charts</a>
       </div>
     </div>
   {/if}

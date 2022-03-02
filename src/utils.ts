@@ -266,3 +266,14 @@ export const getLangCounts = (directory: Directory): {[lang: string]: number} =>
       files: Object.values(files).length
     }))
     .reduce((acc, row) => ({...acc, [row.key]: row.files}), {});
+
+export function countInString(arr, types, key) {
+  return arr.reduce((acc, row) => {
+    types.forEach((type) => {
+      if (row[key].toLowerCase().includes(type)) {
+        acc[type] = (acc[type] || 0) + 1;
+      }
+    });
+    return acc;
+  }, {});
+}
