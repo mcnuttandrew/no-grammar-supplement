@@ -20,14 +20,19 @@
   );
   $: results = searchKey ? parseResults(filteredDirectory, searchKey) : [];
 
-  function getSubsection(fileContent: string, key: string) {
+  const findIndices = (a, comp) => a.reduce((x, el, i) => (comp(el) ? x.concat(i) : x), []);
+
+  function getSubsections(fileContent: string, key: string): string[] {
     const lines = fileContent.split('\n');
-    const startIndex = lines.findIndex((x) => x.toLowerCase().includes(key.toLowerCase()));
-    const outLines =
-      startIndex === 0 || startIndex === -1
-        ? lines.slice(0, 10)
-        : lines.slice(Math.max(startIndex - 2, 0), startIndex + 6);
-    return outLines.join('\n');
+    // const startIndex = lines.findIndex((x) => x.toLowerCase().includes(key.toLowerCase()));
+    const indices = findIndices(lines, (x) => x.toLowerCase().includes(key.toLowerCase()));
+    return indices.map((startIndex) => {
+      const outLines =
+        startIndex === 0 || startIndex === -1
+          ? lines.slice(0, 10)
+          : lines.slice(Math.max(startIndex - 2, 0), startIndex + 6);
+      return outLines.join('\n');
+    });
   }
 </script>
 
@@ -86,9 +91,11 @@
             <SyntaxHighlight {searchKey} inputString={fileName} />
           </a>
         </div>
-        <code class="text-xs">
-          <SyntaxHighlight {searchKey} inputString={getSubsection(fileContent, searchKey)} />
-        </code>
+        {#each getSubsections(fileContent, searchKey) as subsection}
+          <code class="text-xs">
+            <SyntaxHighlight {searchKey} inputString={subsection} />
+          </code>
+        {/each}
       </div>
     {/each}
   </div>

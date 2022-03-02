@@ -58,10 +58,10 @@
     <Browse {directory} {langMetaCollection} {language} {file} />
   {/if}
   {#if section === 'summaries' && allLoaded}
-    <SummaryView {directory} meta={Object.values(langMetaCollection)} />
+    <SummaryView meta={Object.values(langMetaCollection)} />
   {/if}
   {#if section === 'search' && allLoaded}
-    <Search {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
+    <Search {directory} {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
   {/if}
   {#if !allLoaded}
     <div class="flex items-center justify-center h-full flex-col">
