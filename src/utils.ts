@@ -18,7 +18,6 @@ export type Directory = {[lang: string]: {[fileName: string]: string}};
 export function createSort(
   langRows: LangMetaRow[],
   langSort: LangSort,
-  // directory: Directory,
   langCounts: {[lang: string]: number}
 ): {sectionTitle: string; languages: {viewName: string; linkName: string}[]}[] {
   const toRep = (rows: LangMetaRow[]) => rows.map((x) => ({viewName: x.System, linkName: x.sysKey}));
