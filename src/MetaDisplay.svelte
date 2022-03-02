@@ -27,9 +27,7 @@
         {meta.Description}
       {/if}
       {#if meta.Link && meta.Link !== 'N/A' && meta.Link.startsWith('http')}
-        Find out more <a class="text-sky-600 visited:text-sky-600 underline" href={meta['harvest URL']}
-          >here.</a
-        >
+        Find out more <a class="text-sky-600 visited:text-sky-600 underline" href={meta['Link']}>here.</a>
       {/if}
       {#if meta['harvest URL']}
         Examples gathered from {#if meta['harvest URL'].startsWith('http')}
