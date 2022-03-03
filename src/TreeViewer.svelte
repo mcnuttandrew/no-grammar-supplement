@@ -67,17 +67,17 @@
 
 {#if isAutoCollapsibleArray}
   <span class="node">
-    <span class="bracket" on:click={clicked} tabindex="0">[</span>
+    <span on:click={clicked} tabindex="0">[</span>
     {#each json as item, idx}
       <span class="val {typeToClass[getType(item)]}">
         {format(item)}{#if idx < json.length - 1}<span class={typeToClass.comma}> , </span>{/if}
       </span>
     {/each}
-    <span class="bracket" on:click={clicked} tabindex="0">]</span>
+    <span on:click={clicked} tabindex="0">]</span>
   </span>
 {:else if isAutoCollapsibleObject}
   <span class="node">
-    <span class="bracket" on:click={clicked} tabindex="0">{'{'}</span>
+    <span on:click={clicked} tabindex="0">{'{'}</span>
     {#each Object.entries(json) as item, idx}
       <span class="key">"{item[0]}":</span>
       <span class="val {typeToClass[getType(item[1])]}">
@@ -86,7 +86,7 @@
           </span>{/if}
       </span>
     {/each}
-    <span class="bracket" on:click={clicked} tabindex="0">{'}'}</span>
+    <span on:click={clicked} tabindex="0">{'}'}</span>
   </span>
 {:else if items.length}
   <span class:hidden={collapsed} class="node">

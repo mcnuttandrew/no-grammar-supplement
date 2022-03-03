@@ -1,9 +1,15 @@
 <script lang="ts">
-  import {LangMetaRow, countInString, Directory} from './utils';
+  import {LangMetaRow, countInString, Directory, getLangCounts} from './utils';
   import {barChart, heatmap, petriDish} from './charts';
   export let meta: LangMetaRow[];
   export let directory: Directory;
   import Vega from './Vega.svelte';
+
+  const pivotMeta = Object.fromEntries(meta.map((x) => [x.sysKey, x]));
+  const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({
+    key: (pivotMeta[key] && pivotMeta[key].System) || key,
+    count
+  }));
 
   const markPrep = (x) =>
     x['Mark Types'].split(',').map((e) => {
@@ -46,48 +52,66 @@
 
   $: allCount =
     directory && meta.reduce((acc, row) => acc + Object.keys(directory[row.sysKey] || {}).length, 0);
+
+  const exampleContainer = 'flex-col p-4 border-2 justify-center items-center';
 </script>
 
 <div class="h-full overflow-auto p-8 pb-96">
   <div class="flex flex-col w-1/2">
-    <h3 class="text-2xl">Summary Charts</h3>
-    <!-- <p class="mb-2">
+    <h3 class="text-2xl font-bold">Summary Charts</h3>
+    <p class="mb-2">
       This view shows a collection of summative charts. As surveys such as ours will always have holes we
-      avoided using summary charts in the main body of the work, however here we provide them for the curious.
-    </p> -->
+      avoided using summary charts in the main body of the work, however here we provide them as supplementary
+      information.
+    </p>
   </div>
-  <div class=" flex flex-wrap">
-    <div class="flex-col">
-      <div>Frequency of language type vs language origin</div>
-      <Vega spec={heatmap(meta, 'Language Form', 'Source', '')} />
+  <div class="flex flex-wrap">
+    <div class={`${exampleContainer} w-full`}>
+      <div class="flex w-full justify-between">
+        <div class="flex-col text-center">
+          <div>Number of examples</div>
+          <div class="text-4xl font-bold">{allCount}</div>
+        </div>
+        <div class="flex-col text-center">
+          <div>Number of chart types</div>
+          <div class="text-4xl font-bold">{chartTypes.length}</div>
+        </div>
+        <div class="flex-col text-center">
+          <div>Number of mark types</div>
+          <div class="text-4xl font-bold">{markTypes.length}</div>
+        </div>
+      </div>
     </div>
-    <div class="flex-col">
+    <div class={exampleContainer}>
+      <div>Example volume by language</div>
+      <div class="text-xs">
+        Some languages in the survey were not open source or did not provide example of their language in use
+      </div>
+
+      <Vega spec={barChart(langCounts, '', false, 'Language')} />
+    </div>
+    <div class={exampleContainer}>
+      <div>Frequency of language type vs language origin</div>
+      <div class="text-xs">Industry languages were almost as frequently external as internal</div>
+      <div class="h-full w-full justify-center items-center flex">
+        <Vega spec={heatmap(meta, 'Language Form', 'Source', '')} />
+      </div>
+    </div>
+    <div class={exampleContainer}>
       <div>Frequnecy of mark types</div>
       <div class="text-xs">
         Note that these are the self reported mark type names by each of the languages
       </div>
       <Vega spec={barChart(markCounts, '', false, 'mark type')} />
     </div>
-    <div class="flex-col" id="petri">
+    <div class={exampleContainer} id="petri">
       <div>Chart type Frequency</div>
       <div class="text-xs">
         Note that these are the self reported chart names. There is substantial overlap as they have mostly
         not been cleaned (other than pruning termininating s characters and injecting spaces)
       </div>
-      <Vega spec={petriDish(chartCounts)} />
-    </div>
-    <div class="flex">
-      <div class="flex-col text-center">
-        <div>Number of examples</div>
-        <div class="text-4xl">{allCount}</div>
-      </div>
-      <div class="flex-col text-center">
-        <div>Number of chart types</div>
-        <div class="text-4xl">{chartTypes.length}</div>
-      </div>
-      <div class="flex-col text-center">
-        <div>Number of mark types</div>
-        <div class="text-4xl">{markTypes.length}</div>
+      <div class="h-full w-full justify-center items-center flex">
+        <Vega spec={petriDish(chartCounts)} />
       </div>
     </div>
   </div>

@@ -4,9 +4,6 @@
   import Viewer from './Viewer.svelte';
   import FilterBuilder from './FilterBuilder.svelte';
   import Badge from './Badge.svelte';
-  import Popover from './Popover.svelte';
-  import Vega from './Vega.svelte';
-  import {barChart, theme} from './charts';
   import {
     Directory,
     LangMeta,
@@ -22,10 +19,6 @@
   export let file: string | null;
   let filter = [];
   $: allowedLangs = filterLanguagesBasedOnBadges(langMetaCollection, filter);
-  const langCounts = Object.entries(getLangCounts(directory)).map(([key, count]) => ({
-    key: (langMetaCollection[key] && langMetaCollection[key].System) || key,
-    count
-  }));
 
   const langSort = writable(localStorage.getItem('langSort') || 'carrier-language');
   langSort.subscribe((val) => localStorage.setItem('langSort', val));
@@ -35,7 +28,7 @@
     .filter((x) => allowedLangs.has(x.sysKey))
     .filter((x) => directory[x.sysKey]);
 
-  $: sortedLangs = createSort(allowLangMeta, $langSort as any, directory || {}, langCount);
+  $: sortedLangs = createSort(allowLangMeta, $langSort as any, langCount);
   $: fileType = (file && last(file.split('.'))) || null;
   $: code = (language && file && directory[language] && directory[language][file]) || null;
 </script>
@@ -48,26 +41,6 @@
       <h3 class="text-xl">Example Browser</h3>
       <p class="text-xs mb-2">
         This view allows you to explore the curate collection of example programs for each of the languages.
-        <Popover>
-          <button slot="tooltip-target" class="border-0 underline text-sky-600">
-            What's the distribution of examples by language?
-          </button>
-          <div
-            slot="tooltip-content"
-            class="
-                  flex flex-col 
-                  justify-center  
-                  text-black
-                  border-1 border-black 
-                  bg-white rounded-l p-4 shadow-md
-                  hover:shadow-lg"
-          >
-            <Vega
-              spec={barChart(langCounts, 'Example volume by language')}
-              options={{actions: false, config: theme}}
-            />
-          </div>
-        </Popover>
       </p>
       <div class="">
         <label for="lang-sort" class="text-xs font-bold">Sort by</label>

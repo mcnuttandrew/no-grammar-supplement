@@ -5,24 +5,24 @@
   import {badges} from './utils';
 </script>
 
-<div class="lang-meta-data">
+<div class="border-b-slate-300 border-b mb-2">
   <!-- Paper -->
   {#if meta.Paper && meta.Paper !== 'N/A'}
-    <div class="pair">
-      <span class="pair-key">Described in:</span>
+    <div class="flex flex-col mb-2">
+      <span class="text-xs font-bold">Described in:</span>
       {#if meta['Paper Link']}
         <a class="text-sky-600 visited:text-sky-600 underline" href={meta['Paper Link']}>"{meta.Paper}"</a>
       {:else}
-        <span class="pair-value">"{meta.Paper}"</span>
+        <span class="text-sm">"{meta.Paper}"</span>
       {/if}
     </div>
   {/if}
   <!-- Domain -->
-  <div class="pair">
+  <div class="mb-2">
     {#if meta.Description}
-      <span class="pair-key">Description:</span>
+      <span class="text-xs font-bold">Description:</span>
     {/if}
-    <div class="pair-value">
+    <div class="text-sm">
       {#if meta.Description}
         {meta.Description}
       {/if}
@@ -47,41 +47,9 @@
     </div>
   </div>
 
-  <!-- License 
-  {#if meta.License && meta.License !== "None"}
-    <div class="pair">
-      <span class="pair-key">License:</span>
-      <span class="pair-value">
-        {#if meta.License.startsWith("https")}
-          <a href={meta.License}>See license here</a>
-        {:else}
-          {meta.License}
-        {/if}
-      </span>
-    </div>
-  {/if} -->
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap mb-2">
     {#each badges as badge}
       <Badge badgeType={badge} badgeValue={meta[badge]} />
     {/each}
   </div>
 </div>
-
-<style>
-  .lang-meta-data {
-    margin-bottom: 20px;
-    border-bottom: 1px solid black;
-  }
-  .pair {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-  }
-  .pair-key {
-    font-weight: bold;
-    font-size: 10px;
-  }
-  .pair-value {
-    font-size: 14px;
-  }
-</style>

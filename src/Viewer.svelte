@@ -14,7 +14,7 @@
 <div class="pt-8 pl-8 w-3/5">
   <div class="">
     {#if isJson}
-      {'Click [ or ] to toggle arrays,  click { or } to toggle objects '}
+      {'To hide/show multiline arrays click "[" or "]".To hide/show multiline object click "{" or "}"'}
     {/if}
     <div class="flex">
       <label for="fontSize">Font Size</label>

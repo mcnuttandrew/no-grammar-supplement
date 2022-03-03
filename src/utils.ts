@@ -32,9 +32,6 @@ export function createSort(
 
   if (langSort === 'carrier-language') {
     const langGroups = langRows.reduce((acc, lang) => {
-      // const exampleFileName = Object.keys(directory[lang.sysKey])[0];
-      // const type = last(exampleFileName.split('.'));
-      // const langType = overwrites[type] || type;
       acc[lang.Carrier] = (acc[lang.Carrier] || []).concat(lang);
       return acc;
     }, {});
@@ -197,7 +194,6 @@ export const badges = [
   // "Link",
   // "Domain",
   'Carrier',
-  'Coded Domain',
   // "Description",
   'Output Type',
   'Conceptual Model',
@@ -277,3 +273,5 @@ export function countInString(arr, types, key) {
     return acc;
   }, {});
 }
+
+export const paperTitle = 'No Grammar To Rule Them All: A Survey of JSON-Style Visualization DSLs';

@@ -1,19 +1,19 @@
 type GroupedData = {key: string; count: number}[];
-const lightModeColors = [
-  '#000000',
-  '#0000FF',
-  '#001080',
-  '#0070C1',
-  '#0451A5',
-  '#098658',
-  '#267F99',
-  '#795E26',
-  '#811F3F',
-  '#AF00DB',
-  '#EE0000',
-  '#A31515',
-  '#D16969'
-];
+// const lightModeColors = [
+//   '#000000',
+//   '#0000FF',
+//   '#001080',
+//   '#0070C1',
+//   '#0451A5',
+//   '#098658',
+//   '#267F99',
+//   '#795E26',
+//   '#811F3F',
+//   '#AF00DB',
+//   '#EE0000',
+//   '#A31515',
+//   '#D16969'
+// ];
 const paletteColor1 = '#267F99';
 // export const theme = {
 //   title: {
@@ -145,14 +145,9 @@ export const outputTypePi = (values: GroupedData, {scheme, title}: any, chartTit
   ]
 });
 
-export const barChart = (
-  values: GroupedData,
-  chartTitle: string,
-  horizontal?: boolean,
-  axisName?: string
-): any => {
-  const nom = horizontal ? 'y' : 'x';
-  const quant = horizontal ? 'x' : 'y';
+export const barChart = (values: GroupedData, chartTitle: string, vertical?: boolean, axisName?: string) => {
+  const nom = vertical ? 'y' : 'x';
+  const quant = vertical ? 'x' : 'y';
   return {
     title: chartTitle,
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -171,10 +166,17 @@ export const heatmap = (values: any[], xField: string, yField: string, chartTitl
   data: {values},
   encoding: {
     y: {field: yField, type: 'ordinal'},
-    x: {field: xField, type: 'ordinal'},
-    color: {aggregate: 'count'}
+    x: {field: xField, type: 'ordinal'}
   },
-  mark: {type: 'rect', tooltip: {content: 'data'}}
+  layer: [
+    {mark: {type: 'rect', tooltip: {content: 'data'}}, encoding: {color: {aggregate: 'count'}}},
+    {
+      mark: {type: 'text', color: 'white'},
+      encoding: {text: {aggregate: 'count'}}
+    }
+  ],
+  height: {step: 50},
+  width: {step: 50}
 });
 
 // values: [

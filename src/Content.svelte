@@ -6,7 +6,7 @@
   import Table from './Table.svelte';
   import Search from './Search.svelte';
   import SummaryView from './SummaryView.svelte';
-  import {getRoute, Directory, getBundle, LangMeta, getLangMeta} from './utils';
+  import {getRoute, Directory, getBundle, LangMeta, getLangMeta, paperTitle} from './utils';
 
   // data
   let directory: Directory = {};
@@ -76,20 +76,22 @@
   {/if}
   {#if allLoaded && !section}
     <div class="flex flex-col items-center justify-center h-full text-center">
-      <div>
-        <h1 class="text-4xl">A Survey of Static Visualization DSLS</h1>
+      <div class="flex flex-col text-center items-center">
+        <h1 class="text-4xl font-bold w-1/2">{paperTitle}</h1>
         <h3 class="text-2xl">Supplementary Materials</h3>
       </div>
       <div class="w-1/2 mt-12 mb-12">
         <p>
           This website contains the supplementary for our currently under-review paper "No Grammar to Rule the
-          All: A Survey of JSON-Based Visualization DSLs". To view the content of the repository see
+          All: A Survey of JSON-Style Visualization DSLs". To view the content of the repository, including
+          the code for this website, the spreadsheet documenting the survey, and all of the collected examples
+          see
           <a
             href="https://osf.io/e9v8y/?view_only=05b240bd829c40438f0a51c6f601cc75"
             target="_blank"
             class="text-sky-600 visited:text-sky-600 underline"
           >
-            this link
+            this osf link.
           </a>
         </p>
       </div>
