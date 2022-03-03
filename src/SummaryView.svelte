@@ -1,15 +1,27 @@
 <script lang="ts">
-  import {LangMetaRow, countInString} from './utils';
-  import {barChart, heatmap, theme, petriDish} from './charts';
+  import {LangMetaRow, countInString, Directory} from './utils';
+  import {barChart, heatmap, petriDish} from './charts';
   export let meta: LangMetaRow[];
+  export let directory: Directory;
   import Vega from './Vega.svelte';
 
   const markPrep = (x) =>
-    x['Mark Types'].split(',').map((e) => (e.includes('labeled') ? 'rect' : e.trim().toLowerCase()));
+    x['Mark Types'].split(',').map((e) => {
+      let name = e.trim().toLowerCase();
+      if (name.includes('labeled')) {
+        return 'rect';
+      }
+      if (name === 'tex') {
+        return 'text';
+      }
+      if (name === 'groups') {
+        return 'group';
+      }
+      return name;
+    });
   $: markTypes = Array.from(new Set(meta.flatMap(markPrep).filter((x) => x !== 'n/a')));
   $: markCountMap = countInString(meta, markTypes, 'Mark Types');
   $: markCounts = markTypes.map((key) => ({key, count: markCountMap[key]}));
-  $: console.log(markCounts.length);
   const chartPrep = (x) =>
     x['Series Types'].split(',').map((e) => {
       let name = e.toLowerCase().trim();
@@ -29,9 +41,11 @@
   $: chartTypes = Array.from(new Set(meta.flatMap(chartPrep).filter((x) => x !== 'n/a'))).filter(
     (x) => x.length
   );
-  $: console.log(chartTypes.length);
   $: chartCountMap = countInString(meta, chartTypes, 'Series Types');
   $: chartCounts = chartTypes.map((key) => ({key, count: chartCountMap[key]}));
+
+  $: allCount =
+    directory && meta.reduce((acc, row) => acc + Object.keys(directory[row.sysKey] || {}).length, 0);
 </script>
 
 <div class="h-full overflow-auto p-8 pb-96">
@@ -45,14 +59,14 @@
   <div class=" flex flex-wrap">
     <div class="flex-col">
       <div>Frequency of language type vs language origin</div>
-      <Vega spec={heatmap(meta, 'Language Form', 'Source', '')} options={{actions: false, config: theme}} />
+      <Vega spec={heatmap(meta, 'Language Form', 'Source', '')} />
     </div>
     <div class="flex-col">
       <div>Frequnecy of mark types</div>
       <div class="text-xs">
         Note that these are the self reported mark type names by each of the languages
       </div>
-      <Vega spec={barChart(markCounts, '', false)} options={{actions: false, config: theme}} />
+      <Vega spec={barChart(markCounts, '', false, 'mark type')} />
     </div>
     <div class="flex-col" id="petri">
       <div>Chart type Frequency</div>
@@ -60,7 +74,21 @@
         Note that these are the self reported chart names. There is substantial overlap as they have mostly
         not been cleaned (other than pruning termininating s characters and injecting spaces)
       </div>
-      <Vega spec={petriDish(chartCounts)} options={{actions: false, config: theme}} />
+      <Vega spec={petriDish(chartCounts)} />
+    </div>
+    <div class="flex">
+      <div class="flex-col text-center">
+        <div>Number of examples</div>
+        <div class="text-4xl">{allCount}</div>
+      </div>
+      <div class="flex-col text-center">
+        <div>Number of chart types</div>
+        <div class="text-4xl">{chartTypes.length}</div>
+      </div>
+      <div class="flex-col text-center">
+        <div>Number of mark types</div>
+        <div class="text-4xl">{markTypes.length}</div>
+      </div>
     </div>
   </div>
 </div>

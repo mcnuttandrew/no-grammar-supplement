@@ -145,7 +145,12 @@ export const outputTypePi = (values: GroupedData, {scheme, title}: any, chartTit
   ]
 });
 
-export const barChart = (values: GroupedData, chartTitle: string, horizontal: boolean): any => {
+export const barChart = (
+  values: GroupedData,
+  chartTitle: string,
+  horizontal?: boolean,
+  axisName?: string
+): any => {
   const nom = horizontal ? 'y' : 'x';
   const quant = horizontal ? 'x' : 'y';
   return {
@@ -153,7 +158,7 @@ export const barChart = (values: GroupedData, chartTitle: string, horizontal: bo
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     data: {values},
     encoding: {
-      [nom]: {field: 'key', type: 'nominal', sort: `-${quant}`},
+      [nom]: {field: 'key', type: 'nominal', sort: `-${quant}`, axis: axisName ? {title: axisName} : {}},
       [quant]: {field: 'count', type: 'quantitative'}
     },
     mark: {type: 'bar', tooltip: {content: 'data'}}

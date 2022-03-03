@@ -1,17 +1,25 @@
 <script>
   /*global vegaEmbed, vegaTooltip */
+  import {theme} from './charts';
+  let actions = false;
   export let spec;
-  export let options;
   let container;
-  const handler = new vegaTooltip.Handler(options);
+  const handler = new vegaTooltip.Handler({});
   $: spec &&
     vegaEmbed(container, JSON.parse(JSON.stringify(spec)), {
-      actions: false,
+      actions,
       tooltip: handler,
-      ...options
+      config: theme
     }).catch((e) => {
       console.log('chart error', e);
     });
 </script>
 
-<div bind:this={container} />
+<div
+  bind:this={container}
+  on:click={(e) => {
+    if (e.vegaType) {
+      actions = !actions;
+    }
+  }}
+/>

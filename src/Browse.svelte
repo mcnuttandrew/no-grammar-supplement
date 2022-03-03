@@ -35,8 +35,6 @@
     .filter((x) => allowedLangs.has(x.sysKey))
     .filter((x) => directory[x.sysKey]);
 
-  $: allCount = allowLangMeta.reduce((acc, row) => acc + Object.keys(directory[row.sysKey]).length, 0);
-  $: console.log(`All example count ${allCount}`);
   $: sortedLangs = createSort(allowLangMeta, $langSort as any, directory || {}, langCount);
   $: fileType = (file && last(file.split('.'))) || null;
   $: code = (language && file && directory[language] && directory[language][file]) || null;
