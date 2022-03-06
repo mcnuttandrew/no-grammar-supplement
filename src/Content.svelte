@@ -80,12 +80,20 @@
         <h1 class="text-4xl font-bold w-1/2">{paperTitle}</h1>
         <h3 class="text-2xl">Supplementary Materials</h3>
       </div>
-      <div class="w-1/2 mt-12 mb-12">
-        <p>
-          This website contains the supplementary for our currently under-review paper "No Grammar to Rule the
-          All: A Survey of JSON-Style Visualization DSLs". To view the content of the repository, including
-          the code for this website, the spreadsheet documenting the survey, and all of the collected examples
-          see
+      <div class="w-1/3 mt-12 mb-12 text-left">
+        <p class="">
+          This website contains the supplementary for our (currently under-review) paper "{paperTitle}". This
+          includes our analysis of the languages in our survey across a variety of axes (see
+          <a href={'/#/table'}>Table</a>), some charts describing components of the survey (see
+          <a href={'/#/summaries'}>Summary Charts</a>), as well examples of each language (see
+          <a href={'/#/browse'}>Browse</a>). These examples collect as many examples as was feasible for each
+          language, such as by scraping the docs, extracting examples from the repository, or copying programs
+          from papers documenting the languages. These collections are not meant to be comprehensive, but
+          instead evocative of the general patterns in the language.
+        </p>
+        <p class="mt-2">
+          To view the content of the repository, including the code for this website, the spreadsheet
+          documenting the survey, and all of the collected examples see
           <a
             href="https://osf.io/e9v8y/?view_only=05b240bd829c40438f0a51c6f601cc75"
             target="_blank"
