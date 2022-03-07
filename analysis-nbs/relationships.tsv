@@ -1,0 +1,57 @@
+System	Rel 1: Entity	Rel 1: Verb	Rel 2: Entity	Rel 2: Verb	Rel 3: Entity	Rel 3: Verb
+AniVis						
+AntVSpec	Vega-Lite	Inspired				
+ApexCharts						
+Array visualization grammar						
+Atom						
+Bertin						
+Canis						
+CFGConf						
+Chart.js						
+ChartML						
+ComicScript						
+CompassQL	Vega-Lite	Compiles				
+Data Theater						
+deck.gl/json						
+DGML						
+DotML						
+DXR						
+ECharts						
+Flex-ER						
+Frappe						
+FusionCharts						
+Gemini 1	Gemini 1	Extends	Vega			
+Gemini 2	Gemini 1	Extends	Vega	Wraps	Vega-Lite	Wraps
+Genome Spy	Vega-Lite	Extends				
+gg						
+Glinda						
+Gosling	Vega-Lite	Inspired				
+GoTree						
+GraphML						
+GXL						
+Highcharts						
+Ivy	Vega	Compiles	Vega-Lite	Compiles	Atom	Compiles
+Kyrix-S						
+Multiclass-Density-Maps	Vega-Lite	Wraps				
+NEO						
+P4						
+P5	P4	Compiles				
+P6	P4	Compiles	P5	Extends		
+PapARVis	Vega	Extends				
+Plot						
+Plotly JSON						
+Scholz 3D Vis Language	Vega	Wraps	Vega-Lite	Wraps		
+SetCoLa						
+Shih Volume Vis Language						
+StructGraphics						
+SVL	Vega-Lite	Extends				
+Tea						
+Vega	VizML	Inspired				
+Vega-Lite	Vega	Compiles				
+VizML						
+VizQL						
+VR-Viz	Vega-Lite	Inspired				
+VRIA						
+XML Charts						
+ZingChart						
+Encodable	Vega-Lite	Inspired				
