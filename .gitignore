@@ -5,3 +5,4 @@
 example-bundle.json
 bundle-hash.json
 inferred-schemas/
+venv/
