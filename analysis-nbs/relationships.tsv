@@ -9,49 +9,48 @@ Canis
 CFGConf						
 Chart.js						
 ChartML						
-ComicScript						
+ComicScript	Vega-Lite	Inspired	Data Theater	Inspired		
 CompassQL	Vega-Lite	Compiles				
-Data Theater						
+Data Theater	Vega-Lite	Inspired				
 deck.gl/json						
 DGML						
 DotML						
-DXR						
+DXR	Vega-Lite	Inspired				
 ECharts						
-Flex-ER						
+Flex-ER	Vega-Lite	Inspired	DXR	Inspired		
 Frappe						
 FusionCharts						
-Gemini 1	Gemini 1	Extends	Vega			
+Gemini 1	Vega	Wraps				
 Gemini 2	Gemini 1	Extends	Vega	Wraps	Vega-Lite	Wraps
 Genome Spy	Vega-Lite	Extends				
 gg						
 Glinda						
-Gosling	Vega-Lite	Inspired				
+Gosling	Vega-Lite	Extends				
 GoTree						
 GraphML						
 GXL						
 Highcharts						
 Ivy	Vega	Compiles	Vega-Lite	Compiles	Atom	Compiles
-Kyrix-S						
+Kyrix-S	Atom	Inspired	Vega-Lite	Inspired		
 Multiclass-Density-Maps	Vega-Lite	Wraps				
 NEO						
 P4						
 P5	P4	Compiles				
 P6	P4	Compiles	P5	Extends		
 PapARVis	Vega	Extends				
-Plot						
+Plot	Vega-Lite	Inspired				
 Plotly JSON						
 Scholz 3D Vis Language	Vega	Wraps	Vega-Lite	Wraps		
 SetCoLa						
-Shih Volume Vis Language						
+Shih Volume Vis Language	Vega-Lite	Inspired				
 StructGraphics						
 SVL	Vega-Lite	Extends				
-Tea						
-Vega	VizML	Inspired				
+Vega						
 Vega-Lite	Vega	Compiles				
 VizML						
 VizQL						
 VR-Viz	Vega-Lite	Inspired				
-VRIA						
+VRIA	Vega-Lite	Extends				
 XML Charts						
 ZingChart						
 Encodable	Vega-Lite	Inspired				
