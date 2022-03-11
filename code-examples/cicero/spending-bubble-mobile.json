@@ -1,0 +1,252 @@
+{
+    "$schema": "../src/cicero.json",
+    "name": "spending-bubble-desktop",
+    "description": "This is a Cicero specification for 'COVID Spending (Bubble)' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart proportionately",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 945,
+                "height": 250
+            }
+        },
+        {
+            "description": "Transpose axis",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "transpose"
+        },
+        {
+            "description": "Reposition the horizontal axis",
+            "specifier": {
+                "role": "hAxis"
+            },
+            "action": "reposition",
+            "option": {
+                "orient": "top",
+                "offset": 30
+            }
+        },
+        {
+            "description": "Reverse the sorting of y encoding",
+            "specifier": {
+                "role": "row"
+            },
+            "action": "modify",
+            "option": {
+                "sort": {
+                    "reverse": false
+                }
+            }
+        },
+        {
+            "description": "Reposition and resize annotations",
+            "specifier": {
+                "role": "annotation",
+                "text": "$arrow-up$ More spending"
+            },
+            "action": "modify",
+            "option": {
+                "x": 502.5,
+                "y": 10,
+                "width": 150,
+                "text": [
+                    "More spending $arrow-right$"
+                ],
+                "textAlign": "left"
+            }
+        },
+        {
+            "description": "Reposition and resize annotations",
+            "specifier": {
+                "role": "annotation",
+                "text": "Less spending $arrow-down$"
+            },
+            "action": "modify",
+            "option": {
+                "x": 302.5,
+                "y": 10,
+                "width": 150,
+                "text": [
+                    "$arrow-left$ Less spending"
+                ],
+                "textAlign": "right"
+            }
+        },
+        {
+            "description": "Add mark labels",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "add",
+            "option": {
+                "values": [
+                    "Fitness",
+                    "Movie theaters",
+                    "Mobile",
+                    "Video streaming"
+                ]
+            }
+        },
+        {
+            "description": "Add callouts/ticks for labels",
+            "specifier": {
+                "role": "mark.label.tick",
+                "values": [
+                    "Airlines",
+                    "Cruises",
+                    "Fitness",
+                    "Movie theaters",
+                    "Lodging",
+                    "Apparel",
+                    "Meal kits"
+                ]
+            },
+            "action": "add"
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Online grocers"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "top-center",
+                "dx": 0,
+                "dy": -35,
+                "textAlign": "center"
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Video streaming"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "top-center",
+                "dx": 0,
+                "dy": -35,
+                "textAlign": "center",
+                "fontColor": "$mark",
+                "fontStroke": null,
+                "width": 65
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Home improvement"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "top-center",
+                "dx": 0,
+                "dy": -36,
+                "width": 120,
+                "textAlign": "center"
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Gaming",
+                    "Food delivery",
+                    "Alcohol"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "bottom-center",
+                "dx": 0,
+                "dy": 5,
+                "textAlign": "center"
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Warehouse clubs"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "bottom-center",
+                "dx": 0,
+                "dy": 5,
+                "textAlign": "center",
+                "width": 70
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Meal kits",
+                    "Movie theaters",
+                    "Lodging",
+                    "Apparel"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "bottom-center",
+                "dx": 0,
+                "dy": 35,
+                "textAlign": "center",
+                "fontColor": "$mark",
+                "fontStroke": null
+            }
+        },
+        {
+            "description": "Reposition and restyle labels",
+            "specifier": {
+                "role": "mark.label",
+                "values": [
+                    "Airlines",
+                    "Cruises",
+                    "Fitness",
+                    "Charitable giving"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "middle",
+                "orient": "top-center",
+                "dx": 0,
+                "dy": -50,
+                "textAlign": "center",
+                "fontColor": "$mark",
+                "fontStroke": null
+            }
+        }
+    ]
+}

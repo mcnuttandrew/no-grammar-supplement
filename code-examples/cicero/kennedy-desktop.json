@@ -1,0 +1,86 @@
+{
+    "$schema": "../cicero.json",
+    "name": "kennedy-mobile",
+    "description": "This is a Cicero specification for 'Justice Kennedy' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    375,
+                    500
+                ]
+            }
+        },
+        {
+            "description": "Add a row element",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "add",
+            "option": {
+                "role": "row",
+                "field": "justice",
+                "datatype": "nominal",
+                "sort": {
+                    "field": "percentage",
+                    "sortBy": "descending"
+                }
+            }
+        },
+        {
+            "description": "Replace mark labels as axis labels",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "axis.label",
+                    "orient": "left"
+                }
+            }
+        },
+        {
+            "description": "Re-format axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "justice"
+            },
+            "action": "modify",
+            "option": {
+                "angle": null,
+                "dx": null,
+                "dy": null,
+                "fontSize": 14,
+                "fontWeight": 400,
+                "padding": 20,
+                "anchor": "middle",
+                "textAlign": "left",
+                "width": 70
+            }
+        },
+        {
+            "description": "Re-format axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "justice",
+                "values": [
+                    "Kennedy"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "fontWeight": 700
+            }
+        }
+    ]
+}

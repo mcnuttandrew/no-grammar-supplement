@@ -1,0 +1,113 @@
+{
+    "$schema": "../cicero.json",
+    "name": "french-election-desktop",
+    "description": "This is a Cicero specification for 'French Election' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart with 'proportionate' keyword",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 1050,
+                "proportionate": true
+            }
+        },
+        {
+            "description": "Internalize annotations",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name"
+            },
+            "action": "reposition",
+            "option": {
+                "external": false,
+                "tick": true
+            }
+        },
+        {
+            "description": "Detail the positions",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name",
+                "values": [
+                    "Nord"
+                ]
+            },
+            "action": "reposition",
+            "option": {
+                "dx": -50,
+                "dy": 25,
+                "orient": "top-left"
+            }
+        },
+        {
+            "description": "Detail the positions",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name",
+                "values": [
+                    "Aisne"
+                ]
+            },
+            "action": "reposition",
+            "option": {
+                "dx": 150,
+                "dy": -60,
+                "orient": "top-left"
+            }
+        },
+        {
+            "description": "Detail the positions",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name",
+                "values": [
+                    "Sarthe"
+                ]
+            },
+            "action": "reposition",
+            "option": {
+                "dx": -280,
+                "dy": 190,
+                "orient": "top-left"
+            }
+        },
+        {
+            "description": "Detail the positions",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name",
+                "values": [
+                    "Gironde"
+                ]
+            },
+            "action": "reposition",
+            "option": {
+                "dx": -230,
+                "dy": -50,
+                "orient": "bottom-left"
+            }
+        },
+        {
+            "description": "Detail the positions",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name",
+                "values": [
+                    "Alpes-Maritimes"
+                ]
+            },
+            "action": "reposition",
+            "option": {
+                "dx": 50,
+                "dy": 50,
+                "orient": "bottom-left"
+            }
+        }
+    ]
+}

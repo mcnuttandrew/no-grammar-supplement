@@ -1,0 +1,136 @@
+{
+    "$schema": "../cicero.json",
+    "name": "cost-mobile",
+    "description": "This is a Cicero specification for 'Disaster Cost' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    375,
+                    325
+                ]
+            }
+        },
+        {
+            "description": "Externalize the annotations as a title",
+            "specifier": {
+                "role": "annotation"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "title",
+                    "width": null
+                }
+            }
+        },
+        {
+            "description": "Remove axis values: 250, 150, 50 (partially reusable)",
+            "specifier": {
+                "role": "vAxis"
+            },
+            "action": "remove",
+            "option": {
+                "values.filter": "datum.value % 100 != 0"
+            }
+        },
+        {
+            "description": "Remove the second part of mark labels",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "remove",
+            "option": {
+                "items": {
+                    "index": 2
+                }
+            }
+        },
+        {
+            "description": "Modify mark labels (shortening, adding ticks, and repositioning)",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "modify",
+            "option": {
+                "expression": "(datum.value.startsWith('Hurricane') ? datum.value.split(' ')[1] : datum.value)",
+                "dx": -5,
+                "orient": "top-left",
+                "anchor": "end",
+                "align": "right",
+                "tick": true
+            }
+        },
+        {
+            "description": "Shorten the axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "year"
+            },
+            "action": "modify",
+            "option": {
+                "expression": "(\"'\" + datum.value.toString().slice(2))",
+                "dx": -5,
+                "orient": "top-left",
+                "anchor": "end",
+                "align": "right",
+                "tick": true
+            }
+        },
+        {
+            "description": "Change color of hAxis labels",
+            "specifier": {
+                "role": "hAxis.label"
+            },
+            "action": "modify",
+            "option": {
+                "color": "blue"
+            }
+        },
+        {
+            "description": "Change color of hAxis labels (special)",
+            "specifier": {
+                "role": "hAxis.label",
+                "values": [
+                    "1995"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "color": "red"
+            }
+        },
+        {
+            "description": "Change color of hAxis labels",
+            "specifier": {
+                "role": "hAxis.label"
+            },
+            "action": "modify",
+            "option": {
+                "color": "blue"
+            },
+            "important": true
+        },
+        {
+            "description": "Change color of hAxis labels (special)",
+            "specifier": {
+                "role": "hAxis.label",
+                "values": [
+                    "1995"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "color": "red"
+            }
+        }
+    ]
+}

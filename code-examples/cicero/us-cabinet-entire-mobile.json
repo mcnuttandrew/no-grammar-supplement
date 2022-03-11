@@ -1,0 +1,170 @@
+{
+    "$schema": "../cicero.json",
+    "name": "us-cabinet-entire-desktop",
+    "description": "This is a Cicero specification for 'US Cabinet (Entire)' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart; with proportionate rescaling.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 1050,
+                "height": 480
+            }
+        },
+        {
+            "description": "Transpose axis",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "transpose"
+        },
+        {
+            "description": "Serialize vertical axis labels",
+            "specifier": {
+                "role": "vAxis.label",
+                "datatype": "nominal"
+            },
+            "action": "transpose",
+            "option": {
+                "serial": true
+            }
+        },
+        {
+            "description": "Reposition the horiozontal axisl labels",
+            "specifier": {
+                "role": "axis",
+                "datatype": "nominal"
+            },
+            "action": "modify",
+            "option": {
+                "orient": "left",
+                "offset": null
+            }
+        },
+        {
+            "description": "Unfix/internalize tooltip position",
+            "specifier": {
+                "role": "tooltip"
+            },
+            "action": "reposition",
+            "option": {
+                "external": false,
+                "fixed": false,
+                "position": null
+            }
+        },
+        {
+            "comment": "Replace the on-axis labels",
+            "specifier": {
+                "role": "hAxis.label"
+            },
+            "action": "modify",
+            "option": {
+                "expression": "datum.value"
+            }
+        },
+        {
+            "description": "Internalize a title element as an annotation",
+            "specifier": {
+                "role": "title",
+                "text": "CABINET MEMBERS LISTED IN ORDER OF PRESIDENTIAL SUCCESSION"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "annotation",
+                    "width": 460,
+                    "x": 400,
+                    "y": 43,
+                    "dx": "-50%"
+                }
+            }
+        },
+        {
+            "comment": "Reposition and resize a non-data annotations",
+            "specifier": {
+                "role": "annotation",
+                "text": "INNER CABINET"
+            },
+            "action": "modify",
+            "option": {
+                "width": 120,
+                "x": 160,
+                "y": 0,
+                "dx": "-50%",
+                "fontSize": 13,
+                "textAlign": "center"
+            }
+        },
+        {
+            "comment": "Reposition and resize a non-data annotations",
+            "specifier": {
+                "role": "annotation",
+                "text": "NOT IN PRESIDENTIAL SUCCESSION"
+            },
+            "action": "modify",
+            "option": {
+                "width": 300,
+                "x": 670,
+                "y": 0,
+                "dx": "-50%",
+                "textAlign": "center"
+            }
+        },
+        {
+            "comment": "Reposition and resizing two emphasis",
+            "specifier": {
+                "role": "emphasis",
+                "id": "range_1"
+            },
+            "action": "modify",
+            "option": {
+                "x": 160,
+                "y": 15,
+                "dx": "-50%",
+                "rotate": {
+                    "by": 90
+                }
+            }
+        },
+        {
+            "description": "Duplicate a range mark",
+            "specifier": {
+                "role": "emphasis",
+                "id": "range_1"
+            },
+            "action": "duplicate",
+            "option": {
+                "to": {
+                    "x": 670,
+                    "y": 15
+                }
+            }
+        },
+        {
+            "description": "Add an arrow mark",
+            "specifier": {
+                "role": "emphasis"
+            },
+            "action": "add",
+            "option": {
+                "width": 13,
+                "height": 13,
+                "x": 635,
+                "y": 40,
+                "dx": "-50%",
+                "id": "arrow",
+                "mark": {
+                    "icon": "arrow-right",
+                    "fill": "#999999"
+                }
+            }
+        }
+    ]
+}

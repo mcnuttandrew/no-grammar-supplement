@@ -1,0 +1,48 @@
+{
+    "$schema": "../cicero.json",
+    "name": "spending-line-mobile",
+    "description": "This is a Cicero specification for 'COVID Spending (Line)' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart; with disproportionate rescaling.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 450,
+                "proportionate": false
+            }
+        },
+        {
+            "comment": "Remove axis values",
+            "specifier": {
+                "role": "axis",
+                "field": "date",
+                "values": [
+                    "2020-01-20",
+                    "2020-03-01"
+                ]
+            },
+            "action": "remove"
+        },
+        {
+            "comment": "Change the alignment of axis label",
+            "specifier": {
+                "role": "axis.label",
+                "field": "date",
+                "values": [
+                    "2020-03-19"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "textAlign": "right",
+                "orient": "end"
+            }
+        }
+    ]
+}

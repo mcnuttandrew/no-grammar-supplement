@@ -1,0 +1,287 @@
+{
+    "$schema": "../cicero.json",
+    "name": "kennedy-mobile",
+    "description": "This is a Cicero specification for 'Justice Kennedy' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    800,
+                    180
+                ]
+            }
+        },
+        {
+            "description": "Remove a row element",
+            "specifier": {
+                "role": "view.row"
+            },
+            "action": "remove"
+        },
+        {
+            "description": "Replace as axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "justice"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "mark.label"
+                }
+            }
+        },
+        {
+            "description": "Remove on-mark label",
+            "specifier": {
+                "role": "mark.label",
+                "field": "percentage"
+            },
+            "action": "remove"
+        },
+        {
+            "description": "Re-format axis labels",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice"
+            },
+            "action": "modify",
+            "option": {
+                "orient": "bottom-center",
+                "anchor": "start",
+                "angle": 45,
+                "fontSize": 12,
+                "dy": 20,
+                "dx": -2,
+                "padding": 0
+            }
+        },
+        {
+            "description": "Add the horizontal axis labels",
+            "specifier": {
+                "role": "axis",
+                "field": "percentage"
+            },
+            "action": "add",
+            "option": {
+                "role": "label",
+                "values": [
+                    40,
+                    50,
+                    60,
+                    70,
+                    80,
+                    90
+                ],
+                "expression": "datum.value + '%'",
+                "fontSize": 13,
+                "orient": "top"
+            }
+        },
+        {
+            "description": "Add the horizontal axis grid",
+            "specifier": {
+                "role": "axis",
+                "field": "percentage"
+            },
+            "action": "add",
+            "option": {
+                "role": "grid",
+                "stroke": "#cccccc",
+                "strokeDash": [
+                    3,
+                    1
+                ]
+            }
+        },
+        {
+            "description": "Change column domain",
+            "specifier": {
+                "role": "column",
+                "field": "percentage"
+            },
+            "action": "modify",
+            "option": {
+                "scale": {
+                    "domain": [
+                        35,
+                        95
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Change mark type to bar",
+            "specifier": {
+                "role": "mark"
+            },
+            "action": "modify",
+            "option": {
+                "mark": "circle",
+                "color": {
+                    "value": "black"
+                },
+                "size": {
+                    "value": 80
+                }
+            }
+        },
+        {
+            "description": "Color mark",
+            "specifier": {
+                "role": "mark",
+                "data": {
+                    "justice": "Kennedy"
+                }
+            },
+            "action": "modify",
+            "option": {
+                "color": {
+                    "value": "black"
+                }
+            }
+        },
+        {
+            "description": "Add a rule mark for axis domain",
+            "specifier": {
+                "role": "emphasis"
+            },
+            "action": "add",
+            "option": {
+                "id": "domain",
+                "width": 800,
+                "height": 1,
+                "x": 0,
+                "y": 102.5,
+                "mark": {
+                    "shape": "rule",
+                    "stroke": "black"
+                }
+            }
+        },
+        {
+            "description": "Internalize an annotation",
+            "specifier": {
+                "role": "annotation"
+            },
+            "action": "reposition",
+            "option": {
+                "external": false,
+                "x": 9,
+                "y": 68
+            }
+        },
+        {
+            "description": "Change the annotation color",
+            "specifier": {
+                "role": "annotation"
+            },
+            "action": "modify",
+            "option": {
+                "fontColor": "#999999",
+                "width": 240
+            }
+        },
+        {
+            "description": "Enlarge title font size",
+            "specifier": {
+                "role": "title"
+            },
+            "action": "modify",
+            "option": {
+                "fontSize": 22
+            }
+        },
+        {
+            "description": "Set mark label background or 'Kennedy'",
+            "specifier": {
+                "role": "mark.label",
+                "data": {
+                    "justice": "Kennedy"
+                }
+            },
+            "action": "modify",
+            "option": {
+                "width": 61,
+                "fill": "#ffe100",
+                "padding": 5,
+                "fontWeight": 900,
+                "radius": 5,
+                "dy": 15,
+                "dx": -7
+            }
+        },
+        {
+            "description": "Adjust label appearance",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice",
+                "values": [
+                    "Rehnquist"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "expression": "', ' + datum.value",
+                "dy": 50,
+                "dx": 26
+            }
+        },
+        {
+            "description": "Adjust label appearance",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice",
+                "values": [
+                    "Breyer"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "expression": "', ' + datum.value",
+                "dy": 60,
+                "dx": 36
+            }
+        },
+        {
+            "description": "Adjust label appearance",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice",
+                "values": [
+                    "Stevens"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "expression": "', ' + datum.value",
+                "dy": 51,
+                "dx": 27
+            }
+        },
+        {
+            "description": "Adjust label appearance",
+            "specifier": {
+                "role": "mark.label",
+                "field": "justice",
+                "values": [
+                    "Ginsburg"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "expression": "', ' + datum.value",
+                "dy": 52,
+                "dx": 30
+            }
+        }
+    ]
+}

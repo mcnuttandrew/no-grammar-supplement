@@ -1,0 +1,37 @@
+{
+    "$schema": "../cicero.json",
+    "name": "spills-mobile",
+    "description": "This is a Cicero specification for 'French Election' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "desktop"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart proportionately.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 350,
+                "proportionate": true
+            }
+        },
+        {
+            "description": "Externalize annotations",
+            "specifier": {
+                "role": "mark.label",
+                "field": "name"
+            },
+            "action": "reposition",
+            "option": {
+                "external": true,
+                "numbering": true,
+                "tick": false,
+                "dx": 0,
+                "dy": 0,
+                "orient": "middle-center"
+            }
+        }
+    ]
+}

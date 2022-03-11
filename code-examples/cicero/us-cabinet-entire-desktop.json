@@ -1,0 +1,28 @@
+{
+    "$schema": "../cicero.json",
+    "name": "us-cabinet-entire-mobile",
+    "description": "This is a Cicero specification for 'US Cabinet (Entire)' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 375,
+                "height": 800
+            }
+        },
+        {
+            "description": "Transpose axes",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "transpose"
+        }
+    ]
+}

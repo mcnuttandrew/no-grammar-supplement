@@ -1,0 +1,43 @@
+{
+    "$schema": "../cicero.json",
+    "name": "vl-wheat-mobile",
+    "description": "This is a Cicero specification for 'Wheat and Wages' visualization (using Vega-Lite) from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 350,
+                "proportionate": false
+            }
+        },
+        {
+            "description": "Remove the text marks.",
+            "specifier": {
+                "role": "layer",
+                "mark": "text"
+            },
+            "action": "remove"
+        },
+        {
+            "description": "Add a tooltip for the bar marks.",
+            "specifier": {
+                "role": "layer",
+                "mark": "bar"
+            },
+            "action": "add",
+            "option": {
+                "role": "tooltip",
+                "field": [
+                    "name"
+                ]
+            }
+        }
+    ]
+}

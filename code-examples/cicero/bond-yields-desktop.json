@@ -1,0 +1,85 @@
+{
+    "$schema": "../cicero.json",
+    "name": "bond-yields-mobile",
+    "description": "This is a Cicero specification for 'Bond Yields' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    365,
+                    450
+                ]
+            }
+        },
+        {
+            "description": "Filter out data points of forecast_year <= 2011",
+            "specifier": {
+                "role": "data",
+                "data": [
+                    {
+                        "forecasted_year": {
+                            "leq": 2011
+                        }
+                    },
+                    {
+                        "year": {
+                            "leq": 2011
+                        }
+                    }
+                ]
+            },
+            "action": "remove"
+        },
+        {
+            "description": "Remove area mark",
+            "specifier": {
+                "role": "mark",
+                "mark": "area"
+            },
+            "action": "remove"
+        },
+        {
+            "description": "Change the domain of row element",
+            "specifier": {
+                "role": "row",
+                "field": "growth"
+            },
+            "action": "modify",
+            "option": {
+                "scale": {
+                    "domain": [
+                        3.0,
+                        5.0
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Reposition a mark label for 2016 (data annotation)",
+            "specifier": {
+                "role": "mark.label",
+                "mark": "line",
+                "text": {
+                    "startsWith": "2016 forecast for"
+                }
+            },
+            "action": "reposition",
+            "option": {
+                "dx": {
+                    "by": -10
+                },
+                "dy": {
+                    "by": -40
+                }
+            }
+        }
+    ]
+}

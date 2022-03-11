@@ -1,0 +1,65 @@
+{
+    "$schema": "../cicero.json",
+    "name": "spending-line-desktop",
+    "description": "This is a Cicero specification for 'Covid Spending (Line)' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart; with disproportionate rescaling.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 700,
+                "proportionate": false
+            }
+        },
+        {
+            "comment": "Add axis labels (the second can't be automated)",
+            "specifier": {
+                "role": "axis",
+                "field": "date"
+            },
+            "action": "add",
+            "option": [
+                {
+                    "values": [
+                        "2020-03-01"
+                    ]
+                },
+                {
+                    "values": [
+                        "2020-01-20"
+                    ],
+                    "label": {
+                        "items": {
+                            "text": [
+                                "Jan. 21",
+                                "First U.S. coronavirus case"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "comment": "Change the alignment of label",
+            "specifier": {
+                "role": "axis.label",
+                "field": "date",
+                "values": [
+                    "2020-01-20",
+                    "2020-03-19"
+                ]
+            },
+            "action": "modify",
+            "option": {
+                "textAlign": "left",
+                "orient": "center"
+            }
+        }
+    ]
+}

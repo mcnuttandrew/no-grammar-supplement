@@ -1,0 +1,121 @@
+{
+    "$schema": "../cicero.json",
+    "name": "budgets-mobile",
+    "description": "This is a Cicero specification for 'COVID-19 Aid Budget Plans' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    375,
+                    350
+                ]
+            }
+        },
+        {
+            "description": "Change the layout by assigning 'plan' field to row",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "replace",
+            "option": {
+                "from": {
+                    "role": "column",
+                    "index": 0
+                },
+                "to": {
+                    "role": "row",
+                    "index": 1
+                }
+            }
+        },
+        {
+            "description": "Change the order of field",
+            "specifier": {
+                "role": "row",
+                "field": "plan"
+            },
+            "action": "modify",
+            "option": {
+                "sort": {
+                    "sortBy": [
+                        "Already passed",
+                        "Republican plan",
+                        "Democratic plan"
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Change the visibility of axis labels.",
+            "specifier": {
+                "role": "axis",
+                "field": "plan"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "legend",
+                    "channel": "color",
+                    "position": "top",
+                    "direction": "horizontal",
+                    "margin": 40,
+                    "width": 80,
+                    "padding": null
+                }
+            }
+        },
+        {
+            "description": "Change the width and offset of axis labels.",
+            "specifier": {
+                "role": "axis.label",
+                "field": "sector"
+            },
+            "action": "modify",
+            "option": {
+                "width": 100,
+                "offset": 30
+            }
+        },
+        {
+            "description": "Change the format of labels for the 'amount' values of 200 and 0",
+            "specifier": {
+                "role": "mark.label",
+                "data": {
+                    "amount": [
+                        200,
+                        0
+                    ]
+                }
+            },
+            "action": "modify",
+            "option": {
+                "format": ",d"
+            }
+        },
+        {
+            "description": "Reposition and reformat a label for the 'amount' value of 1010",
+            "specifier": {
+                "role": "mark.label",
+                "data": {
+                    "amount": [
+                        1010
+                    ]
+                }
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "start",
+                "dx": 5,
+                "width": 60
+            }
+        }
+    ]
+}

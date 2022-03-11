@@ -1,0 +1,95 @@
+{
+    "$schema": "../cicero.json",
+    "name": "us-cabinet-entire-desktop",
+    "description": "This is a Cicero specification for 'US Cabinet (Partial)' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart proportionately.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 860,
+                "height": 236
+            }
+        },
+        {
+            "description": "Parallelize axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "president"
+            },
+            "action": "transpose",
+            "option": {
+                "serial": false
+            }
+        },
+        {
+            "description": "Add an image channel",
+            "specifier": {
+                "role": "mark"
+            },
+            "action": "add",
+            "option": {
+                "channel": "url",
+                "url": {
+                    "field": "image"
+                }
+            }
+        },
+        {
+            "description": "Re-layout axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "president"
+            },
+            "action": "modify",
+            "option": {
+                "items": [
+                    {
+                        "width": 150
+                    },
+                    {
+                        "width": 30
+                    }
+                ]
+            }
+        },
+        {
+            "description": "Add tooltip",
+            "specifier": {
+                "role": "mark"
+            },
+            "action": "add",
+            "option": {
+                "role": "tooltip",
+                "tooltip": {
+                    "external": false,
+                    "fixed": false,
+                    "fields": [
+                        {
+                            "field": "name"
+                        },
+                        {
+                            "field": "position"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Resize title area",
+            "specifier": {
+                "role": "title"
+            },
+            "action": "modify",
+            "option": {
+                "width": 600
+            }
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "$schema": "../cicero.json",
+    "name": "budgets-desktop",
+    "description": "This is a Cicero specification for 'COVID-19 Aid Budget Plans' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    750,
+                    280
+                ]
+            }
+        },
+        {
+            "description": "Change the layout by assigning the second row field as the first column element",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "replace",
+            "option": {
+                "from": {
+                    "role": "row",
+                    "index": 1
+                },
+                "to": {
+                    "role": "column",
+                    "index": 0
+                }
+            }
+        },
+        {
+            "description": "Change the order of the 'plan' field in column",
+            "specifier": {
+                "role": "column",
+                "field": "plan"
+            },
+            "action": "modify",
+            "option": {
+                "sort": {
+                    "sortBy": [
+                        "Republican plan",
+                        "Already passed",
+                        "Democratic plan"
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Change the visibility of on-axis labels using 'to' keyword",
+            "specifier": {
+                "role": "legend",
+                "field": "plan"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "hAxis",
+                    "width": null,
+                    "offset": 30
+                }
+            }
+        },
+        {
+            "description": "Change the format of mark labels for the 'amount' value of 200, 0, 1010",
+            "specifier": {
+                "role": "mark.label",
+                "data": {
+                    "amount": [
+                        200,
+                        0,
+                        1010
+                    ]
+                }
+            },
+            "action": "modify",
+            "option": {
+                "expression": "'$'+datum.value+' billion'",
+                "width": 120
+            }
+        },
+        {
+            "description": "Change the format of labels for the 'amount' value of 1010",
+            "specifier": {
+                "role": "mark.label",
+                "data": {
+                    "amount": [
+                        1010
+                    ]
+                }
+            },
+            "action": "modify",
+            "option": {
+                "anchor": "end",
+                "width": 120,
+                "dx": -10
+            }
+        },
+        {
+            "comment": "Change the width and offset of axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "sector"
+            },
+            "action": "modify",
+            "option": {
+                "width": 150,
+                "padding": 10
+            }
+        }
+    ]
+}

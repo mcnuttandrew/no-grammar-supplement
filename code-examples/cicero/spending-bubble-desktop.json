@@ -1,0 +1,28 @@
+{
+    "$schema": "../cicero.json",
+    "name": "spending-bubble-mobile",
+    "description": "This is a Cicero specification for 'COVID Spending (Buuble)' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart; with proportionate rescaling.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 350,
+                "height": 945
+            }
+        },
+        {
+            "description": "Transpose axis",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "transpose"
+        }
+    ]
+}

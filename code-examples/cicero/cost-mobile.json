@@ -1,0 +1,82 @@
+{
+    "$schema": "../cicero.json",
+    "name": "cost-desktop",
+    "description": "This is a Cicero specification for 'Disaster Cost' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    1024,
+                    612
+                ]
+            }
+        },
+        {
+            "description": "Make title to annotation",
+            "specifier": {
+                "role": "title"
+            },
+            "action": "replace",
+            "option": {
+                "to": {
+                    "role": "annotation",
+                    "internal": true
+                },
+                "separate": false
+            }
+        },
+        {
+            "description": "Add axis values: 250, 150, 50",
+            "specifier": {
+                "role": "vAxis"
+            },
+            "action": "add",
+            "option": {
+                "values": [
+                    50,
+                    150,
+                    250
+                ]
+            }
+        },
+        {
+            "description": "Lengthen the labels",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "modify",
+            "option": {
+                "expression": "(datum.value !== 'California wildfires' ? 'Hurricane ' + datum.value : datum.value)",
+                "dx": 10,
+                "orient": "top-right",
+                "anchor": "start",
+                "align": "left",
+                "tick": null
+            }
+        },
+        {
+            "description": "Add on-mark second items (specific to the dataset)",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "add",
+            "option": {
+                "items": [
+                    {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "expression": "('$' + datum.cost + ' billion')"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "../cicero.json",
+    "name": "vl-disaster-mobile",
+    "description": "This is a Cicero specification for 'Natural Disaster' visualization (using Vega-Lite) from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    300,
+                    500
+                ]
+            }
+        }
+    ]
+}

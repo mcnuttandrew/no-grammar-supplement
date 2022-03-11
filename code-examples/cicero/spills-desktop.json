@@ -1,0 +1,103 @@
+{
+    "$schema": "../cicero.json",
+    "name": "spills-mobile",
+    "description": "This is a Cicero specification for 'Oil Spills' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 500,
+                "proportionate": true
+            }
+        },
+        {
+            "description": "Remove the legend value of 5000.",
+            "specifier": {
+                "role": "legend"
+            },
+            "action": "remove",
+            "option": {
+                "values": [
+                    50000
+                ]
+            }
+        },
+        {
+            "description": "Remove the mark label for 'ABT Summer'.",
+            "specifier": {
+                "role": "mark.label"
+            },
+            "action": "remove",
+            "option": {
+                "values": [
+                    "ABT Summer"
+                ]
+            }
+        },
+        {
+            "description": "Resize the size encoding scale with relative value.",
+            "specifier": {
+                "role": "mark"
+            },
+            "action": "modify",
+            "option": {
+                "size": {
+                    "scale": {
+                        "range": {
+                            "prod": 0.4
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    325,
+                    585
+                ]
+            }
+        },
+        {
+            "description": "Swap longitude & latitude.",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "transpose"
+        },
+        {
+            "description": "Remove the legend for 5000.",
+            "specifier": {
+                "role": "legend"
+            },
+            "action": "remove",
+            "option": {
+                "values": [
+                    50000
+                ]
+            }
+        },
+        {
+            "description": "Move the legend to the bottom-right position",
+            "specifier": {
+                "role": "legend"
+            },
+            "action": "reposition",
+            "option": {
+                "position": "bottom-right"
+            }
+        }
+    ]
+}

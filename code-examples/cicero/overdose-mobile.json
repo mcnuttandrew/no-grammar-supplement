@@ -1,0 +1,31 @@
+{
+    "$schema": "../cicero.json",
+    "name": "overdose-desktop",
+    "description": "This is a Cicero specification for 'Drug Overdose' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resizing",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 840,
+                "height": 220
+            }
+        },
+        {
+            "description": "Adjusting the number of columns",
+            "specifier": {
+                "role": "view.facet"
+            },
+            "action": "modify",
+            "option": {
+                "nColumns": 6
+            }
+        }
+    ]
+}

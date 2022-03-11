@@ -1,0 +1,42 @@
+{
+    "$schema": "../cicero.json",
+    "name": "us-cabinet-partial-mobile",
+    "description": "This is a Cicero specification for 'US Cabinet (Partial)' visualization from desktop to mobile.",
+    "metadata": {
+        "condition": "small"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "width": 375,
+                "height": 350
+            }
+        },
+        {
+            "description": "Serialize axis labels",
+            "specifier": {
+                "role": "axis.label",
+                "field": "president"
+            },
+            "action": "transpose",
+            "option": {
+                "serial": true
+            }
+        },
+        {
+            "description": "Remove image channel",
+            "specifier": {
+                "role": "mark"
+            },
+            "action": "remove",
+            "option": {
+                "channel": "url"
+            }
+        }
+    ]
+}

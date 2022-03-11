@@ -1,0 +1,174 @@
+{
+    "$schema": "../cicero.json",
+    "name": "bond-yields-mobile",
+    "description": "This is a Cicero specification for 'Bond Yields' visualization from mobile to desktop.",
+    "metadata": {
+        "condition": "large"
+    },
+    "transformations": [
+        {
+            "description": "Resize the chart",
+            "specifier": {
+                "role": "view"
+            },
+            "action": "modify",
+            "option": {
+                "size": [
+                    924,
+                    465
+                ]
+            }
+        },
+        {
+            "description": "Remove filters for data points with 'forecast_year' <= 2011",
+            "specifier": {
+                "role": "data"
+            },
+            "action": "add",
+            "option": {
+                "data": [
+                    {
+                        "forecasted_year": {
+                            "leq": 2011
+                        }
+                    },
+                    {
+                        "year": {
+                            "leq": 2011
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "description": "Add mark's label",
+            "specifier": {
+                "role": "mark.label",
+                "mark": "line",
+                "index": 1
+            },
+            "action": "add",
+            "option": {
+                "text": {
+                    "items": [
+                        "2010 forecast for world GDP growth",
+                        "In April 2010 the IMF forecast the world's GDP growth to be 4.2% that year and 4.6% in 2015"
+                    ]
+                },
+                "data": {
+                    "year": 2010
+                }
+            }
+        },
+        {
+            "description": "Change the domain of row element",
+            "specifier": {
+                "role": "row",
+                "field": "growth"
+            },
+            "action": "modify",
+            "option": {
+                "scale": {
+                    "domain": [
+                        3.0,
+                        5.5
+                    ]
+                }
+            }
+        },
+        {
+            "description": "Add the vertical axis element for growth-rate of 5.5",
+            "specifier": {
+                "role": "vAxis"
+            },
+            "action": "add",
+            "option": {
+                "values": [
+                    5.5
+                ]
+            }
+        },
+        {
+            "description": "Add an area mark",
+            "specifier": {
+                "role": "layer"
+            },
+            "action": "add",
+            "option": {
+                "data": {
+                    "cat": "actual"
+                },
+                "role": "mark",
+                "mark": "area",
+                "index": 2,
+                "color": {
+                    "value": {
+                        "x1": 1,
+                        "y1": 1,
+                        "x2": 1,
+                        "y2": 0,
+                        "gradient": "linear",
+                        "stops": [
+                            {
+                                "offset": 0.58,
+                                "color": "transparent"
+                            },
+                            {
+                                "offset": 1,
+                                "color": "lightgray"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "description": "Reposition the mark label for 2016 (data annotation)",
+            "specifier": {
+                "role": "mark.label",
+                "mark": "line",
+                "text": {
+                    "startsWith": "2016 forecast for"
+                }
+            },
+            "action": "reposition",
+            "option": {
+                "dx": {
+                    "by": 10
+                },
+                "dy": {
+                    "by": 40
+                }
+            }
+        },
+        {
+            "description": "Reposition the mark label for 2010 (data annotation)",
+            "specifier": {
+                "role": "mark.label",
+                "mark": "line",
+                "text": {
+                    "startsWith": "2010 forecast for"
+                }
+            },
+            "action": "reposition",
+            "option": {
+                "dx": {
+                    "by": 10
+                },
+                "dy": {
+                    "by": 40
+                }
+            }
+        },
+        {
+            "description": "Adjust title area",
+            "specifier": {
+                "role": "title"
+            },
+            "action": "modify",
+            "option": {
+                "width": 924
+            }
+        }
+    ]
+}
