@@ -1,6 +1,6 @@
 <script lang="ts">
   import {LangMetaRow, countInString, Directory, getLangCounts} from './utils';
-  import {barChart, heatmap, petriDish} from './charts';
+  import {barChart, heatmap, petriDish, dotPlot, histogram} from './charts';
   export let meta: LangMetaRow[];
   export let directory: Directory;
   import Vega from './Vega.svelte';
@@ -54,6 +54,10 @@
     directory && meta.reduce((acc, row) => acc + Object.keys(directory[row.sysKey] || {}).length, 0);
 
   const exampleContainer = 'flex-col p-4 border-2 justify-center items-center';
+
+  let dotData = meta
+    .map((x) => ({name: x.System, value: x['Paper Year'], type: x['Carrier']}))
+    .filter((x) => isFinite(Number(x.value)));
 </script>
 
 <div class="h-full overflow-auto p-8 pb-96">
@@ -89,6 +93,15 @@
       </div>
 
       <Vega spec={barChart(langCounts, '', false, 'Language')} />
+    </div>
+
+    <div class={exampleContainer}>
+      <div>Language Occurange Over time</div>
+      <div class="text-xs">The development of this language style over time.</div>
+      <div class="flex flex-col">
+        <Vega spec={histogram(dotData)} />
+        <Vega spec={dotPlot(dotData)} />
+      </div>
     </div>
     <div class={exampleContainer}>
       <div>Frequency of language type vs language origin</div>

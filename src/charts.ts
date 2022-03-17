@@ -235,3 +235,32 @@ export const petriDish = (values: {key: string; count: string}[]) => {
     ]
   };
 };
+
+export const dotPlot = (values) => {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    height: 70,
+    data: {values},
+    transform: [{window: [{op: 'rank', as: 'id', field: 'value'}], groupby: ['value']}],
+    mark: {type: 'circle', opacity: 1},
+    encoding: {
+      x: {field: 'value', type: 'temporal', timeUnit: 'year'},
+      color: {field: 'type', type: 'nominal'},
+      y: {field: 'id', type: 'ordinal', axis: null, sort: 'descending'},
+      tooltip: {field: 'name'}
+    }
+  };
+};
+
+export const histogram = (values) => {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    height: 30,
+    data: {values},
+    mark: 'bar',
+    encoding: {
+      x: {field: 'value', type: 'temporal', timeUnit: 'year'},
+      y: {aggregate: 'count', type: 'quantitative', axis: null}
+    }
+  };
+};
