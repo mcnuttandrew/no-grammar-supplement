@@ -31,7 +31,7 @@ GoTree
 GraphML						
 GXL						
 Highcharts						
-Ivy	Vega	Compiles	Vega-Lite	Compiles	Atom	Compiles
+Ivy	Vega	Wraps	Vega-Lite	Wraps	Atom	Wraps
 Kyrix-S	Atom	Inspired	Vega-Lite	Inspired		
 Multiclass-Density-Maps	Vega-Lite	Wraps				
 NEO						
