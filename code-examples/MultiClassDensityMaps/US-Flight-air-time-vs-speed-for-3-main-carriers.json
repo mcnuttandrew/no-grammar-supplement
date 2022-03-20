@@ -1,0 +1,39 @@
+{
+  "description": "US Flight Distance for every day of the week",
+  "data": {
+    "url": "flight_carriers2017_data.json"
+  },
+  "smooth": {},
+  "reencoding": {
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "Red",
+          "Orange",
+          "Pink",
+          "Blue",
+          "Brown",
+          "Green",
+          "Purple"
+        ]
+      }
+    }
+  },
+  "compose": {
+    "mix": "max",
+    "mixing": "additive"
+  },
+  "rescale": {
+    "type": "log"
+  },
+  "rebin": {
+    "type": "square",
+    "size": 4
+  },
+  "axis": true,
+  "legend": {
+    "title": "CARRIER"
+  }
+}

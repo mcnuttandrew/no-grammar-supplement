@@ -1,0 +1,55 @@
+{
+  "description": "US Census Synthetic people",
+  "data": {
+    "url": "census.snappy_data.2classes.json"
+  },
+  "smooth": {
+    "radius": 1
+  },
+  "reencoding": {
+    "label": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "w",
+          "haob"
+        ],
+        "range": [
+          "Republican",
+          "Democratic"
+        ]
+      }
+    },
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range0": [
+          "White",
+          "White"
+        ],
+        "range1": [
+          "red",
+          "blue"
+        ]
+      }
+    }
+  },
+  "stroke": {
+    "type": "topojson",
+    "url": "us.json",
+    "feature": "states",
+    "lineWidth": 1,
+    "color": "rgba(0, 0, 0, 0.3)"
+  },
+  "compose": {
+    "mix": "mean"
+  },
+  "rescale": {
+    "type": "log"
+  },
+  "legend": {
+    "labelWidth": 60
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "data": {
+    "url": "notMNIST_xylab_data.json"
+  },
+  "compose": {
+    "mix": "invmin"
+  },
+  "rescale": {
+    "type": "sqrt"
+  },
+  "rebin": {
+    "type": "square",
+    "size": 2,
+    "aggregation": "min"
+  }
+}

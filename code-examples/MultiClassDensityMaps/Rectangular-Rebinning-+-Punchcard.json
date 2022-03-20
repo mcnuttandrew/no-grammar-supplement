@@ -1,0 +1,16 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "rebin": {
+    "type": "square",
+    "size": 32
+  },
+  "compose": {
+    "mix": "glyph",
+    "glyphSpec": {
+      "template": "punchcard"
+    }
+  }
+}

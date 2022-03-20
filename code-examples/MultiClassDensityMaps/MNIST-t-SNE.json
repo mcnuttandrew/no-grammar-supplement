@@ -1,0 +1,17 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mnist_data.json"
+  },
+  "compose": {
+    "mix": "invmin"
+  },
+  "rescale": {
+    "type": "sqrt"
+  },
+  "rebin": {
+    "type": "square",
+    "size": 2,
+    "aggregation": "min"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "description": "5 main candidate at Round #1",
+  "data": {
+    "url": "francePresElec_data.3classes.json"
+  },
+  "smooth": {},
+  "reencoding": {
+    "label": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "melenchon",
+          "macron",
+          "lepen"
+        ],
+        "range": [
+          "Primary",
+          "Secondary",
+          "Tertiary"
+        ]
+      }
+    },
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range0": [
+          "White",
+          "White",
+          "White"
+        ],
+        "range1": [
+          "rgb(252, 254, 140)",
+          "rgb(244, 114, 123)",
+          "rgb(0, 0, 0)"
+        ]
+      }
+    }
+  },
+  "rebin": {
+    "type": "topojson",
+    "url": "franceD.json",
+    "feature": "poly",
+    "stroke": "grey"
+  },
+  "compose": {
+    "mix": "propline",
+    "size": 18,
+    "widthprop": "percent"
+  },
+  "rescale": {
+    "type": "linear"
+  }
+}

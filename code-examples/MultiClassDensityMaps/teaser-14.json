@@ -1,0 +1,21 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "rebin": {
+    "type": "voronoi",
+    "size": 32,
+    "stroke": "grey"
+  },
+  "compose": {
+    "mix": "glyph",
+    "glyphSpec": {
+      "template": "punchcard",
+      "width": 20,
+      "height": 20,
+      "factor": 4
+    }
+  },
+  "legend": false
+}

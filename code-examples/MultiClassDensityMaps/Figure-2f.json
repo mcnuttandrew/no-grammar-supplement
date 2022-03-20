@@ -1,0 +1,58 @@
+{
+  "description": "US Census Synthetic people",
+  "data": {
+    "url": "census.snappy_data.json"
+  },
+  "reencoding": {
+    "label": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "w",
+          "h",
+          "a",
+          "b",
+          "o"
+        ],
+        "range": [
+          "White",
+          "Hispanic",
+          "Asian",
+          "Black",
+          "Other"
+        ]
+      }
+    },
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "Blue",
+          "Orange",
+          "Red",
+          "Green",
+          "Brown"
+        ]
+      }
+    }
+  },
+  "rebin": {
+    "type": "topojson",
+    "url": "us.json",
+    "feature": "states",
+    "stroke": "rgba(0,0,0,0.25)"
+  },
+  "compose": {
+    "mix": "glyph",
+    "glyphSpec": {
+      "template": "bars",
+      "width": 20,
+      "height": 24
+    }
+  },
+  "rescale": {
+    "type": "log"
+  }
+}

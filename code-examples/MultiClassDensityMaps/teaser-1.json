@@ -1,0 +1,19 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "separate",
+    "order": [
+      1,
+      3,
+      0,
+      2
+    ]
+  },
+  "rescale": {
+    "type": "linear"
+  },
+  "legend": false
+}

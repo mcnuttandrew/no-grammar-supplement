@@ -1,0 +1,18 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "rebin": {
+    "type": "voronoi",
+    "size": 32,
+    "stroke": "white"
+  },
+  "compose": {
+    "mix": "hatching",
+    "size": 2,
+    "widthprop": 1.5,
+    "colprop": false
+  },
+  "legend": false
+}

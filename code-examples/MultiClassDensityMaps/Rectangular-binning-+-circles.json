@@ -1,0 +1,27 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "flight_delays2017_data.json"
+  },
+  "rebin": {
+    "type": "square",
+    "size": 32
+  },
+  "compose": {
+    "mix": "glyph",
+    "glyphSpec": {
+      "template": "punchcard"
+    }
+  },
+  "legend": {
+    "title": "CARRIER"
+  },
+  "axis": {
+    "x": {
+      "title": "DISTANCE (miles)"
+    },
+    "y": {
+      "title": "ARR_DELAY (minutes)"
+    }
+  }
+}

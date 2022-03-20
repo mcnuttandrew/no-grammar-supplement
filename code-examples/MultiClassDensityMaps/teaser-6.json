@@ -1,0 +1,14 @@
+{
+  "description": "multivariate normal data",
+  "data": {
+    "url": "mn_data.json"
+  },
+  "compose": {
+    "mix": "weavingrandom",
+    "size": 6
+  },
+  "rescale": {
+    "type": "linear"
+  },
+  "legend": false
+}

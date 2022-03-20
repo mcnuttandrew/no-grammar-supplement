@@ -1,0 +1,66 @@
+{
+  "description": "US Flight delays vs Distance for every day of the week",
+  "data": {
+    "url": "223029297_T_ONTIME_1701_data.json"
+  },
+  "smooth": {},
+  "reencoding": {
+    "label": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "range": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thrusday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      }
+    },
+    "color": {
+      "field": "z",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "Red",
+          "Orange",
+          "Pink",
+          "Blue",
+          "Brown",
+          "Green",
+          "Purple"
+        ]
+      }
+    }
+  },
+  "compose": {
+    "mix": "propline",
+    "size": 2,
+    "widthprop": "percent",
+    "colprop": true
+  },
+  "rescale": {
+    "type": "cbrt"
+  },
+  "rebin": {
+    "type": "voronoi",
+    "size": 256,
+    "stroke": "black"
+  },
+  "axis": true,
+  "legend": {
+    "title": "DAY_OF_WEEK"
+  }
+}
