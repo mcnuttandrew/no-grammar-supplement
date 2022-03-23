@@ -33,15 +33,16 @@
     text-black
     border-1 border-black 
     bg-white rounded-l p-4 w-96 shadow-md
+    font-normal
     hover:shadow-lg"
 >
   <div class="flex flex-col">
-    <h3 class="text-xs">Category</h3>
-    <h1 class="font-bold">{col}</h1>
+    <h3 class="font-bold text-xs">Category</h3>
+    <h1 class="">{col}</h1>
   </div>
   <div class="flex flex-col">
-    <h3 class="text-xs">Description</h3>
-    <h1 class="font-bold">{badgeExplanation[col]}</h1>
+    <h3 class="font-bold text-xs">Description</h3>
+    <h1 class="">{badgeExplanation[col]}</h1>
   </div>
   <div class="flex flex-col">
     <Vega

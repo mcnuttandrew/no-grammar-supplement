@@ -73,7 +73,7 @@
         {format(item)}{#if idx < json.length - 1}<span class={typeToClass.comma}> , </span>{/if}
       </span>
     {/each}
-    <span on:click={clicked} tabindex="0">]</span>
+    <span on:click={clicked} tabindex="0">]</span>{#if !_last}<span class={typeToClass.comma}>,</span>{/if}
   </span>
 {:else if isAutoCollapsibleObject}
   <span class="node">
@@ -86,7 +86,8 @@
           </span>{/if}
       </span>
     {/each}
-    <span on:click={clicked} tabindex="0">{'}'}</span>
+    <span on:click={clicked} tabindex="0">{'}'}</span>{#if !_last}<span class={typeToClass.comma}>,</span
+      >{/if}
   </span>
 {:else if items.length}
   <span class:hidden={collapsed} class="node">

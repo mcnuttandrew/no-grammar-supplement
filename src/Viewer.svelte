@@ -11,7 +11,7 @@
   $: isJson = new Set(['ac', 'json']).has(`${fileType}`.toLowerCase());
 </script>
 
-<div class="pt-8 pl-8 w-3/5">
+<div class="pt-8 pl-8 w-3/5 mb-32">
   <div class="">
     {#if isJson}
       {'To hide/show multiline arrays click "[" or "]".To hide/show multiline object click "{" or "}"'}

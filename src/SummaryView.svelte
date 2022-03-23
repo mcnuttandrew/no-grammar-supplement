@@ -53,6 +53,8 @@
   $: allCount =
     directory && meta.reduce((acc, row) => acc + Object.keys(directory[row.sysKey] || {}).length, 0);
 
+  $: langCount = meta.length;
+
   const exampleContainer = 'flex-col p-4 border-2 justify-center items-center';
 
   let dotData = meta
@@ -64,14 +66,18 @@
   <div class="flex flex-col w-1/2">
     <h3 class="text-2xl font-bold">Summary Charts</h3>
     <p class="mb-2">
-      This view shows a collection of summative charts. As surveys such as ours will always have holes we
-      avoided using summary charts in the main body of the work, however here we provide them as supplementary
-      information.
+      This view shows a collection of summative charts. As surveys such as ours will always have missing data
+      points we avoided using summary charts in the main body of the work, however here we provide them as
+      supplementary information.
     </p>
   </div>
   <div class="flex flex-wrap">
     <div class={`${exampleContainer} w-full`}>
       <div class="flex w-full justify-between">
+        <div class="flex-col text-center">
+          <div>Number of languages</div>
+          <div class="text-4xl font-bold">{langCount}</div>
+        </div>
         <div class="flex-col text-center">
           <div>Number of examples</div>
           <div class="text-4xl font-bold">{allCount}</div>
@@ -97,7 +103,10 @@
 
     <div class={exampleContainer}>
       <div>Language Occurange Over time</div>
-      <div class="text-xs">The development of this language style over time.</div>
+      <div class="text-xs max-w-md">
+        The development of this language style over time, shown here as a histrogram (top) and a dot plot by
+        host language (bottom).
+      </div>
       <div class="flex flex-col">
         <Vega spec={histogram(dotData)} />
         <Vega spec={dotPlot(dotData)} />
@@ -115,7 +124,7 @@
       <div class="text-xs">
         Note that these are the self reported mark type names by each of the languages
       </div>
-      <Vega spec={barChart(markCounts, '', false, 'mark type')} />
+      <Vega spec={barChart(markCounts, '', true, 'mark type')} />
     </div>
     <div class={exampleContainer} id="petri">
       <div>Chart type Frequency</div>

@@ -89,7 +89,8 @@
           <a href={'/#/browse'}>Browse</a>). These examples collect as many examples as was feasible for each
           language, such as by scraping the docs, extracting examples from the repository, or copying programs
           from papers documenting the languages. These collections are not meant to be comprehensive, but
-          instead evocative of the general patterns in the language.
+          instead evocative of the general patterns in the language. These examples were collected between
+          October 2021 and March 2022.
         </p>
         <p class="mt-2">
           To view the content of the repository, including the code for this website, the spreadsheet
