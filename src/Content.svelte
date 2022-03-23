@@ -6,6 +6,7 @@
   import Table from './Table.svelte';
   import Search from './Search.svelte';
   import SummaryView from './SummaryView.svelte';
+  import SummaryTable from './SummaryTable.svelte';
   import {getRoute, Directory, getBundle, LangMeta, getLangMeta, paperTitle} from './utils';
 
   // data
@@ -62,6 +63,9 @@
   {/if}
   {#if section === 'search' && allLoaded}
     <Search {directory} {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
+  {/if}
+  {#if section === 'summary-table' && allLoaded}
+    <SummaryTable meta={langMetaCollection} />
   {/if}
   {#if !allLoaded}
     <div class="flex items-center justify-center h-full flex-col">
