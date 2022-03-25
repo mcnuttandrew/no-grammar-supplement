@@ -3,9 +3,9 @@
   import {scaleBand} from 'd3-scale';
   export let meta: LangMeta;
   let rows = Object.values(meta);
-  const width = 1000;
-  const height = 400;
-  const margin = {left: 100, right: 0, top: 100, bottom: 0};
+  const width = 1200;
+  const height = 600;
+  const margin = {left: 100, right: 20, top: 100, bottom: 0};
   const plotWidth = width - margin.left - margin.right;
 
   let x = scaleBand()
@@ -16,38 +16,68 @@
 
   const rowOrganizer = [
     // domain
-    {key: 'Coded Domain', display: 'Charting', test: 'Charting'},
-    {key: 'Coded Domain', display: 'Chart Type', test: 'Chart Type'},
-    {key: 'Coded Domain', display: 'Interaction', test: 'Interaction'},
-    {key: 'Coded Domain', display: 'Medium ', test: 'Domain'},
+    {key: 'Coded Domain', display: 'Charting', test: 'Charting', annotation: 'Standard Statistical Graphics'},
+    {key: 'Coded Domain', display: 'Chart Type', test: 'Chart Type', annotation: 'A particular chart type'},
+    {
+      key: 'Coded Domain',
+      display: 'Interaction',
+      test: 'Interaction',
+      annotation: 'A particular interaction'
+    },
+    {key: 'Coded Domain', display: 'Medium', test: 'Domain', annotation: 'A particular task or context'},
     //skip
     {key: 'blank', display: '', test: '???'},
     // models
-    {key: 'Abstraction level', display: 'Low Level', test: 'Low'},
-    {key: 'Model Formality', display: 'Formal Model', test: 'Formal'},
-    {key: 'Source', display: 'Academic', test: 'Academic'}, // maybe replace with "grammar?"
+    {key: 'Abstraction level', display: 'Low Level', test: 'Low', annotation: 'Close to the renderer'},
+    {
+      key: 'Model Formality',
+      display: 'Formal Model',
+      test: 'Formal',
+      annotation: 'Pervasive Logical Structure'
+    },
+    {key: 'Source', display: 'Academic', test: 'Academic', annotation: 'Originating in academic work'}, // maybe replace with "grammar?"
     //skip
     {key: 'blank', display: '', test: '???'},
     // affordances
     // {key: 'Carrier', display: 'JSON', test: 'JSON'},
-    {key: 'Language Form', display: 'Internal DSL', test: 'Internal'},
-    {key: 'Execution Model', display: 'Compiled', test: 'Compiled'},
-    {key: 'Execution Model', display: 'Interpreted', test: 'Interpreted'},
-    {key: 'Abstraction Mechanism', display: 'Has Abstraction', test: 'Yes'},
+    {key: 'Language Form', display: 'Internal DSL', test: 'Internal', annotation: 'Roughly a library style'},
+    {key: 'Execution Model', display: 'Compiled', test: 'Compiled', annotation: 'Code is generated'},
+    {key: 'Execution Model', display: 'Interpreted', test: 'Interpreted', annotation: 'Code is executed'},
+    {
+      key: 'Abstraction Mechanism',
+      display: 'Has Abstraction',
+      test: 'Yes',
+      annotation: 'Variables, Loops, or Control-Flow'
+    },
     // {key: 'Execution Model', display: 'Embedded', test: 'Embedded'}
     //skip
     {key: 'blank', display: '', test: '???'},
     // practicalities
-    {key: 'Output Type', display: 'In GUI', test: 'GUI Integrated Result'},
-    {key: 'Data manipulation', display: 'Can manipulation data', test: 'ilter'},
-    {key: 'Extensible', display: '(Externally)  Extensible', test: 'Yes'}
+    {
+      key: 'Output Type',
+      display: 'In GUI',
+      test: 'GUI Integrated Result',
+      annotation: 'Part of an application'
+    },
+    {
+      key: 'Data manipulation',
+      display: 'Data manip.',
+      test: 'ilter',
+      annotation: 'Can use filters or more'
+    },
+    {key: 'Extensible', display: 'Extensible', test: 'Yes', annotation: 'Externally'}
   ];
   const categories = [
-    {display: 'Domain', placementKey: 'Interaction'},
-    {display: 'Models', placementKey: 'Formal Model'},
-    {display: 'Affordances', placementKey: 'Interpreted'},
-    {display: 'Practicalities', placementKey: 'In GUI'}
-  ].map((x) => ({...x, key: rowOrganizer.findIndex((el) => el.display === x.placementKey)}));
+    {display: 'Domain', fontSize: 8, boundKeys: ['Charting', 'Medium']},
+    {display: 'Models', fontSize: 8, boundKeys: ['Low Level', 'Academic']},
+    {display: 'Affordances', fontSize: 8, boundKeys: ['Internal DSL', 'Has Abstraction']},
+    {display: 'Practicalities', fontSize: 8, boundKeys: ['In GUI', 'Extensible']}
+  ].map((x) => ({
+    ...x,
+    start: `${rowOrganizer.findIndex((el) => el.display === x.boundKeys[0])}`,
+    end: `${rowOrganizer.findIndex((el) => el.display === x.boundKeys[1])}`
+  }));
+  console.log(categories);
 
   let y = scaleBand()
     .domain(['title', ...rowOrganizer.map((_, idx) => `${idx}`)])
@@ -59,6 +89,17 @@
     'Scholz 3D Vis Language',
     'Shih Volume Vis Language'
   ]);
+  const nickNames = {
+    'Array visualization grammar': 'Array Vis Gram',
+    'Multiclass-Density-Maps': 'Multiclass-Density',
+    'Scholz 3D Vis Language': 'Scholz 3D Vis Lang',
+    'Shih Volume Vis Language': 'Shih Vol Vis Lang'
+  };
+  const splitAtMiddle = (str: string) => {
+    const chars = str.split('');
+    const idx = Math.ceil(str.length / 2);
+    return [chars.slice(0, idx).join(''), chars.slice(idx).join('')];
+  };
 </script>
 
 <div class="w-full h-full flex flex-col items-center justify-center">
@@ -69,18 +110,38 @@
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    overflow="visible"
   >
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       <g>
         {#each rows as row}
-          <text
-            transform={`translate(${x(row.System) - x.bandwidth() / 2}) rotate(-90)`}
-            font-family="Montserrat"
-            alignment-baseline="middle"
-            y={y.bandwidth()}
-            font-size={specialCaseTitle.has(row.System) ? 6 : 10}>{row.System}</text
-          >
+          <!-- system name -->
+          <g transform={`translate(${x(row.System) + x.bandwidth() / 2}) rotate(-90)`}>
+            <!-- {#if specialCaseTitle.has(row.System)}
+              {#each splitAtMiddle(row.System) as word, idx}
+                <text font-family="Montserrat" font-weight={600} y={idx ? 0 : -5} font-size={8}
+                  >{word}{idx ? '' : '-'}</text
+                >
+              {/each}
+            {:else}
+            {/if} -->
+            <!-- <text
+              font-family="Montserrat"
+              font-weight={600}
+              y={-1}
+              font-size={specialCaseTitle.has(row.System) ? 8 : 10}>{row.System}</text
+            > -->
+            <text
+              font-family="Montserrat"
+              font-weight={600}
+              y={-1}
+              font-size={specialCaseTitle.has(row.System) ? 8 : 10}
+              >{nickNames[row.System] || row.System}</text
+            >
+
+            <!-- domain -->
+            <text font-family="Montserrat" y={6} font-size={7}>{row.Domain}</text>
+          </g>
+
           <!-- vertical lines -->
           <line
             x1={x(row.System) + x.bandwidth() / 2}
@@ -92,6 +153,8 @@
           />
         {/each}
       </g>
+      <!-- left bar -->
+      <line x1={0} y1={y('title') + y.bandwidth() / 2} x2={0} y2={y.range()[1]} stroke="black" />
       <!-- top bar -->
       <line
         x1={0}
@@ -100,16 +163,34 @@
         y2={y('title') + y.bandwidth() / 2}
         stroke="black"
       />
+      <!-- bottom bar -->
+      <line
+        x1={0}
+        y1={y(last(y.domain())) + y.bandwidth()}
+        x2={plotWidth}
+        y2={y(last(y.domain())) + y.bandwidth()}
+        stroke="black"
+      />
       {#each rowOrganizer as org, idx}
         <g transform={`translate(0, ${y(`${idx}`)})`}>
+          <!-- main label -->
           <text
             x={-x.bandwidth() / 2}
-            y={y.bandwidth() / 2}
+            y={y.bandwidth() / 2 + 1.5}
             text-anchor="end"
-            alignment-baseline="middle"
             font-size={10}
             font-family="Montserrat">{org.display}</text
           >
+          <!-- annotation -->
+          {#if org.annotation}
+            <text
+              x={-x.bandwidth() / 2}
+              y={y.bandwidth() * 0.9}
+              text-anchor="end"
+              font-size={7}
+              font-family="Montserrat">{org.annotation}</text
+            >
+          {/if}
           {#if org.key !== 'blank'}
             <!-- horizontal lines -->
             <line
@@ -139,14 +220,24 @@
       {/each}
       <g>
         {#each categories as category}
-          <text
-            transform={`translate(0, ${y(`${category.key}`) + y.bandwidth() / 2}) rotate(-90)`}
-            font-weight={600}
-            font-family="Montserrat"
-            font-size={10}
-            font-style="italic"
-            text-anchor="middle">{category.display}</text
-          >
+          <g transform={`translate(${plotWidth}) `}>
+            <rect
+              x={0}
+              y={y(category.start) - y.bandwidth() / 2 - 0.5}
+              height={y(category.end) - y(category.start) + 1.5 * y.bandwidth() + 1}
+              width={12}
+              fill="black"
+            />
+            <text
+              transform={`translate(3, ${(y(category.end) + y(category.start)) / 2 + 5}) rotate(90)`}
+              font-weight={600}
+              font-family="Montserrat"
+              font-size={category.fontSize}
+              font-style="italic"
+              fill="white"
+              text-anchor="middle">{category.display}</text
+            >
+          </g>
         {/each}
       </g>
     </g>

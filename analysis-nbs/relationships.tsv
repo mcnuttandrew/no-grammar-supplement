@@ -1,57 +1,57 @@
-System	Rel 1: Entity	Rel 1: Verb	Rel 2: Entity	Rel 2: Verb	Rel 3: Entity	Rel 3: Verb
-AniVis						
-AntVSpec	Vega-Lite	Inspired				
-ApexCharts						
-Array visualization grammar						
-Atom						
-Bertin						
-Canis						
-Cicero	Vega-Lite	Compiles				
-CFGConf						
-Chart.js						
-ChartML						
-ComicScript	Vega-Lite	Inspired	Data Theater	Inspired		
-CompassQL	Vega-Lite	Compiles				
-Data Theater	Vega-Lite	Inspired				
-deck.gl/json						
-DGML						
-DotML						
-DXR	Vega-Lite	Inspired				
-ECharts						
-Flex-ER	Vega-Lite	Inspired	DXR	Inspired		
-Frappe						
-FusionCharts						
-Gemini 1	Vega	Wraps				
-Gemini 2	Gemini 1	Extends	Vega	Wraps	Vega-Lite	Wraps
-Genome Spy	Vega-Lite	Extends				
-gg						
-Glinda						
-Gosling	Vega-Lite	Extends				
-GoTree						
-GraphML						
-GXL						
-Highcharts						
-Ivy	Vega	Wraps	Vega-Lite	Wraps	Atom	Wraps
-Kyrix-S	Atom	Inspired	Vega-Lite	Inspired		
-Multiclass-Density-Maps	Vega-Lite	Wraps				
-NEO						
-P4						
-P5	P4	Compiles				
-P6	P4	Compiles	P5	Extends		
-PapARVis	Vega	Extends				
-Plot	Vega-Lite	Inspired				
-Plotly JSON						
-Scholz 3D Vis Language	Vega	Wraps	Vega-Lite	Wraps		
-SetCoLa						
-Shih Volume Vis Language	Vega-Lite	Inspired				
-StructGraphics						
-SVL	Vega-Lite	Extends				
-Vega						
-Vega-Lite	Vega	Compiles				
-VizML						
-VizQL						
-VR-Viz	Vega-Lite	Inspired				
-VRIA	Vega-Lite	Extends				
-XML Charts						
-ZingChart						
-Encodable	Vega-Lite	Inspired				
+System	Rel 1: Entity	Rel 1: Verb	Rel 2: Entity	Rel 2: Verb	Rel 3: Entity	Rel 3: Verb	rel-1-summary	rel-2-summary	rel-3-summary	summary
+AniVis										
+AntVSpec	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+ApexCharts										
+Array visualization grammar										
+Atom										
+Bertin										
+Canis										
+Cicero	Vega-Lite	Compiles to					Compiles to Vega-Lite			Compiles to Vega-Lite
+CFGConf										
+Chart.js										
+ChartML										
+ComicScript	Vega-Lite	Inspired by	Data Theater	Inspired by			Inspired by Vega-Lite	Inspired by Data Theater		Inspired by Vega-Lite, Inspired by Data Theater
+CompassQL	Vega-Lite	Wraps					Wraps Vega-Lite			Wraps Vega-Lite
+Data Theater	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+deck.gl/json										
+DGML										
+DotML										
+DXR	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+ECharts										
+Flex-ER	Vega-Lite	Inspired by	DXR	Inspired by			Inspired by Vega-Lite	Inspired by DXR		Inspired by Vega-Lite, Inspired by DXR
+Frappe										
+FusionCharts										
+Gemini 1	Vega	Wraps					Wraps Vega			Wraps Vega
+Gemini 2	Gemini 1	Extends	Vega	Wraps	Vega-Lite	Wraps	Extends Gemini 1	Wraps Vega	Vega-Lite Wraps	Extends Gemini 1, Wraps Vega, Vega-Lite Wraps
+Genome Spy	Vega-Lite	Extends					Extends Vega-Lite			Extends Vega-Lite
+gg										
+Glinda										
+Gosling	Vega-Lite	Extends					Extends Vega-Lite			Extends Vega-Lite
+GoTree										
+GraphML										
+GXL										
+Highcharts										
+Ivy	Vega	Wraps	Vega-Lite	Wraps	Atom	Wraps	Wraps Vega	Wraps Vega-Lite	Atom Wraps	Wraps Vega, Wraps Vega-Lite, Atom Wraps
+Kyrix-S	Atom	Inspired by	Vega-Lite	Inspired by			Inspired by Atom	Inspired by Vega-Lite		Inspired by Atom, Inspired by Vega-Lite
+Multiclass-Density-Maps	Vega-Lite	Wraps					Wraps Vega-Lite			Wraps Vega-Lite
+NEO										
+P4										
+P5	P4	Compiles to					Compiles to P4			Compiles to P4
+P6	P4	Compiles to	P5	Extends			Compiles to P4	Extends P5		Compiles to P4, Extends P5
+PapARVis	Vega	Extends					Extends Vega			Extends Vega
+Plot	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+Plotly JSON										
+Scholz 3D Vis Language	Vega	Wraps	Vega-Lite	Wraps			Wraps Vega	Wraps Vega-Lite		Wraps Vega, Wraps Vega-Lite
+SetCoLa										
+Shih Volume Vis Language	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+StructGraphics										
+SVL	Vega-Lite	Extends					Extends Vega-Lite			Extends Vega-Lite
+Vega										
+Vega-Lite	Vega	Compiles to					Compiles to Vega			Compiles to Vega
+VizML										
+VizQL										
+VR-Viz	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
+VRIA	Vega-Lite	Extends					Extends Vega-Lite			Extends Vega-Lite
+XML Charts										
+ZingChart										
+Encodable	Vega-Lite	Inspired by					Inspired by Vega-Lite			Inspired by Vega-Lite
