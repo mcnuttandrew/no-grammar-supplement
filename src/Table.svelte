@@ -5,7 +5,8 @@
     filterFilterForNewBadge,
     badgeExplanation,
     classnames,
-    badges
+    tableColumns,
+    tableShortNames
   } from './utils';
   import Popover from './Popover.svelte';
   import TableExplain from './TableExplain.svelte';
@@ -21,58 +22,9 @@
     .filter(([lang]) => allowedLangs.has(lang))
     .map(([_, meta]) => meta)
     .sort((a, b) => (sortReverse ? -1 : 1) * a[sortBy].localeCompare(b[sortBy]));
-  const columns = [
-    'System',
-    'Carrier',
-    'Domain',
-    'Coded Domain',
-    'Conceptual Model',
-    'Abstraction Mechanism',
-    'Alt API Available',
-    'Execution Model',
-    'Extensible',
-    'Formal Definition Available',
-    'Language Form',
-    'Output Type',
-    'Source',
-    'Data manipulation',
-    'Provides Accessibility',
-    'Juxtaposition strategy',
-    'Allowed Data Type',
-    'Data model'
-  ];
-  // column checker
-  // const badgeTypes = new Set(badges);
-  // const colTypes = new Set(columns);
-  // [...columns, ...badges].forEach((col) => {
-  //   if (!badgeTypes.has(col) || !colTypes.has(col)) {
-  //     console.log('missing ', col);
-  //   }
-  // });
-  const shortNames = {
-    Carrier: 'Carrier',
-    System: 'System',
-    Language: 'Language',
-    Domain: 'Domain',
-    'Coded Domain': 'Coded Domain',
-    'Conceptual Model': 'Model',
-    'Abstraction Mechanism': 'Abs. Mech',
-    'Alt API Available': 'Alt. API',
-    'Execution Model': 'Ex. Model',
-    Extensible: 'Extensible',
-    'Formal Definition Available': 'Formal',
-    'Language Form': 'Lang. Form',
-    'Output Type': 'Output',
-    Source: 'Source',
-    'Data manipulation': 'Data Manip',
-    'Provides Accessibility': 'A11y',
-    'Juxtaposition strategy': 'Juxt',
-    'Allowed Data Type': 'Data Types',
-    'Data model': 'Data model'
-  };
 
   const groupedByTopic = Object.values(langMetaCollection).reduce((acc, langMeta) => {
-    columns.forEach((col) => {
+    tableColumns.forEach((col) => {
       const val = langMeta[col];
       if (!acc[col]) {
         acc[col] = {};
@@ -110,7 +62,7 @@
   <table class="text-left relative border-collapse table-fixed">
     <thead>
       <tr>
-        {#each columns as col}
+        {#each tableColumns as col}
           <th class="p-1 sticky top-0 text-white bg-slate-900 z-10">
             <div class="flex items-center justify-evenly">
               <Popover>
@@ -150,7 +102,7 @@
                 }}
                 title={badgeExplanation[col]}
               >
-                {sortBy === col ? col : shortNames[col]}
+                {sortBy === col ? col : tableShortNames[col] || col}
               </button>
               <div
                 class="text-xs cursor-pointer"
@@ -173,7 +125,7 @@
     <tbody class="">
       {#each localMeta as lang, idx}
         <tr class={idx % 2 ? '' : 'bg-slate-100'}>
-          {#each columns as col}
+          {#each tableColumns as col}
             <td class="p-1  td-customization hover:bg-slate-300">
               <Popover>
                 <button

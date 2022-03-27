@@ -8,7 +8,7 @@
     filterLanguagesBasedOnBadges
   } from './utils';
   import Vega from './Vega.svelte';
-  import {outputTypePi, theme} from './charts';
+  import {outputTypePi} from './charts';
   export let col: string;
   export let langMeta: LangMeta;
   export let addCallback: (x: Badge) => void;
@@ -45,10 +45,7 @@
     <h1 class="">{badgeExplanation[col]}</h1>
   </div>
   <div class="flex flex-col">
-    <Vega
-      spec={outputTypePi(groupByKey(data, col), {title: '', scheme: 'dark2'}, col)}
-      options={{actions: false, config: theme}}
-    />
+    <Vega spec={outputTypePi(groupByKey(data, col), {title: '', scheme: 'dark2'}, col)} />
     <div>
       <button
         class="text-sky-600 text-xs underline border-0"

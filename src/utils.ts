@@ -165,24 +165,6 @@ export const buildKeyOptions = (langMeta: LangMeta, allowedCols: Set<string>): {
     return acc;
   }, {});
 
-// export const badges = [
-//   'Abstraction Mechanism',
-//   'Alt API Available',
-//   'Coded Domain',
-//   'Conceptual Model',
-//   'Data manipulation',
-//   'Execution Model',
-//   'Extensible',
-//   'Formal Definition Available',
-//   'Language Form',
-//   'Language',
-//   'Output Type',
-//   'Provides Accessibility',
-//   'Source',
-//   'System'
-//   // "Domain",
-// ];
-
 export const badges = [
   'System',
   // "LatexKey",
@@ -210,8 +192,22 @@ export const badges = [
   'Provides Accessibility',
   'Juxtaposition strategy',
   'Allowed Data Type',
-  'Data model'
+  'Data model',
+  'Interaction source',
+  'Open Source',
+  'Dependent',
+  // 'Mark Types',
+  // 'Series Types',
+  'Output Type Descriptive',
+  'Output Type',
+  'Coordinate Systems',
+  'Annotation Support',
+  'Model Formality',
+  'Abstraction level',
+  'Paper Year',
+  'Relationships'
 ];
+
 export type Badge = {badgeType: string; badgeValue: string};
 
 export const badgeExplanation = {
@@ -241,13 +237,80 @@ export const badgeExplanation = {
   System: 'The name of the language.',
   'Juxtaposition strategy': 'The way in which the system facilitates combining graphics.',
   'Allowed Data Type': 'The generic type of data that is expected by the system',
-  'Data model': 'The conceptual model under which data is treated, closely related to the conceptual model'
+  'Data model': 'The conceptual model under which data is treated, closely related to the conceptual model',
+  'Interaction source': 'Where the source of interaction is',
+  'Open Source': 'Whether the system is available as open source',
+  Dependent: 'Whether the language is dependent on another for its rendering',
+  // 'Mark Types':'',
+  // 'Series Types':'',
+  'Output Type Descriptive': 'The rendered entity',
+  'Coordinate Systems': 'The types of coordinates that are available to this language',
+  'Annotation Support': 'Whether there is explicit support for annotation',
+  'Model Formality':
+    'Whether the model has a pervasive logical structure (high formality) or an ad hoc one (low formality) governing the syntax and conceptual model',
+  'Abstraction level':
+    'Whether the language has a high (close to the domain) or low (close to the renderer) level of abstraction',
+  'Paper Year':
+    'The year the first paper documenting the work was published. N/A indicates that there is not a corresponding paper.',
+  Relationships: 'A summary of the relationships that are present with other languages'
 };
 badges.forEach((x) => {
   if (!badgeExplanation[x]) {
     console.log(`missing explanation for ${x}`);
   }
 });
+
+export const tableColumns = [
+  'System',
+  'Annotation Support',
+  'Abstraction Mechanism',
+  'Allowed Data Type',
+  'Abstraction level',
+  'Alt API Available',
+  'Carrier',
+  'Coded Domain',
+  'Conceptual Model',
+  'Coordinate Systems',
+  'Data manipulation',
+  'Data model',
+  'Domain',
+  'Dependent',
+  'Execution Model',
+  'Extensible',
+  'Formal Definition Available',
+  'Juxtaposition strategy',
+  'Language Form',
+  'Language',
+  'Model Formality',
+  'Output Type',
+  'Provides Accessibility',
+  'Source',
+  'Interaction source',
+  'Open Source',
+  'Paper Year',
+  'Relationships'
+];
+
+export const tableShortNames = {
+  'Annotation Support': 'Annotations',
+  'Abstraction level': 'Abs Lvl',
+  'Coded Domain': 'Coded Domain',
+  'Conceptual Model': 'Model',
+  'Coordinate Systems': 'Coords',
+  'Abstraction Mechanism': 'Abs. Mech',
+  'Alt API Available': 'Alt. API',
+  'Execution Model': 'Ex. Model',
+  'Formal Definition Available': 'Formal',
+  'Model Formality': 'Formality',
+  'Language Form': 'Lang. Form',
+  'Output Type': 'Output',
+  'Data manipulation': 'Data Manip',
+  'Provides Accessibility': 'A11y',
+  'Juxtaposition strategy': 'Juxt',
+  'Allowed Data Type': 'Data Types',
+  'Interaction source': 'Interaction',
+  'Paper Year': 'Year'
+};
 
 export function classnames(classObject: {[val: string]: boolean}): string {
   return Object.keys(classObject)
