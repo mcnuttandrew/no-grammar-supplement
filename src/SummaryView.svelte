@@ -1,6 +1,7 @@
 <script lang="ts">
   import {LangMetaRow, countInString, Directory, getLangCounts} from './utils';
   import {barChart, heatmap, petriDish, dotPlot, histogram} from './charts';
+  import SummaryTable from './SummaryTable.svelte';
   export let meta: LangMetaRow[];
   export let directory: Directory;
   import Vega from './Vega.svelte';
@@ -136,6 +137,11 @@
         <Vega spec={petriDish(chartCounts)} />
       </div>
     </div>
+  </div>
+  <div class={exampleContainer} id="punch-card">
+    <div>Punch card</div>
+    <div class="text-xs">The survey summary figure shown in the paper.</div>
+    <SummaryTable {meta} hideDownload={true} />
   </div>
 </div>
 

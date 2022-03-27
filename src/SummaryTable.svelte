@@ -1,15 +1,16 @@
 <script lang="ts">
-  import {LangMeta, last} from './utils';
+  import {LangMetaRow, last} from './utils';
   import {scaleBand} from 'd3-scale';
-  export let meta: LangMeta;
-  let rows = Object.values(meta);
+  export let meta: LangMetaRow[];
+  export let hideDownload: boolean;
+  // let rows = Object.values(meta);
   const width = 1200;
   const height = 600;
   const margin = {left: 100, right: 20, top: 100, bottom: 0};
   const plotWidth = width - margin.left - margin.right;
 
   let x = scaleBand()
-    .domain(rows.map((x) => x.System))
+    .domain(meta.map((x) => x.System))
     .range([0, plotWidth]);
 
   let container;
@@ -113,7 +114,7 @@
   >
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       <g>
-        {#each rows as row}
+        {#each meta as row}
           <!-- system name -->
           <g transform={`translate(${x(row.System) + x.bandwidth() / 2}) rotate(-90)`}>
             <!-- {#if specialCaseTitle.has(row.System)}
@@ -202,7 +203,7 @@
               opacity={0.2}
             />
           {/if}
-          {#each rows as row}
+          {#each meta as row}
             <g transform={`translate(${x(row.System)})`}>
               {#if (row[org.key] || '').includes(org.test)}
                 <!-- <rect x={0} y={0} height={y.bandwidth()} width={x.bandwidth()} fill="black" stroke="white" /> -->
@@ -242,16 +243,18 @@
       </g>
     </g>
   </svg>
-  <button
-    on:click={() => {
-      const content = `<?xml version="1.0" encoding="UTF-8"?>${container.outerHTML}`;
-      const element = document.createElement('a');
-      element.download = 'summary-table.svg';
-      element.href = window.URL.createObjectURL(new Blob([content]));
-      element.click();
-      element.remove();
-    }}
-  >
-    Download
-  </button>
+  {#if !hideDownload}
+    <button
+      on:click={() => {
+        const content = `<?xml version="1.0" encoding="UTF-8"?>${container.outerHTML}`;
+        const element = document.createElement('a');
+        element.download = 'summary-table.svg';
+        element.href = window.URL.createObjectURL(new Blob([content]));
+        element.click();
+        element.remove();
+      }}
+    >
+      Download
+    </button>
+  {/if}
 </div>

@@ -65,7 +65,7 @@
     <Search {directory} {langMetaCollection} searchKey={language} triggerUpdate={updatePage} />
   {/if}
   {#if section === 'summary-table' && allLoaded}
-    <SummaryTable meta={langMetaCollection} />
+    <SummaryTable meta={Object.values(langMetaCollection)} hideDownload={false} />
   {/if}
   {#if !allLoaded}
     <div class="flex items-center justify-center h-full flex-col">
