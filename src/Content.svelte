@@ -97,14 +97,14 @@
           October 2021 and March 2022.
         </p>
         <p class="mt-2">
-          To view the content of the repository, including the code for this website, the spreadsheet
-          documenting the survey, and all of the collected examples see
+          To view the content of the repository offline (including the code for this website, the spreadsheet
+          documenting the survey, and all of the collected examples) please refer to
           <a
             href="https://osf.io/e9v8y/?view_only=05b240bd829c40438f0a51c6f601cc75"
             target="_blank"
             class="text-sky-600 visited:text-sky-600 underline"
           >
-            this osf link.
+            this OSF link.
           </a>
         </p>
       </div>
