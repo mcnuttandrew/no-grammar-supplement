@@ -19,3 +19,14 @@ yarn dev
 ```
 
 And then pointing a browser to http://localhost:5000/ This requires that node/yarn be already installed. See the [node website](https://nodejs.org/en/) and [yarn website](https://yarnpkg.com/) respectively for installation instructions.
+
+If you wish to run the analysis notebook, run the following terminal commands
+
+```
+mkdir venv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r py-requires.txt
+```
+
+(The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
