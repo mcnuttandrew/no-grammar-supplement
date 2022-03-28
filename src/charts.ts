@@ -257,10 +257,10 @@ export const histogram = (values) => {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     height: 30,
     data: {values},
-    mark: 'bar',
     encoding: {
       x: {field: 'value', type: 'temporal', timeUnit: 'year'},
       y: {aggregate: 'count', type: 'quantitative', axis: null}
-    }
+    },
+    layer: [{mark: 'bar'}, {mark: 'text', encoding: {text: {aggregate: 'count'}}}]
   };
 };
