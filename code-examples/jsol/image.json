@@ -1,0 +1,336 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "imageData",
+      "values": "imageData.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          450
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x1"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          380
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x2"
+      }
+    },
+    {
+      "name": "x3scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x3"
+      }
+    },
+    {
+      "name": "x4scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x4"
+      }
+    },
+    {
+      "name": "x5scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x5"
+      }
+    },
+    {
+      "name": "x6scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x6"
+      }
+    },
+    {
+      "name": "x7scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x7"
+      }
+    },
+    {
+      "name": "x8scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x8"
+      }
+    },
+    {
+      "name": "x9scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x9"
+      }
+    },
+    {
+      "name": "x10scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x10"
+      }
+    },
+    {
+      "name": "x11scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          "#d1d1d1",
+          "#000000"
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x11"
+      }
+    },
+    {
+      "name": "x12scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          10,
+          25
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x12"
+      }
+    },
+    {
+      "name": "x13scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          9,
+          15
+        ]
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x13"
+      }
+    },
+    {
+      "name": "x14scale",
+      "type": "category10",
+      "range": {
+        "type": "range"
+      },
+      "domain": {
+        "data": "imageData",
+        "field": "x14"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_cartesian",
+    "properties": [
+      {
+        "type": "x",
+        "data": "imageData",
+        "field": "x1",
+        "orient": "bottom",
+        "grid": true,
+        "text": {
+          "font": "x13scale",
+          "colour": "x14scale"
+        },
+        "annotation": {
+          "title": "field X1",
+          "position": "middle",
+          "font": "10px Arial",
+          "colour": "blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "imageData",
+        "field": "x2",
+        "orient": "left",
+        "grid": true,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "field X2",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Image",
+      "data": "imageData",
+      "properties": {
+        "x": "xscale",
+        "y": "yscale",
+        "pixels": [
+          [
+            "x3scale",
+            "x4scale",
+            "x5scale"
+          ],
+          [
+            "x6scale",
+            "x7scale",
+            "x8scale"
+          ],
+          [
+            "x9scale",
+            "x10scale",
+            "x11scale"
+          ]
+        ],
+        "height": "x12scale",
+        "width": "x12scale"
+      }
+    }
+  ],
+  "guides": [
+    {
+      "type": "legend",
+      "domain": {
+        "type": "colour",
+        "data": "imageData",
+        "field": "x3scale",
+        "symbols": {
+          "gome_type": "bar",
+          "width": 20,
+          "height": 10,
+          "line_weight": 2
+        }
+      },
+      "properties": {
+        "title": {
+          "name": "key map",
+          "title_color": "black",
+          "title_font": "12px Arial"
+        },
+        "position": {
+          "x": 630,
+          "y": 50,
+          "stroke_width": 120,
+          "stroke_height": 250
+        }
+      }
+    }
+  ]
+}

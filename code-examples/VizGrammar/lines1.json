@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "EngineType"
+        ],
+        "types": [
+          "linear",
+          "linear",
+          "ordinal",
+          "ordinal"
+        ]
+      },
+      "data": [
+        [
+          0,
+          10,
+          1,
+          "Piston"
+        ],
+        [
+          0,
+          10,
+          1,
+          "Rotary"
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "x": "rpm",
+    "charts": [
+      {
+        "type": "line",
+        "range": "true",
+        "y": "torque",
+        "color": "EngineType"
+      }
+    ],
+    "maxLength": 50,
+    "width": 500,
+    "height": 200
+  }
+}

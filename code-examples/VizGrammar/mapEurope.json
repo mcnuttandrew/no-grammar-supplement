@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "Country",
+          "Inflation"
+        ],
+        "types": [
+          "ordinal",
+          "linear"
+        ]
+      },
+      "data": [
+        [
+          "Albania",
+          4.23
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "type": "map",
+    "x": "Country",
+    "renderer": "canvas",
+    "charts": [
+      {
+        "type": "map",
+        "y": "Inflation",
+        "mapType": "europe"
+      }
+    ],
+    "width": 500,
+    "height": 300
+  }
+}

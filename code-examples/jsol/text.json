@@ -1,0 +1,145 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": 60,
+  "background": "rgba(170, 170, 170, 0.1)",
+  "define": [
+    "function testeval1(){ return 1;}",
+    "var GLOBAL = 1;"
+  ],
+  "data": [
+    {
+      "name": "troops",
+      "values": "troops.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    {
+      "name": "cities",
+      "values": "cities.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "width"
+      },
+      "domain": {
+        "data": "troops",
+        "field": "long"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          10,
+          360
+        ]
+      },
+      "domain": {
+        "data": "cities",
+        "field": "lat"
+      }
+    },
+    {
+      "name": "x2scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "cities",
+        "field": "long"
+      }
+    },
+    {
+      "name": "y2scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "cities",
+        "field": "lat"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range"
+      },
+      "domain": {
+        "data": "cities",
+        "field": "city"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "log",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "troops",
+        "field": "survivors"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_polar",
+    "properties": [
+      {
+        "type": "angle",
+        "data": "cities",
+        "field": "lat",
+        "angle": "yscale",
+        "radius": 190,
+        "grid": true,
+        "clockwise": false,
+        "font_color": "#336600",
+        "coord_color": "#ff6666"
+      },
+      {
+        "type": "radius",
+        "data": "cities",
+        "field": "long",
+        "radius": "x2scale",
+        "position": 20,
+        "grid": false
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Text",
+      "data": "cities",
+      "properties": {
+        "angle": "yscale",
+        "distance": "x2scale",
+        "text": "city"
+      }
+    }
+  ]
+}

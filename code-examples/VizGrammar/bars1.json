@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "EngineType"
+        ],
+        "types": [
+          "ordinal",
+          "linear",
+          "ordinal",
+          "ordinal"
+        ]
+      },
+      "data": []
+    }
+  ],
+  "config": {
+    "type": "bar",
+    "x": "rpm",
+    "highlight": "multi",
+    "selectionColor": "#33ccff",
+    "charts": [
+      {
+        "type": "bar",
+        "y": "torque"
+      }
+    ],
+    "maxLength": 6,
+    "width": 500,
+    "height": 250
+  }
+}

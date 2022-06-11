@@ -1,0 +1,13 @@
+{
+    "normalization": "total",
+    "encoding": "color",
+    "collapsed": [],
+    "measures": [
+        "precision",
+        "recall",
+        "accuracy"
+    ],
+    "classes": [
+        "beverage"
+    ]
+}

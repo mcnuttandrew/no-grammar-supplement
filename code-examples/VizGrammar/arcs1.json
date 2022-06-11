@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "EngineType"
+        ],
+        "types": [
+          "linear",
+          "linear",
+          "ordinal",
+          "ordinal"
+        ]
+      },
+      "data": [
+        [
+          0,
+          37,
+          12,
+          "YES"
+        ],
+        [
+          0,
+          63,
+          12,
+          "NO"
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "charts": [
+      {
+        "type": "arc",
+        "x": "torque",
+        "color": "EngineType"
+      }
+    ],
+    "tooltip": {
+      "enabled": false
+    },
+    "legend": false,
+    "percentage": true,
+    "colorScale": [
+      "steelblue",
+      "#80ccff"
+    ],
+    "width": 300,
+    "height": 300
+  }
+}

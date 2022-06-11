@@ -1,0 +1,13 @@
+{
+    "normalization": "total",
+    "encoding": "color",
+    "collapsed": [],
+    "measures": [
+        "accuracy",
+        "precision",
+        "recall"
+    ],
+    "classes": [
+        "root"
+    ]
+}

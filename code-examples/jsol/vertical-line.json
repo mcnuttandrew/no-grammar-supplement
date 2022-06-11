@@ -1,0 +1,208 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "crimea",
+      "values": "stacked.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "function": "groupby",
+      "properties": {
+        "data": "crimea",
+        "field": "x",
+        "yAxes": "y",
+        "y": "newY"
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "width"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "x"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "newY"
+      }
+    },
+    {
+      "name": "hscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range",
+        "value": [
+          "#808080",
+          "#FF0000"
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_cartesian",
+    "properties": [
+      {
+        "type": "x",
+        "data": "crimea",
+        "field": "x",
+        "orient": "bottom",
+        "grid": true,
+        "text": {
+          "font": "15px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "field X",
+          "position": "middle",
+          "font": "10px Arial",
+          "colour": "green"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "y",
+        "orient": "left",
+        "grid": true,
+        "text": {
+          "font": "10px tohma",
+          "colour": "black"
+        },
+        "annotation": {
+          "title": "Field Y",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " green"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "StackedBar",
+      "data": "crimea",
+      "properties": {
+        "x": "xscale",
+        "y": "yscale",
+        "sort": "c",
+        "color": "colorscale",
+        "width": 5,
+        "fillColor": "colorscale"
+      }
+    }
+  ],
+  "guides": [
+    {
+      "type": "legend",
+      "domain": {
+        "type": "colour",
+        "data": "crimea",
+        "name": [
+          "positive",
+          "negative",
+          ""
+        ],
+        "field": "colorscale",
+        "symbols": {
+          "gome_type": "bar",
+          "width": 20,
+          "height": 10,
+          "line_weight": 2
+        }
+      },
+      "properties": {
+        "title": {
+          "name": "key map",
+          "title_color": "black",
+          "title_font": "12px Arial"
+        },
+        "position": {
+          "x": 1040,
+          "y": 90,
+          "stroke_width": 90,
+          "stroke_height": 70
+        }
+      }
+    },
+    {
+      "type": "text",
+      "properties": {
+        "label": "relation bettween x and y",
+        "font": "20px toham",
+        "colour": "blue",
+        "position": {
+          "x": 500,
+          "y": 80
+        }
+      }
+    }
+  ]
+}

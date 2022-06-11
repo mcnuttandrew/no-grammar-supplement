@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "weight",
+          "EngineType"
+        ],
+        "types": [
+          "linear",
+          "linear",
+          "linear",
+          "linear",
+          "ordinal"
+        ]
+      },
+      "data": []
+    }
+  ],
+  "config": {
+    "type": "scatter",
+    "charts": [
+      {
+        "type": "scatter",
+        "x": "rpm",
+        "y": "torque",
+        "color": "horsepower",
+        "size": "weight",
+        "padding": {
+          "top": 50,
+          "left": 60,
+          "bottom": 40,
+          "right": 150
+        },
+        "maxLength": 30
+      }
+    ],
+    "width": 500,
+    "height": 300
+  }
+}

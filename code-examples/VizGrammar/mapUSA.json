@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "County",
+          "Inflation"
+        ],
+        "types": [
+          "ordinal",
+          "linear"
+        ]
+      },
+      "data": [
+        [
+          "Alabama",
+          4.23
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "type": "map",
+    "x": "County",
+    "renderer": "canvas",
+    "charts": [
+      {
+        "type": "map",
+        "y": "Inflation",
+        "mapType": "usa"
+      }
+    ],
+    "width": 500,
+    "height": 300
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "crimea",
+      "values": "crimea-bar.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "width"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "x"
+      }
+    },
+    {
+      "name": "hscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range",
+        "value": [
+          "#808080",
+          "#FF0000"
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "log",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_cartesian",
+    "properties": [
+      {
+        "type": "x",
+        "data": "crimea",
+        "field": "y",
+        "orient": "bottom",
+        "grid": true
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "x",
+        "orient": "left",
+        "grid": true
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Bar",
+      "data": "crimea",
+      "properties": {
+        "x": "xscale",
+        "y": "yscale",
+        "dir": "vertical",
+        "color": "colorscale",
+        "width": 3,
+        "fillColor": "rgba(170, 170, 170, 0.1)",
+        "border": 100
+      }
+    }
+  ]
+}

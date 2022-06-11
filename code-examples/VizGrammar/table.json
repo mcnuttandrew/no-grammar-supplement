@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "EngineType"
+        ],
+        "types": [
+          "ordinal",
+          "linear",
+          "ordinal",
+          "ordinal"
+        ]
+      },
+      "data": [
+        [
+          1,
+          21,
+          12,
+          "Piston"
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "key": "rpm",
+    "charts": [
+      {
+        "type": "table",
+        "y": "torque",
+        "color": "*",
+        "columns": [
+          "EngineType",
+          "torque",
+          "rpm"
+        ],
+        "columnTitles": [
+          "Engine Type",
+          "Engine Torque",
+          "Engine RPM"
+        ],
+        "maxLength": 7
+      }
+    ],
+    "width": 400,
+    "height": 200
+  }
+}

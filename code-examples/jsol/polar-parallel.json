@@ -1,0 +1,401 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "crimea",
+      "values": "crimea-parallel.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          330
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "name"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "economy (mpg)"
+      }
+    },
+    {
+      "name": "y1scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "cylinders"
+      }
+    },
+    {
+      "name": "y2scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "displacement (cc)"
+      }
+    },
+    {
+      "name": "y3scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "power (hp)"
+      }
+    },
+    {
+      "name": "y4scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "weight (lb)"
+      }
+    },
+    {
+      "name": "y5scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "0-60 mph (s)"
+      }
+    },
+    {
+      "name": "y6scale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "year"
+      }
+    },
+    {
+      "name": "hscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          0,
+          190
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "year"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "year"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "log",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "year"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_polar_parallel",
+    "properties": [
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "economy (mpg)",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "economy (mpg)",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "cylinders",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "cylinders",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "displacement (cc)",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "displacement (cc)",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "power (hp)",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "power (hp)",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "weight (lb)",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "weight (lb)",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "0-60 mph (s)",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "0-60 mph (s)",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "year",
+        "orient": "left",
+        "grid": false,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "year",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Line",
+      "data": "crimea",
+      "properties": {
+        "y": [
+          "yscale",
+          "y1scale",
+          "y2scale",
+          "y3scale",
+          "y4scale",
+          "y5scale",
+          "y6scale"
+        ],
+        "color": "colorscale"
+      }
+    }
+  ],
+  "guides": [
+    {
+      "type": "legend",
+      "domain": {
+        "type": "colour",
+        "data": "crimea",
+        "field": "colorscale",
+        "symbols": {
+          "gome_type": "line",
+          "line_weight": 2,
+          "line_lenght": 20,
+          "width": 30,
+          "height": 10
+        }
+      },
+      "properties": {
+        "title": {
+          "name": "key map",
+          "title_color": "black",
+          "title_font": "12px Arial"
+        },
+        "position": {
+          "x": 1000,
+          "y": 50,
+          "stroke_width": 120,
+          "stroke_height": 300
+        }
+      }
+    }
+  ]
+}

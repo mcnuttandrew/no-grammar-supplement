@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "metadata": {
+        "names": [
+          "rpm",
+          "torque",
+          "horsepower",
+          "EngineType"
+        ],
+        "types": [
+          "linear",
+          "linear",
+          "ordinal",
+          "ordinal"
+        ]
+      },
+      "data": [
+        [
+          0,
+          100,
+          12,
+          "Rotary"
+        ]
+      ]
+    }
+  ],
+  "config": {
+    "charts": [
+      {
+        "type": "arc",
+        "x": "torque",
+        "color": "EngineType",
+        "mode": "donut"
+      }
+    ],
+    "width": 400,
+    "height": 300,
+    "percentage": true
+  }
+}

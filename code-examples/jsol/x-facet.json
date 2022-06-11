@@ -1,0 +1,162 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "crimea",
+      "values": "crimea-bar.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          10,
+          170
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "x"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": [
+          20,
+          140
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "hscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "m"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "log",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_cartesian",
+    "facets": {
+      "type": "grid",
+      "properties": {
+        "margin": 30,
+        "x_axis": {
+          "field": "m",
+          "data": "crimea"
+        }
+      }
+    },
+    "properties": [
+      {
+        "type": "x",
+        "data": "crimea",
+        "field": "x",
+        "orient": "bottom",
+        "grid": true,
+        "text": {
+          "font": "15px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "field X",
+          "position": "middle",
+          "font": "6px Arial",
+          "colour": "blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "y",
+        "orient": "left",
+        "grid": true,
+        "text": {
+          "font": "10px tohma",
+          "colour": "blue"
+        },
+        "annotation": {
+          "title": "Field Y",
+          "position": "edge",
+          "font": "10px Arial",
+          "colour": " blue"
+        },
+        "transform": {
+          "function": "pow",
+          "properties": {
+            "power": 2,
+            "name": "power"
+          }
+        }
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Diamond",
+      "data": "crimea",
+      "properties": {
+        "x": "xscale",
+        "y": "yscale",
+        "color": "colorscale"
+      }
+    }
+  ],
+  "guides": []
+}

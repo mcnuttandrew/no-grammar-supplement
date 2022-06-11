@@ -1,0 +1,127 @@
+{
+  "id": "canvas1",
+  "width": 750,
+  "height": 500,
+  "margin": "",
+  "background": "rgba(170, 170, 170, 0.1)",
+  "data": [
+    {
+      "name": "crimea",
+      "values": "crimea-hist.csv",
+      "format": {
+        "type": "csv"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "function": "count",
+      "properties": {
+        "data": "crimea",
+        "field": "x",
+        "name": "Count"
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "width"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "x"
+      }
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "Count"
+      }
+    },
+    {
+      "name": "hscale",
+      "type": "linear",
+      "range": {
+        "type": "range",
+        "value": "height"
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "y"
+      }
+    },
+    {
+      "name": "colorscale",
+      "type": "category10",
+      "range": {
+        "type": "range",
+        "value": [
+          "#808080",
+          "#FF0000"
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    },
+    {
+      "name": "widthscale",
+      "type": "log",
+      "range": {
+        "type": "range",
+        "value": [
+          3,
+          19
+        ]
+      },
+      "domain": {
+        "data": "crimea",
+        "field": "c"
+      }
+    }
+  ],
+  "axes": {
+    "type": "coord_cartesian",
+    "properties": [
+      {
+        "type": "x",
+        "data": "crimea",
+        "field": "x",
+        "orient": "bottom",
+        "grid": true
+      },
+      {
+        "type": "y",
+        "data": "crimea",
+        "field": "Count",
+        "orient": "left",
+        "grid": true
+      }
+    ]
+  },
+  "geom": [
+    {
+      "type": "Histogram",
+      "data": "crimea",
+      "properties": {
+        "x": "xscale",
+        "y": "yscale",
+        "color": "black",
+        "width": 3,
+        "fillColor": "green",
+        "border": 100
+      }
+    }
+  ]
+}

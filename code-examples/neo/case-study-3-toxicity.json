@@ -1,0 +1,17 @@
+{
+    "normalization": "total",
+    "encoding": "color",
+    "collapsed": [],
+    "measures": [
+        "accuracy",
+        "countObserved",
+        "countActual",
+        "precision",
+        "recall",
+        "falsePositives",
+        "falseNegatives"
+    ],
+    "classes": [
+        "toxic_mild"
+    ]
+}
