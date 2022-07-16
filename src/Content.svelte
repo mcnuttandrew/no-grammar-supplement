@@ -86,8 +86,10 @@
       </div>
       <div class="w-1/3 mt-12 mb-12 text-left">
         <p class="">
-          This website contains the supplementary for our (currently under-review) paper "{paperTitle}". This
-          includes our analysis of the languages in our survey across a variety of axes (see
+          This website contains the supplementary for the paper "{paperTitle}" (preprint forth coming) by
+          <a href="http://mcnutt.in/" target="_blank" class="text-sky-600 visited:text-sky-600 underline"
+            >Andrew McNutt</a
+          >. This includes our analysis of the languages in our survey across a variety of axes (see
           <a href={'/#/table'}>Table</a>), some charts describing components of the survey (see
           <a href={'/#/summaries'}>Summary Charts</a>), as well examples of each language (see
           <a href={'/#/browse'}>Browse</a>). These examples collect as many examples as was feasible for each
@@ -99,13 +101,13 @@
         <p class="mt-2">
           To view the content of the repository offline (including the code for this website, the spreadsheet
           documenting the survey, and all of the collected examples) please refer to
-          <a
-            href="https://osf.io/e9v8y/?view_only=05b240bd829c40438f0a51c6f601cc75"
-            target="_blank"
-            class="text-sky-600 visited:text-sky-600 underline"
-          >
+          <a href="https://osf.io/e9v8y" target="_blank" class="text-sky-600 visited:text-sky-600 underline">
             this OSF link.
           </a>
+          Materials are also accessibile through the github page for this project (<a
+            class="text-sky-600 visited:text-sky-600 underline"
+            href="https://github.com/mcnuttandrew/no-grammar-supplement">found here</a
+          >) and are completely equivalant to those hosted on OSF.
         </p>
       </div>
       <div class="flex flex-col text-2xl pb-64">
