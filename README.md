@@ -3,7 +3,7 @@
 This repo contains of the supplementary materials for the paper "No Grammar To Rule Them All: A Survey of JSON-Style Visualization DSLs" (preprint forthcoming) by Andrew McNutt.
 Specifically it consists of
 
-- a repository of example programs for each of the surveyed languages (code-examples/)
+- a repository of example programs for each of the surveyed languages (code-examples/). (Nb: this contains a number of languages which were at some point included in our survey, such as tracery, which were eventually ruled to be excluded by our survey criterion.)
 - an interactive website for exploring those samples and our associated analysis as well as several charts (src/)
 - a notebook for constructing the "family tree" figure from the paper (analysis-nbs/analysis.ipynb)
 - a list of relationships between languages in the survey (analysis-nbs/relationships.tsv)
