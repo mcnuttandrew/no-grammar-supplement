@@ -108,6 +108,7 @@
     {width}
     {height}
     bind:this={container}
+    id="table"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -245,6 +246,7 @@
   </svg>
   {#if !hideDownload}
     <button
+      id="download-table"
       on:click={() => {
         const content = `<?xml version="1.0" encoding="UTF-8"?>${container.outerHTML}`;
         const element = document.createElement('a');
