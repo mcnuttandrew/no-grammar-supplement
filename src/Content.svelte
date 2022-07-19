@@ -86,7 +86,12 @@
       </div>
       <div class="w-1/3 mt-12 mb-12 text-left">
         <p class="">
-          This website contains the supplementary for the paper "{paperTitle}" (preprint forth coming) by
+          This website contains the supplementary for the paper <a
+            href="https://arxiv.org/pdf/2207.07998.pdf"
+            target="_blank"
+            class="text-sky-600 visited:text-sky-600 underline">"{paperTitle}"</a
+          >
+          by
           <a href="http://mcnutt.in/" target="_blank" class="text-sky-600 visited:text-sky-600 underline"
             >Andrew McNutt</a
           >. This includes our analysis of the languages in our survey across a variety of axes (see
