@@ -11,7 +11,6 @@ beautifulsoup4==4.11.1
 bleach==5.0.0
 brotlipy==0.7.0
 certifi==2021.10.8
-conda==4.11.0
 debugpy==1.6.0
 decorator==5.1.1
 defusedxml==0.7.1

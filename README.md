@@ -22,7 +22,7 @@ npx ts-node scripts/build-bundle.js
 yarn dev
 ```
 
-And then pointing a browser to http://localhost:5000/ This requires that node/yarn be already installed. See the [node website](https://nodejs.org/en/) and [yarn website](https://yarnpkg.com/) respectively for installation instructions.
+And then pointing a browser to http://localhost:5000/ (or whatever port is described as being opened in the CLI messages). This requires that node/yarn be already installed. See the [node website](https://nodejs.org/en/) and [yarn website](https://yarnpkg.com/) respectively for installation instructions.
 
 If you wish to run the analysis notebook, run the following terminal commands
 
@@ -30,7 +30,7 @@ If you wish to run the analysis notebook, run the following terminal commands
 mkdir venv
 python3 -m venv venv
 source venv/bin/activate
-pip install -r py-requires.txt
+pip3 install -r py-requires.txt
 ```
 
 And then open a notebook as normal. In development of that notebook the vscode version of notebooks was used, however it should be appropriately supported using any Jupyter notebook container. (The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
