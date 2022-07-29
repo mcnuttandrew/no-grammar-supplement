@@ -33,4 +33,14 @@ source venv/bin/activate
 pip install -r py-requires.txt
 ```
 
-(The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
+And then open a notebook as normal. In development of that notebook the vscode version of notebooks was used, however it should be appropriately supported using any Jupyter notebook container. (The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
+
+Finally, we have provided a script to reproduce one of the figures in the paper (namely Figure 3, which shows the analysis of each language across a variety of categories). This can be run via
+
+```
+sh scripts/build-table.sh
+```
+
+
+This script installs the dependencies, spins up a dev server, and then opens a puppeteer instance to save the image created on the web page. If you like, you can skip these steps and view this figure directly at https://vis-json-dsls.netlify.app/#/summary-table  
+
