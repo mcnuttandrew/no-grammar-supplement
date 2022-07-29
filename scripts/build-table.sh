@@ -1,4 +1,5 @@
 npm install
+npx ts-node scripts/build-bundle.js
 npm run dev &
 sleep 15
 last_pid=$!

@@ -18,6 +18,7 @@ While it is much easier to simply view these materials at the link provided abov
 
 ```
 yarn
+npx ts-node scripts/build-bundle.js
 yarn dev
 ```
 
