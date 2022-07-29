@@ -11,6 +11,7 @@ beautifulsoup4==4.11.1
 bleach==5.0.0
 brotlipy==0.7.0
 certifi==2021.10.8
+conda==4.11.0
 debugpy==1.6.0
 decorator==5.1.1
 defusedxml==0.7.1
@@ -22,6 +23,7 @@ ipython==8.3.0
 ipython-genutils==0.2.0
 jedi==0.18.1
 Jinja2==3.1.2
+joblib==1.1.0
 jsonschema==4.4.0
 jupyter-client==7.3.0
 jupyter-core==4.10.0
@@ -57,10 +59,13 @@ pytz==2022.1
 pyzmq==22.3.0
 qtconsole==5.3.0
 QtPy==2.1.0
+scikit-learn==1.1.1
+scipy==1.9.0
 Send2Trash==1.8.0
 soupsieve==2.3.2.post1
 stack-data==0.2.0
 terminado==0.13.3
+threadpoolctl==3.1.0
 tinycss2==1.1.1
 toolz==0.12.0
 tornado==6.1
