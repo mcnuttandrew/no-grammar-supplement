@@ -33,7 +33,7 @@ source venv/bin/activate
 pip3 install -r py-requires.txt
 ```
 
-And then open a notebook as normal. In development of that notebook the vscode version of notebooks was used, however it should be appropriately supported using any Jupyter notebook container. (The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
+And then open a notebook as normal by running `jupyter notebook` in the terminal. Finally navigate to the analysis notebook (/notebooks/analysis-nbs/analysis.ipynb) through jupyter's browser. In development of that notebook the vscode version of notebooks was used, however it should be appropriately supported using any Jupyter notebook container. (The slightly unusual name for the requirements file is to prevent netlify from installing python requirements).
 
 Finally, we have provided a script to reproduce one of the figures in the paper (namely Figure 3, which shows the analysis of each language across a variety of categories). This can be run via
 
