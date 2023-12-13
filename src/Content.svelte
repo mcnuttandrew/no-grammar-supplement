@@ -109,10 +109,10 @@
           <a href="https://osf.io/e9v8y" target="_blank" class="text-sky-600 visited:text-sky-600 underline">
             this OSF link.
           </a>
-          Materials are also accessibile through the github page for this project (<a
+          Materials are also accessible through the github page for this project (<a
             class="text-sky-600 visited:text-sky-600 underline"
             href="https://github.com/mcnuttandrew/no-grammar-supplement">found here</a
-          >) and are completely equivalant to those hosted on OSF.
+          >) and are completely equivalent to those hosted on OSF.
         </p>
       </div>
       <div class="flex flex-col text-2xl pb-64">

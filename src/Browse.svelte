@@ -40,7 +40,7 @@
     <div class="flex flex-col pb-8">
       <h3 class="text-xl">Example Browser</h3>
       <p class="text-xs mb-2">
-        This view allows you to explore the curate collection of example programs for each of the languages.
+        This view allows you to explore the curated collection of example programs for each of the languages.
       </p>
       <div class="">
         <label for="lang-sort" class="text-xs font-bold">Sort by</label>

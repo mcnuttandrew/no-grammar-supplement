@@ -44,8 +44,8 @@
         <h5 class="text-lg">Showing {results.length} results</h5>
       {/if}
       <p class="mb-2">
-        This interfaces allows you to search the text of example programs. This can be useful if you are
-        trying to identify the prescence of a certain feature.
+        This interface allows you to search the text of example programs. This can be useful if you are
+        trying to identify the presence of a certain feature.
       </p>
     </div>
     <div class="flex">

@@ -121,7 +121,7 @@
       </div>
     </div>
     <div class={exampleContainer}>
-      <div>Frequnecy of mark types</div>
+      <div>Frequency of mark types</div>
       <div class="text-xs">
         Note that these are the self reported mark type names by each of the languages
       </div>
