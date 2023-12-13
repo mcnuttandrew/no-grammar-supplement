@@ -1,8 +1,29 @@
-const {getFileNamesFromDir, executeCommandLineCmd} = require('hoopoe');
 const {tsvParse} = require('d3-dsv');
 const {writeFile, readFile} = require('fs/promises');
+const exec = require('child_process').exec;
 
 const crypto = require('crypto');
+
+function executeCommandLineCmd(cmd) {
+  return new Promise((resolve, reject) => {
+    exec(cmd, (err, stdout, stderr) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve({stdout, stderr});
+      }
+    });
+  });
+}
+
+const getFileNamesFromDir = (dir) => {
+  return executeCommandLineCmd('ls ' + dir).then(({stdout, stderr}) => {
+    if (stderr) {
+      throw new Error(stderr);
+    }
+    return stdout.split('\n').filter((d) => d.length);
+  });
+};
 
 async function main() {
   const langMeta = await readFile('./public/lang-meta.tsv', 'utf-8').then((x) => tsvParse(x));

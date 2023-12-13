@@ -27,7 +27,6 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-svelte": "^1.1.2",
     "esm": "^3.2.25",
-    "hoopoe": "^1.0.3",
     "postcss": "^8.4.6",
     "puppeteer": "^15.4.0",
     "rollup": "^2.3.4",
