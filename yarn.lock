@@ -1706,11 +1706,6 @@ highlight.js@11.3.1:
   resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-11.3.1.tgz"
   integrity sha512-PUhCRnPjLtiLHZAQ5A/Dt5F8cWZeMyj9KRsACsWT+OD6OP0x6dp5OmT5jdx0JgEyPxPZZIPQpRN2TciUT7occw==
 
-hoopoe@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/hoopoe/-/hoopoe-1.0.3.tgz"
-  integrity sha512-zKMSlOnX2Fjv5cfXRPEEYcKmd+S4W1rEVP2Nil0RdLa8oNL/tZqUW+RxS6gYL0f3EbixjaJBFhYO6SDJAE1otw==
-
 https-proxy-agent@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz#c59ef224a04fe8b754f3db0063a25ea30d0005d6"
